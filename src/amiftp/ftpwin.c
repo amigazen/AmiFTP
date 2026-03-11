@@ -125,7 +125,7 @@ void ftpWindow()
 	    }
 	    if (gotsignal&rexxsignal) {
 		ARexxQuitBit=FALSE;
-		CA_HandleRexx(ARexx_Object);
+		RA_HandleRexx(ARexx_Object);
 		if (ARexxQuitBit)
 		  running=FALSE;
 	    }
@@ -769,7 +769,7 @@ int About(void)
 
     LockWindow(MainWin_Object);
 
-    if (AboutWindow=CA_OpenWindow(AboutWin_Object)) {
+    if (AboutWindow=RA_OpenWindow(AboutWin_Object)) {
 	ULONG aboutwin,mainwin,mask,done=FALSE;
 
 	GetAttr(WINDOW_SigMask, MainWin_Object, &mainwin);
@@ -785,7 +785,7 @@ int About(void)
 	    if (mask&aboutwin) {
 		ULONG result;
 		UWORD code=NULL;
-		while ((result=CA_HandleInput(AboutWin_Object,&code))!=WMHI_LASTMSG) {
+		while ((result=RA_HandleInput(AboutWin_Object,&code))!=WMHI_LASTMSG) {
 		    switch (result&WMHI_CLASSMASK) {
 		      case WMHI_CLOSEWINDOW:
 			done=TRUE;

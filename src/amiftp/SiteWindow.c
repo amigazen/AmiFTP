@@ -102,9 +102,9 @@ PasswordHook(register __a0 struct Hook *Hook, register __a2 struct SGWork *Work,
 		Buffer[Work -> BufferPos - 1]	= Work -> Code;
 		Buffer[Work -> NumChars]	= 0;
 
-		Work -> Code = (WORD)'·';
+		Work -> Code = (WORD)' ';
 
-		Work -> WorkBuffer[Work -> BufferPos - 1] = (UBYTE)'·';
+		Work -> WorkBuffer[Work -> BufferPos - 1] = (UBYTE)' ';
 
 		break;
 
@@ -114,7 +114,7 @@ PasswordHook(register __a0 struct Hook *Hook, register __a2 struct SGWork *Work,
 
 		strcpy(Buffer,original);
 
-		memset(Work -> WorkBuffer,'·',Len);
+		memset(Work -> WorkBuffer,' ',Len);
 
 		Work -> WorkBuffer[Len] = 0;
 
@@ -223,7 +223,7 @@ ULONG HandleEditSiteIDCMP(void)
     ULONG result, done=FALSE;
     UWORD code=NULL;
 
-    while ((result=CA_HandleInput(EditSiteWin_Object, &code))!=WMHI_LASTMSG) {
+    while ((result=RA_HandleInput(EditSiteWin_Object, &code))!=WMHI_LASTMSG) {
 	switch (result & WMHI_CLASSMASK) {
 	  case WMHI_CLOSEWINDOW:
 	    done=TRUE;
@@ -306,7 +306,7 @@ struct Window *OpenEditSiteWindow(struct SiteNode *sn)
     memset(Original, 0, sizeof(Original));
     memset(RealString, 0, sizeof(RealString));
     if (sn->sn_Password) {
-	memset(Original, '·', strlen(sn->sn_Password));
+	memset(Original, ' ', strlen(sn->sn_Password));
 	strcpy(buf6, Original);
 	strcpy(Original, sn->sn_Password);
 	strcpy(RealString, sn->sn_Password);
@@ -523,7 +523,7 @@ struct Window *OpenEditSiteWindow(struct SiteNode *sn)
     if (!EditSiteWin_Object)
       return NULL;
 
-    if (EditSiteWindow=CA_OpenWindow(EditSiteWin_Object)) {
+    if (EditSiteWindow=RA_OpenWindow(EditSiteWin_Object)) {
 	return EditSiteWindow;
     }
     DisposeObject(EditSiteLayout);
@@ -697,7 +697,7 @@ ULONG HandleSiteListIDCMP(void)
     ULONG result, done=FALSE;
     UWORD code=NULL;
 
-    while((result=CA_HandleInput(SiteListWin_Object, &code))!=WMHI_LASTMSG) {
+    while((result=RA_HandleInput(SiteListWin_Object, &code))!=WMHI_LASTMSG) {
 	switch (result & WMHI_CLASSMASK) {
 	  case WMHI_CLOSEWINDOW:
 	    done=TRUE;
@@ -709,13 +709,12 @@ ULONG HandleSiteListIDCMP(void)
 		if (FirstNode(&SiteList)) {
 		    LONG attr;
 		    struct Node *selnode;
-		    struct SiteNode *sn;
 
 		    GetAttrs(SLG_List[SLG_SiteList],
 			     LISTBROWSER_Selected, &attr,
 			     LISTBROWSER_SelectedNode, &selnode,
 			     TAG_DONE);
-		    if (attr>0) { /* Kolla på attr==-1, annars blir det en hit */
+		    if (attr>0) { /* Kolla pï¿½ attr==-1, annars blir det en hit */
 			struct SiteNode *sn;
 			struct Node *node;
 			ULONG i;
@@ -979,7 +978,7 @@ struct Window *OpenSiteWindow(const BOOL Connect)
                        StartHGroup, // 1
                          StartVGroup, // 2
 
-                         StartVGroup,CLASSACT_BackFill,LAYERS_BACKFILL,
+                         StartVGroup,REACTION_BackFill,LAYERS_BACKFILL,
                            StartMember, SLG_List[SLG_SiteList]=ListBrowserObject,
                            GA_ID, SLG_SiteList,
                            GA_RelVerify, TRUE,
@@ -1037,7 +1036,7 @@ struct Window *OpenSiteWindow(const BOOL Connect)
                              StartMember, SLG_List[SLG_Cancel]=ButtonObject,
                                GA_ID, SLG_Cancel,
                                GA_RelVerify, TRUE,
-                               GA_Text, Connect?GetAmiFTPString(SLW_Cancel):"OK",
+                               GA_Text, (char *)(Connect ? GetAmiFTPString(SLW_Cancel) : "OK"),
                                ButtonEnd,
 			       CHILD_NominalSize, TRUE,
                              EndGroup, /* End of connect/disconnect-group */ //-5
@@ -1124,7 +1123,7 @@ struct Window *OpenSiteWindow(const BOOL Connect)
 	DisposeObject(SiteListLayout);
 	return NULL;
     }
-    if (SiteListWindow=CA_OpenWindow(SiteListWin_Object)) {
+    if (SiteListWindow=RA_OpenWindow(SiteListWin_Object)) {
 	return SiteListWindow;
     }
     DisposeObject(SiteListWin_Object);
@@ -1198,7 +1197,7 @@ int SL_Up(void)
 	     LISTBROWSER_SelectedNode, &node,
 	     TAG_DONE);
     if (node) {
-	if (node==GetHead(&SiteList))
+	if (node==(struct Node *)GetHead(&SiteList))
 	  return 1;
 	if (prevnode=GetPred(node)) {
 	    GetListBrowserNodeAttrs(node, LBNA_Flags, &haschildren,
@@ -1509,7 +1508,7 @@ int SL_Top(void)
     if (!node)
       return 1;
 
-    if (GetHead(&SiteList)==node)
+    if ((struct Node *)GetHead(&SiteList)==node)
       return 1;
 
     GetListBrowserNodeAttrs(node, LBNA_Flags, &haschildren, 

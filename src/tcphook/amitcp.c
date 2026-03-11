@@ -1,8 +1,11 @@
-#define AMITCP_NEW_NAMES
-#include <clib/socket_protos.h>
-#include <pragmas/socket_pragmas.h>
-#include <clib/usergroup_protos.h>
-#include <pragmas/usergroup_pragmas.h>
+/*
+ * AmiTCP/bsdsocket.library hook layer using the API defined in
+ * SDK NDK SANA+RoadshowTCP-IP (proto/bsdsocket.h, proto/usergroup.h).
+ * Compile with IDIR pointing at SANA+RoadshowTCP-IP/netinclude.
+ */
+#include <proto/bsdsocket.h>
+#include <proto/usergroup.h>
+
 #include <utility/tagitem.h>
 #include <sys/ioctl.h>
 
@@ -10,27 +13,27 @@
 
 extern struct Library *SocketBase;
 extern struct Library *UserGroupBase;
-extern long errno;
+/* errno declared by netinclude sys/errno.h; do not redeclare. */
 extern STRPTR _ProgramName;
 
 struct hostent *amitcp_gethostbyname(const UBYTE *name)
 {
-    return GetHostByName(name);
+    return (struct hostent *)gethostbyname((char *)name);
 }
 
 struct servent *amitcp_getservbyname(const UBYTE *name, const UBYTE *proto)
 {
-    return GetServByName(name,proto);
+    return (struct servent *)getservbyname((char *)name, (char *)proto);
 }
 
 char *amitcp_getlogin(void)
 {
-    return getlogin();
+    return (char *)getlogin();
 }
 
 struct passwd *amitcp_getpwnam(const char *name)
 {
-    return getpwnam(name);
+    return (struct passwd *)getpwnam(name);
 }
 
 void amitcp_endpwent(void)
@@ -40,25 +43,25 @@ void amitcp_endpwent(void)
 
 LONG amitcp_gethostname(STRPTR hostname, LONG size)
 {
-    return GetHostName(hostname,size);
+    return gethostname(hostname,size);
 }
 
 ULONG amitcp_inetaddr(const UBYTE *s)
 {
-    return Inet_Addr(s);
+    return inet_addr((char *)s);
 }
 
 LONG amitcp_socket(LONG domain, LONG type, LONG protocol)
 {
-    return Socket(domain,type,protocol);
+    return socket(domain,type,protocol);
 }
 
 LONG amitcp_ioctl(LONG fd, ULONG request, char *argp)
 {
     if (request==TCPFIONBIO)
-      request=FIONBIO;
+	request=FIONBIO;
     else if (request==TCPFIOASYNC)
-      request=FIOASYNC;
+	request=FIOASYNC;
     return IoctlSocket(fd, request, argp);
 }
 
@@ -71,7 +74,7 @@ LONG amitcp_connect(LONG s, const struct mysockaddr_in *sin)
     hisctladdr.sin_addr.s_addr=sin->sin_addr.s_addr;
     hisctladdr.sin_port=sin->sin_port;
 
-    return Connect(s,(struct sockaddr *)&hisctladdr,sizeof(hisctladdr));
+    return connect(s,(struct sockaddr *)&hisctladdr,sizeof(hisctladdr));
 }
 
 LONG amitcp_waitselect(LONG nfds,  fd_set *readfds, fd_set *writefds, fd_set *exeptfds,
@@ -82,7 +85,7 @@ LONG amitcp_waitselect(LONG nfds,  fd_set *readfds, fd_set *writefds, fd_set *ex
 
 LONG amitcp_getpeername(LONG s, struct sockaddr *name, LONG *namelen)
 {
-    return GetPeerName(s,name,namelen);
+    return getpeername(s, name, (socklen_t *)namelen);
 }
 
 LONG amitcp_closesocket(LONG d)
@@ -92,42 +95,42 @@ LONG amitcp_closesocket(LONG d)
 
 LONG amitcp_getsockname(LONG s, struct sockaddr *name, LONG *namelen)
 {
-    return GetSockName(s,name,namelen);
+    return getsockname(s, name, (socklen_t *)namelen);
 }
 
 LONG amitcp_setsockopt(LONG s, LONG level, LONG optname, void *optval, LONG optlen)
 {
-    return SetSockOpt(s,level,optname,optval,optlen);
+    return setsockopt(s,level,optname,optval,optlen);
 }
 
 LONG amitcp_send(LONG s, const UBYTE *msg, LONG len, LONG flags)
 {
-    return Send(s,msg,len,flags);
+    return send(s, (char *)msg, len, flags);
 }
 
 LONG amitcp_recv(LONG s, UBYTE *buf, LONG len, LONG flags)
 {
-    return Recv(s,buf,len,flags);
+    return recv(s,buf,len,flags);
 }
 
 LONG amitcp_bind(LONG s, const struct sockaddr *name, LONG namelen)
 {
-    return Bind(s,name,namelen);
+    return bind(s, (struct sockaddr *)name, (socklen_t)namelen);
 }
 
 LONG amitcp_listen(LONG s, LONG backlog)
 {
-    return Listen(s,backlog);
+    return listen(s,backlog);
 }
 
 LONG amitcp_accept(LONG s, struct sockaddr *addr, LONG *addrlen)
 {
-    return Accept(s,addr,addrlen);
+    return accept(s, addr, (socklen_t *)addrlen);
 }
 
 LONG amitcp_shutdown(LONG s, LONG how)
 {
-    return Shutdown(s,how);
+    return shutdown(s,how);
 }
 
 int SetupAmiTCPHooks()

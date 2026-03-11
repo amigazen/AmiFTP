@@ -2,6 +2,15 @@
    Locked version: $Revision: 1.587 $
 */
 
+#ifndef __DIRLIST_STRUCT_H__
+#define __DIRLIST_STRUCT_H__
+
+#include <stddef.h>
+#ifndef _MODE_T_DEFINED
+typedef unsigned long mode_t;
+#define _MODE_T_DEFINED
+#endif
+
 #define	DATELEN 20
 
 struct dirlist {
@@ -32,3 +41,5 @@ struct dirlist {
 
 #define	GROUPBYTYPE 0
 #define	GROUPNONE	1
+
+#endif /* __DIRLIST_STRUCT_H__ */

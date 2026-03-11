@@ -3,6 +3,18 @@
 #define TCPFIONBIO 1
 #define TCPFIOASYNC 2
 
+/* BSD types for struct mysockaddr_in when sys/types.h not already included. */
+#if !defined(_SYS_TYPES_H) && !defined(__SYS_TYPES_H)
+#ifndef _U_CHAR_DEFINED
+typedef unsigned char u_char;
+#define _U_CHAR_DEFINED
+#endif
+#ifndef _U_SHORT_DEFINED
+typedef unsigned short u_short;
+#define _U_SHORT_DEFINED
+#endif
+#endif
+
 extern struct hostent *(*tcp_gethostbyname)(const UBYTE *name);
 extern struct servent *(*tcp_getservbyname)(const UBYTE *name, const UBYTE *proto);
 extern char * (*tcp_getlogin)(void);
@@ -35,6 +47,7 @@ struct mysockaddr_in {
 };
 
 int SetupAmiTCPHooks(void);
-int Setup225Hooks(void);
+/* AS225 support commented out: int Setup225Hooks(void); */
+/* UseAS225 is ignored; only bsdsocket.library (AmiTCP/Roadshow) is used. */
 int OpenTCP(BOOL UseAS225);
 void CloseTCP(void);

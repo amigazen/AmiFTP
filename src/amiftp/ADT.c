@@ -16,9 +16,6 @@ static ULONG lastscanned;
 static char *Pattern;
 
 ULONG MOTDDate;
-struct Node *GetHead(struct List *);
-struct Node *GetSucc(struct Node *);
-
 
 struct List *ReadRecentList(void)
 {

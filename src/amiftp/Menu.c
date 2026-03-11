@@ -392,7 +392,7 @@ static int menu_SortByDate(struct MenuItem *menuitem)
 
 static int menu_Iconify(struct MenuItem *menuitem)
 {
-    if (CA_Iconify(MainWin_Object))
+    if (RA_Iconify(MainWin_Object))
       MainWindow=NULL;
     return 2;
 }

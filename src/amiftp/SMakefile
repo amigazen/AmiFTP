@@ -8,11 +8,11 @@ CATALOGS= Catalogs/NewCatalog.ct Catalogs/Svenska/AmiFTP.catalog \
 	Catalogs/Italiano/AmiFTP.catalog Catalogs/Dansk/AmiFTP.catalog \
 	Catalogs/Deutsch/AmiFTP.catalog Catalogs/Norsk/AmiFTP.catalog \
 	Catalogs/Nederlands/AmiFTP.catalog Catalogs/Suomi/AmiFTP.catalog \
-	Catalogs/íslenska/AmiFTP.catalog
+	Catalogs/ï¿½slenska/AmiFTP.catalog
 
 LOCALES= Catalogs/Svenska.ct Catalogs/Italiano.ct Catalogs/Dansk.ct \
 	Catalogs/Deutsch.ct Catalogs/Norsk.ct Catalogs/Nederlands.ct \
-	Catalogs/Suomi.ct Catalogs/íslenska.ct
+	Catalogs/Suomi.ct Catalogs/ï¿½slenska.ct
 
 DOCS= doc/AmiFTP.guide doc/HISTORY doc/README doc/AmiFTP.readme
 
@@ -28,19 +28,22 @@ OBJS=  	$(OBJ)misc.o $(OBJ)data.o $(OBJ)dofuncs.o \
 	$(OBJ)PrefsWindow.o $(OBJ)ConnectWindow.o $(OBJ)ftp.o $(OBJ)rexx.o \
 	$(OBJ)cache.o $(OBJ)main.o $(OBJ)locale.o $(OBJ)AmiFTP_Cat.o \
 	$(OBJ)AGuide.o $(OBJ)ADT.o $(OBJ)Menu.o $(OBJ)SpeedBar.o
+EXTOBJS= /wb2cli/wb2cli.o /sprintf/sprintf.o 
 
 #$(OBJ)lex.o
 INCS= 	AmiFTP.h dirlist_struct.h gui.h AmiFTP_Cat.h
 MISC= 	SMakefile SCOPTIONS AmiFTP.cd
-LIBS=	dh1:classact/classactlib/classact.lib lib:asyncio.lib lib:wb2cli.o \
-	lib:reqtools.lib lib:sprintf.o
+LIBS=	lib:reaction.lib \
+	SDK:lib/rtasl.lib /tcphook/tcp.lib
 GST=    $(OBJ)$(PROG).gst
 
 # Build options
 
 OPTFLAGS = 	OPTIMIZE OPTTIME
 CFLAGS=		DEBUG=LINE $(OPTFLAGS) #NOSTACKCHECK
-IDIRS= dh1:t
+# netinclude: must point to NDK SANA+RoadshowTCP-IP/netinclude; must appear before include:
+# so that sys/*, arpa/*, errno, netdb come from netinclude only (avoids EAGAIN etc. redefinition).
+IDIRS= inc/ /tcphook/ /wb2cli/ netinclude: include: sslinclude:
 
 # Compiler defaults
 
@@ -54,10 +57,11 @@ RM=		Delete quiet
 CP=		Copy
 CAT=		Type
 TAGS=		ctags
-VER=		dh1:brev
+VER=		/bumprev/brev
 CI=		ci
 MAKE=		smake
-CATCOMP=	flexcat
+#CATCOMP=	flexcat
+CATCOMP= echo
 
 # current build version from the 'VERSION' file
 VERSION=	`$(CAT) VERSION`
@@ -83,7 +87,7 @@ obj/AmiFTP.gst: SCOPTIONS AmiFTP.h gui.h AmiFTP_Cat.h#(replace with $(INCS)
 
 # obj/$(PROG).gst
 $(PROG):  $(OBJ)version.o $(OBJS)
-	$(CC) LINK $(OBJ)version.o $(OBJS) lib:_sas.o TO $@_d BATCH $(LIBS) dh1:tcp/tcphook/tcp.lib
+	$(CC) LINK $(OBJ)version.o $(OBJS) $(EXTOBJS) TO $@_d BATCH $(LIBS) 
 	slink $@_d TO $@ STRIPDEBUG NODEBUG
 	$(VER) # bump revision for next link
 
@@ -102,8 +106,8 @@ Catalogs/Suomi.ct: AmiFTP.cd
 Catalogs/Svenska/AmiFTP.catalog: Catalogs/Svenska.ct
 Catalogs/Svenska.ct: AmiFTP.cd
 
-#Catalogs/íslenska/AmiFTP.catalog: Catalogs/íslenska
-#Catalogs/íslenska.ct: AmiFTP.cd
+#Catalogs/ï¿½slenska/AmiFTP.catalog: Catalogs/ï¿½slenska
+#Catalogs/ï¿½slenska.ct: AmiFTP.cd
 
 Catalogs/Italiano/AmiFTP.catalog: Catalogs/Italiano.ct
 Catalogs/Italiano.ct: AmiFTP.cd
@@ -135,8 +139,8 @@ version.c: smakefile
 const char VersionID[] = "$$VER: $(PROG) " VERSION " " __AMIGADATE__;
 const char Version[] = VERSION;
 char *linfotext = "AmiFTP - " VERSION " (" __DATE__ ")";
-char *infotext = "AmiFTP " VERSION " (" __DATE__ ")\nCopyright © 1995-1998 Magnus Lilja. All rights reserved.\n<lilja@lysator.liu.se>\n\nClassAct is © ClassAct Development Team\nAmiFTP is Shareware, please consider registering\n\nARexx-port: ";
-char *wintitle = "AmiFTP " VERSION " © 1995-1998 Magnus Lilja <lilja@lysator.liu.se>";
+char *infotext = "AmiFTP " VERSION " (" __DATE__ ")\nCopyright ï¿½ 1995-1998 Magnus Lilja. All rights reserved.\n<lilja@lysator.liu.se>\n\nARexx-port: ";
+char *wintitle = "AmiFTP " VERSION " ï¿½ 1995-1998 Magnus Lilja <lilja@lysator.liu.se>";
 <
 
 # recompile version.c if any of the other source files have changed.

@@ -18,7 +18,7 @@
 						GA_ID, TG_RemoteFile, \
 						GA_RelVerify, TRUE, \
 						GA_ReadOnly, TRUE, \
-						CLASSACT_Underscore, 0, \
+						REACTION_Underscore, 0, \
 						GA_Text, " ", \
 						BUTTON_Justification, BCJ_LEFT, \
 					ButtonEnd, \
@@ -29,7 +29,7 @@
 						GA_ID, TG_LocalFile, \
 						GA_RelVerify, TRUE, \
 						GA_ReadOnly, TRUE, \
-						CLASSACT_Underscore, 0, \
+						REACTION_Underscore, 0, \
 						GA_Text, " ", \
 						BUTTON_Justification, BCJ_LEFT, \
 					ButtonEnd, \

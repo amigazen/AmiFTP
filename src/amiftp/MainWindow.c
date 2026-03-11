@@ -64,7 +64,7 @@ ULONG HandleMainWindowIDCMP(const BOOL AllowIconify)
     Upload=FALSE;
 
     while (MainWin_Object &&
-	   (result=CA_HandleInput(MainWin_Object,&code))!=WMHI_LASTMSG) {
+	   (result=RA_HandleInput(MainWin_Object,&code))!=WMHI_LASTMSG) {
 	switch (result & WMHI_CLASSMASK) {
 	  case WMHI_CLOSEWINDOW:
 	    done=TRUE;
@@ -293,11 +293,11 @@ ULONG HandleMainWindowIDCMP(const BOOL AllowIconify)
 	    break;
 	  case WMHI_ICONIFY:
 	    if (AllowIconify)
-	      if (CA_Iconify(MainWin_Object))
+	      if (RA_Iconify(MainWin_Object))
 		MainWindow=NULL;
 	    break;
 	  case WMHI_UNICONIFY:
-	    MainWindow=CA_OpenWindow(MainWin_Object);
+	    MainWindow=RA_OpenWindow(MainWin_Object);
 	    break;
 	  case WMHI_RAWKEY:
 //	    kprintf("key: %ld\n", code);
@@ -537,7 +537,7 @@ struct Window *OpenFTPWindow(const BOOL StartIconified)
                            SPEEDBAR_Buttons, &SpeedBarList,
                        SpeedBarEnd,
 
-	               StartVGroup, CLASSACT_BackFill, LAYERS_BACKFILL, StartMember,
+	               StartVGroup, REACTION_BackFill, LAYERS_BACKFILL, StartMember,
                          MG_List[MG_ListView]=ListBrowserObject,
 	                 GA_ID, MG_ListView,
 	                 GA_RelVerify, TRUE,
@@ -715,11 +715,11 @@ struct Window *OpenFTPWindow(const BOOL StartIconified)
 
     if (StartIconified) {
 	MainWindow=NULL;
-	CA_Iconify(MainWin_Object);
+	RA_Iconify(MainWin_Object);
 	return (struct Window *)1;
     }
 
-    if (MainWindow=CA_OpenWindow(MainWin_Object)) {
+    if (MainWindow=RA_OpenWindow(MainWin_Object)) {
 	UpdateWindowTitle();
 	UnlockPubScreen(NULL, Screen);
 	return MainWindow;
@@ -1119,7 +1119,7 @@ void CreateInfoList(struct List *list)
     extern struct Image im;
     extern char *linfotext;
     int i;
-    char *infostrings[4]={NULL, "Copyright © 1995-1998 by Magnus Lilja", "<lilja@lysator.liu.se>","All Rights Reserved"};
+    char *infostrings[4]={NULL, "Copyright (C) 1995-1998 by Magnus Lilja", "Rebuilt by amigazen project 2026","All Rights Reserved."};
 
     infostrings[0]=linfotext;
 

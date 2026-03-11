@@ -72,7 +72,7 @@ int HandleSpeedBar(int button)
 	return 0;
 	break;
       case SB_ZZZ:
-	if (CA_Iconify(MainWin_Object))
+	if (RA_Iconify(MainWin_Object))
 	  MainWindow=NULL;
 	break;
       case SB_Connect:

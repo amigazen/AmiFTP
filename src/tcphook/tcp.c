@@ -1,6 +1,11 @@
-#include <clib/socket_protos.h>
-#include <clib/exec_protos.h>
-#include <pragmas/exec_pragmas.h>
+/*
+ * TCP stack abstraction: only bsdsocket.library (AmiTCP/Roadshow) is used.
+ * AS225/socket.library support is commented out; use NDK SANA+RoadshowTCP-IP API.
+ */
+#include <proto/exec.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include "tcphooks.h"
 
 struct hostent *(*tcp_gethostbyname)(const UBYTE *name);
 struct servent *(*tcp_getservbyname)(const UBYTE *name, const UBYTE *proto);
@@ -26,52 +31,52 @@ LONG (*tcp_listen)(LONG s, LONG backlog);
 LONG (*tcp_accept)(LONG s, struct sockaddr *addr, LONG *addrlen);
 LONG (*tcp_shutdown)(LONG s, LONG how);
 
+/* AS225/socket.library support commented out; only bsdsocket.library is used.
 int Setup225Hooks(void);
 void Shutdown225(void);
+*/
 int SetupAmiTCPHooks(void);
 
+/* SockBase used only when AS225 path is enabled (commented out). */
 struct Library *SockBase;
 struct Library *SocketBase=NULL;
 struct Library *UserGroupBase=NULL;
 
 int OpenTCP(BOOL UseAS225)
 {
-    char *as="inet:libs/socket.library";
-    if (UseAS225) {
-	SockBase=OpenLibrary(as,4L);
-	if (!SockBase)
-	  return 0;
-	if (!Setup225Hooks())
-	  return 0;
-    }
-    else {
-	SocketBase=OpenLibrary("bsdsocket.library",2);
-	if (!SocketBase) {
+    /* AS225/socket.library path disabled; always use bsdsocket.library (AmiTCP/Roadshow). */
+    /*
+    {
+	char *as="inet:libs/socket.library";
+	if (UseAS225) {
 	    SockBase=OpenLibrary(as,4L);
 	    if (!SockBase)
-	      return 0;
+		return 0;
 	    if (!Setup225Hooks())
-	      return 0;
+		return 0;
 	}
 	else {
-	    UserGroupBase=OpenLibrary("AmiTCP:libs/usergroup.library",1);
-	    if (!UserGroupBase)
-	      return 0;
-	    if (!SetupAmiTCPHooks())
-	      return 0;
+    */
+    SocketBase=OpenLibrary("bsdsocket.library",2);
+    if (!SocketBase)
+	return 0;
+    UserGroupBase=OpenLibrary("usergroup.library",1);
+    if (!UserGroupBase)
+	return 0;
+    if (!SetupAmiTCPHooks())
+	return 0;
+    /*
 	}
     }
+    */
     return 1;
 }
 
 void CloseTCP(void)
 {
-    if (SockBase) {
-	Shutdown225();
-	CloseLibrary(SockBase);
-    }
+    /* if (SockBase) { Shutdown225(); CloseLibrary(SockBase); } */
     if (SocketBase)
-      CloseLibrary(SocketBase);
+	CloseLibrary(SocketBase);
     if (UserGroupBase)
-      CloseLibrary(UserGroupBase);
+	CloseLibrary(UserGroupBase);
 }

@@ -181,7 +181,7 @@ ULONG HandleConnectIDCMP()
     ULONG result,done=FALSE;
     UWORD code=NULL;
 
-    while ((result=CA_HandleInput(ConnectWin_Object, &code))!=WMHI_LASTMSG) {
+    while ((result=RA_HandleInput(ConnectWin_Object, &code))!=WMHI_LASTMSG) {
 	switch (result & WMHI_CLASSMASK) {
 	  case WMHI_CLOSEWINDOW:
 	    done=TRUE;
@@ -267,7 +267,7 @@ struct Window *OpenConnectWindow()
     if (!ConnectWin_Object)
       return NULL;
 
-    if (ConnectWindow=CA_OpenWindow(ConnectWin_Object)) {
+    if (ConnectWindow=RA_OpenWindow(ConnectWin_Object)) {
 	return ConnectWindow;
     }
     DisposeObject(ConnectLayout);

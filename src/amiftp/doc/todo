@@ -49,7 +49,7 @@
 19951022 ! Logwindow
 19951022 * Add 'Raw ftp-command' to the menu
 19951022 ! FTPCOMMAND to ARexx
-19951022 ! Try NONBINDINGSOCKET vid connect(). Använd select() efter det...
+19951022 ! Try NONBINDINGSOCKET vid connect(). Anvï¿½nd select() efter det...
 19951023 ! More status messages like 'loggin in...'
 19951023 ! Submenus in Hotlist
 19951023 ! Add current site to sitelist
@@ -67,11 +67,11 @@ user/password-request when connecting via site-stringgadget
 19951207 ! Move hide/show .-files to Settings-menu and use LBNA_Hidden-flag.
 19960109 ! Add busypointer when deleting files.
 19960109 ! Suggestion. Stick ListBrowser another layout deeper, and make it
-           the only child, and add CLASSACT_BackFill, LAYERS_BACKFILL, tag.
+           the only child, and add REACTION_BackFill, LAYERS_BACKFILL, tag.
 19960208 ! Add ARexx-command VIEW.
 19960316 ! site:path, ftp://[userid@]site[:port]path/
 number of files selected (bytes). Free space on disk.
 19960725 ! "AmiFTP - x MB/KB left" in transferwindow.
 19970111 * STEM.aminetpath, STEM.aminetdescr.
 19970111 * fixa markering av filer via arexx.
-19970111 ! Längre pattern-string i hide aminet-dirs.
+19970111 ! Lï¿½ngre pattern-string i hide aminet-dirs.

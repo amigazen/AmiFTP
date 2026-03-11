@@ -1,11 +1,17 @@
-tcp.lib: tcp.o amitcp.o as225.o
-	oml -b tcp.lib R tcp.o R amitcp.o R as225.o
+# AS225 support commented out: only amitcp (bsdsocket.library) is linked.
+tcp.lib: tcp.o amitcp.o
+	oml -b tcp.lib R tcp.o R amitcp.o
+# tcp.lib with AS225: tcp.o amitcp.o as225.o -> oml -b tcp.lib R tcp.o R amitcp.o R as225.o
 
-tcp.o: tcp.c
-	sc tcp.c
+# netinclude: must point to NDK SANA+RoadshowTCP-IP/netinclude for sys/socket.h, netinet/in.h
+tcp.o: tcp.c tcphooks.h
+	sc IDIR=netinclude: tcp.c
 
+# Use SDK SANA+RoadshowTCP-IP: set netinclude: to NDK SANA+RoadshowTCP-IP/netinclude
+# so that proto/bsdsocket.h and proto/usergroup.h are found.
 amitcp.o: amitcp.c tcphooks.h
 	sc amitcp.c
 
-as225.o: as225.c tcphooks.h
-	sc IDIR=dh1:sc/as225/include IDIR=sc:include IDIR=dh1:sc/include as225.c
+# AS225 object not built; use only bsdsocket.library API (see SDK SANA+RoadshowTCP-IP).
+# as225.o: as225.c tcphooks.h
+#	sc IDIR=include: IDIR=netinclude: as225.c

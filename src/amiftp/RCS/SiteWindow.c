@@ -286,9 +286,9 @@ PasswordHook(register __a0 struct Hook *Hook, register __a2 struct SGWork *Work,
 		Buffer[Work -> BufferPos - 1]	= Work -> Code;
 		Buffer[Work -> NumChars]	= 0;
 
-		Work -> Code = (WORD)'·';
+		Work -> Code = (WORD)'ï¿½';
 
-		Work -> WorkBuffer[Work -> BufferPos - 1] = (UBYTE)'·';
+		Work -> WorkBuffer[Work -> BufferPos - 1] = (UBYTE)'ï¿½';
 
 		break;
 
@@ -298,7 +298,7 @@ PasswordHook(register __a0 struct Hook *Hook, register __a2 struct SGWork *Work,
 
 		strcpy(Buffer,original);
 
-		memset(Work -> WorkBuffer,'·',Len);
+		memset(Work -> WorkBuffer,'ï¿½',Len);
 
 		Work -> WorkBuffer[Len] = 0;
 
@@ -490,7 +490,7 @@ struct Window *OpenEditSiteWindow(struct SiteNode *sn)
     memset(Original, 0, sizeof(Original));
     memset(RealString, 0, sizeof(RealString));
     if (sn->sn_Password) {
-	memset(Original, '·', strlen(sn->sn_Password));
+	memset(Original, 'ï¿½', strlen(sn->sn_Password));
 	strcpy(buf6, Original);
 	strcpy(Original, sn->sn_Password);
 	strcpy(RealString, sn->sn_Password);
@@ -899,7 +899,7 @@ ULONG HandleSiteListIDCMP(void)
 			     LISTBROWSER_Selected, &attr,
 			     LISTBROWSER_SelectedNode, &selnode,
 			     TAG_DONE);
-		    if (attr>0) { /* Kolla på attr==-1, annars blir det en hit */
+		    if (attr>0) { /* Kolla pï¿½ attr==-1, annars blir det en hit */
 			struct SiteNode *sn;
 			struct Node *node;
 			ULONG i;
@@ -1163,7 +1163,7 @@ struct Window *OpenSiteWindow(const BOOL Connect)
                        StartHGroup, // 1
                          StartVGroup, // 2
 
-                         StartVGroup,CLASSACT_BackFill,LAYERS_BACKFILL,
+                         StartVGroup,REACTION_BackFill,LAYERS_BACKFILL,
                            StartMember, SLG_List[SLG_SiteList]=ListBrowserObject,
                            GA_ID, SLG_SiteList,
                            GA_RelVerify, TRUE,
@@ -3733,16 +3733,16 @@ AmiFTP now show the correct size of links during transfer.
 text
 @d147 1
 a147 1
-		Work -> Code = (WORD)'×';
+		Work -> Code = (WORD)'ï¿½';
 d149 1
 a149 1
-		Work -> WorkBuffer[Work -> BufferPos - 1] = (UBYTE)'×';
+		Work -> WorkBuffer[Work -> BufferPos - 1] = (UBYTE)'ï¿½';
 d159 1
 a159 1
-		memset(Work -> WorkBuffer,'×',Len);
+		memset(Work -> WorkBuffer,'ï¿½',Len);
 d343 1
 a343 1
-	memset(Original, '×', strlen(sn->sn_Password));
+	memset(Original, 'ï¿½', strlen(sn->sn_Password));
 d1122 3
 d1129 3
 d1134 2
@@ -4044,7 +4044,7 @@ a259 100
 void ComputeSize_sc(UWORD *minwidth,UWORD *minheight)
 {
     long n1,n2;
-    char *pwx="×××××××××";
+    char *pwx="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
     n1=TextLength(PropRPort,www,20);
     n2=TextLength(PropRPort,pwx,9)+TextLength(PropRPort,www,7)+4*INTERWIDTH+GadgetTextLength(PropRPort,sc_NewGadgets[SC_LOGINNAME])+GadgetTextLength(PropRPort,sc_NewGadgets[SC_PASSWORD]);
     n1=max(n1,n2);
@@ -4236,7 +4236,7 @@ a339 3
 			TAG_END);
 d343 2
 a344 4
-	memset(Original,'×',strlen(sn->sn_Password));
+	memset(Original,'ï¿½',strlen(sn->sn_Password));
 	GT_SetGadgetAttrs(sc_Gadgets[SC_PASSWORD],sc_Win,NULL,
 			  GTST_String,Original,
 			  TAG_END);

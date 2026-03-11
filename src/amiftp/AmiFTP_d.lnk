@@ -1,0 +1,10 @@
+FROM LIB:c.o "obj/version.o"+"obj/misc.o"+"obj/data.o"+"obj/dofuncs.o"+"obj/change_dir.o"+"obj/readdir.o"+"obj/dirlist.o"+"obj/MainWindow.o"+"obj/AmiFTP.o"+"obj/TransferWindow.o"+"obj/SiteWindow.o"+"obj/config.o"+"obj/PrefsWindow.o"+"obj/ConnectWindow.o"+"obj/ftp.o"+"obj/rexx.o"+"obj/cache.o"+"obj/main.o"+"obj/locale.o"+"obj/AmiFTP_Cat.o"+"obj/aguide.o"+"obj/ADT.o"+"obj/Menu.o"+"obj/SpeedBar.o"+"/wb2cli/wb2cli.o"+"/sprintf/sprintf.o"
+TO "AmiFTP_d"
+LIB lib:reaction.lib SDK:lib/rtasl.lib /tcphook/tcp.lib LIB:sc.lib LIB:amiga.lib
+ADDSYM
+SMALLCODE
+SMALLDATA
+BATCH
+NOICONS
+DEFINE @__chkabort=@__dummy
+MAP amiftp.map,h,x

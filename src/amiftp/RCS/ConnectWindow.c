@@ -552,7 +552,7 @@ d182 1
 a182 1
     while ((result=CA_HandleInput(ConnectWin_Object,&code))!=WMHI_LASTMSG) {
 a208 1
-//                     CLASSACT_TextAttr,AmiFTPAttrF,
+//                     REACTION_TextAttr,AmiFTPAttrF,
 a212 1
 //                     LAYOUT_BevelStyle,BVS_THIN,
 d217 1

@@ -1,6 +1,13 @@
-#include "dh1:sc/as225/include/ss/socket.h"
+/*
+ * AS225/socket.library support is commented out.
+ * This stack is no longer built or linked; only bsdsocket.library (AmiTCP/Roadshow)
+ * as defined in SDK NDK SANA+RoadshowTCP-IP is used.
+ */
+#if 0
+
+#include <ss/socket.h>
 #include "tcphooks.h"
-#include "dh1:sc/as225/include/sys/ioctl.h"
+#include <sys/ioctl.h>
 
 extern struct Library *SockBase;
 extern int errno;
@@ -156,3 +163,5 @@ void Shutdown225(void)
 {
     cleanup_sockets();
 }
+
+#endif /* 0 - AS225 support disabled */

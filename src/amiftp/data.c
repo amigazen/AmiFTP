@@ -44,13 +44,13 @@ struct IntuitionBase    *IntuitionBase;
 struct Library          *UtilityBase;
 struct GfxBase          *GfxBase;
 struct Library          *DiskfontBase;
-struct ReqToolsBase     *ReqToolsBase;
+/* struct ReqToolsBase     *ReqToolsBase; Replaced by static linking with rtasl.lib */
 struct Library          *AslBase;
 struct Library          *IFFParseBase;
-struct RexxLib          *RexxSysBase;
-struct IconBase         *IconBase;
-struct WorkbenchBase    *WorkbenchBase;
-struct Library          *LocaleBase;
+struct RxsLib          *RexxSysBase;
+struct Library         *IconBase;
+struct Library         *WorkbenchBase;
+struct LocaleBase          *LocaleBase;
 struct Library          *AmigaGuideBase;
 struct Library          *TimerBase;
 struct AGInfo ag;

@@ -5,13 +5,7 @@
    Do NOT edit by hand!
 ****************************************************************/
 
-#if defined(__SASC)  ||  defined(_DCC)
 #include <proto/locale.h>
-#elif defined(__GNUC__)
-#include <inline/locale.h>
-#else
-#include <clib/locale_protos.h>
-#endif
 
 
 
@@ -203,7 +197,7 @@ static struct Catalog *AmiFTP_Catalog = NULL;
 
 void OpenAmiFTPCatalog(struct Locale *loc, STRPTR language)
 { LONG tag, tagarg;
-  extern struct Library *LocaleBase;
+  extern struct LocaleBase *LocaleBase;
   extern void CloseAmiFTPCatalog(void);
 
   CloseAmiFTPCatalog(); /* Not needed if the programmer pairs OpenAmiFTPCatalog

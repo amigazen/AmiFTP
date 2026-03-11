@@ -113,7 +113,7 @@ ULONG HandleMainPrefsIDCMP(void)
     ULONG result,done=FALSE;
     UWORD code=NULL;
 
-    while ((result=CA_HandleInput(MainPrefsWin_Object, &code))!=WMHI_LASTMSG) {
+    while ((result=RA_HandleInput(MainPrefsWin_Object, &code))!=WMHI_LASTMSG) {
 	switch (result & WMHI_CLASSMASK) {
 	  case WMHI_CLOSEWINDOW:
 	    done=TRUE;
@@ -606,7 +606,7 @@ struct Window *OpenMainPrefsWindow(void)
     if (!MainPrefsWin_Object)
       return NULL;
 
-    if (MainPrefsWindow=CA_OpenWindow(MainPrefsWin_Object)) {
+    if (MainPrefsWindow=RA_OpenWindow(MainPrefsWin_Object)) {
 	return MainPrefsWindow;
     }
     DisposeObject(MainPrefsLayout);

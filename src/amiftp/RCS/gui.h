@@ -135,8 +135,8 @@ text
 
 #include <libraries/gadtools.h>
 #include <classact.h>
-#include <classact_author.h>
-#include <classact_lib_protos.h>
+#include <REACTION_author.h>
+#include <REACTION_lib_protos.h>
 
 #ifndef QUALIFIER_SHIFT
 #define RAWKEY_CURSORUP 76

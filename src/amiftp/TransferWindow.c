@@ -238,7 +238,7 @@ ULONG HandleTransferIDCMP(void)
     ULONG result;
     UWORD code=NULL;
 
-    while((result=CA_HandleInput(TransferWin_Object,&code))!=WMHI_LASTMSG) {
+    while((result=RA_HandleInput(TransferWin_Object,&code))!=WMHI_LASTMSG) {
 	switch (result & WMHI_CLASSMASK) {
 	  case WMHI_CLOSEWINDOW:
 	    done=TRUE;
@@ -248,11 +248,11 @@ ULONG HandleTransferIDCMP(void)
 	    break;
 	  case WMHI_ICONIFY:
 	    if (MainWindow) {
-		if (CA_Iconify(MainWin_Object))
+		if (RA_Iconify(MainWin_Object))
 		  MainWindow=NULL;
 	    }
 	    else {
-		MainWindow=CA_OpenWindow(MainWin_Object);
+		MainWindow=RA_OpenWindow(MainWin_Object);
 		MoveWindowInFrontOf(TransferWindow, MainWindow);
 	    }
 	    break;
@@ -307,7 +307,7 @@ struct Window *OpenTransferWindow(void)
     if (!TransferWin_Object)
       return NULL;
 
-    if (TransferWindow=CA_OpenWindow(TransferWin_Object)) {
+    if (TransferWindow=RA_OpenWindow(TransferWin_Object)) {
 	return TransferWindow;
     }
     DisposeObject(TransferLayout);
@@ -576,7 +576,7 @@ int get_file(char *name, char *localname, int size)
 	FileSize=size;
 	last=0;
 	if (SetGadgetAttrs(TG_List[TG_LocalFile], TransferWindow, NULL,
-			   CLASSACT_Underscore, '\n',
+			   REACTION_Underscore, '\n',
 			   GA_Text, localname,
 			   TAG_DONE))
 	  RefreshGList(TG_List[TG_LocalFile], TransferWindow, NULL, 1);

@@ -663,7 +663,7 @@ static void __saveds __asm rexx_Activate(REGA0 struct ARexxCmd *ac,
 {
     ac->ac_RC=RC_OK;
     if (!MainWindow)
-      MainWindow=CA_OpenWindow(MainWin_Object);
+      MainWindow=RA_OpenWindow(MainWin_Object);
     return;
 }
 
@@ -671,7 +671,7 @@ static void __saveds __asm rexx_Deactivate(REGA0 struct ARexxCmd *ac,
 					   REGA1 struct RexxMsg *rexxmsg)
 {
     ac->ac_RC=RC_OK;
-    if (CA_Iconify(MainWin_Object))
+    if (RA_Iconify(MainWin_Object))
       MainWindow=NULL;
     return;
 }

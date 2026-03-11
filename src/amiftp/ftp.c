@@ -37,6 +37,9 @@
 #include "AmiFTP.h"
 #include "gui.h"
 
+struct Library *AsyncIOBase;
+
+
 #define AMIGAIO 1
 unsigned char str_buf[2048];
 char *transfer_buf=0;
@@ -68,7 +71,7 @@ int ftp_hookup(char *host, short port)
 	}
 	hisctladdr.sin_family = hp->h_addrtype;
 	bcopy(hp->h_addr_list[0],
-	      (caddr_t)&hisctladdr.sin_addr, hp->h_length);
+	      (char *)&hisctladdr.sin_addr, hp->h_length);
 	(void) strncpy(hostnamebuf, hp->h_name, sizeof (hostnamebuf));
     }
     s = tcp_socket(hisctladdr.sin_family, SOCK_STREAM, 0);
@@ -139,7 +142,7 @@ int ftp_hookup(char *host, short port)
 		if (hp && hp->h_addr_list[1]) {
 		    extern char *inet_ntoa();
 		    hp->h_addr_list++;
-		    bcopy(hp->h_addr_list[0],(caddr_t)&hisctladdr.sin_addr,hp->h_length);
+		    bcopy(hp->h_addr_list[0],(char *)&hisctladdr.sin_addr,hp->h_length);
 		    tcp_closesocket(s);
 		    s=tcp_socket(hisctladdr.sin_family,SOCK_STREAM,0);
 		    if (s<0) {

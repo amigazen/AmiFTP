@@ -2,11 +2,14 @@
    Locked version: $Revision: 1.815 $
 */
 
-#ifndef AS225
+/*
+ * AS225 build option removed; only bsdsocket.library (AmiTCP/Roadshow) is used.
+ * Network/BSD headers must come from netinclude: (NDK SANA+RoadshowTCP-IP/netinclude)
+ * only; do not use include: for sys/*, arpa/*, errno, or netdb to avoid conflicts.
+ */
 #define BSDSOCKET_H
 
 #include <signal.h>
-#include <sys/param.h>
 #include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <sys/errno.h>
@@ -16,12 +19,9 @@
 #include <fcntl.h>
 #include <pwd.h>
 #include <netdb.h>
-#include <errno.h>
 #include <syslog.h>
 #include <unistd.h>
 extern struct Library *SocketBase;
-
-#endif
 
 #include <dirent.h>
 #include <ctype.h>
@@ -34,7 +34,6 @@ extern struct Library *SocketBase;
 #include <ios1.h>
 #include <proto/exec.h>
 #include <proto/dos.h>
-#include <clib/rexxsyslib_protos.h>
 #include <rexx/storage.h>
 #include <rexx/rxslib.h>
 #include <rexx/errors.h>
@@ -59,39 +58,82 @@ extern struct Library *SocketBase;
 #include <exec/types.h>
 #include <exec/devices.h>
 #include <exec/memory.h>
+#include <exec/lists.h>
 #include <utility/hooks.h>
-#include <clib/exec_protos.h>
-#include <clib/intuition_protos.h>
-#include <clib/gadtools_protos.h>
-#include <clib/graphics_protos.h>
-#include <clib/utility_protos.h>
-#include <clib/diskfont_protos.h>
-#include <clib/asl_protos.h>
-#include <clib/reqtools_protos.h>
-#include <clib/icon_protos.h>
-#include <clib/wb_protos.h>
-#include <clib/alib_protos.h>
-#include <clib/iffparse_protos.h>
-#include <clib/amigaguide_protos.h>
+
+#include <proto/exec.h>
+#include <proto/intuition.h>
+#include <proto/gadtools.h>
+#include <proto/graphics.h>
+#include <proto/utility.h>
+#include <proto/diskfont.h>
+#include <proto/asl.h>
+#include <proto/reqtools.h>
+#include <proto/icon.h>
+#include <proto/wb.h>
+#include <proto/alib.h>
+#include <proto/iffparse.h>
+#include <proto/amigaguide.h>
+#include <proto/rexxsyslib.h>
+
+
 #include <string.h>
 #include <workbench/startup.h>
 #include <workbench/workbench.h>
-#include <pragmas/exec_pragmas.h>
-#include <pragmas/intuition_pragmas.h>
-#include <pragmas/gadtools_pragmas.h>
-#include <pragmas/graphics_pragmas.h>
-#include <pragmas/utility_pragmas.h>
-#include <pragmas/asl_pragmas.h>
-#include <pragmas/reqtools.h>
-#include <pragmas/icon_pragmas.h>
-#include <pragmas/wb_pragmas.h>
-#include <pragmas/iffparse_pragmas.h>
-#include <pragmas/amigaguide_pragmas.h>
 
 #include <wb2cli.h>
-#include <clib/asyncio_protos.h>
-#include "dh1:tcp/tcphook/tcphooks.h"
-#include <lists.h>
+
+#include <proto/asyncio.h>
+
+#include "/tcphook/tcphooks.h"
+
+/* Exec list accessors (NDK exec/lists.h has IsListEmpty only; provide these). */
+#ifndef GetHead
+#define GetHead(l)      ((struct Node *)((l)->lh_Head))
+#endif
+#ifndef GetTail
+#define GetTail(l)      ((struct Node *)((l)->lh_TailPred))
+#endif
+#ifndef GetSucc
+#define GetSucc(n)      ((struct Node *)((n)->ln_Succ))
+#endif
+#ifndef GetPred
+#define GetPred(n)      ((struct Node *)((n)->ln_Pred))
+#endif
+#ifndef FirstNode
+#define FirstNode(l)    GetHead(l)
+#endif
+#ifndef EmptyList
+#define EmptyList(l)    IsListEmpty(l)
+#endif
+#ifndef NextNode
+#define NextNode(n)     GetSucc(n)
+#endif
+#ifndef ListHead
+#define ListHead(l)     GetHead(l)
+#endif
+#ifndef ListNext
+#define ListNext(n)     GetSucc(n)
+#endif
+#ifndef ListEnd
+#define ListEnd(n)      ((n) != NULL)
+#endif
+
+/* S_ISDIR/S_ISREG/S_ISLNK; S_IF* may come from include:sys/commifmt.h. */
+#ifndef S_IFMT
+#define S_IFMT   0170000
+#define S_IFREG  0100000
+#define S_IFDIR  0040000
+#endif
+#ifndef S_IFLNK
+#define S_IFLNK  0120000
+#endif
+#ifndef S_ISDIR
+#define S_ISDIR(m)  (((m) & S_IFMT) == S_IFDIR)
+#define S_ISREG(m)  (((m) & S_IFMT) == S_IFREG)
+#define S_ISLNK(m)  (((m) & S_IFMT) == S_IFLNK)
+#endif
+
 #include "dirlist_struct.h"
 #include "AmiFTP_Cat.h"
 
@@ -201,9 +243,10 @@ struct SiteNode {
     char       *sn_Password;
 };
 
-#define TEMPLATE "SITE,PUBSCREEN/K,FONT/K,FILEFONT/K,DEBUG/S,ICONIFIED/S,PORTNAME/K,SETTINGS/K,AS225/S"
+/* AS225/S option removed from CLI; only bsdsocket.library is used. */
+#define TEMPLATE "SITE,PUBSCREEN/K,FONT/K,FILEFONT/K,DEBUG/S,ICONIFIED/S,PORTNAME/K,SETTINGS/K"
 enum {OPT_SITE=0,OPT_SCREEN,OPT_FONT,OPT_FILEFONT,OPT_DEBUG,
-	OPT_ICONIFIED,OPT_PORTNAME,OPT_CONFIG,OPT_AS225,OPT_COUNT};
+	OPT_ICONIFIED,OPT_PORTNAME,OPT_CONFIG,OPT_COUNT};
 struct CLIArguments {
     char *site;
     char *pubscreen;
@@ -213,7 +256,6 @@ struct CLIArguments {
     long iconified;
     char *portname;
     char *settings;
-    long as225;
 };
 
 struct CurrentState {
@@ -289,8 +331,7 @@ extern struct RDArgs *argsptr;
 extern struct CurrentState CurrentState;
 extern struct MainPrefs MainPrefs;
 extern struct List SiteList;
-extern struct Node *GetPred(struct Node *);
-extern struct Node *GetTail(struct List *);
+/* GetPred/GetTail are macros (see list accessors above); no extern declarations. */
 extern struct   sockaddr_in data_addr;
 extern struct sockaddr_in myctladdr;
 extern int      connected;
@@ -338,13 +379,13 @@ extern struct IntuitionBase    *IntuitionBase;
 extern struct Library          *UtilityBase;
 extern struct GfxBase          *GfxBase;
 extern struct Library          *DiskfontBase;
-extern struct ReqToolsBase     *ReqToolsBase;
+/* extern struct ReqToolsBase     *ReqToolsBase; Replaced by static linking with rtasl.lib */
 extern struct Library          *AslBase;
 extern struct Library          *IFFParseBase;
-extern struct IconBase         *IconBase;
-extern struct RexxLib          *RexxSysBase;
-extern struct WorkbenchBase    *WorkbenchBase;
-extern struct Library          *LocaleBase;
+extern struct Library         *IconBase;
+extern struct RxsLib          *RexxSysBase;
+extern struct Library    *WorkbenchBase;
+extern struct LocaleBase          *LocaleBase;
 extern struct Library          *AmigaGuideBase;
 extern struct Library           *TimerBase;
 

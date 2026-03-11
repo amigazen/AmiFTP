@@ -1,14 +1,14 @@
-VERSION		EQU	0
-REVISION	EQU	1
+VERSION		EQU	2
+REVISION	EQU	0
 DATE	MACRO
-		dc.b	'14.3.95'
+		dc.b	'11.3.26'
 	ENDM
 VERS	MACRO
-		dc.b	'AmiFTP 0.1'
+		dc.b	'AmiFTP 2.0'
 	ENDM
 VSTRING	MACRO
-		dc.b	'AmiFTP 0.1 (14.3.95)',13,10,0
+		dc.b	'AmiFTP 2.0 (11.3.26)',13,10,0
 	ENDM
 VERSTAG	MACRO
-		dc.b	0,'$VER: AmiFTP 0.1 (14.3.95)',0
+		dc.b	0,'$VER: AmiFTP 2.0 (11.3.26)',0
 	ENDM

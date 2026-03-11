@@ -799,7 +799,7 @@ struct Window *OpenFTPWindow(const BOOL StartIconified)
                            SPEEDBAR_Buttons, &SpeedBarList,
                        SpeedBarEnd,
 
-	               StartVGroup, CLASSACT_BackFill, LAYERS_BACKFILL, StartMember,
+	               StartVGroup, REACTION_BackFill, LAYERS_BACKFILL, StartMember,
                          MG_List[MG_ListView]=ListBrowserObject,
 	                 GA_ID, MG_ListView,
 	                 GA_RelVerify, TRUE,
@@ -1381,7 +1381,7 @@ void CreateInfoList(struct List *list)
     extern struct Image im;
     extern char *linfotext;
     int i;
-    char *infostrings[4]={NULL, "Copyright © 1996 by Magnus Lilja", "<lilja@@lysator.liu.se>","All Rights Reserved"};
+    char *infostrings[4]={NULL, "Copyright ï¿½ 1996 by Magnus Lilja", "<lilja@@lysator.liu.se>","All Rights Reserved"};
 
     infostrings[0]=linfotext;
 
@@ -1636,7 +1636,7 @@ a507 2
                        EndGroup,CHILD_WeightedHeight,0,
 d509 1
 a509 1
-	               StartVGroup,CLASSACT_BackFill,LAYERS_BACKFILL,StartMember,
+	               StartVGroup,REACTION_BackFill,LAYERS_BACKFILL,StartMember,
 d511 1
 a511 1
 	                 GA_ID,MG_ListView,
@@ -5680,7 +5680,7 @@ log
 text
 @d5 1
 a5 1
-char wintitle[]="AmiFTP 1.0 © 1995 Magnus Lilja";
+char wintitle[]="AmiFTP 1.0 ï¿½ 1995 Magnus Lilja";
 d39 5
 d542 2
 a543 2

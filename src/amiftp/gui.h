@@ -14,19 +14,16 @@
 #include <graphics/gfxbase.h>
 #include <graphics/rpattr.h>
 #include <clib/macros.h>
-#include <clib/alib_protos.h>
-#include <clib/exec_protos.h>
-#include <clib/intuition_protos.h>
-#include <clib/gadtools_protos.h>
-#include <clib/graphics_protos.h>
-#include <clib/utility_protos.h>
-#include <clib/diskfont_protos.h>
+
+#include <proto/alib.h>
+#include <proto/exec.h>
+#include <proto/intuition.h>
+#include <proto/gadtools.h>
+#include <proto/graphics.h>
+#include <proto/utility.h>
+#include <proto/diskfont.h>
+
 #include <string.h>
-#include <pragmas/exec_pragmas.h>
-#include <pragmas/intuition_pragmas.h>
-#include <pragmas/gadtools_pragmas.h>
-#include <pragmas/graphics_pragmas.h>
-#include <pragmas/utility_pragmas.h>
 #include <dos.h>
 #include <math.h>
 
@@ -54,10 +51,48 @@
 #include <proto/penmap.h>
 #include <images/penmap.h>
 
+#include <proto/listbrowser.h>
+#include <gadgets/listbrowser.h>
+
+#include <proto/chooser.h>
+#include <gadgets/chooser.h>
+
+#include <proto/label.h>
+#include <images/label.h>
+
+#include <proto/fuelgauge.h>
+#include <gadgets/fuelgauge.h>
+
+#include <proto/integer.h>
+#include <gadgets/integer.h>
+
+#include <proto/bevel.h>
+#include <images/bevel.h>
+
+#include <proto/checkbox.h>
+#include <gadgets/checkbox.h>
+
 #include <libraries/gadtools.h>
-#include <classact.h>
-#include <classact_author.h>
-#include <classact_lib_protos.h>
+#include <reaction/reaction.h>
+#include <reaction/reaction_macros.h>
+
+/* Missing Reaction defines that are not in the NDK */
+
+#ifndef REACTION_Dummy
+#define REACTION_Dummy (TAG_USER + 0x5000000)
+#endif
+
+#ifndef REACTION_BackFill
+#define REACTION_BackFill    (REACTION_Dummy + 1)
+#endif
+
+#ifndef REACTION_Underscore
+#define REACTION_Underscore GA_Underscore
+#endif
+
+#ifndef REACTION_CommKey
+#define REACTION_CommKey   GA_ActivateKey
+#endif
 
 #ifndef QUALIFIER_SHIFT
 #define RAWKEY_CURSORUP 76

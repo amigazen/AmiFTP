@@ -56,6 +56,17 @@ void PrintError(const STRPTR errmsg, ...)
     }
 }
 
+/* uid_t/gid_t when not in pwd.h (netinclude). */
+#ifndef _UID_T_DEFINED
+typedef unsigned long uid_t;
+#define _UID_T_DEFINED
+#endif
+#ifndef _GID_T_DEFINED
+typedef unsigned long gid_t;
+#define _GID_T_DEFINED
+#endif
+
+/* AS225 struct kept for type cast when using tcp_getpwnam (usergroup returns struct passwd). */
 struct as225passwd {
 	char	*pw_name;
 	char	*pw_dir;
@@ -67,6 +78,7 @@ struct as225passwd {
 	char	*pw_comment;
 };
 
+/* AS225 support commented out; only bsdsocket.library is used. UseAS225 is never set. */
 BOOL UseAS225=FALSE;
 static struct Process *ME;
 
@@ -123,8 +135,7 @@ int main(int argc, char **argv)
 
 	if (cliargs->debug)
 	  DEBUG=TRUE;
-	if (cliargs->as225)
-	  UseAS225=TRUE;
+	/* AS225 option removed from CLI; if (cliargs->as225) UseAS225=TRUE; */
     }
     if (!strlen(CurrentState.RexxPort)) {
 	strcpy(CurrentState.RexxPort, "AMIFTP");
@@ -136,13 +147,8 @@ int main(int argc, char **argv)
     }
 
     /* This has to be here, can't put this in MyOpenLibs() */
-    /* Has to check for mlink */
+    /* AS225/MLINK fallback removed; only bsdsocket.library is used. */
     ME->pr_WindowPtr=-1;
-    if (UseAS225==FALSE) {
-	if (FindPort("MLINK")) {
-	    UseAS225=TRUE;
-	}
-    }
     TCPStack=OpenTCP(UseAS225);
 /*    if (!(TCPStack=OpenTCP(UseAS225))) {
 	ME->pr_WindowPtr=oldwptr;
@@ -207,7 +213,6 @@ int main(int argc, char **argv)
     InitCache();
     {
 	struct passwd *pw;
-	struct as225passwd *as225pw;
 	char dirname[MAXPATHLEN+1];
 	char dname[MAXHOSTNAMELEN];
 	char *cp;
@@ -216,34 +221,18 @@ int main(int argc, char **argv)
 	defaultanonymouspw=NULL;
 	memset(dirname, 0, sizeof(dirname));
 	if (TCPStack) {
-	    if (SocketBase) {
-		if (cp=tcp_getlogin()) {
-		    if (pw=tcp_getpwnam(cp)) {
-			if (!tcp_gethostname(dname, sizeof(dname))) {
-			    sprintf(dirname, "%s@%s", pw->pw_name?pw->pw_name:"user",
-				    dname);
-			    defaultanonymouspw=strdup(dirname);
-			}
-			memset(dirname, 0, sizeof(dirname));
-			if (pw->pw_dir)
-			  strmfp(dirname, pw->pw_dir, AMIFTPPREFS);
-			tcp_endpwent();
+	    /* Only bsdsocket.library path (SocketBase + usergroup); AS225 branch removed. */
+	    if (cp=tcp_getlogin()) {
+		if (pw=(struct passwd *)tcp_getpwnam(cp)) {
+		    if (!tcp_gethostname(dname, sizeof(dname))) {
+			sprintf(dirname, "%s@%s", (char *)(pw->pw_name ? pw->pw_name : "user"),
+				dname);
+			defaultanonymouspw=strdup(dirname);
 		    }
-		}
-	    }
-	    else {
-		if (cp=tcp_getlogin()) {
-		    if (as225pw=(struct as225passwd *)tcp_getpwnam(cp)) {
-			if (!tcp_gethostname(dname, sizeof(dname))) {
-			    sprintf(dirname, "%s@%s", 
-				    as225pw->pw_name?as225pw->pw_name:"user", dname);
-			    defaultanonymouspw=strdup(dirname);
-			}
-			memset(dirname, 0, sizeof(dirname));
-			if (as225pw->pw_dir)
-			  strmfp(dirname, as225pw->pw_dir, AMIFTPPREFS);
-			tcp_endpwent();
-		    }
+		    memset(dirname, 0, sizeof(dirname));
+		    if (pw->pw_dir)
+			strmfp(dirname, pw->pw_dir, AMIFTPPREFS);
+		    tcp_endpwent();
 		}
 	    }
 	}
@@ -385,6 +374,7 @@ void MyOpenLibs()
 	exit(10);
     }
 
+	/* Replaced by static linking with rtasl.lib
     lib="reqtools.library";
     ReqToolsBase=(struct ReqToolsBase *)OpenLibrary(lib, 38);
     if (!ReqToolsBase) {
@@ -392,6 +382,7 @@ void MyOpenLibs()
 	CleanUp();
 	exit(10);
     }
+	*/
 
     lib="asl.library";
     AslBase = OpenLibrary(lib, 36);
@@ -522,8 +513,10 @@ void CleanUp()
     if (DiskfontBase)
       CloseLibrary((struct Library *)DiskfontBase);
 
+    /* ReqToolsBase commented out
     if (ReqToolsBase)
       CloseLibrary((struct Library *)ReqToolsBase);
+    */
 
     if (AslBase)
       CloseLibrary((struct Library *)AslBase);
@@ -575,9 +568,7 @@ void GetToolTypes(struct WBStartup *msg)
 	    if (key=FindToolType(infoobj->do_ToolTypes, "SETTINGS")) {
 		ConfigName=strdup(key);
 	    }
-	    if (key=FindToolType(infoobj->do_ToolTypes, "AS225")) {
-		UseAS225=TRUE;
-	    }
+	    /* AS225 tooltype removed; if (key=FindToolType(..., "AS225")) UseAS225=TRUE; */
 	    FreeDiskObject(infoobj);
 	}
 	CurrentDir(olddir);

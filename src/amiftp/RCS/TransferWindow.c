@@ -846,7 +846,7 @@ int get_file(char *name, char *localname, int size)
 	FileSize=size;
 	last=0;
 	if (SetGadgetAttrs(TG_List[TG_LocalFile], TransferWindow, NULL,
-			   CLASSACT_Underscore, '\n',
+			   REACTION_Underscore, '\n',
 			   GA_Text, localname,
 			   TAG_DONE))
 	  RefreshGList(TG_List[TG_LocalFile], TransferWindow, NULL, 1);
@@ -1538,7 +1538,7 @@ a270 126
                        GA_ID, TG_RemoteFile,
                        GA_RelVerify, TRUE,
                        GA_ReadOnly,TRUE,
-                       CLASSACT_Underscore,0,
+                       REACTION_Underscore,0,
                        GA_Text, " ",
                        BUTTON_Justification, BCJ_LEFT,
                        ButtonEnd,
@@ -1549,7 +1549,7 @@ a270 126
                        GA_ID, TG_LocalFile,
                        GA_RelVerify, TRUE,
                        GA_ReadOnly,TRUE,
-                       CLASSACT_Underscore,0,
+                       REACTION_Underscore,0,
                        GA_Text, " ",
                        BUTTON_Justification, BCJ_LEFT,
                        ButtonEnd,
@@ -1729,7 +1729,7 @@ a531 1
 //	kprintf("%ld\n",__LINE__);
 d533 2
 a534 2
-			   CLASSACT_Underscore,'\n',
+			   REACTION_Underscore,'\n',
 			   GA_Text,localname,
 d536 1
 a536 2
