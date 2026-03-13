@@ -80,44 +80,67 @@ void ftpWindow()
 	    return;
     }
     }
-    if (cliargs && TCPStack)
-      if (cliargs->site) {
-	  struct SiteNode sn,*sn1=NULL;
+    /* When started with a URL (e.g. from AWeb), connect to that host and show it
+     * in the connect window. Match site list by hostname only, not full URL, and
+     * override remote path from the URL when present. Run even if TCPStack is
+     * false so the connect window shows the intended host (doconnect will fail). */
+    if (cliargs && cliargs->site) {
+	  struct SiteNode sn;
+	  struct SiteNode sn_copy;
+	  struct SiteNode *sn1 = NULL;
 	  struct Node *lbn;
+	  char site[100];
+	  char dirpath[255];
+	  char userid[30];
+	  int port = 0;
+	  int host_match = 0;
+
+	  memset(site, 0, sizeof(site));
+	  memset(dirpath, 0, sizeof(dirpath));
+	  memset(userid, 0, sizeof(userid));
+	  parse_url(cliargs->site, site, dirpath, userid, &port);
 
 	  LockWindow(MainWin_Object);
-	  memset(&sn,0,sizeof(sn));
-	  for (lbn=GetHead(&SiteList);lbn;lbn=GetSucc(lbn)) {
-	      GetListBrowserNodeAttrs(lbn,
-				      LBNA_UserData, &sn1,
-				      TAG_DONE);
-	      if ((stricmp((char *)cliargs->site, sn1->sn_Node.ln_Name)==0)&&
-		  (strlen(sn1->sn_Node.ln_Name)==strlen((char *)cliargs->site)))
-		break;
-    }
-	  if (!lbn) {
-	      char site[100], dirpath[255], userid[30];
-	      int port=0;
-
-	      memset(site,0,100);
-	      memset(dirpath,0,255);
-	      memset(userid,0,30);
-	      parse_url(cliargs->site, site, dirpath, userid, &port);
-	      sn.sn_SiteAddress=(char *)site;
-	      sn.sn_Node.ln_Name=(char *)site;
-	      sn.sn_RemoteDir=dirpath[0]?dirpath:NULL;
-	      sn.sn_LoginName=userid[0]?userid:NULL;
-	      sn.sn_Anonymous=userid[0]?0:1;
-	      sn.sn_Proxy=MainPrefs.mp_DefaultProxy;
-	      sn.sn_Port=port==0?ftp_port:port;
+	  memset(&sn, 0, sizeof(sn));
+	  for (lbn = GetHead(&SiteList); lbn; lbn = GetSucc(lbn)) {
+	      GetListBrowserNodeAttrs(lbn, LBNA_UserData, &sn1, TAG_DONE);
+	      if (sn1 && sn1->sn_Node.ln_Name &&
+		  stricmp(site, sn1->sn_Node.ln_Name) == 0) {
+		  host_match = 1;
+		  break;
+	      }
+	      if (sn1 && sn1->sn_SiteAddress &&
+		  stricmp(site, sn1->sn_SiteAddress) == 0) {
+		  host_match = 1;
+		  break;
+	      }
+	  }
+	  if (host_match && sn1) {
+	      memcpy(&sn_copy, sn1, sizeof(struct SiteNode));
+	      if (dirpath[0]) {
+		  sn_copy.sn_RemoteDir = dirpath;
+	      }
+	      if (port != 0) {
+		  sn_copy.sn_Port = port;
+	      }
+	      if (userid[0]) {
+		  sn_copy.sn_LoginName = userid;
+		  sn_copy.sn_Anonymous = 0;
+	      }
+	      UnlockWindow(MainWin_Object);
+	      ConnectSite(&sn_copy, 0);
+	  } else {
+	      sn.sn_SiteAddress = site;
+	      sn.sn_Node.ln_Name = site;
+	      sn.sn_RemoteDir = dirpath[0] ? dirpath : NULL;
+	      sn.sn_LoginName = userid[0] ? userid : NULL;
+	      sn.sn_Anonymous = userid[0] ? 0 : 1;
+	      sn.sn_Proxy = MainPrefs.mp_DefaultProxy;
+	      sn.sn_Port = (port == 0) ? (int)ftp_port : port;
 	      UnlockWindow(MainWin_Object);
 	      ConnectSite(&sn, 0);
+	  }
     }
-	  else {
-	      UnlockWindow(MainWin_Object);
-	      ConnectSite(sn1, 0);
-    }
-      }
     GetAttr(AREXX_SigMask, ARexx_Object, &rexxsignal);
     appsignal=1L<<AppPort->mp_SigBit;
 
