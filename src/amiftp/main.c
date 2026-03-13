@@ -375,7 +375,14 @@ void MyOpenLibs()
     }
 
     lib="workbench.library";
-    WorkbenchBase = (struct WorkbenchBase *)OpenLibrary(lib, 36);
+    /* Prefer version 45+ for OpenWorkbenchObjectA (launch tools/projects from View command). */
+    WorkbenchBase = OpenLibrary(lib, 45);
+    if (WorkbenchBase) {
+	HaveOpenWorkbenchObjectA = TRUE;
+    } else {
+	WorkbenchBase = OpenLibrary(lib, 36);
+	HaveOpenWorkbenchObjectA = FALSE;
+    }
     if (!WorkbenchBase) {
 	PrintError(ErrorOpenLib, 36, lib);
 	CleanUp();

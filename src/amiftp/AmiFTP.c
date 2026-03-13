@@ -562,6 +562,13 @@ void ViewFile(const char *file)
     char *str=MainPrefs.mp_ViewCommand;
     char buffer[200];
     char *t=&buffer[0];
+    char toolname_buf[256];
+    char *p;
+    size_t len;
+    BPTR lock;
+    BPTR parent;
+    struct TagItem wb_tags[3];
+    BOOL success;
 
     node=malloc(sizeof(struct Node));
     if (node) {
@@ -572,6 +579,49 @@ void ViewFile(const char *file)
     }
 	else
 	  free(node);
+    }
+
+    /* If workbench.library 45+ is available and view command is "ToolName %F",
+     * use OpenWorkbenchObjectA so Workbench launches the tool with correct WBArg. */
+    if (HaveOpenWorkbenchObjectA && str && *str) {
+	p = str;
+	while (*p == ' ' || *p == '\t')
+	    p++;
+	if (*p) {
+	    len = 0;
+	    while (*p && *p != ' ' && *p != '\t' && len < (sizeof(toolname_buf) - 1)) {
+		toolname_buf[len++] = *p++;
+	    }
+	    toolname_buf[len] = '\0';
+	    if (len > 0) {
+		while (*p == ' ' || *p == '\t')
+		    p++;
+		if (p[0] == '%' && (p[1] == 'F' || p[1] == 'f')) {
+		    p += 2;
+		    while (*p == ' ' || *p == '\t')
+			p++;
+		    if (!*p) {
+			lock = Lock((STRPTR)file, SHARED_LOCK);
+			if (lock) {
+			    parent = ParentDir(lock);
+			    UnLock(lock);
+			    if (parent) {
+				wb_tags[0].ti_Tag = WBOPENA_ArgLock;
+				wb_tags[0].ti_Data = (ULONG)parent;
+				wb_tags[1].ti_Tag = WBOPENA_ArgName;
+				wb_tags[1].ti_Data = (ULONG)FilePart((STRPTR)file);
+				wb_tags[2].ti_Tag = 0;
+				wb_tags[2].ti_Data = 0;
+				success = OpenWorkbenchObjectA(toolname_buf, wb_tags);
+				UnLock(parent);
+				if (success)
+				    return;
+			    }
+			}
+		    }
+		}
+	    }
+	}
     }
 
     while (*str) {

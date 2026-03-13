@@ -383,6 +383,7 @@ extern struct Library          *IFFParseBase;
 extern struct Library         *IconBase;
 extern struct RxsLib          *RexxSysBase;
 extern struct Library    *WorkbenchBase;
+extern BOOL HaveOpenWorkbenchObjectA;
 extern struct LocaleBase          *LocaleBase;
 extern struct Library          *AmigaGuideBase;
 extern struct Library           *TimerBase;

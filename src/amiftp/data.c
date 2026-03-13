@@ -50,6 +50,7 @@ struct Library          *IFFParseBase;
 struct RxsLib          *RexxSysBase;
 struct Library         *IconBase;
 struct Library         *WorkbenchBase;
+BOOL HaveOpenWorkbenchObjectA = FALSE;
 struct LocaleBase          *LocaleBase;
 struct Library          *AmigaGuideBase;
 struct Library          *TimerBase;

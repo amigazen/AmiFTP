@@ -1,7 +1,7 @@
-AmiFTP_d                13-Mar-26 20:16:42  Hunk Section                Page 1-1
+AmiFTP_d                13-Mar-26 20:39:47  Hunk Section                Page 1-1
 
  num hunk         size filename         punit    type         base  alv     size
-   0 text        1fdc4 LIB:c.o          c        code            0    3      2a0
+   0 text        1fef4 LIB:c.o          c        code            0    3      2a0
                        obj/version.o    version. code          2b4    0       4c
                        obj/misc.o       misc.c   code          300   18      b0c
                        obj/data.o       data.c   code          e78    0       14
@@ -10,146 +10,146 @@ AmiFTP_d                13-Mar-26 20:16:42  Hunk Section                Page 1-1
                        obj/readdir.o    readdir. code         15cc    7     1284
                        obj/dirlist.o    dirlist. code         287c    1      a64
                        obj/MainWindow.o MainWind code         32e8   13     2990
-                       obj/AmiFTP.o     AmiFTP.c code         5cc8    8     1954
-                       obj/TransferWind Transfer code         764c   22     240c
-                       obj/SiteWindow.o SiteWind code         9adc   10     3ac8
-                       obj/config.o     config.c code         d5e0    6      f50
-                       obj/PrefsWindow. PrefsWin code         e554   11     2280
-                       obj/ConnectWindo ConnectW code        10818   11      c60
-                       obj/ftp.o        ftp.c    code        114bc   22     2c38
-                       obj/rexx.o       rexx.c   code        14178   15     14ac
-                       obj/cache.o      cache.c  code        15680    1      320
-                       obj/main.o       main.c   code        159a8   11      f10
-                       obj/locale.o     locale.c code        168fc    0       94
-                       obj/AmiFTP_Cat.o AmiFTP_C code        16990    0      b20
-                       obj/aguide.o     aguide.c code        174b0    0      354
-                       obj/ADT.o        ADT.c    code        17804    1      824
-                       obj/Menu.o       Menu.c   code        18030   21     1290
-                       obj/SpeedBar.o   SpeedBar code        19340    0      2dc
-                       /wb2cli/wb2cli.o wb2cli.c code        1961c    0      18c
-                       /sprintf/sprintf sprintf. code        197a8    0       34
-                       lib:reaction.lib window.c code        197dc    0       4c
-                       lib:reaction.lib string.c code        19828    0       54
-                       lib:reaction.lib speedbar code        1987c    0       54
-                       lib:reaction.lib penmap.c code        198d0    0       50
-                       lib:reaction.lib listbrow code        19920    0       58
-                       lib:reaction.lib layout.c code        19978    0       54
-                       lib:reaction.lib label.c  code        199cc    0       50
-                       lib:reaction.lib integer. code        19a1c    0       54
-                       lib:reaction.lib fuelgaug code        19a70    0       58
-                       lib:reaction.lib clicktab code        19ac8    0       54
-                       lib:reaction.lib chooser. code        19b1c    0       54
-                       lib:reaction.lib checkbox code        19b70    0       54
-                       lib:reaction.lib button.c code        19bc4    0       54
-                       lib:reaction.lib bevel.c  code        19c18    0       50
-                       lib:reaction.lib arexx.c  code        19c68    0       48
-                       lib:reaction.lib lbnodeme code        19cb0    0      100
-                       lib:reaction.lib dogadget code        19db0    0      1c4
-                       lib:reaction.lib getattrs code        19f74    0       58
-                       lib:reaction.lib openclas code        19fcc    0       90
-                       lib:reaction.lib choosern code        1a05c    0       b8
-                       lib:reaction.lib autoopen code        1a114    0       b8
-                       SDK:lib/rtasl.li rt_varar code        1a1cc    0      518
-                       SDK:lib/rtasl.li rt_stubs code        1a6e4    0       84
-                       SDK:lib/rtasl.li rt_long. code        1a768    0      5b8
-                       SDK:lib/rtasl.li rt_strin code        1ad20    0      608
-                       SDK:lib/rtasl.li rt_reque code        1b328    0      534
-AmiFTP_d                13-Mar-26 20:16:42  Hunk Section                Page 1-2
+                       obj/AmiFTP.o     AmiFTP.c code         5cc8    8     1a64
+                       obj/TransferWind Transfer code         775c   22     240c
+                       obj/SiteWindow.o SiteWind code         9bec   10     3ac8
+                       obj/config.o     config.c code         d6f0    6      f50
+                       obj/PrefsWindow. PrefsWin code         e664   11     2280
+                       obj/ConnectWindo ConnectW code        10928   11      c60
+                       obj/ftp.o        ftp.c    code        115cc   22     2c38
+                       obj/rexx.o       rexx.c   code        14288   15     14ac
+                       obj/cache.o      cache.c  code        15790    1      320
+                       obj/main.o       main.c   code        15ab8   11      f30
+                       obj/locale.o     locale.c code        16a2c    0       94
+                       obj/AmiFTP_Cat.o AmiFTP_C code        16ac0    0      b20
+                       obj/aguide.o     aguide.c code        175e0    0      354
+                       obj/ADT.o        ADT.c    code        17934    1      824
+                       obj/Menu.o       Menu.c   code        18160   21     1290
+                       obj/SpeedBar.o   SpeedBar code        19470    0      2dc
+                       /wb2cli/wb2cli.o wb2cli.c code        1974c    0      18c
+                       /sprintf/sprintf sprintf. code        198d8    0       34
+                       lib:reaction.lib window.c code        1990c    0       4c
+                       lib:reaction.lib string.c code        19958    0       54
+                       lib:reaction.lib speedbar code        199ac    0       54
+                       lib:reaction.lib penmap.c code        19a00    0       50
+                       lib:reaction.lib listbrow code        19a50    0       58
+                       lib:reaction.lib layout.c code        19aa8    0       54
+                       lib:reaction.lib label.c  code        19afc    0       50
+                       lib:reaction.lib integer. code        19b4c    0       54
+                       lib:reaction.lib fuelgaug code        19ba0    0       58
+                       lib:reaction.lib clicktab code        19bf8    0       54
+                       lib:reaction.lib chooser. code        19c4c    0       54
+                       lib:reaction.lib checkbox code        19ca0    0       54
+                       lib:reaction.lib button.c code        19cf4    0       54
+                       lib:reaction.lib bevel.c  code        19d48    0       50
+                       lib:reaction.lib arexx.c  code        19d98    0       48
+                       lib:reaction.lib lbnodeme code        19de0    0      100
+                       lib:reaction.lib dogadget code        19ee0    0      1c4
+                       lib:reaction.lib getattrs code        1a0a4    0       58
+                       lib:reaction.lib openclas code        1a0fc    0       90
+                       lib:reaction.lib choosern code        1a18c    0       b8
+                       lib:reaction.lib autoopen code        1a244    0       b8
+                       SDK:lib/rtasl.li rt_varar code        1a2fc    0      518
+                       SDK:lib/rtasl.li rt_stubs code        1a814    0       84
+                       SDK:lib/rtasl.li rt_long. code        1a898    0      5b8
+                       SDK:lib/rtasl.li rt_strin code        1ae50    0      608
+                       SDK:lib/rtasl.li rt_reque code        1b458    0      534
+AmiFTP_d                13-Mar-26 20:39:47  Hunk Section                Page 1-2
 
  num hunk         size filename         punit    type         base  alv     size
-                       SDK:lib/rtasl.li rt_ez.c  code        1b85c    0       c0
-                       SDK:lib/rtasl.li rt_scree code        1b91c    0      1b0
-                       SDK:lib/rtasl.li rt_font. code        1bacc    0      188
-                       SDK:lib/rtasl.li rt_file. code        1bc54    0      284
-                       SDK:lib/rtasl.li rt_alloc code        1bed8    0      144
-                       SDK:lib/rtasl.li rt_glue. code        1c01c    0      3e0
-                       /tcphook/tcp.lib amitcp.c code        1c3fc    0      3d8
-                       /tcphook/tcp.lib tcp.c    code        1c7d4    0      130
-                       LIB:sc.lib       _cxamemc code        1c904    0       94
-                       LIB:sc.lib       rexxvars code        1c998    0      23c
-                       LIB:sc.lib       newlist  code        1cbd4    0       14
-                       LIB:sc.lib       classfac code        1cbe8    0       e4
-                       LIB:sc.lib       timestr. code        1cccc    0       4c
-                       LIB:sc.lib       syserr.c code        1cd18    0      2c8
-                       LIB:sc.lib       _constru code        1cfe0    0       38
-                       LIB:sc.lib       _fpinit. code        1d018    0       3c
-                       LIB:sc.lib       writes.c code        1d054    0       30
-                       LIB:sc.lib       tinyprin code        1d084    0       bc
-                       LIB:sc.lib       _memclea code        1d140    0       2c
-                       LIB:sc.lib       _swmem.o code        1d16c    0       1c
-                       LIB:sc.lib       strmfp.c code        1d188    0       4c
-                       LIB:sc.lib       strnicmp code        1d1d4    0       a8
-                       LIB:sc.lib       strdup.c code        1d27c    0       2c
-                       LIB:sc.lib       stricmp. code        1d2a8    0       3c
-                       LIB:sc.lib       _stpcpy. code        1d2e4    0       14
-                       LIB:sc.lib       _stcul_d code        1d2f8    0       30
-                       LIB:sc.lib       _stcl_o. code        1d328    0       30
-                       LIB:sc.lib       _stcl_h. code        1d358    0       3c
-                       LIB:sc.lib       stcl_d.o code        1d394    0       3c
-                       LIB:sc.lib       stcgfn.c code        1d3d0    0       78
-                       LIB:sc.lib       _stcd_l. code        1d448    0       54
-                       LIB:sc.lib       _stcd_i. code        1d49c    0       54
-                       LIB:sc.lib       dummy.c  code        1d4f0    0        4
-                       LIB:sc.lib       getfa.c  code        1d4f4    0       a0
-                       LIB:sc.lib       getdfs.c code        1d594    0       e8
-                       LIB:sc.lib       _getbuff code        1d67c    0       48
-                       LIB:sc.lib       _strupr. code        1d6c4    0       38
-                       LIB:sc.lib       _ufb.c   code        1d6fc    0       7c
-                       LIB:sc.lib       _write.c code        1d778    0      118
-                       LIB:sc.lib       _lseek.c code        1d890    0       98
-                       LIB:sc.lib       _cxovf.c code        1d928    0       a0
-                       LIB:sc.lib       _CXD33.o code        1d9c8    0       c4
-                       LIB:sc.lib       _CXM33.o code        1da8c    0       20
-                       LIB:sc.lib       _CXM22.o code        1daac    0       30
-                       LIB:sc.lib       xcovf.o  code        1dadc    0       10
-                       LIB:sc.lib       _exit.c  code        1daec    1       10
-                       LIB:sc.lib       _main.c  code        1db04    1      188
-                       LIB:sc.lib       _chkufb. code        1dc94    0       48
-                       LIB:sc.lib       _tzset.c code        1dcdc    0       9c
-                       LIB:sc.lib       localtim code        1dd78    0       3c
-                       LIB:sc.lib       time.c   code        1ddb4    0       74
-                       LIB:sc.lib       memset.o code        1de28    0       1c
-                       LIB:sc.lib       strtok.c code        1de44    0       68
-AmiFTP_d                13-Mar-26 20:16:42  Hunk Section                Page 1-3
+                       SDK:lib/rtasl.li rt_ez.c  code        1b98c    0       c0
+                       SDK:lib/rtasl.li rt_scree code        1ba4c    0      1b0
+                       SDK:lib/rtasl.li rt_font. code        1bbfc    0      188
+                       SDK:lib/rtasl.li rt_file. code        1bd84    0      284
+                       SDK:lib/rtasl.li rt_alloc code        1c008    0      144
+                       SDK:lib/rtasl.li rt_glue. code        1c14c    0      3e0
+                       /tcphook/tcp.lib amitcp.c code        1c52c    0      3d8
+                       /tcphook/tcp.lib tcp.c    code        1c904    0      130
+                       LIB:sc.lib       _cxamemc code        1ca34    0       94
+                       LIB:sc.lib       rexxvars code        1cac8    0      23c
+                       LIB:sc.lib       newlist  code        1cd04    0       14
+                       LIB:sc.lib       classfac code        1cd18    0       e4
+                       LIB:sc.lib       timestr. code        1cdfc    0       4c
+                       LIB:sc.lib       syserr.c code        1ce48    0      2c8
+                       LIB:sc.lib       _constru code        1d110    0       38
+                       LIB:sc.lib       _fpinit. code        1d148    0       3c
+                       LIB:sc.lib       writes.c code        1d184    0       30
+                       LIB:sc.lib       tinyprin code        1d1b4    0       bc
+                       LIB:sc.lib       _memclea code        1d270    0       2c
+                       LIB:sc.lib       _swmem.o code        1d29c    0       1c
+                       LIB:sc.lib       strmfp.c code        1d2b8    0       4c
+                       LIB:sc.lib       strnicmp code        1d304    0       a8
+                       LIB:sc.lib       strdup.c code        1d3ac    0       2c
+                       LIB:sc.lib       stricmp. code        1d3d8    0       3c
+                       LIB:sc.lib       _stpcpy. code        1d414    0       14
+                       LIB:sc.lib       _stcul_d code        1d428    0       30
+                       LIB:sc.lib       _stcl_o. code        1d458    0       30
+                       LIB:sc.lib       _stcl_h. code        1d488    0       3c
+                       LIB:sc.lib       stcl_d.o code        1d4c4    0       3c
+                       LIB:sc.lib       stcgfn.c code        1d500    0       78
+                       LIB:sc.lib       _stcd_l. code        1d578    0       54
+                       LIB:sc.lib       _stcd_i. code        1d5cc    0       54
+                       LIB:sc.lib       dummy.c  code        1d620    0        4
+                       LIB:sc.lib       getfa.c  code        1d624    0       a0
+                       LIB:sc.lib       getdfs.c code        1d6c4    0       e8
+                       LIB:sc.lib       _getbuff code        1d7ac    0       48
+                       LIB:sc.lib       _strupr. code        1d7f4    0       38
+                       LIB:sc.lib       _ufb.c   code        1d82c    0       7c
+                       LIB:sc.lib       _write.c code        1d8a8    0      118
+                       LIB:sc.lib       _lseek.c code        1d9c0    0       98
+                       LIB:sc.lib       _cxovf.c code        1da58    0       a0
+                       LIB:sc.lib       _CXD33.o code        1daf8    0       c4
+                       LIB:sc.lib       _CXM33.o code        1dbbc    0       20
+                       LIB:sc.lib       _CXM22.o code        1dbdc    0       30
+                       LIB:sc.lib       xcovf.o  code        1dc0c    0       10
+                       LIB:sc.lib       _exit.c  code        1dc1c    1       10
+                       LIB:sc.lib       _main.c  code        1dc34    1      188
+                       LIB:sc.lib       _chkufb. code        1ddc4    0       48
+                       LIB:sc.lib       _tzset.c code        1de0c    0       9c
+                       LIB:sc.lib       localtim code        1dea8    0       3c
+                       LIB:sc.lib       time.c   code        1dee4    0       74
+                       LIB:sc.lib       memset.o code        1df58    0       1c
+                       LIB:sc.lib       strtok.c code        1df74    0       68
+AmiFTP_d                13-Mar-26 20:39:47  Hunk Section                Page 1-3
 
  num hunk         size filename         punit    type         base  alv     size
-                       LIB:sc.lib       strstr.o code        1deac    0       3c
-                       LIB:sc.lib       strspn.o code        1dee8    0       28
-                       LIB:sc.lib       strrchr. code        1df10    0       18
-                       LIB:sc.lib       strcspn. code        1df28    0       28
-                       LIB:sc.lib       strchr.o code        1df50    0       18
-                       LIB:sc.lib       memchr.o code        1df68    0       24
-                       LIB:sc.lib       strncmp. code        1df8c    0       30
-                       LIB:sc.lib       strcat.o code        1dfbc    0       18
-                       LIB:sc.lib       strncpy. code        1dfd4    0       24
-                       LIB:sc.lib       memmove. code        1dff8    0       2c
-                       LIB:sc.lib       realloc. code        1e024    0       88
-                       LIB:sc.lib       free.o   code        1e0ac    0      16c
-                       LIB:sc.lib       calloc.c code        1e218    0       44
-                       LIB:sc.lib       malloc.o code        1e25c    0      174
-                       LIB:sc.lib       qsort.c  code        1e3d0    0      104
-                       LIB:sc.lib       _getenv. code        1e4d4    0      118
-                       LIB:sc.lib       rand.c   code        1e5ec    0       40
-                       LIB:sc.lib       atol.c   code        1e62c    0       34
-                       LIB:sc.lib       atoi.c   code        1e660    0       34
-                       LIB:sc.lib       exit.c   code        1e694    0       28
-                       LIB:sc.lib       perror.c code        1e6bc    0       5c
-                       LIB:sc.lib       sscanf.c code        1e718    0       5c
-                       LIB:sc.lib       vsprintf code        1e774    0       4c
-                       LIB:sc.lib       sprintf. code        1e7c0    0       44
-                       LIB:sc.lib       fputs.c  code        1e804    0       30
-                       LIB:sc.lib       fflush.c code        1e834    0       d8
-                       LIB:sc.lib       _pfmt.c  code        1e90c    0      4b8
-                       LIB:sc.lib       _pf.c    code        1edc4    0       70
-                       LIB:sc.lib       autoopen code        1ee34    0      104
-                       LIB:sc.lib       gadtools code        1ef38    0       60
-                       LIB:sc.lib       io2errno code        1ef98    0       68
-                       LIB:sc.lib       fputc.c  code        1f000    0      188
-                       LIB:sc.lib       gmtime.c code        1f188    0      1a8
-                       LIB:sc.lib       _sfmt.c  code        1f330    0      648
-                       LIB:sc.lib       _sf.c    code        1f978    0      1f0
-                       LIB:sc.lib       _iob.c   code        1fb68    0      248
-                       LIB:amiga.lib    GetSysTi code        1fdb0    0       14
+                       LIB:sc.lib       strstr.o code        1dfdc    0       3c
+                       LIB:sc.lib       strspn.o code        1e018    0       28
+                       LIB:sc.lib       strrchr. code        1e040    0       18
+                       LIB:sc.lib       strcspn. code        1e058    0       28
+                       LIB:sc.lib       strchr.o code        1e080    0       18
+                       LIB:sc.lib       memchr.o code        1e098    0       24
+                       LIB:sc.lib       strncmp. code        1e0bc    0       30
+                       LIB:sc.lib       strcat.o code        1e0ec    0       18
+                       LIB:sc.lib       strncpy. code        1e104    0       24
+                       LIB:sc.lib       memmove. code        1e128    0       2c
+                       LIB:sc.lib       realloc. code        1e154    0       88
+                       LIB:sc.lib       free.o   code        1e1dc    0      16c
+                       LIB:sc.lib       calloc.c code        1e348    0       44
+                       LIB:sc.lib       malloc.o code        1e38c    0      174
+                       LIB:sc.lib       qsort.c  code        1e500    0      104
+                       LIB:sc.lib       _getenv. code        1e604    0      118
+                       LIB:sc.lib       rand.c   code        1e71c    0       40
+                       LIB:sc.lib       atol.c   code        1e75c    0       34
+                       LIB:sc.lib       atoi.c   code        1e790    0       34
+                       LIB:sc.lib       exit.c   code        1e7c4    0       28
+                       LIB:sc.lib       perror.c code        1e7ec    0       5c
+                       LIB:sc.lib       sscanf.c code        1e848    0       5c
+                       LIB:sc.lib       vsprintf code        1e8a4    0       4c
+                       LIB:sc.lib       sprintf. code        1e8f0    0       44
+                       LIB:sc.lib       fputs.c  code        1e934    0       30
+                       LIB:sc.lib       fflush.c code        1e964    0       d8
+                       LIB:sc.lib       _pfmt.c  code        1ea3c    0      4b8
+                       LIB:sc.lib       _pf.c    code        1eef4    0       70
+                       LIB:sc.lib       autoopen code        1ef64    0      104
+                       LIB:sc.lib       gadtools code        1f068    0       60
+                       LIB:sc.lib       io2errno code        1f0c8    0       68
+                       LIB:sc.lib       fputc.c  code        1f130    0      188
+                       LIB:sc.lib       gmtime.c code        1f2b8    0      1a8
+                       LIB:sc.lib       _sfmt.c  code        1f460    0      648
+                       LIB:sc.lib       _sf.c    code        1faa8    0      1f0
+                       LIB:sc.lib       _iob.c   code        1fc98    0      248
+                       LIB:amiga.lib    GetSysTi code        1fee0    0       14
    1 chip          154 obj/AmiFTP.o     AmiFTP.c datachip        0    0      154
    2 __MERGED     2ebc obj/version.o    version. data            0    0       2c
                        obj/misc.o       misc.c   data           2c    0       5c
@@ -166,7 +166,7 @@ AmiFTP_d                13-Mar-26 20:16:42  Hunk Section                Page 1-1
                        obj/ftp.o        ftp.c    data          3ec    0       3c
                        obj/rexx.o       rexx.c   data          428    0      268
                        obj/main.o       main.c   data          690    0       24
-AmiFTP_d                13-Mar-26 20:16:42  Hunk Section                Page 1-4
+AmiFTP_d                13-Mar-26 20:39:47  Hunk Section                Page 1-4
 
  num hunk         size filename         punit    type         base  alv     size
                        obj/AmiFTP_Cat.o AmiFTP_C data          6b4    0      568
@@ -174,7 +174,7 @@ AmiFTP_d                13-Mar-26 20:16:42  Hunk Section                Page 1-1
                        obj/Menu.o       Menu.c   data          cbc    0      6c4
                        obj/SpeedBar.o   SpeedBar data         1380    0     1740
                        /sprintf/sprintf sprintf. data         2ac0    0        8
-                       T:ZVKPAI.0001    _ctdt.o  data         2ac8    0       9c
+                       T:ZLNMAI.0001    _ctdt.o  data         2ac8    0       9c
                        SDK:lib/rtasl.li rt_reque data         2b64    0        4
                        /tcphook/tcp.lib tcp.c    data         2b68    0        8
                        LIB:sc.lib       _slash.c data         2b70    0        4
@@ -222,7 +222,7 @@ AmiFTP_d                13-Mar-26 20:16:42  Hunk Section                Page 1-1
                        lib:reaction.lib label.c  bss          75d8    0        4
                        lib:reaction.lib integer. bss          75dc    0        4
                        lib:reaction.lib fuelgaug bss          75e0    0        4
-AmiFTP_d                13-Mar-26 20:16:42  Hunk Section                Page 1-5
+AmiFTP_d                13-Mar-26 20:39:47  Hunk Section                Page 1-5
 
  num hunk         size filename         punit    type         base  alv     size
                        lib:reaction.lib clicktab bss          75e4    0        4
@@ -257,82 +257,82 @@ AmiFTP_d                13-Mar-26 20:16:42  Hunk Section                Page 1-1
                        LIB:sc.lib       gadtools bss          773c    0        8
                        LIB:sc.lib       gmtime.c bss          7744    0       24
                        LIB:sc.lib       _iob.c   bss          7768    0       34
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section                Page 3-1
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section                Page 3-1
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
-@About   AmiFTP.c     1260 Menu.c       106c Menu.c      19332
+@About   AmiFTP.c     136e Menu.c       106c Menu.c      19462
 @AddCach cache.c       10c rexx.c        91e ConnectW      31c AmiFTP.c      5e8
-                           AmiFTP.c     10ca MainWind      1ce MainWind      276
+                           AmiFTP.c     11d8 MainWind      1ce MainWind      276
                            MainWind     5ca8
 @AddLBNT misc.c        886 Menu.c       101c config.c      190 SiteWind     1af8
-                           SiteWind     25b0 SiteWind     3350 Menu.c      192ea
-                           SiteWind     d5bc
+                           SiteWind     25b0 SiteWind     3350 Menu.c      1941a
+                           SiteWind     d6cc
 @add_dir dirlist.      16a readdir.      28e readdir.      696 readdir.      ad0
                            readdir.      e78
 @atoi    atoi.c          4 ftp.c        2ade readdir.      97e readdir.      9b2
-                           readdir.      d38 readdir.      d6c ftp.c       1411e
+                           readdir.      d38 readdir.      d6c ftp.c       1422e
                            readdir.     2856
 @atol    atol.c          4 ADT.c          d0 ADT.c         338 ADT.c         388
-                           ADT.c         3b0 ADT.c         3d8 main.c        efe
+                           ADT.c         3b0 ADT.c         3d8 main.c        f1c
                            rexx.c        dda ftp.c        1932 ftp.c        19b4
-                           config.c      f40 AmiFTP.c       94 rexx.c      15642
-                           config.c     e536 AmiFTP.c     762e
+                           config.c      f40 AmiFTP.c       94 rexx.c      15752
+                           config.c     e646 AmiFTP.c     773e
 @AttachT MainWind     2206 Menu.c        5cc Menu.c        64a Menu.c        eb8
                            Menu.c        f0e rexx.c        928 AmiFTP.c      cf6
-                           AmiFTP.c      dc8 rexx.c      15666
+                           AmiFTP.c      dc8 rexx.c      15776
 @calloc  calloc.c        8 cache.c       1b2 Transfer     1d3a Transfer     1e8c
                            Transfer     1f5e Transfer     20b0 Transfer     217a
-                           cache.c     159a0 Transfer     9a94
-@ChangeA MainWind     2622 ConnectW      312 ConnectW    11490
+                           cache.c     15ab0 Transfer     9ba4
+@ChangeA MainWind     2622 ConnectW      312 ConnectW    115a0
 @change_ change_d        0 rexx.c        8ee ConnectW      1ec AmiFTP.c      548
-                           AmiFTP.c     10a6 MainWind      18c MainWind      222
+                           AmiFTP.c     11b4 MainWind      18c MainWind      222
                            MainWind      308 dofuncs.      306 dofuncs.      314
-                           ConnectW    1147e
+                           ConnectW    1158e
 @ClearCa cache.c        48 Menu.c        b1a ConnectW      202 misc.c        7a8
                            misc.c        e6c
-@CloseAm AmiFTP_C      ac8 main.c        c3a
-@CloseLo misc.c        2f6 Menu.c        f60 main.c        898 main.c      168ee
-@CloseMa MainWind     1650 PrefsWin       d4 AmiFTP.c      51a PrefsWin    107f8
-@CloseTC tcp.c          fe main.c        b62
-@close_f misc.c        7d0 ftp.c         460 ftp.c         496 ftp.c       14124
+@CloseAm AmiFTP_C      ac8 main.c        c58
+@CloseLo misc.c        2f6 Menu.c        f60 main.c        898 main.c      16a1e
+@CloseMa MainWind     1650 PrefsWin       d4 AmiFTP.c      51a PrefsWin    10908
+@CloseTC tcp.c          fe main.c        b80
+@close_f misc.c        7d0 ftp.c         460 ftp.c         496 ftp.c       14234
 @close_r ftp.c        2ba8 readdir.      114 readdir.      122 readdir.     2862
 @Connect ConnectW        0 rexx.c        820 AmiFTP.c      3c6 AmiFTP.c      960
-                           AmiFTP.c      a1a AmiFTP.c      a7e AmiFTP.c     106c
+                           AmiFTP.c      a1a AmiFTP.c      a7e AmiFTP.c     117a
                            MainWind      46a MainWind     5cb4
 @Connect AmiFTP.c      92e SpeedBar      1e2 Menu.c       10a2 MainWind      392
-                           Menu.c      192c6
+                           Menu.c      193f6
 @datacon ftp.c        232a ADT.c         2dc
-@delete_ change_d      3ae Menu.c        86a rexx.c        5b0 rexx.c      15630
+@delete_ change_d      3ae Menu.c        86a rexx.c        5b0 rexx.c      15740
 @DetachT MainWind     2304 Menu.c        5a4 Menu.c        622 Menu.c        c10
                            Menu.c        cbc Menu.c        e88 Menu.c        eca
                            rexx.c        922 AmiFTP.c      cd6 AmiFTP.c      da8
-                           misc.c        7a2 rexx.c      1563c
-@Dir_cli AmiFTP.c     107e MainWind      3a2 MainWind      3aa
+                           misc.c        7a2 rexx.c      1574c
+@Dir_cli AmiFTP.c     118c MainWind      3a2 MainWind      3aa
 @Disconn AmiFTP.c      a98 SpeedBar      1e8 Menu.c       10b4 MainWind      39a
-                           Menu.c      19302
-@DLPath  misc.c        a30 PrefsWin      3e6 AmiFTP.c      726 PrefsWin    107d4
+                           Menu.c      19432
+@DLPath  misc.c        a30 PrefsWin      3e6 AmiFTP.c      726 PrefsWin    108e4
 @DLPathS AmiFTP.c      73c MainWind      38a
 @DLPath_ AmiFTP.c      712 MainWind      382
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section                Page 3-2
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section                Page 3-2
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
-@doconne dofuncs.        0 ConnectW      182 ConnectW    114b4
+@doconne dofuncs.        0 ConnectW      182 ConnectW    115c4
 @DoMetho classfac       7a dogadget      160
 @Downloa Transfer        0 rexx.c         a2 rexx.c        534 rexx.c        688
                            ConnectW      5f6 AmiFTP.c      6fe AmiFTP.c      c18
                            AmiFTP.c      cce AmiFTP.c      da0 MainWind      238
-                           MainWind      2b0 ConnectW    114a8
+                           MainWind      2b0 ConnectW    115b8
 @exit    exit.c          4 _main.c        98 _main.c       162 main.c        4ee
                            main.c        582 main.c        6a2 main.c        922
                            main.c        95e main.c        98c main.c        9ba
-                           main.c        9e8 main.c        a16 main.c        a44
-                           main.c        a72 main.c        a9e main.c        acc
-                           main.c        aea main.c        b0e main.c        b36
-                           main.c      168be
+                           main.c        9e8 main.c        a34 main.c        a62
+                           main.c        a90 main.c        abc main.c        aea
+                           main.c        b08 main.c        b2c main.c        b54
+                           main.c      169ee
 @fflush  fflush.c        4 fputc.c        7c fputc.c        be fputc.c       140
                            fputc.c       16c ftp.c        2736 misc.c        3da
-                           ftp.c       140f4 misc.c        e18
-@FixSite misc.c        988 config.c      1ac config.c     e548
+                           ftp.c       14204 misc.c        e18
+@FixSite misc.c        988 config.c      1ac config.c     e658
 @fputc   fputc.c         8 fputs.c        16 perror.c       52 tinyprin       8e
                            writes.c       1c
 @fputs   fputs.c         8 perror.c       26 perror.c       32 perror.c       46
@@ -342,10 +342,10 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            Menu.c        fea Menu.c        ff2 ADT.c         124
                            ADT.c         144 ADT.c         154 ADT.c         17c
                            main.c        852 main.c        8c2 main.c        8c8
-                           main.c        b6e main.c        b7a main.c        b86
-                           main.c        b92 main.c        b9e main.c        baa
-                           main.c        bb6 main.c        bc2 main.c        bce
-                           main.c        bda cache.c        ee cache.c        fe
+                           main.c        b8c main.c        b98 main.c        ba4
+                           main.c        bb0 main.c        bbc main.c        bc8
+                           main.c        bd4 main.c        be0 main.c        bec
+                           main.c        bf8 cache.c        ee cache.c        fe
                            cache.c       104 cache.c       138 cache.c       148
                            cache.c       186 cache.c       196 rexx.c        6a6
                            rexx.c        83c rexx.c        9dc rexx.c        9e8
@@ -369,7 +369,7 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            Transfer     21a4 Transfer     21ac Transfer     21ca
                            Transfer     21d0 Transfer     21d8 Transfer     21f4
                            Transfer     21fc Transfer     2204 Transfer     2220
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section                Page 3-3
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section                Page 3-3
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            Transfer     2228 Transfer     2230 Transfer     2236
@@ -379,30 +379,30 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            Transfer     2306 Transfer     2312 Transfer     231e
                            Transfer     2324 AmiFTP.c      a26 AmiFTP.c      a8a
                            AmiFTP.c      c3a AmiFTP.c      d22 AmiFTP.c      e98
-                           AmiFTP.c     1752 AmiFTP.c     18a2 AmiFTP.c     18ca
-                           AmiFTP.c     18da AmiFTP.c     18ea AmiFTP.c     18fa
-                           AmiFTP.c     190a AmiFTP.c     191a MainWind      29e
+                           AmiFTP.c     1860 AmiFTP.c     19b0 AmiFTP.c     19d8
+                           AmiFTP.c     19e8 AmiFTP.c     19f8 AmiFTP.c     1a08
+                           AmiFTP.c     1a18 AmiFTP.c     1a28 MainWind      29e
                            MainWind      6ea dirlist.      5d4 dirlist.      5e0
                            dirlist.      5ec dirlist.      5f8 dirlist.      5fe
                            dirlist.      624 dirlist.      630 dirlist.      63c
                            dirlist.      648 dirlist.      64e dirlist.      960
                            readdir.      104 readdir.      134 change_d      1e2
-                           misc.c         9c misc.c        7be main.c      168f4
-                           PrefsWin    10810 Transfer     9ad6 misc.c        e72
-@FreeSit config.c      7c8 AmiFTP.c     18b6 AmiFTP.c     7640
+                           misc.c         9c misc.c        7be main.c      16a24
+                           PrefsWin    10920 Transfer     9be6 misc.c        e72
+@FreeSit config.c      7c8 AmiFTP.c     19c4 AmiFTP.c     7750
 @FreeSit config.c      76a SiteWind     35aa SiteWind     361a
 @FreeSpe SpeedBar      15e MainWind     1396 MainWind     177e MainWind     5ca2
 @free_di dirlist.      5c0 Menu.c        884 rexx.c        c4e rexx.c        d40
-                           AmiFTP.c      8d6 MainWind      7ee rexx.c      15660
+                           AmiFTP.c      8d6 MainWind      7ee rexx.c      15770
 @free_di dirlist.      606 ADT.c         13e cache.c        f6 cache.c       140
                            cache.c       18e rexx.c        c84 rexx.c        d8c
                            Transfer     228e Transfer     22f8 AmiFTP.c      918
                            MainWind      568 readdir.       fe readdir.      12e
-                           rexx.c      15654
-@ftpWind AmiFTP.c      21c main.c        894 main.c      168d0
+                           rexx.c      15764
+@ftpWind AmiFTP.c      21c main.c        894 main.c      16a00
 @ftp_err misc.c        708 ftp.c         476 ftp.c         ff6 ftp.c        1012
                            ftp.c        1142 ftp.c        2b8a change_d       f6
-                           ftp.c       14130
+                           ftp.c       14240
 @ftp_hoo ftp.c           0 dofuncs.      24a dofuncs.     11b8
 @ftp_log ftp.c         f3e dofuncs.      28e dofuncs.     11c4
 @GetAmiF AmiFTP_C      aec Menu.c        790 Menu.c        7c2 Menu.c        7cc
@@ -425,7 +425,7 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            PrefsWin     144c PrefsWin     161e PrefsWin     16b8
                            PrefsWin     16ee PrefsWin     18b0 PrefsWin     18f6
                            PrefsWin     1a94 PrefsWin     21fc SiteWind      59e
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section                Page 3-4
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section                Page 3-4
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            SiteWind      630 SiteWind      6ca SiteWind      75c
@@ -447,41 +447,41 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            Transfer     1a24 Transfer     1a2e Transfer     1a5e
                            Transfer     1db0 Transfer     1dd0 Transfer     1dda
                            Transfer     1fe0 Transfer     23ce AmiFTP.c      78e
-                           AmiFTP.c      d36 AmiFTP.c     1196 AmiFTP.c     11a6
-                           AmiFTP.c     11d8 AmiFTP.c     11ea AmiFTP.c     1226
-                           AmiFTP.c     123a AmiFTP.c     12f6 AmiFTP.c     1430
-                           AmiFTP.c     16f2 AmiFTP.c     1844 MainWind      290
+                           AmiFTP.c      d36 AmiFTP.c     12a4 AmiFTP.c     12b4
+                           AmiFTP.c     12e6 AmiFTP.c     12f8 AmiFTP.c     1334
+                           AmiFTP.c     1348 AmiFTP.c     1404 AmiFTP.c     153e
+                           AmiFTP.c     1800 AmiFTP.c     1952 MainWind      290
                            MainWind      9e2 MainWind      ab6 MainWind      b78
                            MainWind      e32 MainWind      eb2 MainWind      f2a
                            MainWind      fe4 MainWind     1030 MainWind     107c
                            MainWind     1116 MainWind     115c MainWind     27b8
                            readdir.       26 readdir.      29e readdir.      6a6
                            readdir.      ae0 readdir.      e88 change_d       e0
-                           misc.c        75e misc.c        a64 PrefsWin    107fe
-                           Transfer     9aa0 misc.c        e54
+                           misc.c        75e misc.c        a64 PrefsWin    1090e
+                           Transfer     9bb0 misc.c        e54
 @getdfs  getdfs.c        8 MainWind     26f8 MainWind     5cae
-@getfa   getfa.c         4 Transfer      1e4 Transfer      3dc Transfer     9a9a
-@GetPass AmiFTP.c     1208 ftp.c        10de ftp.c       1410c
+@getfa   getfa.c         4 Transfer      1e4 Transfer      3dc Transfer     9baa
+@GetPass AmiFTP.c     1316 ftp.c        10de ftp.c       1421c
 @getrepl ftp.c        255a ADT.c         30e
 @Get_cli AmiFTP.c      680 SpeedBar      214 Menu.c       10f6 MainWind      356
-                           Menu.c      19320
+                           Menu.c      19450
 @gmtime  gmtime.c        4 localtim       2c
 @HandleA aguide.c        0 ftp.c         2d0 ftp.c        14ee ftp.c        1cd4
                            ftp.c        24a4 ConnectW      520 PrefsWin       a0
                            SiteWind      28c SiteWind     153c Transfer      64e
-                           Transfer     16a0 AmiFTP.c      4e4 AmiFTP.c     1556
-                           misc.c        5fe PrefsWin    107ec Transfer     9a7c
+                           Transfer     16a0 AmiFTP.c      4e4 AmiFTP.c     1664
+                           misc.c        5fe PrefsWin    108fc Transfer     9b8c
                            misc.c        e36
 @HandleC ConnectW      7a0 ftp.c         2e0 misc.c        61c misc.c        e42
 @HandleM MainWind        0 ftp.c        14fe ConnectW      53a PrefsWin       ba
                            SiteWind      2b2 SiteWind     1556 Transfer      668
-                           Transfer     16ac AmiFTP.c      4aa AmiFTP.c     154a
-                           ftp.c       1415a SiteWind     d5c8
+                           Transfer     16ac AmiFTP.c      4aa AmiFTP.c     1658
+                           ftp.c       1426a SiteWind     d6d8
 @HandleS SpeedBar      192 MainWind      346 MainWind     5c84
 @HandleT Transfer      a24 ftp.c        150c ftp.c        1cf2 ftp.c        24c2
-                           misc.c        640 ftp.c       14136 misc.c        e3c
+                           misc.c        640 ftp.c       14246 misc.c        e3c
 @InitCac cache.c         0 main.c        6a6 ConnectW      206 misc.c        7ac
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section                Page 3-5
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section                Page 3-5
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            misc.c        e5a
@@ -489,21 +489,21 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
 @InitRex rexx.c       13d0 main.c        574
 @InitSpe SpeedBar        0 MainWind      95e MainWind     5c8a
 @linknam misc.c        820 Transfer      358 Transfer     215a AmiFTP.c      c58
-                           MainWind      212 Transfer     9ad0
-@LoadPre AmiFTP.c     17e2 Menu.c       1036 Menu.c      19338
-@localti localtim        4 main.c        640 main.c      168e2
+                           MainWind      212 Transfer     9be0
+@LoadPre AmiFTP.c     18f0 Menu.c       1036 Menu.c      19468
+@localti localtim        4 main.c        640 main.c      16a12
 @LockWin MainWind     249a Menu.c        5a0 Menu.c        61e Menu.c        7aa
                            Menu.c        b30 ConnectW       de PrefsWin       80
                            PrefsWin     2184 SiteWind     2564 SiteWind     3304
                            SiteWind     344e AmiFTP.c      28e AmiFTP.c      4f4
                            AmiFTP.c      53e AmiFTP.c      6cc AmiFTP.c      7b6
-                           AmiFTP.c      944 AmiFTP.c      b5e AmiFTP.c     1096
-                           AmiFTP.c     14d6 AmiFTP.c     1608 misc.c        aa8
-                           Menu.c      192de SiteWind     d5b6
-@LogMess misc.c        31a ftp.c        2718 ftp.c       14154
+                           AmiFTP.c      944 AmiFTP.c      b5e AmiFTP.c     11a4
+                           AmiFTP.c     15e4 AmiFTP.c     1716 misc.c        aa8
+                           Menu.c      1940e SiteWind     d6c6
+@LogMess misc.c        31a ftp.c        2718 ftp.c       14264
 @LookupC cache.c       1e0 rexx.c        8fe AmiFTP.c      556 MainWind      198
                            MainWind      242 MainWind      314 MainWind     5c9c
-@main    main.c        40a _main.c       15a _main.c     1dc8c
+@main    main.c        40a _main.c       15a _main.c     1ddbc
 @malloc  malloc.o        4 _iob.c         ee _getenv.       62 _getenv.       9c
                            calloc.c       1e realloc.       30 realloc.       58
                            _getbuff       16 getdfs.c       18 getdfs.c       48
@@ -514,11 +514,11 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            Transfer     2040 AmiFTP.c      ad4 AmiFTP.c      e62
                            dirlist.       1c dirlist.       46 dirlist.       6c
                            dirlist.       98 dirlist.       c2 dirlist.      91a
-                           readdir.       18 misc.c         16 ftp.c       1413c
-                           Transfer     9a82 misc.c        e48
+                           readdir.       18 misc.c         16 ftp.c       1424c
+                           Transfer     9b92 misc.c        e48
 @memchr  memchr.o        c _write.c       7a _write.c       d6
 @memmove memmove.        c _pfmt.c       2d0 ftp.c          e4 ftp.c         378
-                           ftp.c       14118
+                           ftp.c       14228
 @NameToR AmiFTP.c      ab6 Transfer      288
 @NewList newlist         4 choosern       34 SpeedBar       22 SpeedBar      18a
                            ADT.c          32 ADT.c         7f6 main.c        656
@@ -528,16 +528,16 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            config.c      81e SiteWind     26ce SiteWind     2ae4
                            SiteWind     2f42 SiteWind     3134 Transfer     1e84
                            AmiFTP.c      232 AmiFTP.c      79a AmiFTP.c      b98
-                           AmiFTP.c      c78 AmiFTP.c      d4a AmiFTP.c     18be
+                           AmiFTP.c      c78 AmiFTP.c      d4a AmiFTP.c     19cc
                            MainWind     2868 dirlist.      66e dirlist.      92a
-                           readdir.       38 PrefsWin    10804 Transfer     9ab2
+                           readdir.       38 PrefsWin    10914 Transfer     9bc2
                            readdir.     285c
 @new_dir dirlist.        0 ADT.c         4a4 rexx.c        bf2 rexx.c        ce4
-                           AmiFTP.c      87a MainWind      78c rexx.c      1566c
+                           AmiFTP.c      87a MainWind      78c rexx.c      1577c
 @next_re ftp.c        2a22 ADT.c          96 readdir.       6c readdir.     2868
-@OpenAmi AmiFTP_C        0 main.c        b4a
+@OpenAmi AmiFTP_C        0 main.c        b68
 @OpenCla openclas        8 arexx.c         a bevel.c         a button.c        a
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section                Page 3-6
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section                Page 3-6
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            checkbox        a chooser.        a clicktab        a
@@ -545,55 +545,55 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            layout.c        a listbrow        a penmap.c        a
                            speedbar        a string.c        a window.c        a
 @OpenFTP MainWind      812 PrefsWin       da AmiFTP.c      23e AmiFTP.c      256
-                           PrefsWin    107f2
-@OpenLog misc.c          0 Menu.c        f5a Menu.c      192f0
-@OpenPre PrefsWin        0 Menu.c       1090 Menu.c      19326
-@OpenSit SiteWind     14c2 Menu.c        b36 AmiFTP.c      94a Menu.c      192e4
+                           PrefsWin    10902
+@OpenLog misc.c          0 Menu.c        f5a Menu.c      19420
+@OpenPre PrefsWin        0 Menu.c       1090 Menu.c      19456
+@OpenSit SiteWind     14c2 Menu.c        b36 AmiFTP.c      94a Menu.c      19414
 @OpenTCP tcp.c          92 main.c        596
 @OpenTCP tcp.c           0 main.c        5ca
 @open_re ftp.c        2b26 readdir.       4a readdir.       56 readdir.     2874
 @Parent_ AmiFTP.c      526 SpeedBar      1fa Menu.c       10d8 MainWind      370
-                           Menu.c      1932c
+                           Menu.c      1945c
 @parse_h ftp.c        2a72 dofuncs.       6a dofuncs.     11be
-@perror  perror.c        4 ftp.c        2832 ftp.c        28d2 ftp.c       1416c
-@ping_se misc.c        7f6 rexx.c       102c change_d       18 rexx.c      15672
+@perror  perror.c        4 ftp.c        2832 ftp.c        28d2 ftp.c       1427c
+@ping_se misc.c        7f6 rexx.c       102c change_d       18 rexx.c      15782
 @PrintCo ConnectW      bda ftp.c          8a ftp.c          b6 ftp.c         352
                            ftp.c         47c ftp.c         f78 ftp.c        102c
                            ftp.c        104a ftp.c        1104 ftp.c        114a
                            ftp.c        2b0c change_d      1aa misc.c        764
                            misc.c        e12
 @Put_cli AmiFTP.c      764 SpeedBar      21a Menu.c       110e MainWind      35e
-                           Menu.c      192d2
+                           Menu.c      19402
 @qsort   qsort.c        10 ADT.c         7f0
 @quit_ft misc.c        76e rexx.c        864 ftp.c        1030 ftp.c        104e
                            ftp.c        114e AmiFTP.c      516 AmiFTP.c      aa8
-                           AmiFTP.c     11b8 dofuncs.       5e ftp.c       1412a
-@rand    rand.c          0 config.c      ef0 config.c     e54e
+                           AmiFTP.c     12c6 dofuncs.       5e ftp.c       1423a
+@rand    rand.c          0 config.c      ef0 config.c     e65e
 @ReadCon config.c        0 main.c        76c main.c        79a main.c        7c2
-                           main.c        7e8 main.c        818 AmiFTP.c     1926
-                           main.c      168b8 AmiFTP.c     761c
+                           main.c        7e8 main.c        818 AmiFTP.c     1a34
+                           main.c      169e8 AmiFTP.c     772c
 @ReadRec ADT.c           0 ConnectW      278
 @read_re readdir.        0 rexx.c        90c ConnectW      27e Transfer     1ff0
-                           AmiFTP.c      5d6 AmiFTP.c     10b8 MainWind      1ba
-                           MainWind      262 ConnectW    11496 Transfer     9a8e
+                           AmiFTP.c      5d6 AmiFTP.c     11c6 MainWind      1ba
+                           MainWind      262 ConnectW    115a6 Transfer     9b9e
 @realloc realloc.        8 _getenv.       d6
-@Reconne AmiFTP.c      988 Menu.c       107e Menu.c      19308
-@recvreq ftp.c        17f2 Transfer     1cf0 Transfer     9a5e
-@RemoteC AmiFTP.c     117c MainWind      1f4 MainWind      338
-@RemoveC cache.c        98 AmiFTP.c     10b4 AmiFTP.c     7634
+@Reconne AmiFTP.c      988 Menu.c       107e Menu.c      19438
+@recvreq ftp.c        17f2 Transfer     1cf0 Transfer     9b6e
+@RemoteC AmiFTP.c     128a MainWind      1f4 MainWind      338
+@RemoveC cache.c        98 AmiFTP.c     11c2 AmiFTP.c     7744
 @rtAlloc rt_alloc        0 rt_varar       92
 @rtChang rt_alloc      136 rt_varar       fc
-@rtEZReq rt_ez.c         0 rt_varar      2c4 rt_varar      33e AmiFTP.c     11fe
-                           AmiFTP.c     7628
+@rtEZReq rt_ez.c         0 rt_varar      2c4 rt_varar      33e AmiFTP.c     130c
+                           AmiFTP.c     7738
 @rtEZVia rt_reque      39e rt_ez.c        86
 @rtFileR rt_file.        0 rt_varar      16e
 @rtFontR rt_font.        0 rt_varar      1de
 @rtGetLo rt_long.        0 rt_varar      42c
 @rtGetLo rt_reque      226 rt_long.       ee
 @rtGetSt rt_strin        0 rt_varar      3b8 Menu.c        914 Menu.c        9b4
-                           Menu.c        a94 Menu.c       11cc AmiFTP.c     124a
-                           AmiFTP.c     7622
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section                Page 3-7
+                           Menu.c        a94 Menu.c       11cc AmiFTP.c     1358
+                           AmiFTP.c     7732
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section                Page 3-7
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
 @rtGetSt rt_reque       ae rt_strin       d0
@@ -632,49 +632,49 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
 @rt_wrap rt_glue.      1c0 rt_file.      1de
 @rt_wrap rt_glue.      13e rt_alloc       38 rt_alloc       46
 @rt_wrap rt_glue.      162 rt_file.       44 rt_font.       3c rt_scree       3c
-@SavePre AmiFTP.c     15d8 Menu.c       1048 Menu.c      192d8
-@SavePre AmiFTP.c     1690 Menu.c       105a Menu.c      192f6
+@SavePre AmiFTP.c     16e6 Menu.c       1048 Menu.c      19408
+@SavePre AmiFTP.c     179e Menu.c       105a Menu.c      19426
 @SendAGM aguide.c      2ca ConnectW      7e6 PrefsWin      20e SiteWind      31a
-                           SiteWind     18ae Transfer      ad2 AmiFTP.c     1596
+                           SiteWind     18ae Transfer      ad2 AmiFTP.c     16a4
                            MainWind      4cc MainWind      4d4 MainWind      64a
-                           SiteWind     d5c2 MainWind     5c96
-@sendreq ftp.c        12a8 Transfer     15a6 Transfer     9aa6
-@SetRexx rexxvars       b0 rexx.c        ebe rexx.c       13b8 rexx.c      15648
-@SetTran Transfer     1ad4 ftp.c        193a ftp.c        19c0 ftp.c       14112
+                           SiteWind     d6d2 MainWind     5c96
+@sendreq ftp.c        12a8 Transfer     15a6 Transfer     9bb6
+@SetRexx rexxvars       b0 rexx.c        ebe rexx.c       13b8 rexx.c      15758
+@SetTran Transfer     1ad4 ftp.c        193a ftp.c        19c0 ftp.c       14222
 @settype ftp.c        2bd0 ADT.c         2b2 Transfer       1a Transfer     1380
-                           Transfer     9abe
+                           Transfer     9bce
 @SetupAm amitcp.c      29e tcp.c          dc
-@SetupLo locale.c        0 main.c        b4e
+@SetupLo locale.c        0 main.c        b6c
 @sgetc   misc.c        402 ADT.c         10c ftp.c        1ec6 ftp.c        1ed8
                            ftp.c        25ce ftp.c        25f8 ftp.c        2626
                            ftp.c        26fe ftp.c        2a48 readdir.      10a
-                           ftp.c       1414e
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section                Page 3-8
+                           ftp.c       1425e
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section                Page 3-8
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
-@Site_cl AmiFTP.c      f46 MainWind      3b2
+@Site_cl AmiFTP.c     1054 MainWind      3b2
 @sort_AD ADT.c         78c Menu.c        5c2 Menu.c        640
-@sort_fi dirlist.      8f8 Menu.c        5b6 Menu.c        634 Menu.c      1930e
-@srand   rand.c         36 config.c      eec config.c     e53c
+@sort_fi dirlist.      8f8 Menu.c        5b6 Menu.c        634 Menu.c      1943e
+@srand   rand.c         36 config.c      eec config.c     e64c
 @stcgfn  stcgfn.c        8 Transfer      186 Transfer      1dc Transfer      210
                            Transfer      37e Transfer      3d4 Transfer      408
-                           Transfer     9ac4
+                           Transfer     9bd4
 @stci_d  stcl_d.o        8 tinyprin       70
 @strcat  strcat.o        8 Transfer      1fe Transfer      3f6 Transfer     13f0
-                           Transfer     1d7c Transfer     1d84 Transfer     9aca
+                           Transfer     1d7c Transfer     1d84 Transfer     9bda
 @strchr  strchr.o        8 _getenv.       bc ftp.c        2118 Transfer      21a
                            Transfer      226 Transfer      412 Transfer      41e
                            AmiFTP.c       46 AmiFTP.c       52 AmiFTP.c       68
                            dirlist.      83a change_d       a2 change_d      156
                            change_d      18a dofuncs.      2cc misc.c        722
-                           misc.c        730 misc.c        874 ftp.c       14142
-                           Transfer     9a88 misc.c        e4e
+                           misc.c        730 misc.c        874 ftp.c       14252
+                           Transfer     9b98 misc.c        e4e
 @strcspn strcspn.        8 strtok.c       42
 @strdup  strdup.c        4 Menu.c        f9e Menu.c        fb6 Menu.c        fdc
                            main.c        47c main.c        53e main.c        712
                            main.c        790 main.c        7b8 main.c        7de
                            main.c        7f8 main.c        822 main.c        86e
-                           main.c        ea2 cache.c       14e cache.c       1be
+                           main.c        ec0 cache.c       14e cache.c       1be
                            rexx.c        7c8 rexx.c        a4c rexx.c        a60
                            rexx.c        a74 rexx.c        a88 rexx.c        a9c
                            rexx.c        ab0 rexx.c        ac6 PrefsWin     1ca4
@@ -690,22 +690,22 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            Transfer     20ce Transfer     20e2 Transfer     20fc
                            Transfer     2198 Transfer     21bc Transfer     21e6
                            Transfer     2212 AmiFTP.c      a04 AmiFTP.c      a50
-                           AmiFTP.c      e7c AmiFTP.c     175a AmiFTP.c     18aa
-                           change_d       40 misc.c        832 PrefsWin    107e6
-                           Transfer     9a76 misc.c        e30
+                           AmiFTP.c      e7c AmiFTP.c     1868 AmiFTP.c     19b8
+                           change_d       40 misc.c        832 PrefsWin    108f6
+                           Transfer     9b86 misc.c        e30
 @strecmp misc.c        94a PrefsWin     1c7e PrefsWin     1cd4 PrefsWin     1d2a
                            PrefsWin     1d80 PrefsWin     1dfe PrefsWin     1e5e
-                           PrefsWin     1ec0 PrefsWin     2096 PrefsWin    107da
+                           PrefsWin     1ec0 PrefsWin     2096 PrefsWin    108ea
 @stricmp stricmp.        8 ADT.c         5e0 ADT.c         606 ADT.c         74c
                            ADT.c         758 rexx.c        992 AmiFTP.c      2d0
-                           dirlist.      6ac dirlist.      730 rexx.c      1562a
+                           dirlist.      6ac dirlist.      730 rexx.c      1573a
                            dirlist.     32e0
 @strmfp  strmfp.c        e main.c        73e rexx.c        552 Transfer      244
                            Transfer      2aa Transfer      43c Transfer     2054
                            AmiFTP.c      b90 AmiFTP.c      c2a AmiFTP.c      d06
-                           AmiFTP.c      dd6 rexx.c      1564e AmiFTP.c     763a
+                           AmiFTP.c      dd6 rexx.c      1575e AmiFTP.c     774a
 @strncmp strncmp.        c ADT.c          b2 ADT.c          c4 ADT.c          e4
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section                Page 3-9
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section                Page 3-9
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            ADT.c          f6 ftp.c         48e ftp.c        103e
@@ -713,10 +713,10 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            readdir.       94 readdir.       c6 readdir.       d8
                            readdir.      994 readdir.      b96 readdir.      d4e
                            readdir.      f72 readdir.     1264 change_d       b8
-                           change_d      148 change_d      17c ftp.c       140fa
+                           change_d      148 change_d      17c ftp.c       1420a
                            change_d     15b8
 @strncpy strncpy.        c getdfs.c       54 main.c        50c main.c        52e
-                           main.c        e5a main.c        e8c rexx.c        704
+                           main.c        e78 main.c        eaa rexx.c        704
                            rexx.c        716 rexx.c        732 rexx.c        74e
                            rexx.c        766 rexx.c        77e rexx.c        896
                            rexx.c        b00 rexx.c        b20 rexx.c        b36
@@ -726,19 +726,19 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            ConnectW      1a6 AmiFTP.c       60 AmiFTP.c      758
                            AmiFTP.c      974 AmiFTP.c      a38 MainWind      482
                            MainWind     2396 MainWind     23f8 MainWind     2458
-                           change_d      1bc ConnectW    114ae change_d     15be
+                           change_d      1bc ConnectW    115be change_d     15be
 @strnicm strnicmp        c rexx.c        e54 rexx.c        e6e AmiFTP.c       38
-                           misc.c        974 rexx.c      15624 misc.c        e0c
+                           misc.c        974 rexx.c      15734 misc.c        e0c
 @strrchr strrchr.        8 readdir.      a68 readdir.     1252 readdir.     286e
 @strspn  strspn.o        8 strtok.c       28
-@strstr  strstr.o        8 main.c        ed8 config.c      f1a main.c      168d6
-                           config.c     e542
-@strtok  strtok.c        8 ftp.c        2ab6 ftp.c        2ac0 ftp.c       14160
+@strstr  strstr.o        8 main.c        ef6 config.c      f1a main.c      16a06
+                           config.c     e652
+@strtok  strtok.c        8 ftp.c        2ab6 ftp.c        2ac0 ftp.c       14270
 @time    time.c          4 main.c        634 config.c      ee8 readdir.      a1c
-                           readdir.      dd6 main.c      168ca config.c     e530
+                           readdir.      dd6 main.c      169fa config.c     e640
                            readdir.     2850
 @timeout misc.c        74a ADT.c         148 AmiFTP.c      4f8 readdir.      138
-                           ADT.c       18028
+                           ADT.c       18158
 @UnlockW MainWind     24da Menu.c        5d4 Menu.c        652 Menu.c        7fa
                            Menu.c        8a4 Menu.c        b3e ConnectW      412
                            ConnectW      620 PrefsWin       ca PrefsWin     21d6
@@ -746,39 +746,39 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            AmiFTP.c      3ae AmiFTP.c      3bc AmiFTP.c      506
                            AmiFTP.c      676 AmiFTP.c      706 AmiFTP.c      920
                            AmiFTP.c      958 AmiFTP.c      97e AmiFTP.c      e36
-                           AmiFTP.c     115c AmiFTP.c     116e AmiFTP.c     15ca
-                           AmiFTP.c     1682 misc.c        af4 Menu.c      192cc
-                           SiteWind     d5a4
+                           AmiFTP.c     126a AmiFTP.c     127c AmiFTP.c     16d8
+                           AmiFTP.c     1790 misc.c        af4 Menu.c      193fc
+                           SiteWind     d6b4
 @UpdateD Transfer     16c2 ftp.c        1550 ftp.c        1726 ftp.c        1d64
-                           ftp.c        1ffc ftp.c       14148
+                           ftp.c        1ffc ftp.c       14258
 @UpdateL MainWind     23dc rexx.c        89e rexx.c        e1e ConnectW      3e8
-                           AmiFTP.c      734 ConnectW    1149c
+                           AmiFTP.c      734 ConnectW    115ac
 @UpdateM MainWind     178e Menu.c        702 Menu.c        76a Menu.c        89c
                            Menu.c        e46 Menu.c        f34 Menu.c       1282
                            rexx.c        86a rexx.c        940 ConnectW      3ee
                            ConnectW      552 Transfer      57a AmiFTP.c      66e
-                           AmiFTP.c      aae AmiFTP.c      e2e AmiFTP.c     1150
-                           misc.c        7b2 Menu.c      192fc ConnectW    114a2
+                           AmiFTP.c      aae AmiFTP.c      e2e AmiFTP.c     125e
+                           misc.c        7b2 Menu.c      1942c ConnectW    115b2
 @UpdateM Menu.c        510 SiteWind     1568 MainWind      51c MainWind     1578
-                           SiteWind     d5aa MainWind     5c78
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-10
+                           SiteWind     d6ba MainWind     5c78
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-10
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
-@UpdateR MainWind     2376 AmiFTP.c     1166 change_d      1c4
-@UpdateS MainWind     243e ConnectW      1ae dofuncs.      2f6 ConnectW    1148a
+@UpdateR MainWind     2376 AmiFTP.c     1274 change_d      1c4
+@UpdateS MainWind     243e ConnectW      1ae dofuncs.      2f6 ConnectW    1159a
 @UpdateS SpeedBar      23e MainWind     21e2 MainWind     5c90
 @UpdateW MainWind     268a Menu.c        706 Menu.c        76e Menu.c        8a8
                            Menu.c        e4e Transfer      57e AmiFTP.c      75c
-                           AmiFTP.c     1154 Menu.c      19314
+                           AmiFTP.c     1262 Menu.c      19444
 @UploadF Transfer     1364 rexx.c        c6c rexx.c        d70 AmiFTP.c      910
-                           MainWind      55c rexx.c      15678
-@ViewFil AmiFTP.c      e44 rexx.c        55a ConnectW      602 ConnectW    11484
+                           MainWind      55c rexx.c      15788
+@ViewFil AmiFTP.c      e44 rexx.c        55a ConnectW      602 ConnectW    11594
 @View_cl AmiFTP.c      b0a SpeedBar      236 Menu.c       112e Menu.c       1154
-                           MainWind      368 MainWind      37a Menu.c      1931a
+                           MainWind      368 MainWind      37a Menu.c      1944a
 @vsprint vsprintf       22 rexx.c        ea6 ftp.c        11dc misc.c        398
-                           ftp.c       14106 misc.c        e24
-@WriteCo config.c      228 main.c        8a6 AmiFTP.c     167a AmiFTP.c     17c6
-                           main.c      168e8 AmiFTP.c     7646
+                           ftp.c       14216 misc.c        e24
+@WriteCo config.c      228 main.c        8a6 AmiFTP.c     1788 AmiFTP.c     18d4
+                           main.c      16a18 AmiFTP.c     7756
 @__autoc autoopen        0 arexx.c        1c bevel.c        1c button.c       1c
                            checkbox       1c chooser.       1c clicktab       1c
                            fuelgaug       1c integer.       1c label.c        1c
@@ -804,7 +804,7 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
 @__stcul _stcul_d        8 _pfmt.c       28e
 @__stpcp _stpcpy.        8 _iob.c        104 _iob.c        112 _iob.c        12a
                            strmfp.c       1a strmfp.c       44
-@__strup _strupr.        4 _pfmt.c       396 rexx.c        eea rexx.c      1565a
+@__strup _strupr.        4 _pfmt.c       396 rexx.c        eea rexx.c      1576a
 @__swmem _swmem.o        c qsort.c        5a qsort.c        74 qsort.c        a6
                            qsort.c        bc
 @__tzset _tzset.c        0 time.c         10 localtim        c
@@ -816,46 +816,46 @@ _ag      data.c        cd0 aguide.c       98 aguide.c      2de aguide.c      2e6
                            aguide.c      2f6 aguide.c      31c aguide.c      338
                            main.c        45c main.c        464 main.c        46c
                            main.c        474 main.c        878 main.c        890
-                           main.c        c20
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-11
+                           main.c        c3e
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-11
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
-_AG_Sign data.c          c aguide.c      306 ftp.c         1c2 ftp.c         2ca
+_AG_Sign data.c          e aguide.c      306 ftp.c         1c2 ftp.c         2ca
                            ftp.c        1474 ftp.c        14e8 ftp.c        1bd4
                            ftp.c        1cbe ftp.c        240c ftp.c        249e
                            ConnectW      50c ConnectW      51a PrefsWin       8c
                            PrefsWin       9a SiteWind      26a SiteWind      286
                            SiteWind     1522 SiteWind     1536 Transfer      636
                            Transfer      648 Transfer     167e Transfer     169a
-                           AmiFTP.c      444 AmiFTP.c      4de AmiFTP.c     1526
-                           AmiFTP.c     1550 misc.c        4f8 misc.c        5e8
+                           AmiFTP.c      444 AmiFTP.c      4de AmiFTP.c     1634
+                           AmiFTP.c     165e misc.c        4f8 misc.c        5e8
 _AmiFTPA MainWind        0 main.c        66c main.c        670
 _AmiFTPA MainWind       80 ConnectW      a20 PrefsWin      54e PrefsWin      55c
                            PrefsWin      d34 PrefsWin      fb4 PrefsWin     156e
                            PrefsWin     17ca PrefsWin     19da SiteWind      f8c
-                           SiteWind     229e Transfer     1128 AmiFTP.c     132c
-                           AmiFTP.c     13fc
+                           SiteWind     229e Transfer     1128 AmiFTP.c     143a
+                           AmiFTP.c     150a
 _AmigaGu data.c        cc8 aguide.c        c aguide.c       3c aguide.c       56
                            aguide.c       70 aguide.c       90 aguide.c       9c
                            aguide.c      2d8 aguide.c      2fe aguide.c      314
-                           aguide.c      320 aguide.c      33c main.c        ab0
-                           main.c        c1a main.c        c2e
+                           aguide.c      320 aguide.c      33c main.c        ace
+                           main.c        c38 main.c        c4c
 _AppPort main.c          4 AmiFTP.c      3e2 MainWind     1492
 _ARexxBa arexx.c         0 rexx.c       13e0 rexx.c       1448
 _ARexxQu rexx.c          0 AmiFTP.c      4be AmiFTP.c      4d2
-_ARexx_O rexx.c         38 main.c        c4e AmiFTP.c      3ca AmiFTP.c      4c8
-_argsptr data.c        c8e main.c        4d6 main.c        c7e
+_ARexx_O rexx.c         38 main.c        c6c AmiFTP.c      3ca AmiFTP.c      4c8
+_argsptr data.c        c8e main.c        4d6 main.c        c9c
 _ARPort  MainWind      258 Transfer      b1c
 _AslBase data.c        cb0 rt_glue.       10 rt_glue.       24 rt_glue.       28
                            rt_glue.      346 rt_alloc       a6 rt_alloc       b6
                            rt_alloc       c0 rt_file.      1c2 rt_font.      15a
-                           rt_scree      17a main.c        a28 main.c        cde
+                           rt_scree      17a main.c        a46 main.c        cfc
                            PrefsWin     216e PrefsWin     219e PrefsWin     21ca
                            SiteWind     1436 SiteWind     145e SiteWind     14b4
                            AmiFTP.c      79e AmiFTP.c      7c0 AmiFTP.c      8ea
-                           AmiFTP.c      8f6 AmiFTP.c     1700 AmiFTP.c     171a
-                           AmiFTP.c     17d0 AmiFTP.c     1850 AmiFTP.c     186a
-                           AmiFTP.c     1936 misc.c        a94 misc.c        ac2
+                           AmiFTP.c      8f6 AmiFTP.c     180e AmiFTP.c     1828
+                           AmiFTP.c     18de AmiFTP.c     195e AmiFTP.c     1978
+                           AmiFTP.c     1a44 misc.c        a94 misc.c        ac2
 _BevelBa bevel.c         0 PrefsWin     1872 SiteWind      e1e
 _ButtonB button.c        0 main.c        41c
 _CheckBo checkbox        0 PrefsWin      b38 PrefsWin      bd2 PrefsWin      c3a
@@ -866,14 +866,14 @@ _CheckBo checkbox        0 PrefsWin      b38 PrefsWin      bd2 PrefsWin      c3a
 _Chooser chooser.        0 choosern       4e choosern       90 cache.c       2a0
                            cache.c       2cc SiteWind      b58 MainWind      2f4
                            MainWind      b10
-_Chooser choosern        0 SiteWind      416 SiteWind     d5ce
+_Chooser choosern        0 SiteWind      416 SiteWind     d6de
 _cin     data.c          0 ftp.c         440 ftp.c        257c ftp.c        25ca
                            ftp.c        25f4 ftp.c        2622 ftp.c        26fa
                            ftp.c        2876 AmiFTP.c      3fe AmiFTP.c      458
                            misc.c        7ec
 _cliargs main.c         14 AmiFTP.c      26c AmiFTP.c      27c AmiFTP.c      2c2
                            AmiFTP.c      2ec AmiFTP.c      344
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-12
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-12
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
 _ClickTa clicktab        0 PrefsWin       34 PrefsWin      6b8 PrefsWin     221c
@@ -901,14 +901,14 @@ _code    data.c         28 ADT.c         2c0 main.c        5f4 rexx.c        938
                            change_d      12e change_d      364 change_d      384
                            misc.c        80e
 _columni MainWind       18 ConnectW      346 ConnectW      3a6 AmiFTP.c      59c
-                           AmiFTP.c      628 AmiFTP.c     110a
+                           AmiFTP.c      628 AmiFTP.c     1218
 _command ftp.c        11ae Menu.c        942 Menu.c        9d2 Menu.c        ac0
                            Menu.c        ae6 ADT.c         2ce rexx.c       1388
                            Transfer     1fc0 Transfer     22e6 Transfer     2342
                            change_d       8c change_d       cc change_d      108
                            change_d      120 change_d      356 change_d      376
                            change_d      3cc misc.c        78c misc.c        804
-                           Transfer     9a70 misc.c        e2a
+                           Transfer     9b80 misc.c        e2a
 _ConfigC data.c        c92 Menu.c       1022 ADT.c         170 main.c        85e
                            main.c        87c main.c        89c ConnectW      60e
                            PrefsWin     1bd4 PrefsWin     1c00 PrefsWin     1c2c
@@ -922,14 +922,14 @@ _ConfigC data.c        c92 Menu.c       1022 ADT.c         170 main.c        85e
                            SiteWind     1b50 SiteWind     2608 SiteWind     2a58
                            SiteWind     2e9e SiteWind     3090 SiteWind     32a2
                            SiteWind     33a8 SiteWind     34ee SiteWind     3620
-                           AmiFTP.c     15e4 AmiFTP.c     1686 AmiFTP.c     17ca
-                           AmiFTP.c     1930 MainWind     16b4
-_ConfigN main.c          0 AmiFTP.c     1676 AmiFTP.c     16b0 AmiFTP.c     16bc
-                           AmiFTP.c     16de AmiFTP.c     174a AmiFTP.c     175e
-                           AmiFTP.c     1802 AmiFTP.c     180e AmiFTP.c     1830
-                           AmiFTP.c     189a AmiFTP.c     18ae AmiFTP.c     1922
+                           AmiFTP.c     16f2 AmiFTP.c     1794 AmiFTP.c     18d8
+                           AmiFTP.c     1a3e MainWind     16b4
+_ConfigN main.c          0 AmiFTP.c     1784 AmiFTP.c     17be AmiFTP.c     17ca
+                           AmiFTP.c     17ec AmiFTP.c     1858 AmiFTP.c     186c
+                           AmiFTP.c     1910 AmiFTP.c     191c AmiFTP.c     193e
+                           AmiFTP.c     19a8 AmiFTP.c     19bc AmiFTP.c     1a30
 _connect data.c         3c SpeedBar      1ee SpeedBar      206 SpeedBar      226
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-13
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-13
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            Menu.c        8c2 Menu.c        96e Menu.c        9fe
@@ -942,7 +942,7 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            AmiFTP.c      510 AmiFTP.c      964 MainWind      46e
                            MainWind      6b4 dofuncs.       58 dofuncs.      2be
                            misc.c        778
-_Connect ConnectW        0 AmiFTP.c     121c
+_Connect ConnectW        0 AmiFTP.c     132a
 _Connect ConnectW        8 ftp.c         162 misc.c        45e
 _context aguide.c        0 main.c        470
 _cout    data.c          4 ftp.c         43c ftp.c        11bc ftp.c        122e
@@ -962,7 +962,7 @@ _Current data.c        d2a SpeedBar      1f4 Menu.c        5a8 Menu.c        626
                            main.c        51c main.c        528 main.c        556
                            main.c        56c main.c        662 main.c        668
                            main.c        674 main.c        67a main.c        88a
-                           main.c        e52 main.c        e70 main.c        e86
+                           main.c        e70 main.c        e8e main.c        ea4
                            rexx.c        6fe rexx.c        710 rexx.c        71c
                            rexx.c        728 rexx.c        738 rexx.c        744
                            rexx.c        754 rexx.c        760 rexx.c        76c
@@ -985,7 +985,7 @@ _Current data.c        d2a SpeedBar      1f4 Menu.c        5a8 Menu.c        626
                            rexx.c       1408 rexx.c       1434 rexx.c       148c
                            ConnectW      19c ConnectW      1aa ConnectW      2fe
                            ConnectW      30e ConnectW      318 ConnectW      55c
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-14
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-14
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            ConnectW      bea Transfer      106 Transfer      10a
@@ -997,9 +997,9 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            AmiFTP.c      9a6 AmiFTP.c      9ae AmiFTP.c      9ba
                            AmiFTP.c      a00 AmiFTP.c      a0c AmiFTP.c      a2a
                            AmiFTP.c      a4c AmiFTP.c      a58 AmiFTP.c      a60
-                           AmiFTP.c      fae AmiFTP.c     1070 AmiFTP.c     10b0
-                           AmiFTP.c     10c6 AmiFTP.c     1162 AmiFTP.c     1310
-                           AmiFTP.c     15ea AmiFTP.c     15f8 MainWind      194
+                           AmiFTP.c     10bc AmiFTP.c     117e AmiFTP.c     11be
+                           AmiFTP.c     11d4 AmiFTP.c     1270 AmiFTP.c     141e
+                           AmiFTP.c     16f8 AmiFTP.c     1706 MainWind      194
                            MainWind      1ca MainWind      23e MainWind      272
                            MainWind      310 MainWind      474 MainWind     139a
                            MainWind     139e MainWind     1404 MainWind     1424
@@ -1041,7 +1041,7 @@ _DEBUG   main.c         10 Menu.c        7ae Menu.c        7e6 Menu.c        802
                            ftp.c        10ea ftp.c        120c ftp.c        1246
                            ftp.c        1290 ftp.c        1336 ftp.c        15f6
                            ftp.c        16b2 ftp.c        181e ftp.c        18a4
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-15
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-15
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            ftp.c        1a18 ftp.c        1a2e ftp.c        1a4c
@@ -1097,7 +1097,7 @@ _DebugLo misc.c        372 Menu.c        7b8 Menu.c        7f0 Menu.c        80c
                            ftp.c        2488 ftp.c        24bc ftp.c        2586
                            ftp.c        25b8 ftp.c        2790 ConnectW       d2
                            ConnectW      196 ConnectW      1e0 ConnectW      1fa
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-16
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-16
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            ConnectW      26c ConnectW      2a0 ConnectW      400
@@ -1109,24 +1109,24 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            Transfer     19dc Transfer     1a54 Transfer     1a94
                            Transfer     1b7a Transfer     1cc0 Transfer     1cd8
                            Transfer     1dc6 Transfer     1e02 AmiFTP.c      128
-                           AmiFTP.c      24a AmiFTP.c      262 AmiFTP.c      f76
-                           AmiFTP.c      f88 change_d       38 change_d      1d6
+                           AmiFTP.c      24a AmiFTP.c      262 AmiFTP.c     1084
+                           AmiFTP.c     1096 change_d       38 change_d      1d6
                            dofuncs.       a4 dofuncs.      226 dofuncs.      25e
-                           dofuncs.      2a2 dofuncs.      2b6 main.c      168c4
-                           PrefsWin    107e0 Transfer     9a58
+                           dofuncs.      2a2 dofuncs.      2b6 main.c      169f4
+                           PrefsWin    108f0 Transfer     9b68
 _default data.c        c9c main.c        6aa main.c        71a main.c        830
                            main.c        856 dofuncs.       40
-_Diskfon data.c        cac main.c        99e main.c        cce MainWind      8bc
+_Diskfon data.c        cac main.c        99e main.c        cec MainWind      8bc
 _DoMetho classfac        0 rt_reque      1ee rt_reque      34a rt_reque      500
                            SpeedBar      1d0 Menu.c        672 rexx.c       132e
                            rexx.c       1356 ConnectW      7f8 ConnectW      b86
                            PrefsWin      520 PrefsWin     1b6e SiteWind      3e0
                            SiteWind     11a6 SiteWind     1bcc SiteWind     248a
                            Transfer      a8e Transfer      aac Transfer      ae4
-                           Transfer     1310 AmiFTP.c      4cc AmiFTP.c     14e6
-                           AmiFTP.c     15a8 MainWind      4ec MainWind      50a
+                           Transfer     1310 AmiFTP.c      4cc AmiFTP.c     15f4
+                           AmiFTP.c     16b6 MainWind      4ec MainWind      50a
                            MainWind      536 MainWind     15ac MainWind     15ca
-                           rexx.c      15636 SiteWind     d5b0 MainWind     5c7e
+                           rexx.c      15746 SiteWind     d6c0 MainWind     5c7e
 _DOSBase c               4 _iob.c         5a _iob.c        136 _iob.c        18e
                            _getenv.       36 _getenv.       ea time.c         1a
                            _lseek.c       4a _lseek.c       8a _write.c       8c
@@ -1137,8 +1137,8 @@ _DOSBase c               4 _iob.c         5a _iob.c        136 _iob.c        18e
                            ADT.c          80 ADT.c         6e0 aguide.c       80
                            main.c        3f0 main.c        434 main.c        4ac
                            main.c        4cc main.c        752 main.c        778
-                           main.c        8b6 main.c        c86 main.c        d5a
-                           main.c        e20 main.c        eb2 rexx.c        540
+                           main.c        8b6 main.c        ca4 main.c        d78
+                           main.c        e3e main.c        ed0 rexx.c        540
                            ftp.c        12d6 ftp.c        12f8 ftp.c        131a
                            ftp.c        1384 ftp.c        13aa ftp.c        15ae
                            ftp.c        15ec ftp.c        1656 ftp.c        1734
@@ -1149,18 +1149,18 @@ _DOSBase c               4 _iob.c         5a _iob.c        136 _iob.c        18e
                            Transfer     13e4 Transfer     141a Transfer     1442
                            Transfer     1458 Transfer     18a0 Transfer     18b8
                            Transfer     1e42 Transfer     1f7e AmiFTP.c      7e8
-                           AmiFTP.c      820 AmiFTP.c      846 AmiFTP.c      f30
-                           AmiFTP.c     16b4 AmiFTP.c     16e2 AmiFTP.c     173e
-                           AmiFTP.c     1806 AmiFTP.c     1834 AmiFTP.c     188e
-                           MainWind      730 MainWind      7f4 MainWind     26ae
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-17
+                           AmiFTP.c      820 AmiFTP.c      846 AmiFTP.c      f46
+                           AmiFTP.c      f9c AmiFTP.c     103e AmiFTP.c     17c2
+                           AmiFTP.c     17f0 AmiFTP.c     184c AmiFTP.c     1914
+                           AmiFTP.c     1942 AmiFTP.c     199c MainWind      730
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-17
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
-                           misc.c         88 misc.c        30a misc.c        344
-                           misc.c        362
+                           MainWind      7f4 MainWind     26ae misc.c         88
+                           misc.c        30a misc.c        344 misc.c        362
 _DrawInf MainWind       6c ConnectW      a2a PrefsWin     19e4 SiteWind      f96
-                           SiteWind     22a8 Transfer     1132 AmiFTP.c     1270
-                           AmiFTP.c     1336 AmiFTP.c     13f2
+                           SiteWind     22a8 Transfer     1132 AmiFTP.c     137e
+                           AmiFTP.c     1444 AmiFTP.c     1500
 _DropUpl MainWind      214 AmiFTP.c      22e
 _EditSit SiteWind        8 MainWind      6cc
 _errno   errno.c         0 perror.c        8 _getenv.       e4 malloc.o        e
@@ -1193,15 +1193,15 @@ _FileLis data.c        d18 SpeedBar      200 SpeedBar      220 Menu.c        596
                            Transfer      486 Transfer      4d2 Transfer      572
                            AmiFTP.c      584 AmiFTP.c      610 AmiFTP.c      694
                            AmiFTP.c      6ea AmiFTP.c      6f6 AmiFTP.c      b24
-                           AmiFTP.c      df2 AmiFTP.c     10f2 MainWind       b4
+                           AmiFTP.c      df2 AmiFTP.c     1200 MainWind       b4
                            MainWind       bc MainWind      1a6 MainWind      1d2
                            MainWind      230 MainWind      250 MainWind      27a
                            MainWind      2a8 MainWind      324 MainWind      c60
                            MainWind     2260 MainWind     22da MainWind     2736
                            MainWind     273c MainWind     2808
-_FreeCho choosern       7c SiteWind     13d8 SiteWind     d5d4
+_FreeCho choosern       7c SiteWind     13d8 SiteWind     d6e4
 _ftp_por data.c         60 main.c        626 main.c        62e ftp.c         152
-                           AmiFTP.c      39e AmiFTP.c      a6c AmiFTP.c     1022
+                           AmiFTP.c      39e AmiFTP.c      a6c AmiFTP.c     1130
 _FuelGau fuelgaug        0 Transfer      eee
 _GadTool gadtools        0 rt_strin      14c rt_strin      194 rt_strin      1c6
                            rt_strin      1e0 rt_strin      286 rt_strin      2e4
@@ -1209,7 +1209,7 @@ _GadTool gadtools        0 rt_strin      14c rt_strin      194 rt_strin      1c6
                            rt_strin      418 rt_strin      42e rt_strin      5b6
                            rt_strin      5ce rt_long.      17a rt_long.      1ae
                            rt_long.      2ae rt_long.      30c rt_long.      3c2
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-18
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-18
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            rt_long.      4a0 rt_long.      4fe rt_long.      578
@@ -1219,17 +1219,18 @@ _GetAttr getattrs       4a PrefsWin      280 PrefsWin      294 PrefsWin     20f6
                            SiteWind     15f2 SiteWind     17a4 SiteWind     18d0
                            SiteWind     1964 SiteWind     1992 SiteWind     1a02
                            SiteWind     2668 SiteWind     2a8a SiteWind     2ecc
-                           SiteWind     30be MainWind      13e SiteWind     d5da
+                           SiteWind     30be MainWind      13e SiteWind     d6ea
                            MainWind     5cc0
 _GetSysT GetSysTi        0 ftp.c        13c8 ftp.c        153e ftp.c        1714
                            ftp.c        1b1a ftp.c        1d4e ftp.c        1fe8
-                           ftp.c       14172
-_GfxBase data.c        ca8 main.c        942 main.c        cae Transfer      b24
+                           ftp.c       14282
+_GfxBase data.c        ca8 main.c        942 main.c        ccc Transfer      b24
                            MainWind      854 MainWind      910 MainWind     1612
                            MainWind     1736 MainWind     174a MainWind     175e
-_IconBas data.c        cbc main.c        9cc main.c        cfe main.c        e32
+_HaveOpe data.c          c main.c        a02 main.c        a16 AmiFTP.c      e9c
+_IconBas data.c        cbc main.c        9cc main.c        d1c main.c        e50
                            MainWind     1454
-_IFFPars data.c        cb4 main.c        a56 main.c        cee config.c       24
+_IFFPars data.c        cb4 main.c        a74 main.c        d0c config.c       24
                            config.c       4e config.c      10e config.c      14a
                            config.c      196 config.c      1b2 config.c      1c6
                            config.c      250 config.c      27a config.c      34c
@@ -1237,7 +1238,7 @@ _IFFPars data.c        cb4 main.c        a56 main.c        cee config.c       24
                            config.c      752 config.c      e22 config.c      e40
                            config.c      e52
 _im      AmiFTP.c       a8 MainWind     2896
-_infotex version.       24 AmiFTP.c     131a
+_infotex version.       24 AmiFTP.c     1428
 _Integer integer.        0 PrefsWin      960 PrefsWin      9fc PrefsWin     1646
                            SiteWind      658
 _Intuiti data.c        ca0 rt_glue.       7a rt_glue.       8e rt_glue.       92
@@ -1262,12 +1263,12 @@ _Intuiti data.c        ca0 rt_glue.       7a rt_glue.       8e rt_glue.       92
                            Menu.c        b78 Menu.c        ba4 Menu.c        bba
                            Menu.c        c86 Menu.c        e04 Menu.c        f1a
                            Menu.c       1274 main.c        394 main.c        3c8
-                           main.c        906 main.c        c56 main.c        c9e
+                           main.c        906 main.c        c74 main.c        cbc
                            cache.c        32 cache.c       290 cache.c       30c
-                           rexx.c       1414 rexx.c       1474 ftp.c         16e
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-19
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-19
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+                           rexx.c       1414 rexx.c       1474 ftp.c         16e
                            ftp.c        13da ftp.c        13f0 ftp.c        1b2c
                            ftp.c        23ae ConnectW      10a ConnectW      238
                            ConnectW      2c2 ConnectW      2e8 ConnectW      452
@@ -1320,16 +1321,16 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            Transfer      bfc Transfer      ca2 Transfer      d94
                            Transfer      dd2 Transfer      e58 Transfer      f4c
                            Transfer      f88 Transfer     1166 Transfer     12f0
-                           Transfer     1322 Transfer     134c Transfer     14ac
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-20
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-20
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+                           Transfer     1322 Transfer     134c Transfer     14ac
                            Transfer     15fe Transfer     1618 Transfer     17a6
                            Transfer     1b18 Transfer     1bc4 Transfer     23f2
                            AmiFTP.c      3d2 AmiFTP.c      42e AmiFTP.c      574
-                           AmiFTP.c      600 AmiFTP.c     10e2 AmiFTP.c     12c6
-                           AmiFTP.c     1344 AmiFTP.c     14b2 AmiFTP.c     14fe
-                           AmiFTP.c     15be MainWind      3ce MainWind      4aa
+                           AmiFTP.c      600 AmiFTP.c     11f0 AmiFTP.c     13d4
+                           AmiFTP.c     1452 AmiFTP.c     15c0 AmiFTP.c     160c
+                           AmiFTP.c     16cc MainWind      3ce MainWind      4aa
                            MainWind      836 MainWind      93a MainWind      9ba
                            MainWind      9f6 MainWind      a8e MainWind      aca
                            MainWind      b5a MainWind      c32 MainWind      cde
@@ -1356,7 +1357,7 @@ _LabelBa label.c         0 ConnectW      896 ConnectW      930 PrefsWin      784
                            SiteWind      97a SiteWind      a24 SiteWind      bc6
                            SiteWind     1c0a Transfer      bd8 Transfer      c7e
                            Transfer      dae Transfer      e34 Transfer      f64
-                           AmiFTP.c     12a4 AmiFTP.c     12e6 MainWind      9d2
+                           AmiFTP.c     13b2 AmiFTP.c     13f4 MainWind      9d2
                            MainWind      aa6 MainWind      e22 MainWind     288c
 _LayoutB layout.c        0 ConnectW      824 ConnectW      a56 PrefsWin      2de
                            PrefsWin      6ac PrefsWin      706 PrefsWin      84e
@@ -1369,17 +1370,17 @@ _LayoutB layout.c        0 ConnectW      824 ConnectW      a56 PrefsWin      2de
                            SiteWind     1c5a SiteWind     1d34 SiteWind     1ec2
                            SiteWind     2026 SiteWind     22fe Transfer      b42
                            Transfer      d46 Transfer      ee2 Transfer     1194
-                           AmiFTP.c     1290 MainWind      970 MainWind      a3a
+                           AmiFTP.c     139e MainWind      970 MainWind      a3a
                            MainWind      c4c MainWind      d44 MainWind      e88
                            MainWind      f18 MainWind     1106 MainWind     2668
 _LBEditN lbnodeme       a2 SiteWind     348a Transfer      142 Transfer      320
-                           Transfer      4a4 Transfer      4f0 Transfer     9a6a
+                           Transfer      4a4 Transfer      4f0 Transfer     9b7a
 _LBRemNo lbnodeme       cc Menu.c        87e
 _LibDoGa dogadget      1ac lbnodeme       34 lbnodeme       5e lbnodeme       9a
-                           lbnodeme       c4 lbnodeme       f6
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-21
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-21
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+                           lbnodeme       c4 lbnodeme       f6
 _linfote version.       20 MainWind     2860
 _LinkerD       (0:*)       tcp.c           4 tcp.c          98 tcp.c         104
                            amitcp.c        6 amitcp.c       1e amitcp.c       36
@@ -1410,8 +1411,8 @@ _LinkerD       (0:*)       tcp.c           4 tcp.c          98 tcp.c         104
                            AmiFTP_C      ace AmiFTP_C      af4 locale.c        4
                            locale.c       22 main.c          4 main.c        364
                            main.c        376 main.c        416 main.c        8f2
-                           main.c        b5c main.c        d1a main.c        e06
-                           main.c        eca cache.c         6 cache.c        50
+                           main.c        b7a main.c        d38 main.c        e24
+                           main.c        ee8 cache.c         6 cache.c        50
                            cache.c        a0 cache.c        e0 cache.c       116
                            cache.c       1e8 cache.c       27a rexx.c          c
                            rexx.c        49c rexx.c        58e rexx.c        5de
@@ -1432,10 +1433,10 @@ _LinkerD       (0:*)       tcp.c           4 tcp.c          98 tcp.c         104
                            PrefsWin     20da PrefsWin     2124 PrefsWin     21e6
                            PrefsWin     225a config.c        8 config.c      232
                            config.c      38c config.c      53a config.c      772
-                           config.c      7d2 config.c      832 config.c      ab8
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-22
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-22
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+                           config.c      7d2 config.c      832 config.c      ab8
                            config.c      e74 config.c      eae config.c      ee0
                            config.c      f0e SiteWind        6 SiteWind      212
                            SiteWind      2d2 SiteWind      400 SiteWind     11d8
@@ -1454,10 +1455,10 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            AmiFTP.c      740 AmiFTP.c      76e AmiFTP.c      934
                            AmiFTP.c      992 AmiFTP.c      9a0 AmiFTP.c      a9c
                            AmiFTP.c      ac0 AmiFTP.c      b16 AmiFTP.c      e4e
-                           AmiFTP.c      f50 AmiFTP.c     1084 AmiFTP.c     1180
-                           AmiFTP.c     11c2 AmiFTP.c     1216 AmiFTP.c     126a
-                           AmiFTP.c     15de AmiFTP.c     169a AmiFTP.c     17ec
-                           AmiFTP.c     194c MainWind        e MainWind      620
+                           AmiFTP.c     105e AmiFTP.c     1192 AmiFTP.c     128e
+                           AmiFTP.c     12d0 AmiFTP.c     1324 AmiFTP.c     1378
+                           AmiFTP.c     16ec AmiFTP.c     17a8 AmiFTP.c     18fa
+                           AmiFTP.c     1a5a MainWind        e MainWind      620
                            MainWind      6ae MainWind      81c MainWind     1656
                            MainWind     1796 MainWind     220e MainWind     230a
                            MainWind     237e MainWind     23e4 MainWind     2446
@@ -1485,13 +1486,13 @@ _ListBro listbrow        0 Menu.c         36 Menu.c        158 Menu.c        6b2
                            Menu.c        d1c Menu.c        dbc Menu.c        ea2
                            Menu.c        ef8 Menu.c       1216 Menu.c       1252
                            ADT.c         192 ADT.c         23c ADT.c         57a
-                           ADT.c         6c4 ADT.c         6fa main.c        d36
+                           ADT.c         6c4 ADT.c         6fa main.c        d54
                            cache.c       24e rexx.c         62 rexx.c         b8
                            rexx.c        4f4 rexx.c        56e rexx.c        642
-                           rexx.c        6ac rexx.c        974 rexx.c        c22
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-23
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-23
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+                           rexx.c        6ac rexx.c        974 rexx.c        c22
                            rexx.c        d14 rexx.c       109a ConnectW      5be
                            ConnectW      614 config.c      30a config.c      7ec
                            SiteWind     161c SiteWind     1642 SiteWind     16ca
@@ -1521,7 +1522,7 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
 _ListVie MainWind        8 main.c        67e main.c        682
 _ListVie MainWind       84 PrefsWin      580 PrefsWin      58e
 _LocaleB data.c        cc4 AmiFTP_C       14 AmiFTP_C      ad4 AmiFTP_C      b0c
-                           main.c        934 main.c        c3e
+                           main.c        934 main.c        c5c
 _LogWind misc.c          0 Menu.c         e2 ftp.c        270c MainWind     25a0
 _LVOClos fffffe62:*        rexxvars       22
 _LVOOpen fffffdd8:*        rexxvars       18
@@ -1536,18 +1537,18 @@ _MainPre config.c        0 Menu.c         f8 Menu.c        10e Menu.c        bd2
                            main.c        494 main.c        498 main.c        49c
                            main.c        82a main.c        834 main.c        83a
                            main.c        84e main.c        858 main.c        872
-                           main.c        876 main.c        8ac main.c        b66
-                           main.c        b72 main.c        b7e main.c        b8a
-                           main.c        b96 main.c        ba2 main.c        bae
-                           main.c        bba main.c        bc6 main.c        bd2
+                           main.c        876 main.c        8ac main.c        b84
+                           main.c        b90 main.c        b9c main.c        ba8
+                           main.c        bb4 main.c        bc0 main.c        bcc
+                           main.c        bd8 main.c        be4 main.c        bf0
                            cache.c       166 cache.c       222 rexx.c        f08
                            rexx.c        f50 rexx.c        f68 ftp.c        19e2
                            ftp.c        19f0 ConnectW      3e0 ConnectW      564
                            ConnectW      570 ConnectW      608 PrefsWin      548
-                           PrefsWin      568 PrefsWin      574 PrefsWin      57a
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-24
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-24
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+                           PrefsWin      568 PrefsWin      574 PrefsWin      57a
                            PrefsWin      59a PrefsWin      5a6 PrefsWin      5e8
                            PrefsWin      608 PrefsWin      628 PrefsWin      648
                            PrefsWin      668 PrefsWin      68a PrefsWin      976
@@ -1584,14 +1585,14 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            SiteWind      480 SiteWind     32f0 Transfer      27c
                            Transfer      590 Transfer     15ee AmiFTP.c      392
                            AmiFTP.c      6d6 AmiFTP.c      a72 AmiFTP.c      e54
-                           AmiFTP.c     102e AmiFTP.c     162a AmiFTP.c     1648
-                           AmiFTP.c     1658 AmiFTP.c     166c AmiFTP.c     1672
-                           AmiFTP.c     1780 AmiFTP.c     179e AmiFTP.c     17ae
-                           AmiFTP.c     17ba AmiFTP.c     17c0 AmiFTP.c     18c2
-                           AmiFTP.c     18ce AmiFTP.c     18d2 AmiFTP.c     18de
-                           AmiFTP.c     18e2 AmiFTP.c     18ee AmiFTP.c     18f2
-                           AmiFTP.c     18fe AmiFTP.c     1902 AmiFTP.c     190e
-                           AmiFTP.c     1912 AmiFTP.c     191e MainWind      826
+                           AmiFTP.c     113c AmiFTP.c     1738 AmiFTP.c     1756
+                           AmiFTP.c     1766 AmiFTP.c     177a AmiFTP.c     1780
+                           AmiFTP.c     188e AmiFTP.c     18ac AmiFTP.c     18bc
+                           AmiFTP.c     18c8 AmiFTP.c     18ce AmiFTP.c     19d0
+                           AmiFTP.c     19dc AmiFTP.c     19e0 AmiFTP.c     19ec
+                           AmiFTP.c     19f0 AmiFTP.c     19fc AmiFTP.c     1a00
+                           AmiFTP.c     1a0c AmiFTP.c     1a10 AmiFTP.c     1a1c
+                           AmiFTP.c     1a20 AmiFTP.c     1a2c MainWind      826
                            MainWind      830 MainWind      882 MainWind      888
                            MainWind      88e MainWind      8a0 MainWind      8a6
                            MainWind     1328 MainWind     1376 MainWind     1418
@@ -1600,10 +1601,10 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            MainWind     1ae6 MainWind     1bd4 MainWind     1cc2
                            MainWind     1e6c MainWind     1f5c MainWind     204a
                            MainWind     21da MainWind     25bc MainWind     25d8
-                           dirlist.      1ae dirlist.      3d2 dirlist.      6a2
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-25
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-25
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+                           dirlist.      1ae dirlist.      3d2 dirlist.      6a2
                            dirlist.      726 dofuncs.       36 dofuncs.      234
                            dofuncs.      23c misc.c         68
 _MainPre PrefsWin        8 MainWind      6dc
@@ -1626,11 +1627,11 @@ _MainWin MainWind       64 SpeedBar      1dc SpeedBar      282 SpeedBar      2c0
                            Transfer     18ea Transfer     1d9a AmiFTP.c      4ea
                            AmiFTP.c      4fc AmiFTP.c      570 AmiFTP.c      5bc
                            AmiFTP.c      5fc AmiFTP.c      648 AmiFTP.c      660
-                           AmiFTP.c      77c AmiFTP.c     10de AmiFTP.c     112a
-                           AmiFTP.c     1142 AmiFTP.c     1186 AmiFTP.c     11c8
-                           AmiFTP.c     11e0 AmiFTP.c     1434 AmiFTP.c     15ee
-                           AmiFTP.c     160c AmiFTP.c     165c AmiFTP.c     16d0
-                           AmiFTP.c     1762 AmiFTP.c     1822 misc.c         22
+                           AmiFTP.c      77c AmiFTP.c     11ec AmiFTP.c     1238
+                           AmiFTP.c     1250 AmiFTP.c     1294 AmiFTP.c     12d6
+                           AmiFTP.c     12ee AmiFTP.c     1542 AmiFTP.c     16fc
+                           AmiFTP.c     171a AmiFTP.c     176a AmiFTP.c     17de
+                           AmiFTP.c     1870 AmiFTP.c     1930 misc.c         22
                            misc.c        754 misc.c        79c
 _MainWin MainWind       94 SpeedBar      1cc Menu.c        53e Menu.c        59c
                            Menu.c        5d0 Menu.c        61a Menu.c        64e
@@ -1647,19 +1648,19 @@ _MainWin MainWind       94 SpeedBar      1cc Menu.c        53e Menu.c        59c
                            AmiFTP.c      672 AmiFTP.c      6c8 AmiFTP.c      702
                            AmiFTP.c      722 AmiFTP.c      7b2 AmiFTP.c      91c
                            AmiFTP.c      940 AmiFTP.c      954 AmiFTP.c      97a
-                           AmiFTP.c      b5a AmiFTP.c      e32 AmiFTP.c     1092
-                           AmiFTP.c     1158 AmiFTP.c     116a AmiFTP.c     14d2
-                           AmiFTP.c     14f6 AmiFTP.c     15c6 AmiFTP.c     1604
-                           AmiFTP.c     167e
+                           AmiFTP.c      b5a AmiFTP.c      e32 AmiFTP.c     11a0
+                           AmiFTP.c     1266 AmiFTP.c     1278 AmiFTP.c     15e0
+                           AmiFTP.c     1604 AmiFTP.c     16d4 AmiFTP.c     1712
+                           AmiFTP.c     178c
 _memset  memset.o        0 rt_long.      1e2 rt_long.      350
 _menu    Menu.c          0 MainWind      3ca MainWind      4a6 MainWind     2508
                            MainWind     25f4 MainWind     2604
 _MenuLab Menu.c        554 locale.c        e
-_MenuNee data.c         10 AmiFTP.c     192c MainWind      516 MainWind      520
-_MG_List MainWind       9c SpeedBar      2c8 Menu.c        6ec Menu.c        754
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-26
+_MenuNee data.c         12 AmiFTP.c     1a3a MainWind      516 MainWind      520
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-26
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+_MG_List MainWind       9c SpeedBar      2c8 Menu.c        6ec Menu.c        754
                            Menu.c        87a Menu.c        c7e Menu.c        c9a
                            Menu.c        dfc Menu.c        e18 Menu.c        e28
                            Menu.c        f12 Menu.c       126c cache.c        2e
@@ -1668,15 +1669,15 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            ConnectW      3c4 Transfer      13e Transfer      31c
                            Transfer      4a0 Transfer      4ec AmiFTP.c      56c
                            AmiFTP.c      5b8 AmiFTP.c      5f8 AmiFTP.c      644
-                           AmiFTP.c      65c AmiFTP.c      746 AmiFTP.c      f5c
-                           AmiFTP.c      f92 AmiFTP.c      fee AmiFTP.c     109a
-                           AmiFTP.c     10da AmiFTP.c     1126 AmiFTP.c     113e
+                           AmiFTP.c      65c AmiFTP.c      746 AmiFTP.c     106a
+                           AmiFTP.c     10a0 AmiFTP.c     10fc AmiFTP.c     11a8
+                           AmiFTP.c     11e8 AmiFTP.c     1234 AmiFTP.c     124c
 _MOTDDat ADT.c           8 ConnectW      56c ConnectW      606
 _myctlad data.c         10 ftp.c         41e ftp.c        2226
 _non_uni data.c         50 dirlist.      1c0 dirlist.      544 readdir.       3c
                            readdir.      1a8 misc.c        7ca
 _opts    data.c        c6e main.c        4c6 main.c        4f2 main.c        4fa
-                           AmiFTP.c      ed8
+                           AmiFTP.c      fe6
 _other_d data.c        c98 readdir.      1f4 dofuncs.      31c misc.c        7b6
                            misc.c        7c2
 _PenMapB penmap.c        0 main.c        428
@@ -1702,9 +1703,9 @@ _respons data.c         64 ADT.c          a2 ADT.c          a8 ADT.c          ba
                            readdir.       ce readdir.       e6 change_d       9c
                            change_d      13e change_d      150 change_d      172
                            change_d      184 misc.c        71e misc.c        7c6
-_RexxSys data.c        cb8 main.c        a84 main.c        c6e
+_RexxSys data.c        cb8 main.c        aa2 main.c        c8c
 _rtEZReq rt_varar      25c Menu.c        7da Transfer     19c2 Transfer     1a7a
-                           Transfer     1de8 Transfer     9aac
+                           Transfer     1de8 Transfer     9bbc
 _scratch data.c        464 ftp.c        2b00 ftp.c        2b08 change_d       e8
                            change_d       f0 change_d      3c0 change_d      3c8
 _Screen  MainWind       68 SpeedBar       4c ConnectW      a5e ConnectW      a6a
@@ -1712,26 +1713,26 @@ _Screen  MainWind       68 SpeedBar       4c ConnectW      a5e ConnectW      a6a
                            PrefsWin     1b38 SiteWind     1074 SiteWind     107c
                            SiteWind     1170 SiteWind     2306 SiteWind     230e
                            SiteWind     244a Transfer      59c Transfer     119c
-                           Transfer     11a8 Transfer     12da Transfer     15fa
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-27
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-27
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
-                           AmiFTP.c     149c AmiFTP.c     1650 AmiFTP.c     1664
-                           AmiFTP.c     17a6
+                           Transfer     11a8 Transfer     12da Transfer     15fa
+                           AmiFTP.c     15aa AmiFTP.c     175e AmiFTP.c     1772
+                           AmiFTP.c     18b4
 _sendpor data.c         38 main.c        606 ftp.c        2212 ftp.c        2222
-_ShowErr AmiFTP.c     11be Menu.c        952 Menu.c        9e0 Menu.c        af6
+_ShowErr AmiFTP.c     12cc Menu.c        952 Menu.c        9e0 Menu.c        af6
                            ADT.c          24 ftp.c        1362 ftp.c        163c
                            ftp.c        18e6 ftp.c        1abc ftp.c        1b0c
                            ConnectW      c54 Transfer     1fe6 MainWind      1ea
                            MainWind      296 readdir.       2c readdir.      2a4
                            readdir.      6ac readdir.      ae6 readdir.      e8e
-                           change_d      3dc misc.c        840 Menu.c      192c0
-                           ConnectW    11478
+                           change_d      3dc misc.c        840 Menu.c      193f0
+                           ConnectW    11588
 _SilentM rexx.c          2 ftp.c        1096 ftp.c        10d2 ConnectW      4fc
                            ConnectW      c4c Transfer      616 Transfer     1674
-                           Transfer     18c6 AmiFTP.c     11ce
+                           Transfer     18c6 AmiFTP.c     12dc
 _SiteLis config.c       68 Menu.c         22 Menu.c        13a Menu.c       1016
-                           main.c        652 main.c        d20 rexx.c        960
+                           main.c        652 main.c        d3e rexx.c        960
                            rexx.c       1084 SiteWind     15d0 SiteWind     1668
                            SiteWind     1672 SiteWind     1702 SiteWind     1782
                            SiteWind     1814 SiteWind     181e SiteWind     1af2
@@ -1748,8 +1749,8 @@ _SiteLis config.c       68 Menu.c         22 Menu.c        13a Menu.c       1016
                            SiteWind     31da SiteWind     31f2 SiteWind     3224
                            SiteWind     3234 SiteWind     3264 SiteWind     334a
                            SiteWind     3358 SiteWind     3380 SiteWind     3576
-                           AmiFTP.c      2a0 AmiFTP.c      9b6 AmiFTP.c     18b2
-                           AmiFTP.c     18ba MainWind      410 misc.c        996
+                           AmiFTP.c      2a0 AmiFTP.c      9b6 AmiFTP.c     19c0
+                           AmiFTP.c     19c8 MainWind      410 misc.c        996
 _SiteLis SiteWind      134 MainWind      6d4
 _SocketB tcp.c           0 amitcp.c        c amitcp.c       24 amitcp.c       ae
                            amitcp.c       c6 amitcp.c       e2 amitcp.c      11c
@@ -1759,8 +1760,8 @@ _SocketB tcp.c           0 amitcp.c        c amitcp.c       24 amitcp.c       ae
                            amitcp.c      262 amitcp.c      27a amitcp.c      292
                            amitcp.c      3c6 ftp.c        16e6 ftp.c        1fa2
 _SortMod data.c         48 Menu.c         ae Menu.c        570 Menu.c        5ee
-                           ADT.c         594 config.c      a2e AmiFTP.c     1670
-                           AmiFTP.c     17be MainWind     2554 MainWind     2572
+                           ADT.c         594 config.c      a2e AmiFTP.c     177e
+                           AmiFTP.c     18cc MainWind     2554 MainWind     2572
                            readdir.      278 readdir.      678 readdir.      ab2
                            readdir.      e5a
 _SpeedBa speedbar        0 SpeedBar       d8 SpeedBar      16c SpeedBar      26e
@@ -1768,10 +1769,10 @@ _SpeedBa speedbar        0 SpeedBar       d8 SpeedBar      16c SpeedBar      26e
 _SpeedBa SpeedBar        0 MainWind      c12
 _sprintf sprintf.       14 Menu.c        93a Menu.c        a62 Menu.c        ab8
                            Menu.c        ade main.c        70a rexx.c        f32
-                           rexx.c        f74 rexx.c        fb6 rexx.c       10e8
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-28
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-28
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+                           rexx.c        f74 rexx.c        fb6 rexx.c       10e8
                            rexx.c       11ee rexx.c       1248 rexx.c       12be
                            rexx.c       1398 rexx.c       1440 ftp.c        27fe
                            ftp.c        2842 ftp.c        2b04 PrefsWin      316
@@ -1780,16 +1781,16 @@ symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
                            Transfer      29c Transfer     148e Transfer     176a
                            Transfer     1778 Transfer     178a Transfer     198e
                            Transfer     1a42 Transfer     1aec Transfer     1b94
-                           Transfer     23de AmiFTP.c      ecc AmiFTP.c      eee
+                           Transfer     23de AmiFTP.c      fda AmiFTP.c      ffc
                            MainWind     27cc readdir.      64c readdir.      a5a
                            readdir.      e14 change_d       ec change_d      3c4
                            dofuncs.      274 dofuncs.      2ea misc.c         82
-                           main.c      168dc PrefsWin    1080a Transfer     9ab8
+                           main.c      16a0c PrefsWin    1091a Transfer     9bc8
                            misc.c        e60
 _sscanf  sscanf.c        0 ftp.c        2148 dirlist.      9a6 dirlist.      a16
                            readdir.      4d6 readdir.      7bc readdir.      9d6
                            readdir.      b6e readdir.      d90 change_d      168
-                           change_d      19c ftp.c       14166 change_d     15c4
+                           change_d      19c ftp.c       14276 change_d     15c4
 _StringB string.c        0 PrefsWin      72a PrefsWin      7bc PrefsWin      85a
                            PrefsWin      d68 PrefsWin     1064 PrefsWin     15b4
                            SiteWind      536 SiteWind      5c6 SiteWind      6f2
@@ -1808,8 +1809,8 @@ _TCPStac main.c         12 Menu.c        f74 rexx.c        6e4 rexx.c        856
                            rexx.c       1026 AmiFTP.c      274 AmiFTP.c      452
                            AmiFTP.c      532 AmiFTP.c      68e AmiFTP.c      774
                            AmiFTP.c      93a AmiFTP.c      998 AmiFTP.c      aa2
-                           AmiFTP.c      b1c AmiFTP.c      f56 AmiFTP.c      f7e
-                           AmiFTP.c     108a
+                           AmiFTP.c      b1c AmiFTP.c     1064 AmiFTP.c     108c
+                           AmiFTP.c     1198
 _tcp_acc tcp.c          4c amitcp.c      2ca ftp.c        24f4
 _tcp_bin tcp.c          44 amitcp.c      2ba ftp.c        228e
 _tcp_clo tcp.c          30 amitcp.c      312 ADT.c         306 ftp.c         348
@@ -1824,10 +1825,10 @@ _tcp_con tcp.c          24 amitcp.c      2d2 ftp.c         198 ftp.c         3c0
 _tcp_end tcp.c          10 amitcp.c      348 amitcp.c      38e main.c        744
 _tcp_get tcp.c           0 amitcp.c      32a ftp.c          64
 _tcp_get tcp.c          14 amitcp.c      332 main.c        6e2
-_tcp_get tcp.c           8 amitcp.c      358 amitcp.c      39e main.c        6c6
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-29
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-29
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+_tcp_get tcp.c           8 amitcp.c      358 amitcp.c      39e main.c        6c6
 _tcp_get tcp.c          2c amitcp.c      302 ftp.c         326
 _tcp_get tcp.c           c amitcp.c      350 amitcp.c      396 main.c        6d2
 _tcp_get tcp.c           4 amitcp.c      33a main.c        618 ftp.c        2aec
@@ -1851,12 +1852,12 @@ _tcp_wai tcp.c          28 amitcp.c      31a ftp.c         282 ftp.c        14c8
                            ftp.c        1c4a ftp.c        245a ftp.c        27c4
                            AmiFTP.c      478 misc.c        54e
 _TempLis data.c        d1c main.c        65a main.c        8cc AmiFTP.c      e86
-_timedou data.c         40 ADT.c         136 ConnectW      422 AmiFTP.c     118c
-                           AmiFTP.c     11b2 readdir.      126 change_d      1e6
+_timedou data.c         40 ADT.c         136 ConnectW      422 AmiFTP.c     129a
+                           AmiFTP.c     12c0 readdir.      126 change_d      1e6
                            dofuncs.      1f6 misc.c        77c misc.c        814
-_TimerBa data.c        ccc GetSysTi        4 main.c        b42
-_TimeReq data.c        d14 main.c        afa main.c        b18 main.c        b3c
-                           main.c        bde main.c        bf6 main.c        c02
+_TimerBa data.c        ccc GetSysTi        4 main.c        b60
+_TimeReq data.c        d14 main.c        b18 main.c        b36 main.c        b5a
+                           main.c        bfc main.c        c14 main.c        c20
                            ftp.c        1428 ftp.c        1446 ftp.c        1520
                            ftp.c        1556 ftp.c        1756 ftp.c        1766
                            ftp.c        176e ftp.c        17c6 ftp.c        17d6
@@ -1864,9 +1865,9 @@ _TimeReq data.c        d14 main.c        afa main.c        b18 main.c        b3c
                            ftp.c        1d1a ftp.c        1d80 ftp.c        204c
                            ftp.c        205c ftp.c        2064 ftp.c        20ba
                            ftp.c        20ca ftp.c        20d2
-_TimerPo data.c        d10 main.c        ad6 main.c        af0 main.c        c06
-                           main.c        c16 ftp.c        141c ftp.c        1b5a
-_Transfe data.c         12 Menu.c         80 Menu.c        b54 Menu.c        b5a
+_TimerPo data.c        d10 main.c        af4 main.c        b0e main.c        c24
+                           main.c        c34 ftp.c        141c ftp.c        1b5a
+_Transfe data.c         14 Menu.c         80 Menu.c        b54 Menu.c        b5a
                            Menu.c        b96 Menu.c        b9c AmiFTP.c      6e6
                            AmiFTP.c      6f2 AmiFTP.c      90a AmiFTP.c      c0a
                            AmiFTP.c      cc0 AmiFTP.c      d92 MainWind      22c
@@ -1880,11 +1881,11 @@ _Transfe Transfer      4da ftp.c        13ce ftp.c        1b20 ftp.c        23a2
                            MainWind      6bc misc.c        478
 _unix_di data.c          8 readdir.      1d0
 _UserGro tcp.c           4 amitcp.c       3c amitcp.c       56 amitcp.c       6e
-                           amitcp.c      33e
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-30
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-30
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
-_Utility data.c        ca4 getattrs       34 main.c        970 main.c        cbe
+                           amitcp.c      33e
+_Utility data.c        ca4 getattrs       34 main.c        970 main.c        cdc
 _verbose data.c         24 main.c        5f0 ftp.c        267c ftp.c        2720
 _Version version.       1b rexx.c        ef8
 _VisualI MainWind       70 Menu.c        208
@@ -1892,10 +1893,11 @@ _WB2CLI  wb2cli.c        0 main.c        4b0
 _which_u data.c         44 change_d      342 change_d      36e change_d      38e
                            change_d      392 change_d      3a4 dofuncs.      2c4
 _WindowB window.c        0 ConnectW      aa6 PrefsWin     1a84 SiteWind     10bc
-                           SiteWind     234e Transfer     1258 AmiFTP.c     1420
+                           SiteWind     234e Transfer     1258 AmiFTP.c     152e
                            MainWind     13f8
 _wintitl version.       28 MainWind     153e MainWind     1548
-_Workben data.c        cc0 main.c        9fa main.c        c8e
+_Workben data.c        cc0 main.c        9fa main.c        a12 main.c        cac
+                           AmiFTP.c      f90
 __BSSBAS       (0:*)       c              14
 __BSSLEN       (0:*)       c              1c
 __CW_Abo AmiFTP_C      1f4 ConnectW      968
@@ -1921,8 +1923,8 @@ __CXD33  _CXD33.o        0 gmtime.c       2e gmtime.c       3c gmtime.c       5e
                            Transfer     181c Transfer     183c MainWind     13c8
                            MainWind     13f0 MainWind     271c MainWind     272c
                            MainWind     2798 MainWind     27aa readdir.      a26
-                           readdir.      de0 misc.c        51c ftp.c       14100
-                           Transfer     9a64 misc.c        e1e
+                           readdir.      de0 misc.c        51c ftp.c       14210
+                           Transfer     9b74 misc.c        e1e
 __CXM22  _CXM22.o        0 qsort.c        68 calloc.c       18
 __CXM33  _CXM33.o        0 MainWind     270a MainWind     5cba
 __CXOVF  _cxovf.c        0 xcovf.o         c
@@ -1935,11 +1937,11 @@ __MENU_A AmiFTP_C      28c Menu.c        594
 __MENU_B AmiFTP_C      284 Menu.c        590
 __MENU_C AmiFTP_C      294 Menu.c        598
 __MENU_C AmiFTP_C      4ac Menu.c        558
-__MENU_C AmiFTP_C      544 Menu.c        5b0
-__MENU_D AmiFTP_C      29c Menu.c        5b4
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-31
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-31
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+__MENU_C AmiFTP_C      544 Menu.c        5b0
+__MENU_D AmiFTP_C      29c Menu.c        5b4
 __MENU_D AmiFTP_C      4b4 Menu.c        55c
 __MENU_F AmiFTP_C      264 Menu.c        57c
 __MENU_G AmiFTP_C      4bc Menu.c        5a0
@@ -1991,11 +1993,11 @@ __MPW_Pa AmiFTP_C      154 PrefsWin      790
 __MPW_Pr AmiFTP_C      464 PrefsWin      e06
 __MPW_Pr AmiFTP_C      434 PrefsWin       1e
 __MPW_Pr AmiFTP_C      174 PrefsWin     16ea
-__MPW_Pr AmiFTP_C      164 PrefsWin     161a
-__MPW_Pr AmiFTP_C      16c PrefsWin     16b4
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-32
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-32
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+__MPW_Pr AmiFTP_C      164 PrefsWin     161a
+__MPW_Pr AmiFTP_C      16c PrefsWin     16b4
 __MPW_Pu AmiFTP_C      4fc PrefsWin     10dc
 __MPW_Sh AmiFTP_C      51c PrefsWin     13e0
 __MPW_Sh AmiFTP_C      46c PrefsWin      e6a
@@ -2047,11 +2049,11 @@ __SLW_Ca AmiFTP_C       34 SiteWind     1f22
 __SLW_Co AmiFTP_C       14 SiteWind     1ece
 __SLW_Do AmiFTP_C       4c SiteWind     20d4
 __SLW_Ed AmiFTP_C       24 SiteWind     1dd4
-__SLW_Ne AmiFTP_C       1c SiteWind     1d4a
-__SLW_Ne AmiFTP_C      3fc SiteWind     1d92
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-33
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-33
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+__SLW_Ne AmiFTP_C       1c SiteWind     1d4a
+__SLW_Ne AmiFTP_C      3fc SiteWind     1d92
 __SLW_Ne AmiFTP_C       64 SiteWind     2544 SiteWind     32d8
 __SLW_Re AmiFTP_C       2c SiteWind     1e20
 __SLW_Si AmiFTP_C        c SiteWind     1c16
@@ -2095,19 +2097,19 @@ __STI_39 speedbar        0 _ctdt.o        1c
 __STI_39 string.c        0 _ctdt.o        28
 __STI_39 window.c        0 _ctdt.o        10
 __STI_50 _iob.c          0 _ctdt.o        44
-__Str_Ab AmiFTP_C      3dc AmiFTP.c     142c
-__Str_Am AmiFTP_C      33c AmiFTP.c     11d4
+__Str_Ab AmiFTP_C      3dc AmiFTP.c     153a
+__Str_Am AmiFTP_C      33c AmiFTP.c     12e2
 __Str_Am AmiFTP_C      3d4 Menu.c        78c Menu.c        8fc Transfer     18de
                            Transfer     1dac
 __Str_Ca AmiFTP_C      314 AmiFTP.c      d32
-__Str_CD AmiFTP_C      334 Transfer     1fdc AmiFTP.c     11a2
-__Str_CD AmiFTP_C      32c AmiFTP.c     1192
+__Str_CD AmiFTP_C      334 Transfer     1fdc AmiFTP.c     12b0
+__Str_CD AmiFTP_C      32c AmiFTP.c     12a0
 __Str_Co AmiFTP_C      36c ftp.c         fea ftp.c        1136
-__Str_Co AmiFTP_C      3cc ConnectW      428
-__Str_Co AmiFTP_C      374 ftp.c        1006
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-34
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-34
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+__Str_Co AmiFTP_C      3cc ConnectW      428
+__Str_Co AmiFTP_C      374 ftp.c        1006
 __Str_Di AmiFTP_C      3ac misc.c        75a
 __Str_Er AmiFTP_C      3ec readdir.      29a readdir.      6a2 readdir.      adc
                            readdir.      e84
@@ -2116,19 +2118,19 @@ __Str_Lo AmiFTP_C      394 ftp.c        1356 ftp.c        1ab0 ftp.c        1b00
 __Str_No AmiFTP_C      49c Menu.c        d3e ADT.c         1b4
 __Str_No AmiFTP_C      3c4 ftp.c        18dc
 __Str_No AmiFTP_C      3a4 change_d       dc
-__Str_OK AmiFTP_C      344 AmiFTP.c     11e6
+__Str_OK AmiFTP_C      344 AmiFTP.c     12f4
 __Str_Ou AmiFTP_C      3b4 ADT.c          1a readdir.       22
-__Str_Pa AmiFTP_C      35c AmiFTP.c     1222
-__Str_Pa AmiFTP_C      354 AmiFTP.c     1236
+__Str_Pa AmiFTP_C      35c AmiFTP.c     1330
+__Str_Pa AmiFTP_C      354 AmiFTP.c     1344
 __Str_Pa AmiFTP_C      4e4 Menu.c       11b6
 __Str_Re AmiFTP_C      54c Menu.c        8e0
 __Str_Re AmiFTP_C      384 ftp.c        1632
 __Str_Se AmiFTP_C      31c SiteWind     1402 misc.c        a60
 __Str_Se AmiFTP_C      4ec Menu.c       119a
-__Str_Se AmiFTP_C      3bc AmiFTP.c     16ee AmiFTP.c     1840
+__Str_Se AmiFTP_C      3bc AmiFTP.c     17fc AmiFTP.c     194e
 __Str_Se AmiFTP_C      324 AmiFTP.c      78a
 __Str_Se AmiFTP_C      364 ftp.c         46a ftp.c        1022
-__Str_Tr AmiFTP_C      3f4 AmiFTP.c     12f2
+__Str_Tr AmiFTP_C      3f4 AmiFTP.c     1400
 __Str_Un AmiFTP_C      3e4 ftp.c          80 ftp.c          ac
 __Str_Wi AmiFTP_C      4a4 MainWind     27b4
 __tinypr tinyprin        0 misc.c        3d2 misc.c        e66
@@ -2154,16 +2156,16 @@ __WBench wbmsg.c         0 _iob.c         68 _iob.c         6e _iob.c         b2
                            c              d2 c             196 c             1bc
                            c             24e c             26a
 __writes writes.c        0 tinyprin       7a SpeedBar       86
-__XCEXIT c             1de _exit.c         8 _exit.c     1dafc
+__XCEXIT c             1de _exit.c         8 _exit.c     1dc2c
 __XCOVF  xcovf.o         0 rt_glue.        a rt_glue.       74 rt_glue.       a2
                            rt_glue.       d0 rt_glue.       fa rt_glue.      128
                            rt_glue.      144 rt_glue.      158 rt_glue.      16c
                            rt_glue.      182 rt_glue.      19a rt_glue.      1b2
-                           rt_glue.      1ca rt_glue.      1e0 rt_glue.      1f4
-                           rt_glue.      22a rt_glue.      320 rt_glue.      3b4
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-35
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-35
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+                           rt_glue.      1ca rt_glue.      1e0 rt_glue.      1f4
+                           rt_glue.      22a rt_glue.      320 rt_glue.      3b4
                            rt_alloc        a rt_alloc       fc rt_alloc      132
                            rt_alloc      13c rt_file.        e rt_file.      238
                            rt_font.        e rt_scree        e rt_ez.c         e
@@ -2215,16 +2217,16 @@ ___ctors _ctdt.o         4 _fpinit.        4 _fpinit.        e _fpinit.       30
                            _constru        0
 ___ctype ctype.c         0 _sf.c          48 _sf.c          6c _sf.c          e0
                            _sf.c         18a _sf.c         1ba _sfmt.c        4e
-                           _sfmt.c        7c _sfmt.c        d8 _sfmt.c       1d4
-                           _sfmt.c       250 _sfmt.c       284 _sfmt.c       340
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-36
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-36
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+                           _sfmt.c        7c _sfmt.c        d8 _sfmt.c       1d4
+                           _sfmt.c       250 _sfmt.c       284 _sfmt.c       340
                            _sfmt.c       378 _sfmt.c       394 _sfmt.c       3f2
                            _sfmt.c       474 atoi.c         18 atol.c         18
                            _strupr.        e strnicmp       22 ADT.c         348
                            ADT.c         39c ADT.c         3c4 ADT.c         3ec
-                           main.c        ef0 rexx.c        dce ftp.c        1988
+                           main.c        f0e rexx.c        dce ftp.c        1988
                            ftp.c        19a4 ftp.c        2686 ftp.c        26c2
                            ftp.c        2a90 ftp.c        2ad0 config.c      f32
                            AmiFTP.c       24 AmiFTP.c       aa readdir.      226
@@ -2271,10 +2273,10 @@ ___stdou stdioptr        4 _iob.c         16
 ___sys_e syserr.c        4 perror.c       3a
 ___sys_n syserr.c        0 perror.c        e
 ___timez tzinfo.c        0 time.c         52 localtim       12 _tzset.c       58
-___tzdtn tzinfo.c        c _tzset.c       62 _tzset.c       7a _tzset.c       82
-___tznam tzinfo.c        4 _tzset.c       34 _tzset.c       86
-AmiFTP_d                13-Mar-26 20:16:42  Xref Section               Page 3-37
+AmiFTP_d                13-Mar-26 20:39:47  Xref Section               Page 3-37
 
 symbol   (Def) Module  Off (Ref) Module  Off (Ref) Module  Off (Ref) Module  Off
+___tzdtn tzinfo.c        c _tzset.c       62 _tzset.c       7a _tzset.c       82
+___tznam tzinfo.c        4 _tzset.c       34 _tzset.c       86
 ___tzstn tzinfo.c        4 _tzset.c       24 _tzset.c       30
 ___ufbs  _ufb.c          4 _iob.c         32 _chkufb.       22
