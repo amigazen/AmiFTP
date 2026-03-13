@@ -728,7 +728,7 @@ ULONG HandleSiteListIDCMP(void)
 			if (node=GetPred(selnode)) {
 			    ULONG flags;
 			    GetListBrowserNodeAttrs(node, LBNA_Flags, &flags, TAG_DONE);
-			    while (flags&LBFLG_HIDDEN) {
+				while (flags&LBFLG_HIDDEN) {
 				node=GetPred(node);
 				if (node)
 				  GetListBrowserNodeAttrs(node, LBNA_Flags, &flags,
@@ -751,21 +751,25 @@ ULONG HandleSiteListIDCMP(void)
 
 			GetListBrowserNodeAttrs(selnode, LBNA_UserData, &sn,
 						TAG_DONE);
-
-			UpdateSLGGadgets(TRUE, sn->sn_MenuType);
+			/* Avoid crash when node has no UserData (e.g. new entry, group header). */
+			if (sn)
+			  UpdateSLGGadgets(TRUE, sn->sn_MenuType);
 		    }
 		    else if (attr == -1) {
 			struct SiteNode *sn;
 			struct Node *selnode;
 
 			selnode=FirstNode(&SiteList);
-			GetListBrowserNodeAttrs(selnode, LBNA_UserData, &sn,
-						TAG_DONE);
-			SetGadgetAttrs(SLG_List[SLG_SiteList], SiteListWindow, NULL,
-				       LISTBROWSER_Selected, 0,
-				       LISTBROWSER_MakeVisible, 0,
-				       TAG_DONE);
-			UpdateSLGGadgets(TRUE, sn->sn_MenuType);
+			if (selnode) {
+			    GetListBrowserNodeAttrs(selnode, LBNA_UserData, &sn,
+						    TAG_DONE);
+			    SetGadgetAttrs(SLG_List[SLG_SiteList], SiteListWindow, NULL,
+					   LISTBROWSER_Selected, 0,
+					   LISTBROWSER_MakeVisible, 0,
+					   TAG_DONE);
+			    if (sn)
+					UpdateSLGGadgets(TRUE, sn->sn_MenuType);
+			}
 		    }
 		}
 	    }
@@ -810,7 +814,8 @@ ULONG HandleSiteListIDCMP(void)
 		    GetListBrowserNodeAttrs(selnode,
 					    LBNA_UserData, &sn,
 					    TAG_DONE);
-		    UpdateSLGGadgets(TRUE, sn->sn_MenuType);
+		    if (sn)
+				UpdateSLGGadgets(TRUE, sn->sn_MenuType);
 		}
 	    }
 	    else if (code==95)
@@ -823,7 +828,7 @@ ULONG HandleSiteListIDCMP(void)
 		if (node) {
 		    GetListBrowserNodeAttrs(node, LBNA_UserData, &retnode,
 					    TAG_DONE);
-		    if (!retnode->sn_BarLabel && retnode->sn_MenuType!=SLN_PARENT)
+		    if (retnode && !retnode->sn_BarLabel && retnode->sn_MenuType!=SLN_PARENT)
 		      done=TRUE;
 		    else {
 			done=FALSE;

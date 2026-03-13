@@ -306,20 +306,31 @@ struct Window *OpenTransferWindow(void)
     limits.MinHeight+=Screen->WBorTop+Screen->WBorBottom;
     limits.MinWidth+=Screen->WBorLeft+Screen->WBorRight;
 
-    TransferWin_Object = WindowObject,
-                          WA_Title, GetAmiFTPString(TW_WinTitle),
-                          WA_PubScreen,Screen,
-                          WA_DepthGadget, TRUE,
-                          WA_DragBar, TRUE,
-                          WA_CloseGadget, TRUE,
-                          WA_Activate, TRUE,
-                          WA_SmartRefresh, TRUE,
-                          WA_Top, MainWindow->TopEdge+(MainWindow->Height-limits.MinHeight)/2,
-                          WA_Left, MainWindow->LeftEdge+(MainWindow->Width-limits.MinWidth)/2,
+    /* Position relative to main window when open; else center on screen */
+    {
+	WORD tw_top, tw_left;
+	if (MainWindow) {
+	    tw_top=(WORD)(MainWindow->TopEdge+(MainWindow->Height-limits.MinHeight)/2);
+	    tw_left=(WORD)(MainWindow->LeftEdge+(MainWindow->Width-limits.MinWidth)/2);
+	} else {
+	    tw_top=(WORD)((Screen->Height-limits.MinHeight)/2);
+	    tw_left=(WORD)((Screen->Width-limits.MinWidth)/2);
+	}
+	TransferWin_Object = WindowObject,
+			      WA_Title, GetAmiFTPString(TW_WinTitle),
+			      WA_PubScreen,Screen,
+			      WA_DepthGadget, TRUE,
+			      WA_DragBar, TRUE,
+			      WA_CloseGadget, TRUE,
+			      WA_Activate, TRUE,
+			      WA_SmartRefresh, TRUE,
+			      WA_Top, tw_top,
+			      WA_Left, tw_left,
                           WINDOW_IconifyGadget,TRUE,
                           WINDOW_ParentGroup, TransferLayout,
                           WA_IDCMP, IDCMP_RAWKEY,
                         EndWindow;
+    }
 
     if (!TransferWin_Object)
       return NULL;
@@ -364,13 +375,34 @@ int UploadFile(struct List *transferlist, const char *remote, const int binary)
 	BPTR lock;
 	struct FileInfoBlock __aligned fib;
 	struct dirlist *entry=(void *)node->ln_Name;
-	
+	char rempath[512];
+	const char *stor_remote;
+
+	/* Safety: skip invalid entries */
+	if (!entry || !entry->name)
+	    continue;
+
 	UpdateTransTitle(node);
 	if (CurrentState.ADTMode) {
 	    rem=malloc(256);
-	    strcpy(rem, "new/");
-	    strcat(rem, FilePart(entry->name));
-	    remote=rem;
+	    if (rem) {
+		strcpy(rem, "new/");
+		strcat(rem, FilePart(entry->name));
+		remote=rem;
+	    }
+	}
+
+	/* Remote path for STOR: when remote dir is set use remote/filename to avoid
+	 * creating unwanted dirs */
+	if (rem) {
+	    stor_remote=rem;
+	} else if (remote && *remote) {
+	    rempath[0]='\0';
+	    AddPart(rempath, (STRPTR)remote, sizeof(rempath));
+	    AddPart(rempath, (STRPTR)FilePart(entry->name), sizeof(rempath));
+	    stor_remote=rempath;
+	} else {
+	    stor_remote=FilePart(entry->name);
 	}
 
 	if (entry->size)
@@ -392,7 +424,7 @@ int UploadFile(struct List *transferlist, const char *remote, const int binary)
 			   TAG_DONE);
 	    RefreshGList(TG_List[TG_LocalFile],TransferWindow,NULL,1);
 	    SetGadgetAttrs(TG_List[TG_RemoteFile], TransferWindow, NULL,
-			   GA_Text,remote?(char *)remote:(char *)FilePart(entry->name),
+			   GA_Text, (STRPTR)stor_remote,
 			   TAG_DONE);
 	    RefreshGList(TG_List[TG_RemoteFile],TransferWindow,NULL,1);
 	    SetGadgetAttrs(TG_List[TG_CPS], TransferWindow, NULL,
@@ -409,7 +441,7 @@ int UploadFile(struct List *transferlist, const char *remote, const int binary)
 	    FileSize=size;
 	    last=0;
 	}
-	res=sendrequest("STOR",entry->name,remote?(char *)remote:(char *)FilePart(entry->name));
+	res=sendrequest("STOR",entry->name,(char *)stor_remote);
 	if (rem) {
 	    free(rem);
 	    rem=NULL;

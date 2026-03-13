@@ -114,6 +114,9 @@ int main(int argc, char **argv)
     MainPrefs.mp_CacheSize=5;
     MainPrefs.mp_BufferSize=8192;
     MainPrefs.mp_DeleteFiles=TRUE;
+    /* Buttons and toolbar visible by default */
+    MainPrefs.mp_ShowButtons=TRUE;
+    MainPrefs.mp_ShowToolBar=TRUE;
 
     if (!argc) {
 	WB2CLI(_WBenchMsg, __stack, DOSBase);

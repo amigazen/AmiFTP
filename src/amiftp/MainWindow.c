@@ -764,8 +764,13 @@ void CloseMainWindow()
 	CurrentState.Height=MainWindow->Height-MainWindow->BorderTop-MainWindow->BorderBottom;
 	CurrentState.TopEdge=MainWindow->TopEdge;
 	CurrentState.LeftEdge=MainWindow->LeftEdge;
-/*	kprintf("%ld %ld %ld %ld\n", CurrentState.Width, CurrentState.Height,
-		CurrentState.TopEdge, CurrentState.LeftEdge);*/
+	/* So that exit saves correct position when only hotlist (ConfigChanged) changed */
+	if (ConfigChanged && MainWindow->WScreen) {
+	    MainPrefs.mp_Height=(WORD)(MainWindow->Height-MainWindow->BorderTop-MainWindow->BorderBottom);
+	    MainPrefs.mp_Width=(WORD)(MainWindow->Width-MainWindow->BorderLeft-MainWindow->BorderRight);
+	    MainPrefs.mp_TopEdge=(WORD)(MainWindow->TopEdge+MainWindow->WScreen->ViewPort.DyOffset);
+	    MainPrefs.mp_LeftEdge=(WORD)(MainWindow->LeftEdge+MainWindow->WScreen->ViewPort.DxOffset);
+	}
 	DisposeObject(MainWin_Object);
 	MainWin_Object=NULL;
 	MainWindowLayout=NULL;
