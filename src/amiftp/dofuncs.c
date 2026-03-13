@@ -30,6 +30,14 @@ int doconnect(struct SiteNode *sn)
 
     ftphost = parse_hostname(sn->sn_SiteAddress, &port);
 
+    if (DEBUG) {
+	Printf("doconnect: hostin='%s' -> ftphost='%s' port=%ld proxy=%ld\n",
+	       sn->sn_SiteAddress ? sn->sn_SiteAddress : "",
+	       ftphost ? ftphost : "",
+	       (long)port,
+	       (long)sn->sn_Proxy);
+    }
+
     return openhost(ftphost, login, password, account, port, sn->sn_Proxy);
 }
 
@@ -42,6 +50,13 @@ int openhost(char *ftphost, char *login, char *password,
     int		rval = 0;
 
     timedout = 0;
+    if (DEBUG) {
+	Printf("openhost: connect '%s' port=%ld login='%s' proxy=%ld\n",
+	       ftphost ? ftphost : "",
+	       (long)port,
+	       login ? login : "",
+	       (long)useproxy);
+    }
     rval = ftp_hookup(useproxy?MainPrefs.mp_ProxyServer:ftphost, useproxy?MainPrefs.mp_ProxyPort:port);
     if (rval!=CONN_OK)
       return rval;

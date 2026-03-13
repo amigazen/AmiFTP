@@ -31,6 +31,18 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
       if (!OpenConnectWindow())
 	return CONN_GUI;
 
+    if (DEBUG) {
+	Printf("ConnectSite: name='%s' host='%s' port=%ld user='%s' anon=%ld proxy=%ld remdir='%s' noscan=%ld\n",
+	       sn && sn->sn_Node.ln_Name ? sn->sn_Node.ln_Name : "",
+	       sn && sn->sn_SiteAddress ? sn->sn_SiteAddress : "",
+	       sn ? (long)sn->sn_Port : 0L,
+	       sn && sn->sn_LoginName ? sn->sn_LoginName : "",
+	       sn ? (long)sn->sn_Anonymous : 0L,
+	       sn ? (long)sn->sn_Proxy : 0L,
+	       sn && sn->sn_RemoteDir ? sn->sn_RemoteDir : "",
+	       (long)noscan);
+    }
+
     LockWindow(MainWin_Object);
     if (ConnectWindow) {
 	if (SetGadgetAttrs(CG_List[CG_Status], ConnectWindow, NULL,
@@ -44,12 +56,16 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
     }
 
     if ((result=doconnect(sn))==CONN_OK) {
+	if (DEBUG)
+	  Printf("ConnectSite: doconnect OK\n");
 	strncpy(CurrentState.CurrentSite, sn->sn_SiteAddress, 50);
 	UpdateSiteName(CurrentState.CurrentSite);
 	remote_os_type=sn->sn_VMSDIR;
 
 	if (sn->sn_RemoteDir) {
 	    PrintConnectStatus(GetAmiFTPString(CW_ChangingDirectory));
+	    if (DEBUG)
+	      Printf("ConnectSite: CWD '%s'\n", sn->sn_RemoteDir);
 	    change_remote_dir(sn->sn_RemoteDir, 0);
 	}
 
@@ -62,6 +78,8 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
 				 TAG_END))
 		RefreshGList(CG_List[CG_Status], ConnectWindow, NULL, 1);
 	    if (head=sn->sn_ADT?ReadRecentList():read_remote_dir()) {
+		if (DEBUG)
+		  Printf("ConnectSite: loaded dirlist (ADT=%ld)\n", (long)sn->sn_ADT);
 		if (MainWindow)
 		  SetGadgetAttrs(MG_List[MG_ListView], MainWindow, NULL,
 				 LISTBROWSER_Labels, ~0, TAG_DONE);
@@ -100,6 +118,9 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
 	else if (MainPrefs.mp_LocalDir)
 	  UpdateLocalDir(MainPrefs.mp_LocalDir);
 	UpdateMainButtons(MB_NONESELECTED);
+    }
+    else if (DEBUG) {
+	Printf("ConnectSite: doconnect failed (%ld)\n", (long)result);
     }
 
     if (result==CONN_ABORTED) {

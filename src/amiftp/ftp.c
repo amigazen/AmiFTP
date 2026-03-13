@@ -45,6 +45,9 @@ unsigned char str_buf[2048];
 char *transfer_buf=0;
 int bufsize=0;
 
+/* When set, data socket is already connected (PASV); dataconn() returns it without accept. */
+static int pasv_data_ready = 0;
+
 int ftp_hookup(char *host, short port)
 {
     register struct hostent *hp = 0;
@@ -317,6 +320,7 @@ int command(char *fmt, ...)
 {
     va_list ap;
     int len;
+    unsigned int maxcmd;
 
     if (cout == -1) {
 	code = 421;
@@ -324,10 +328,16 @@ int command(char *fmt, ...)
     }
 
     va_start(ap, fmt);
-
-    len = vsprintf(str_buf,fmt,ap);
-    strcpy(&str_buf[len],"\r\n");
-    tcp_send(cout,str_buf,len+2,0);
+    maxcmd = (unsigned int)sizeof(str_buf) - 3;  /* leave room for \r\n and nul */
+    len = vsprintf(str_buf, fmt, ap);
+    if (len < 0 || (unsigned int)len >= maxcmd) {
+	len = (int)maxcmd;
+	str_buf[len] = '\0';
+    }
+    str_buf[len] = '\r';
+    str_buf[len + 1] = '\n';
+    str_buf[len + 2] = '\0';
+    tcp_send(cout, str_buf, len + 2, 0);
     va_end(ap);
 
     cpend = 1;
@@ -575,26 +585,35 @@ int recvrequest(char *cmd, char *local, char *remote,char *lmode,
 	}
     }
     if (remote) {
+	/* Optional: try SIZE for progress before RETR (RFC 3659). */
+	if (is_retr && command("SIZE %s", remote) == COMPLETE && code == 213) {
+	    char *sizep = response_line + 3;
+	    long size;
+	    while (*sizep == ' ' || *sizep == '\t')
+		sizep++;
+	    size = atol(sizep);
+	    if (size > 0)
+		SetTransferSize(size);
+	}
 	if (command("%s %s",cmd,remote) != PRELIM) {
 	    return TRSF_BADFILE;
 	}
-	/* "150 Opening BINARY mode data connection for README (899 bytes)." */
+	/* Parse file size from 150 response for progress if SIZE was not used. */
 	{
 	    char *ptr;
 	    long size;
+	    size_t rlen = strlen(response_line);
 
-	    response_line[strlen(response_line)-9]='\0';
-	    ptr=&response_line[strlen(response_line)-1];
-	    while (*ptr && ptr > &response_line[0]) {
-		if (!isdigit(*ptr))
-		  break;
-		ptr--;
+	    size = 0;
+	    if (rlen > 0) {
+		ptr = response_line + rlen - 1;
+		while (ptr > response_line && isdigit((unsigned char)*ptr))
+		    ptr--;
+		if (ptr >= response_line && isdigit((unsigned char)ptr[1]))
+		    size = atol(ptr + 1);
 	    }
-	    ptr++;
-	    size=atol(ptr);
-
-	    if (size)
-	      SetTransferSize(size);
+	    if (size > 0)
+		SetTransferSize(size);
 	}
     }
     else {
@@ -779,21 +798,64 @@ int recvrequest(char *cmd, char *local, char *remote,char *lmode,
 }
 
 /*
- * Need to start a listen on the data channel before we send the command,
- * otherwise the server's connect may fail.
+ * Try passive mode: send PASV, parse 227, connect to server's data port.
+ * Returns 0 on success (data socket set, pasv_data_ready=1), -1 on failure.
+ */
+static int try_pasv(void)
+{
+    char *paren;
+    int h1, h2, h3, h4, p1, p2;
+    struct sockaddr_in pasv_addr;
+    int res;
+
+    if (command("PASV") != COMPLETE || code != 227)
+	return -1;
+    paren = strchr(response_line, '(');
+    if (!paren)
+	return -1;
+    paren++;
+    if (sscanf(paren, "%d,%d,%d,%d,%d,%d", &h1, &h2, &h3, &h4, &p1, &p2) != 6)
+	return -1;
+    if (data >= 0) {
+	tcp_closesocket(data);
+	data = -1;
+    }
+    data = tcp_socket(AF_INET, SOCK_STREAM, 0);
+    if (data < 0)
+	return -1;
+    memset((char *)&pasv_addr, 0, sizeof(pasv_addr));
+    pasv_addr.sin_family = AF_INET;
+    pasv_addr.sin_port = htons((unsigned short)((p1 << 8) + p2));
+    pasv_addr.sin_addr.s_addr = htonl((unsigned long)(((unsigned long)h1 << 24) |
+	    ((unsigned long)h2 << 16) | ((unsigned long)h3 << 8) | (unsigned long)h4));
+    res = tcp_connect(data, (struct mysockaddr_in *)&pasv_addr);
+    if (res < 0) {
+	tcp_closesocket(data);
+	data = -1;
+	return -1;
+    }
+    pasv_data_ready = 1;
+    return 0;
+}
+
+/*
+ * Start data channel: try PASV first when sendport<=0, else use PORT (listen + send PORT).
  */
 int initconn(void)
-
 {
     register char *p, *a;
     int result, tmpno = 0;
     LONG len;
     int on = 1;
 
+    pasv_data_ready = 0;
+    if (sendport <= 0 && try_pasv() == 0)
+	return 0;
+
+    sendport = 1;
   noport:
     data_addr = myctladdr;
-    if (sendport)
-      data_addr.sin_port = 0;	/* let system pick one */
+    data_addr.sin_port = 0;	/* let system pick one */
     if (data != -1) {
 	tcp_closesocket(data);
 	data = -1;
@@ -801,86 +863,70 @@ int initconn(void)
 
     data = tcp_socket(AF_INET, SOCK_STREAM, 0);
     if (data < 0) {
-//	perror("AmiFTP: socket");
 	if (tmpno)
-	  sendport = 1;
+	    sendport = 1;
 	return 1;
     }
 
-    if (!sendport) {
-	if (tcp_setsockopt(data, SOL_SOCKET, SO_REUSEADDR, (char *)&on,
-			   sizeof (on)) < 0) {
-	    //	  perror("AmiFTP: setsockopt (reuse address)");
-	    goto bad;
-	}
-    }
-
-    if (tcp_bind(data, (struct sockaddr *)&data_addr, sizeof (data_addr)) < 0) {
-//	perror("AmiFTP: bind");
+    if (tcp_setsockopt(data, SOL_SOCKET, SO_REUSEADDR, (char *)&on, sizeof(on)) < 0)
 	goto bad;
-    }
-    len = sizeof (data_addr);
 
-    if (tcp_getsockname(data, (struct sockaddr *)&data_addr, &len) < 0) {
-//	perror("AmiFTP: getsockname");
+    if (tcp_bind(data, (struct sockaddr *)&data_addr, sizeof(data_addr)) < 0)
 	goto bad;
-    }
+    len = sizeof(data_addr);
+    if (tcp_getsockname(data, (struct sockaddr *)&data_addr, &len) < 0)
+	goto bad;
+    if (tcp_listen(data, 1) < 0)
+	goto bad;
 
-    if (tcp_listen(data, 1) < 0) {}
-//      perror("AmiFTP: listen");
-    if (sendport) {
-	a = (char *)&data_addr.sin_addr;
-	p = (char *)&data_addr.sin_port;
-#define	UC(b)	(((int)b)&0xff)
-	result = command("PORT %d,%d,%d,%d,%d,%d",
-			 UC(a[0]), UC(a[1]), UC(a[2]), UC(a[3]),
-			 UC(p[0]), UC(p[1]));
-	if (result == ERROR && sendport == -1) {
-	    sendport = 0;
-	    tmpno = 1;
-	    goto noport;
-	}
-	return result != COMPLETE;
+    a = (char *)&data_addr.sin_addr;
+    p = (char *)&data_addr.sin_port;
+#define	UC(b)	(((int)(b))&0xff)
+    result = command("PORT %d,%d,%d,%d,%d,%d",
+	UC(a[0]), UC(a[1]), UC(a[2]), UC(a[3]), UC(p[0]), UC(p[1]));
+    if (result != COMPLETE) {
+	if (tmpno)
+	    sendport = 1;
+	return 1;
     }
-    if (tmpno)
-      sendport = 1;
     return 0;
   bad:
     tcp_closesocket(data);
     data = -1;
-
     if (tmpno)
-      sendport = 1;
+	sendport = 1;
     return 1;
 }
 
 int dataconn(void)
-
 {
     struct sockaddr_in from;
     int s;
-    LONG fromlen = sizeof (from);
+    LONG fromlen;
+    int on = 1;
 
+    if (pasv_data_ready) {
+	pasv_data_ready = 0;
+	if (tcp_setsockopt(data, SOL_SOCKET, SO_OOBINLINE, (char *)&on, sizeof(on)) < 0) {
+	    /* ignore */
+	}
+	return data;
+    }
+
+    fromlen = sizeof(from);
   restart:
-    s = tcp_accept(data, (struct sockaddr *) &from, &fromlen);
-
+    s = tcp_accept(data, (struct sockaddr *)&from, &fromlen);
     if (s < 0) {
 	if (errno == EINTR)
-	  goto restart;
-//	perror("AmiFTP: accept");
+	    goto restart;
 	tcp_closesocket(data);
 	data = -1;
 	return -1;
     }
     tcp_closesocket(data);
     data = s;
-    {
-	int on = 1;
-
-	if (tcp_setsockopt(data, SOL_SOCKET, SO_OOBINLINE, (char *)&on,
-			   sizeof (on)) < 0) {
-	    //	    perror("AmiFTP: setsockopt");
-	}
+    if (tcp_setsockopt(data, SOL_SOCKET, SO_OOBINLINE, (char *)&on, sizeof(on)) < 0) {
+	/* ignore */
     }
     return data;
 }
@@ -892,20 +938,17 @@ int getreply(const int expecteof)
     register int c, n;
     register int dig;
     register char *cp;
+    char *const resp_end = response_line + (MAXLINE - 1);
     int originalcode = 0, continuation = 0;
     int pflag = 0;
 
     for (;;) {
 	dig = n = code = 0;
 	cp = response_line;
-	memset(response_line,0,sizeof(response_line)-1);
-	while ((c = sgetc(cin)) != '\n')
-	  //	    printf("%c",c);
-	//	    fflush(stdout);
-	  {
+	memset(response_line, 0, (size_t)MAXLINE);
+	while ((c = sgetc(cin)) != '\n') {
 	      if (c == IAC) {	/* handle telnet commands */
-		  switch (c = sgetc(cin))
-		      {
+		  switch (c = sgetc(cin)) {
 			case WILL:
 			case WONT:
 			  str_buf[0] = IAC; str_buf[1] = DONT;
@@ -920,27 +963,22 @@ int getreply(const int expecteof)
 			  break;
 			default:
 			  break;
-		      }
+		  }
 		  continue;
 	      }
 	      dig++;
 	      if (c == EOF) {
 		  if (expecteof) {
 		      code = 221;
-		      //printf("\n");
 		      return 0;
 		  }
 		  lostpeer();
 		  code = 421;
-		  //printf("\n");
 		  return 4;
 	      }
 	      if (c != '\r' && (verbose > 0 ||
 				(verbose > -1 && n == '5' && dig > 4))) {
-		  /*
-		    (void) putchar(c);
-		    */
-		  //		printf("%c",c);
+		  /* optional verbose output */
 	      }
 	      if (dig < 4 && isdigit(c))
 		code = code * 10 + (c - '0');
@@ -948,16 +986,6 @@ int getreply(const int expecteof)
 		pflag = 1;
 	      if (dig > 4 && pflag == 1 && isdigit(c))
 		pflag = 2;
-	      /*
-		if (pflag == 2) {
-		if (c != '\r' && c != ')')
-		*pt++ = c;
-		else {
-		*pt = '\0';
-		pflag = 3;
-		}
-		}
-		*/
 	      if (dig == 4 && c == '-') {
 		  if (continuation)
 		    code = 0;
@@ -965,8 +993,8 @@ int getreply(const int expecteof)
 	      }
 	      if (n == 0)
 		n = c;
-	      if (cp < &response_line[sizeof (response_line) - 1])
-		*cp++ = c;
+	      if (cp < resp_end)
+		*cp++ = (char)c;
 	  }
 	if (LogWindow)
 	  LogMessage(response_line,0);
@@ -1075,34 +1103,40 @@ void lostpeer(void)
 char *s_fgets(char *buf, int n, const int fd)
 {
     int s = 1;
+    unsigned char byte;
     char *start = buf;
 
-    while (s && --n) {
-	if (tcp_recv(fd, buf, 1,0) <= 0)
+    if (n <= 0)
+	return NULL;
+    while (s && n > 1) {
+	if (tcp_recv(fd, (char *)&byte, 1, 0) <= 0)
 	    return NULL;
-	if ( (*(buf++) || *(buf++) == '\n') && (buf != start))
+	*buf = (char)byte;
+	buf++;
+	n--;
+	if (byte == '\n' || byte == '\0')
 	    s = 0;
     }
-    *buf = 0;
+    *buf = '\0';
     return start;
 }
 
 char *next_remote_line(const int sin)
 {
-    char	*str = response_line;
-    char	*cptr = str;
-    int		c;
-
+    char *str = response_line;
+    char *cptr = str;
+    char *const end = response_line + (MAXLINE - 1);
+    int c;
 
     while ((c = sgetc(sin)) != '\n' && c != EOF && c != '\0') {
-//    return (s_fgets(str,256,sin));
 	if (c == '\r')
-	  continue;
-	*cptr++ = (char)c;
+	    continue;
+	if (cptr < end)
+	    *cptr++ = (char)c;
     }
     *cptr = '\0';
     if (c == EOF)
-      return NULL;
+	return NULL;
     return str;
 }
 

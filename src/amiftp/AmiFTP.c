@@ -17,11 +17,13 @@ void parse_url(char *url, char *site, char *dir, char *userid, int *port)
 {
     char *ptr,*ptr1;
 
-    if (strncmp(url,"ftp://",6)==0) { /* URL-type [userid@]site[:port]path*/
-	ptr=url+6;
-    }
-    else
-      ptr=url;
+    /* URL-type: [ftp://][userid@]site[:port]/path
+     * Also accepts input without protocol. */
+    ptr = url;
+    while (*ptr && isspace((unsigned char)*ptr))
+	ptr++;
+    if (strnicmp(ptr, "ftp://", 6) == 0)
+	ptr += 6;
 
     if (strchr(ptr,'@')) {
 	strncpy(userid, ptr, strchr(ptr, '@')-ptr);
@@ -44,6 +46,15 @@ void parse_url(char *url, char *site, char *dir, char *userid, int *port)
 	ptr++;
 	if (*ptr)
 	  strcpy(dir, ptr);
+    }
+
+    if (DEBUG) {
+	Printf("parse_url: in='%s' -> user='%s' site='%s' port=%ld dir='%s'\n",
+	       url ? url : "(null)",
+	       userid ? userid : "",
+	       site ? site : "",
+	       port ? (long)*port : 0L,
+	       dir ? dir : "");
     }
 }
 

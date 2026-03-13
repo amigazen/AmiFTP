@@ -425,6 +425,7 @@ extern struct List SpeedBarList;
 struct Window *OpenFTPWindow(const BOOL StartIconified)
 {
     struct Object *g1,*g2, *g3, *but1, *but2, *buttonlayout;
+    WORD innerw, innerh;
 
     Screen=LockPubScreen(MainPrefs.mp_OpenOnDefaultScreen?NULL:MainPrefs.mp_PubScreen);
     if (!Screen) {
@@ -670,6 +671,14 @@ struct Window *OpenFTPWindow(const BOOL StartIconified)
 	FreeSpeedBarList();
     }
 
+    /* Default inner size: if no snapshot size is present, use 70% of current screen size. */
+    innerw = CurrentState.Width;
+    innerh = CurrentState.Height;
+    if (innerw == 0)
+	innerw = (WORD)(((LONG)Screen->Width * 70L) / 100L);
+    if (innerh == 0)
+	innerh = (WORD)(((LONG)Screen->Height * 70L) / 100L);
+
     MainWin_Object = WindowObject,
                        WA_Title, wintitle,
                        WA_ScreenTitle, wintitle,
@@ -678,8 +687,8 @@ struct Window *OpenFTPWindow(const BOOL StartIconified)
                        WA_SizeBBottom, TRUE,
                        WA_Top, CurrentState.TopEdge?CurrentState.TopEdge:MainPrefs.mp_TopEdge-Screen->ViewPort.DyOffset,
                        WA_Left, CurrentState.LeftEdge?CurrentState.LeftEdge:MainPrefs.mp_LeftEdge-Screen->ViewPort.DxOffset,
-                       WA_InnerHeight, CurrentState.Height?CurrentState.Height:MainPrefs.mp_Height,
-                       WA_InnerWidth, CurrentState.Width?CurrentState.Width:MainPrefs.mp_Width,
+                       WA_InnerHeight, innerh,
+                       WA_InnerWidth, innerw,
                        WA_DepthGadget, TRUE,
                        WA_DragBar, TRUE,
                        WA_CloseGadget, TRUE,
@@ -1119,7 +1128,7 @@ void CreateInfoList(struct List *list)
     extern struct Image im;
     extern char *linfotext;
     int i;
-    char *infostrings[4]={NULL, "Copyright (C) 1995-1998 by Magnus Lilja", "Rebuilt by amigazen project 2026","All Rights Reserved."};
+    char *infostrings[4]={NULL, "Copyright (C) 1995-1998 Magnus Lilja", "Rebuilt by amigazen project 2026","All Rights Reserved."};
 
     infostrings[0]=linfotext;
 
