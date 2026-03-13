@@ -19,4 +19,4 @@ src/bin/*
 *.o
 
 output.txt
-*.uaem
+*.map

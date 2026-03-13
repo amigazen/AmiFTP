@@ -41,7 +41,7 @@ _Ny
 ;_New site
 ;
 SLW_Edit
-Än_dra
+ï¿½n_dra
 ;_Edit
 ;
 SLW_Remove
@@ -65,7 +65,7 @@ Ner
 ;Down
 ;
 SLW_Top
-Överst
+ï¿½verst
 ;Top
 ;
 SLW_Bottom
@@ -83,7 +83,7 @@ _Sortera
 ; SiteConfiguration Window
 ;
 SCW_SiteConfigurationWindow
-AmiFTP - Adressinställingar
+AmiFTP - Adressinstï¿½llingar
 ;AmiFTP Site Configuration
 ;
 SCW_Name
@@ -99,11 +99,11 @@ _Port
 ;_Port
 ;
 SCW_RemDir
-_Gå till låda
+_Gï¿½ till lï¿½da
 ;_Auto-cd to drawer
 ;
 SCW_LocDir
-_Lokal låda
+_Lokal lï¿½da
 ;_Download path
 ;
 SCW_Anonymous
@@ -111,11 +111,11 @@ A_nonym inloggning
 ;Anonymous lo_gin
 ;
 SCW_LoginName
-Använ_darnamn
+Anvï¿½n_darnamn
 ;_Login name
 ;
 SCW_Password
-Lös_enord
+Lï¿½s_enord
 ;Pass_word
 ;
 SCW_OK
@@ -161,7 +161,7 @@ CPS
 ;CPS
 ;
 TW_DataTransferred
-Data överfört
+Data ï¿½verfï¿½rt
 ;Data transferred
 ;
 TW_Abort
@@ -169,37 +169,37 @@ Avbryt
 ;Abort transfer
 ;
 TW_FileExists
-Filen "%s" finns redan.\nDen gamla filens storlek är %ld bytes\n(den nya är %ld bytes).\n
+Filen "%s" finns redan.\nDen gamla filens storlek ï¿½r %ld bytes\n(den nya ï¿½r %ld bytes).\n
 ;File '%s' already exists.\nOld filesize is: %ld bytes (new %ld bytes).\n
 ;
 TW_Overwrite
-Skriv över
+Skriv ï¿½ver
 ;Overwrite
 ;
 TW_Resume
-Återuppta överföring
+ï¿½teruppta ï¿½verfï¿½ring
 ;Resume transfer
 ;
 TW_CancelTransfer
-Avbryt överföring
+Avbryt ï¿½verfï¿½ring
 ;Cancel transfer
 ;
 TW_DownloadDir
-Vill du verkligen hämta ett helt lådträd?
+Vill du verkligen hï¿½mta ett helt lï¿½dtrï¿½d?
 ;You are about to download a directory tree.\nAre you sure you want to do this?
 ;
 TW_GetDir
-Ja, hämta!|Hoppa över
+Ja, hï¿½mta!|Hoppa ï¿½ver
 ;Yes, download it!|Skip this entry
 ;
 ; Main preferences window
 ;
 MPW_WinTitle
-AmiFTP - Inställningar
+AmiFTP - Instï¿½llningar
 ;AmiFTP Global Preferences
 ;
 MPW_Password
-_Anonymt lösenord
+_Anonymt lï¿½senord
 ;_Anonymous password
 ;
 MPW_ViewCommand
@@ -215,11 +215,11 @@ Ombuds_port
 ;Proxy _port
 ;
 MPW_ProxyDefault
-_Förvalt att använda ombud
+_Fï¿½rvalt att anvï¿½nda ombud
 ;Use pro_xy per default
 ;
 MPW_DefDownloadDir
-Förvald _lokal låda
+Fï¿½rvald _lokal lï¿½da
 ;Default local drawer
 ;
 MPW_IgnoreCase
@@ -233,11 +233,11 @@ _Adress
 ;_Site
 ;
 MW_DirName
-Lå_da
+Lï¿½_da
 ;Drawer
 ;
 MW_DownloadDir
-Lokal låda
+Lokal lï¿½da
 ;L_ocal drawer
 ;
 MW_Parent
@@ -245,11 +245,11 @@ _Moder
 ;_Parent
 ;
 MW_Get
-_Hämta
+_Hï¿½mta
 ;_Get
 ;
 MW_Put
-_Lämna...
+_Lï¿½mna...
 ;P_ut
 ;
 MW_View
@@ -273,13 +273,13 @@ Radera|Avbryt
 ;Delete|Cancel
 ;
 MW_Reload
-Läs _om
+Lï¿½s _om
 ;_Reload
 ;
 ; Connect window
 ;
 CW_WinTitle
-AmiFTP - Uppkopplingsfönster
+AmiFTP - Uppkopplingsfï¿½nster
 ;AmiFTP Connect window
 ;
 CW_Abort
@@ -299,7 +299,7 @@ Kopplar upp...
 ;Connecting...
 ;
 CW_ReadingDir
-Läser låda...
+Lï¿½ser lï¿½da...
 ;Reading drawer...
 ;
 CW_SendingLogin
@@ -307,11 +307,11 @@ Skickar login...
 ;Sending login...
 ;
 CW_SendingPassword
-Skickar lösenord...
+Skickar lï¿½senord...
 ;Sending password...
 ;
 CW_ChangingDirectory
-Byter låda...
+Byter lï¿½da...
 ;Changing drawer...
 ;
 ; Main menus
@@ -333,7 +333,7 @@ I\000Ikonifiera
 ;I\000Iconify
 ;
 MENU_About
-?\000Om AmiFTP...
+?\000Om AmiFTP
 ;?\000About...
 ;
 MENU_Quit
@@ -353,11 +353,11 @@ U\000Avmarkera alla
 ;U\000Untag all
 ;
 MENU_TransferMode
-Överföringsläge
+ï¿½verfï¿½ringslï¿½ge
 ;Transfer mode
 ;
 MENU_Binary
-Binärt
+Binï¿½rt
 ;Binary
 ;
 MENU_ASCII
@@ -389,7 +389,7 @@ efter datum
 ;by date
 ;
 MENU_Settings
-Inställningar
+Instï¿½llningar
 ;Settings
 ;
 MENU_Global
@@ -401,7 +401,7 @@ MENU_Hostlist
 ;2\000Sitelist...
 ;
 MENU_LogWindow
-Loggfönster
+Loggfï¿½nster
 ;Log window
 ;
 MENU_ToggleDotFiles
@@ -409,15 +409,15 @@ Visa punktfiler
 ;Show dot-files
 ;
 MENU_LoadSettings
-Ladda inställningar...
+Ladda instï¿½llningar...
 ;Load settings...
 ;
 MENU_SaveSettings
-Spara inställningar
+Spara instï¿½llningar
 ;Save settings
 ;
 MENU_SaveSettingsAs
-Spara inställningar som...
+Spara instï¿½llningar som...
 ;Save settings as...
 ;
 MENU_HotList
@@ -427,27 +427,27 @@ Snabbval
 ; Other strings
 ;
 Str_ErrorReadingDir
-Kunde inte läsa låda!
+Kunde inte lï¿½sa lï¿½da!
 ;Error reading drawer!\n
 ;
 Str_CannotDLDirs
-Kan inte hämta hela bibliotek!
+Kan inte hï¿½mta hela bibliotek!
 ;Cannot download entire directories!\n
 ;
 Str_SelectDLPath
-Välj låda för hämtade filer
+Vï¿½lj lï¿½da fï¿½r hï¿½mtade filer
 ;Select download path
 ;
 Str_SelectULFiles
-Välj filer att skicka
+Vï¿½lj filer att skicka
 ;Select file(s) to upload
 ;
 Str_CDFailedTimedout
-Kunde inte byta aktuell låda!\nUppkopplingen avbröts.
+Kunde inte byta aktuell lï¿½da!\nUppkopplingen avbrï¿½ts.
 ;Remote CD failed:\nConnection timed out
 ;
 Str_CDFailed
-Kunde inte byta aktuell låda!
+Kunde inte byta aktuell lï¿½da!
 ;Remote CD failed.
 ;
 Str_AmiFTPError
@@ -463,15 +463,15 @@ Avbryt
 ;Cancel
 ;
 Str_PasswordRequest
-AmiFTP - Lösenordsbegäran
+AmiFTP - Lï¿½senordsbegï¿½ran
 ;AmiFTP Password request
 ;
 Str_PasswordEntry
-Lösenord för användaren:\n%s
+Lï¿½senord fï¿½r anvï¿½ndaren:\n%s
 ;Enter password for user:\n%s
 ;
 Str_ServiceNotAvail
-Tjänsten finns inte!
+Tjï¿½nsten finns inte!
 ;Service not available.
 ;
 Str_ConnectFailed
@@ -479,11 +479,11 @@ Uppkopplingen misslyckades!
 ;Connect failed.
 ;
 Str_ConnectLoginFailed
-Uppkopplingen misslyckades, okänt användarnamn!
+Uppkopplingen misslyckades, okï¿½nt anvï¿½ndarnamn!
 ;Connect failed, login unknown.
 ;
 Str_Putfailed
-Kunde inte lämna "%s"!
+Kunde inte lï¿½mna "%s"!
 ;Put of %s failed
 ;
 Str_RemoteWriteFailed
@@ -491,11 +491,11 @@ Kunde inte skriva (full volym?)!
 ;Write failed (remote file system full?).
 ;
 Str_GetFailed
-Kunde inte hämta "%s"!
+Kunde inte hï¿½mta "%s"!
 ;Get %s failed.
 ;
 Str_LocalfileError
-Kunde inte öppna "%s"!
+Kunde inte ï¿½ppna "%s"!
 ;Error opening %s.
 ;
 Str_LocalWriteFailed
@@ -503,7 +503,7 @@ Kunde inte skriva till "%s"!
 ;Write failed: %s
 ;
 Str_NoSuchDir
-Kunde inte hitta filen/lådan "%s"!
+Kunde inte hitta filen/lï¿½dan "%s"!
 ;%s: No such file or directory.
 ;
 Str_DisconnectedTimeout
@@ -511,31 +511,31 @@ Nerkopplad (timeout).
 ;Disconnected (timeout).
 ;
 Str_Outofmem
-Ej tillräckligt med minne!
+Ej tillrï¿½ckligt med minne!
 ;Out of memory
 ;
 Str_SelectSettingsFile
-Välj inställningsfil...
+Vï¿½lj instï¿½llningsfil...
 ;Select settings file...
 ;
 Str_NoRestart
-Återupptagning misslyckades!
+ï¿½terupptagning misslyckades!
 ;Resume command failed.
 ;
 Str_ConnectionTimedOut
-Uppkopplingen avbröts!
+Uppkopplingen avbrï¿½ts!
 ;Connection timed out
 ;
 Str_AmiFTPRequest
-AmiFTP - Begäran
+AmiFTP - Begï¿½ran
 ;AmiFTP Request
 ;
 Str_AboutAmiFTP
-Om AmiFTP...
-;About AmiFTP...
+Om AmiFTP
+;About AmiFTP
 ;
 Str_UnknownHost
-Okänd adress!
+Okï¿½nd adress!
 ;Unknown host
 ;
 Str_ErrorBuildingDirList
@@ -543,7 +543,7 @@ Kunde inte skapa fillista!
 ;Error building filelist.
 ;
 Str_Translator
-Svensk översättning av\nMagnus Lilja\n
+Svensk ï¿½versï¿½ttning av\nMagnus Lilja\n
 ;
 ; This string will show up in the about window telling the user who made 
 ; the translation. I suggest the string should look like this:
@@ -563,7 +563,7 @@ Visa hela RECENT-listan
 ;Show entire RECENT
 ;
 MENU_ResetADT
-Nollställ Aminet-datum
+Nollstï¿½ll Aminet-datum
 ;Reset Aminet-date
 ;
 MW_ViewReadme
@@ -571,7 +571,7 @@ Visa readme
 ;View readme
 ;
 MPW_General
-Allmänt
+Allmï¿½nt
 ;General
 ;
 MPW_ADT
@@ -595,15 +595,15 @@ Radera visade filer
 ;Delete viewed files
 ;
 MPW_Beep
-Pip efter överföring
+Pip efter ï¿½verfï¿½ring
 ;Beep after transfer
 ;
 MPW_HideDirectories
-Göm lådor
+Gï¿½m lï¿½dor
 ;Hide drawers
 ;
 MPW_PreservePath
-Bevara sökväg
+Bevara sï¿½kvï¿½g
 ;Preserve filepath
 ;
 MPW_ShowMOTD
@@ -611,11 +611,11 @@ Visa MOTD-fil
 ;Show MOTD-file
 ;
 MPW_GetReadme
-Hämta readme
+Hï¿½mta readme
 ;Download readme
 ;
 SCW_AminetMode
-Aminet-läge
+Aminet-lï¿½ge
 ;Aminet-mode
 ;
 MPW_OK
@@ -631,11 +631,11 @@ Tid kvar
 ;Time left
 ;
 Str_NoNewAminetFiles
-Inga nya filer sedan senaste Aminet-besöket
+Inga nya filer sedan senaste Aminet-besï¿½ket
 ;No new files since last Aminet visit
 ;
 Str_WindowTitle
-AmiFTP - %ld filer valda (%ld %s) %ld %s ledigt på disk
+AmiFTP - %ld filer valda (%ld %s) %ld %s ledigt pï¿½ disk
 ;AmiFTP - %ld files selected (%ld %s) %ld %s free on disk
 ; This might look a bit strange, but when the fields are filled the
 ; string looks like:
@@ -649,11 +649,11 @@ Koppla ner
 ;Disconnect
 ;
 MENU_Get
-H\000Hämta
+H\000Hï¿½mta
 ;G\000Get
 ;
 MENU_Put
-L\000Lämna
+L\000Lï¿½mna
 ;U\000Put
 ;
 MENU_View
@@ -661,7 +661,7 @@ V\000Visa
 ;V\000View
 ;
 MENU_PatternSelect
-Välj filer
+Vï¿½lj filer
 ;Select by pattern...
 ;
 MPW_Display
@@ -669,11 +669,11 @@ Utseende
 ;Display
 ;
 Str_PatternRequest
-AmiFTP begäran
+AmiFTP begï¿½ran
 ;AmiFTP request
 ;
 Str_SelectPattern
-Skriv in AmigaDOS-mönstret
+Skriv in AmigaDOS-mï¿½nstret
 ;Enter AmigaDOS pattern:
 ;
 MENU_Parent
@@ -681,15 +681,15 @@ M\000Moder
 ;P\000Parent
 ;
 MPW_PublicScreen
-Allmän skärm
+Allmï¿½n skï¿½rm
 ;Public screen
 ;
 MPW_SystemFonts
-Använd system-typsnitt
+Anvï¿½nd system-typsnitt
 ;Use system fonts
 ;
 MPW_InterfaceFont
-Gränssnittstypsnitt
+Grï¿½nssnittstypsnitt
 ;Interface font
 ;
 MPW_FilelistFont
@@ -709,19 +709,19 @@ Visa readme
 ;View readme
 ;
 MPW_DefaultScreen
-Öppna på standard allmän skärm
+ï¿½ppna pï¿½ standard allmï¿½n skï¿½rm
 ;Open on default public screen
 ;
 TW_OverwriteAll
-Skriv över allt
+Skriv ï¿½ver allt
 ;Overwrite all
 ;
 MENU_CreateDir
-Skapa låda
+Skapa lï¿½da
 ;Create directory
 ;
 Str_RemoteDir
-Namn på lådan
+Namn pï¿½lï¿½dan
 ;Enter name of directory
 ;
 MENU_RawCommand
@@ -729,6 +729,6 @@ Skicka FTP kommando
 ;Send FTP command
 ;
 MENU_Rename
-Döp om
+Dï¿½p om
 ;Rename
 ;

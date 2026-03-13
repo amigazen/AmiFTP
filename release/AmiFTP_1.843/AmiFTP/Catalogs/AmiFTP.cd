@@ -407,7 +407,7 @@ Str_AmiFTPRequest (/1/)
 AmiFTP Request
 ;
 Str_AboutAmiFTP (/1/)
-About AmiFTP...
+About AmiFTP
 ;
 Str_UnknownHost (/1/)
 Unknown host

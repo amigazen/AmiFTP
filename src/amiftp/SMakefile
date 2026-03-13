@@ -1,5 +1,6 @@
 # SMakefile for SAS/C
 # Copyright (c) 1995 Magnus Lilja.
+# Changes Copyright (c) 2026 amigazen project
 
 # Project files
 
@@ -149,6 +150,9 @@ obj/version.o:	version.c $(SRCS) $(INCS)
 	$(VER) -n # make sure VERSION exists
 	$(CC) NODEBUG DEF=VERSION="$(VERSION)" OBJNAME=$(OBJ) version.c
 	
+install: AmiFTP
+    $(CP) AmiFTP //Internet/AmiFTP/AmiFTP CLONE
+
 $(OBJ)ftp.o: ftp.c AmiFTP.h $(GST)
 $(OBJ)main.o: main.c AmiFTP.h $(GST)
 $(OBJ)dofuncs.o: dofuncs.c AmiFTP.h $(GST)

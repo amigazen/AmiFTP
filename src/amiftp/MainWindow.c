@@ -1050,18 +1050,22 @@ void ChangeAmiFTPMode(void)
 
 void UpdateWindowTitle()
 {
-    static char title[100];
+    static char screentitle[200];
+    static char wintitlebuf[1200];
     int numselfiles=0, numselbytes=0;
     char *bytes="kB";
     int freebytes=0;
     char *fbytes="kB";
     struct InfoData info;
     BPTR lock;
+    char pathname[256];
+    int i;
+    struct Node *node;
+    ULONG sel;
+    struct dirlist *ptr;
+    char *windowtitle;
 
     if (lock=Lock(CurrentState.CurrentDLDir, ACCESS_READ)) {
-	char pathname[256];
-	int i;
-
 	NameFromLock(lock, pathname, 256);
 	UnLock(lock);
 	i=0;
@@ -1085,12 +1089,7 @@ void UpdateWindowTitle()
     }
 
     if (FileList) {
-	struct Node *node;
-
 	for (node=FirstNode(FileList); node; node=NextNode(node)) {
-	    ULONG sel;
-	    struct dirlist *ptr;
-
 	    GetListBrowserNodeAttrs(node, LBNA_Selected, &sel, TAG_DONE);
 	    if (sel && (ptr=(void *)node->ln_Name)) {
 		numselfiles++;
@@ -1106,10 +1105,44 @@ void UpdateWindowTitle()
 	    bytes="MB";
 	}
     }
-    sprintf(title, GetAmiFTPString(Str_WindowTitle),
+
+    /* Screen title shows the detail line (selection and free space); replaces copyright. */
+    sprintf(screentitle, GetAmiFTPString(Str_WindowTitle),
 	    numselfiles, numselbytes, bytes, freebytes, fbytes);
+
+    /* Window title: full URL when connected, "AmiFTP" when not. */
+    if (connected && CurrentState.CurrentSite[0]) {
+	if (CurrentState.Port && CurrentState.Port != 21) {
+	    if (CurrentState.CurrentRemoteDir[0] == '/') {
+		sprintf(wintitlebuf, "ftp://%s:%d%s",
+			CurrentState.CurrentSite, CurrentState.Port,
+			CurrentState.CurrentRemoteDir);
+	    }
+	    else {
+		sprintf(wintitlebuf, "ftp://%s:%d/%s",
+			CurrentState.CurrentSite, CurrentState.Port,
+			CurrentState.CurrentRemoteDir);
+	    }
+	}
+	else {
+	    if (CurrentState.CurrentRemoteDir[0] == '/') {
+		sprintf(wintitlebuf, "ftp://%s%s",
+			CurrentState.CurrentSite, CurrentState.CurrentRemoteDir);
+	    }
+	    else {
+		sprintf(wintitlebuf, "ftp://%s/%s",
+			CurrentState.CurrentSite, CurrentState.CurrentRemoteDir);
+	    }
+	}
+	windowtitle = wintitlebuf;
+    }
+    else {
+	windowtitle = wintitle;
+    }
+
     SetAttrs(MainWin_Object,
-	     WA_Title, title,
+	     WA_Title, windowtitle,
+	     WA_ScreenTitle, screentitle,
 	     TAG_DONE);
 }
 

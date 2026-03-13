@@ -1496,6 +1496,19 @@ during transfer; ARexx VIEW and SETATTR QUIET; Icelandic and Spanish
 catalogs.
 
 
-   @{b}1.0@{ub} (1995-12-17): First Aminet release.
+   @{b}1.0@{ub} (1995-12-17): First Aminet release. Sitelist bug fix;
+CLI "AmiFTP sitename"; prefs search order (Current, PROGDIR:, ENVARC:,
+~user/); amigaguide optional; catalogs updated.
+
+
+   @{b}Pre-1.0 beta@{ub}: 0.1299 Reload gadget, alphabetical sitelist,
+link size in TransferWindow. 0.1261 ClassAct GUI (from gadtools).
+0.864 Get directory trees, log window, Add to sitelist, online help,
+default download dir. 0.776 Download 32+ char names, View with spaces,
+window size/position saved, ARexx DELETE and GETATTR FILELIST. 0.533
+Resume transfer, Settings menu, localisation, password gadget. 0.345
+Directory cache, delete remote files, Select all/Unselect all, ARexx
+PUT/MPUT. 0.275 ARexx port, View to T: and delete on quit. See
+CHANGELOG.md for full pre-1.0 history.
 
 @endnode

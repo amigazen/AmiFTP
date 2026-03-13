@@ -531,8 +531,8 @@ AmiFTP verzoek
 ;AmiFTP Request
 ;
 Str_AboutAmiFTP
-Over AmiFTP...
-;About AmiFTP...
+Over AmiFTP
+;About AmiFTP
 ;
 Str_UnknownHost
 Onbekende host

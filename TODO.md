@@ -14,6 +14,7 @@ Reaction is the evolution of ClassAct (part of AmigaOS), so GUI ideas from the o
 - Prefs: Font preferences (proportional and fixed fonts for listview / rest of UI).
 - Prefs: User-defined maximum number of dirs in cache.
 - Longer pattern string for "hide Aminet dirs" (ADT pattern).
+- Change location of preferences to ENV:AmiFTP directory
 
 ### UI / behaviour
 - Clear "Current ftp-site" gadget after disconnect.

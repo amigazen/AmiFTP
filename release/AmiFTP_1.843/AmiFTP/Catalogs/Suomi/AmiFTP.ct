@@ -57,7 +57,7 @@ O_K
 ;_OK
 ;
 SLW_Up
-Ylös
+Ylï¿½s
 ;Up
 ;
 SLW_Down
@@ -73,11 +73,11 @@ Loppuun
 ;Bottom
 ;
 SLW_Newstring
-« Uusi »
+ï¿½ Uusi ï¿½
 ;(New)
 ;
 SLW_Sort
-Järjestä
+Jï¿½rjestï¿½
 ;_Sort
 ;
 ; SiteConfiguration Window
@@ -107,7 +107,7 @@ _Polku
 ;_Download path
 ;
 SCW_Anonymous
-_Nimetön yhteys?
+_Nimetï¿½n yhteys?
 ;Anonymous lo_gin
 ;
 SCW_LoginName
@@ -127,7 +127,7 @@ _Peru
 ;Ca_ncel
 ;
 SCW_OS
-_Käyttöjärjestelmä
+_Kï¿½yttï¿½jï¿½rjestelmï¿½
 ;Operating S_ystem
 ;
 SCW_Proxy
@@ -145,7 +145,7 @@ AmiFTP tiedostonsiirto
 ;AmiFTP - %ld file(s) left (%ld %s)
 ;
 TW_RemoteFile
-Etätiedosto
+Etï¿½tiedosto
 ;Remote file
 ;
 TW_LocalFile
@@ -165,7 +165,7 @@ Tavuja siirretty
 ;Data transferred
 ;
 TW_Abort
-Keskeytä siirto
+Keskeytï¿½ siirto
 ;Abort transfer
 ;
 TW_FileExists
@@ -185,11 +185,11 @@ Peru siirto
 ;Cancel transfer
 ;
 TW_DownloadDir
-Olet aikeissa siirtää hakemistopuun.\nOletko varma että haluat tehdä tämän?
+Olet aikeissa siirtï¿½ï¿½ hakemistopuun.\nOletko varma ettï¿½ haluat tehdï¿½ tï¿½mï¿½n?
 ;You are about to download a directory tree.\nAre you sure you want to do this?
 ;
 TW_GetDir
-Kyllä, siirrä!|Ohita
+Kyllï¿½, siirrï¿½!|Ohita
 ;Yes, download it!|Skip this entry
 ;
 ; Main preferences window
@@ -199,7 +199,7 @@ AmiFTP yleiset asetukset
 ;AmiFTP Global Preferences
 ;
 MPW_Password
-_Nimetön tunnussana
+_Nimetï¿½n tunnussana
 ;_Anonymous password
 ;
 MPW_ViewCommand
@@ -215,7 +215,7 @@ Prox_y-portti
 ;Proxy _port
 ;
 MPW_ProxyDefault
-Käytä pro_xyä oletuksena?
+Kï¿½ytï¿½ pro_xyï¿½ oletuksena?
 ;Use pro_xy per default
 ;
 MPW_DefDownloadDir
@@ -229,7 +229,7 @@ _Isot/pienet kirjaimet samoja?
 ; Main window
 ;
 MW_SiteName
-Tämä _palvelin
+Tï¿½mï¿½ _palvelin
 ;_Site
 ;
 MW_DirName
@@ -249,11 +249,11 @@ Ha_e
 ;_Get
 ;
 MW_Put
-_Lähetä
+_Lï¿½hetï¿½
 ;P_ut
 ;
 MW_View
-_Näytä
+_Nï¿½ytï¿½
 ;_View
 ;
 MW_Connect
@@ -265,7 +265,7 @@ _Pura yhteys
 ;_Disconnect
 ;
 MW_DeleteRequest
-Haluatko varmasti tuhota\nnämä tiedostot?
+Haluatko varmasti tuhota\nnï¿½mï¿½ tiedostot?
 ;Are you sure you want to\ndelete these files?
 ;
 MW_DeleteCancel
@@ -283,7 +283,7 @@ AmiFTP yhteydenotto
 ;AmiFTP Connect window
 ;
 CW_Abort
-Keskeytä
+Keskeytï¿½
 ;Abort
 ;
 CW_Site
@@ -295,7 +295,7 @@ Tila
 ;Status:
 ;
 CW_Connecting
-Otan yhteyttä...
+Otan yhteyttï¿½...
 ;Connecting...
 ;
 CW_ReadingDir
@@ -303,11 +303,11 @@ Luen hakemistoa...
 ;Reading drawer...
 ;
 CW_SendingLogin
-Lähetän tunnusta...
+Lï¿½hetï¿½n tunnusta...
 ;Sending login...
 ;
 CW_SendingPassword
-Lähetän tunnussanaa...
+Lï¿½hetï¿½n tunnussanaa...
 ;Sending password...
 ;
 CW_ChangingDirectory
@@ -321,7 +321,7 @@ Projekti
 ;Project
 ;
 MENU_AddToSiteList
-Lisää palvelinlistaan
+Lisï¿½ï¿½ palvelinlistaan
 ;Add current to sitelist
 ;
 MENU_Reconnect
@@ -349,7 +349,7 @@ A\000Merkitse kaikki
 ;A\000Tag all
 ;
 MENU_UntagAll
-U\000Poista merkinnät
+U\000Poista merkinnï¿½t
 ;U\000Untag all
 ;
 MENU_TransferMode
@@ -365,7 +365,7 @@ ASCII
 ;ASCII
 ;
 MENU_ClearCache
-Tyhjennä hakemistopuskuri
+Tyhjennï¿½ hakemistopuskuri
 ;Clear dir-cache
 ;
 MENU_Delete
@@ -373,11 +373,11 @@ D\000Tuhoa
 ;D\000Delete
 ;
 MENU_Move
-M\000Siirrä
+M\000Siirrï¿½
 ;M\000Move
 ;
 MENU_Sort
-Järjestä
+Jï¿½rjestï¿½
 ;Sort
 ;
 MENU_SortbyName
@@ -385,7 +385,7 @@ nimien mukaan
 ;by name
 ;
 MENU_SortbyDate
-päiväyksen mukaan
+pï¿½ivï¿½yksen mukaan
 ;by date
 ;
 MENU_Settings
@@ -405,7 +405,7 @@ Loki-ikkuna?
 ;Log window
 ;
 MENU_ToggleDotFiles
-Näytä piste-tiedostot
+Nï¿½ytï¿½ piste-tiedostot
 ;Show dot-files
 ;
 MENU_LoadSettings
@@ -417,7 +417,7 @@ Tallenna asetukset
 ;Save settings
 ;
 MENU_SaveSettingsAs
-Tallenna asetukset nimellä...
+Tallenna asetukset nimellï¿½...
 ;Save settings as...
 ;
 MENU_HotList
@@ -439,15 +439,15 @@ Valitse hakupolku
 ;Select download path
 ;
 Str_SelectULFiles
-Valitse lähetettävät tiedostot
+Valitse lï¿½hetettï¿½vï¿½t tiedostot
 ;Select file(s) to upload
 ;
 Str_CDFailedTimedout
-Etähakemiston vaihto epäonnistui:\nYhteys purkaantunut
+Etï¿½hakemiston vaihto epï¿½onnistui:\nYhteys purkaantunut
 ;Remote CD failed:\nConnection timed out
 ;
 Str_CDFailed
-Etähakemiston vaihto epäonnistui
+Etï¿½hakemiston vaihto epï¿½onnistui
 ;Remote CD failed.
 ;
 Str_AmiFTPError
@@ -467,7 +467,7 @@ AmiFTP tunnussana
 ;AmiFTP Password request
 ;
 Str_PasswordEntry
-Syötä käyttäjän %s tunnussana
+Syï¿½tï¿½ kï¿½yttï¿½jï¿½n %s tunnussana
 ;Enter password for user:\n%s
 ;
 Str_ServiceNotAvail
@@ -475,23 +475,23 @@ Palvelu ei saatavissa
 ;Service not available.
 ;
 Str_ConnectFailed
-Yhteys epäonnistui
+Yhteys epï¿½onnistui
 ;Connect failed.
 ;
 Str_ConnectLoginFailed
-Käyttäjä tuntematon, yhteys epäonnistui
+Kï¿½yttï¿½jï¿½ tuntematon, yhteys epï¿½onnistui
 ;Connect failed, login unknown.
 ;
 Str_Putfailed
-Tiedoston %s lähetys epäonnistui
+Tiedoston %s lï¿½hetys epï¿½onnistui
 ;Put of %s failed
 ;
 Str_RemoteWriteFailed
-Lähetys epäonnistui (etälevy täynnä?)
+Lï¿½hetys epï¿½onnistui (etï¿½levy tï¿½ynnï¿½?)
 ;Write failed (remote file system full?).
 ;
 Str_GetFailed
-Tiedoston %s haku epäonnistui
+Tiedoston %s haku epï¿½onnistui
 ;Get %s failed.
 ;
 Str_LocalfileError
@@ -499,7 +499,7 @@ Virhe %s avattaessa
 ;Error opening %s.
 ;
 Str_LocalWriteFailed
-Kirjoitus epäonnistui: %s
+Kirjoitus epï¿½onnistui: %s
 ;Write failed: %s
 ;
 Str_NoSuchDir
@@ -519,7 +519,7 @@ Valitse asetustiedosto...
 ;Select settings file...
 ;
 Str_NoRestart
-Etäkomento epäonnistui
+Etï¿½komento epï¿½onnistui
 ;Resume command failed.
 ;
 Str_ConnectionTimedOut
@@ -531,8 +531,8 @@ AmiFTP kysely
 ;AmiFTP Request
 ;
 Str_AboutAmiFTP
-Tietoja AmiFTP:stä...
-;About AmiFTP...
+Tietoja AmiFTP:stï¿½...
+;About AmiFTP
 ;
 Str_UnknownHost
 Tuntematon osoite
@@ -543,7 +543,7 @@ Virhe tiedostolistaa rakennettaessa
 ;Error building filelist.
 ;
 Str_Translator
-Suomenkielinen käännös\nOsma Ahvenlampi <Osma.Ahvenlampi@hut.fi>\n
+Suomenkielinen kï¿½ï¿½nnï¿½s\nOsma Ahvenlampi <Osma.Ahvenlampi@hut.fi>\n
 ;
 ; This string will show up in the about window telling the user who made 
 ; the translation. I suggest the string should look like this:
@@ -551,19 +551,19 @@ Suomenkielinen käännös\nOsma Ahvenlampi <Osma.Ahvenlampi@hut.fi>\n
 ; too). Ofcourse the above string should be in the same language as
 ; the rest of the translation.
 SLW_NewGroup
-Uusi _ryhmä
+Uusi _ryhmï¿½
 ;New _group
 ;
 SLW_AddBar
-Lisää viiva
+Lisï¿½ï¿½ viiva
 ;Add bar
 ;
 MENU_ToggleADTFiles
-Näytä koko RECENT?
+Nï¿½ytï¿½ koko RECENT?
 ;Show entire RECENT
 ;
 MENU_ResetADT
-Nollaa Aminet-päiväys
+Nollaa Aminet-pï¿½ivï¿½ys
 ;Reset Aminet-date
 ;
 MW_ViewReadme
@@ -603,11 +603,11 @@ Piilota hakemistot
 ;Hide drawers
 ;
 MPW_PreservePath
-Säilytä polku?
+Sï¿½ilytï¿½ polku?
 ;Preserve filepath
 ;
 MPW_ShowMOTD
-Näytä MOTD-tiedosto?
+Nï¿½ytï¿½ MOTD-tiedosto?
 ;Show MOTD-file
 ;
 MPW_GetReadme
@@ -627,7 +627,7 @@ _Peru
 ;C_ancel
 ;
 TW_TimeLeft
-Aikaa jäljellä
+Aikaa jï¿½ljellï¿½
 ;Time left
 ;
 Str_NoNewAminetFiles
@@ -635,7 +635,7 @@ Ei uusia tiedostoja sitten viimeisen Aminet-vierailun
 ;No new files since last Aminet visit
 ;
 Str_WindowTitle
-AmiFTP - %ld tiedostoa valittuna (%ld %s) %ld %s vapaana levyllä
+AmiFTP - %ld tiedostoa valittuna (%ld %s) %ld %s vapaana levyllï¿½
 ;AmiFTP - %ld files selected (%ld %s) %ld %s free on disk
 ; This might look a bit strange, but when the fields are filled the
 ; string looks like:
@@ -653,11 +653,11 @@ G\000Vastaanota
 ;G\000Get
 ;
 MENU_Put
-U\000Lähetä
+U\000Lï¿½hetï¿½
 ;U\000Put
 ;
 MENU_View
-V\000Näytä
+V\000Nï¿½ytï¿½
 ;V\000View
 ;
 MENU_PatternSelect
@@ -665,7 +665,7 @@ Valitse malli...
 ;Select by pattern...
 ;
 MPW_Display
-Näyttö
+Nï¿½yttï¿½
 ;Display
 ;
 Str_PatternRequest
@@ -673,23 +673,23 @@ AmiFTP kysely
 ;AmiFTP request
 ;
 Str_SelectPattern
-Syötä AmigaDOS-malli:
+Syï¿½tï¿½ AmigaDOS-malli:
 ;Enter AmigaDOS pattern:
 ;
 MENU_Parent
-P\000Edeltäjä
+P\000Edeltï¿½jï¿½
 ;P\000Parent
 ;
 MPW_PublicScreen
-Julkinen näyttö
+Julkinen nï¿½yttï¿½
 ;Public screen
 ;
 MPW_SystemFonts
-Käytä järjestelmäkirjasimia
+Kï¿½ytï¿½ jï¿½rjestelmï¿½kirjasimia
 ;Use system fonts
 ;
 MPW_InterfaceFont
-Liittymän kirjasin
+Liittymï¿½n kirjasin
 ;Interface font
 ;
 MPW_FilelistFont
@@ -697,11 +697,11 @@ Tiedostolistakirjasin
 ;Filelist font
 ;
 MPW_ShowButtons
-Näytä painikkeet
+Nï¿½ytï¿½ painikkeet
 ;Show buttons
 ;
 MPW_ShowToolbar
-Näytä painikerivi
+Nï¿½ytï¿½ painikerivi
 ;Show toolbar
 ;
 MENU_ViewReadme
@@ -709,7 +709,7 @@ Lue 'readme'
 ;View readme
 ;
 MPW_DefaultScreen
-Avaa oletusnäytöllä
+Avaa oletusnï¿½ytï¿½llï¿½
 ;Open on default public screen
 ;
 TW_OverwriteAll

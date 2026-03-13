@@ -7,8 +7,8 @@
 ; /_/ /_//_/  /_//_/ /_/      /_/  /_/
 ;
 ; $VER: AmiFTP_Install 1.797 (November-06-1996)
-; AmiFTP ©1995,1996 by Magnus Lilja
-; AmiFTP Installer ©1995,1996 by Robert C. Reiswig
+; AmiFTP ï¿½1995,1996 by Magnus Lilja
+; AmiFTP Installer ï¿½1995,1996 by Robert C. Reiswig
 ;
 ; If you wish to use any part of this installer you must ask. May not be 
 ; integrated/placed into any other package! Changes, suggestions or problems:
@@ -35,7 +35,7 @@
 ;********************************************************************
 ; English Strings
 ;********************************************************************
-(set #about (cat "\n\nWelcome to\n\nAmiFTP " amiftpver "\n\n©1995, 1996 by\n\nMagnus Lilja\n\nlilja@lysator.liu.se") )
+(set #about (cat "\n\nWelcome to\n\nAmiFTP " amiftpver "\n\nï¿½1995, 1996 by\n\nMagnus Lilja\n\nlilja@lysator.liu.se") )
 (set #whattcp "\nPlease select the Networking package you run.\n")
 (set #whereamiftp "Where do you wish to install AmiFTP. No directory will be created! If there is a copy of AmiFTP there the installer will back it up.")
 (set #backuptoXXX "Back-UP to file named 'AmiFTP")
@@ -68,37 +68,37 @@
 ;***********************************************************************
 ; Spanish string by Jose Roberto Gonzalez Rocha <alu756@csi.ull.es>
 ;***********************************************************************
-(if (= @language "español")
+(if (= @language "espaï¿½ol")
  (
-  (set #about (cat "\n\nBienvenido a\n\nAmiFTP " amiftpver "\n\n©1995, 1996 por\n\nMagnus Lilja\n\nlilja@lysator.liu.se") )
+  (set #about (cat "\n\nBienvenido a\n\nAmiFTP " amiftpver "\n\nï¿½1995, 1996 por\n\nMagnus Lilja\n\nlilja@lysator.liu.se") )
   (set #whattcp "\nPor favor, seleccione el paquete de red que utilize.\n")
-  (set #whereamiftp "¿Dónde desea instalar AmiFTP?. ¡No será creado ningún directorio! Si huy una copia de AmiFTP ahí, el instalador hará una copia de seguridad.")
+  (set #whereamiftp "ï¿½Dï¿½nde desea instalar AmiFTP?. ï¿½No serï¿½ creado ningï¿½n directorio! Si huy una copia de AmiFTP ahï¿½, el instalador harï¿½ una copia de seguridad.")
   (set #backuptoXXX "Copia de seguridad al fichero llamado 'AmiFTP")
-  (set #copyover "Copiar sobre la versión antigua")
-  (set #amiftpfound "\nEl Instalador ha encontrado una copia de AmiFTP actualmente instalada. ¿Qué quiere hacer?\n")
-  (set #newicon "\n¿Desea copiar sobre el icono de AmiFTP desde el archivo? Si tiene algún Tipo de Herramienta actualmente puesto debería seleccionar no.\n")
+  (set #copyover "Copiar sobre la versiï¿½n antigua")
+  (set #amiftpfound "\nEl Instalador ha encontrado una copia de AmiFTP actualmente instalada. ï¿½Quï¿½ quiere hacer?\n")
+  (set #newicon "\nï¿½Desea copiar sobre el icono de AmiFTP desde el archivo? Si tiene algï¿½n Tipo de Herramienta actualmente puesto deberï¿½a seleccionar no.\n")
   (set #nonewicon  "No - Tipos de Herramientas actualmente puestos.")
-  (set #yesnewicon "Sí - Copiar sobre el icono.")
-  (set #whatcat "\nSeleccione el catálogo de lenguaje de AmiFTP que desea instalar.\n")
-  (set #wherecat "\n¿Dónde desea instalar el catálogo de lenguaje de AmiFTP? Por defecto es Locale:Catalogs/")
-  (set #catmore "\n¿Desea instalar otro catálogo de lenguaje de AmiFTP?\n")
-  (set #yes " Sí")
+  (set #yesnewicon "Sï¿½ - Copiar sobre el icono.")
+  (set #whatcat "\nSeleccione el catï¿½logo de lenguaje de AmiFTP que desea instalar.\n")
+  (set #wherecat "\nï¿½Dï¿½nde desea instalar el catï¿½logo de lenguaje de AmiFTP? Por defecto es Locale:Catalogs/")
+  (set #catmore "\nï¿½Desea instalar otro catï¿½logo de lenguaje de AmiFTP?\n")
+  (set #yes " Sï¿½")
   (set #no " No")
-  (set #catnofind "No puedo encontrar este catálogo en este archive de AmiFTP. Podría necesitar un archivo actualizado o más reciente de AmiFTP del sitio de soporte.")
+  (set #catnofind "No puedo encontrar este catï¿½logo en este archive de AmiFTP. Podrï¿½a necesitar un archivo actualizado o mï¿½s reciente de AmiFTP del sitio de soporte.")
   (set #otherdir "Otro Directorio")
-  (set #instdefprefs "Sí - Instalar el fichero ejemplo de ajustes")
+  (set #instdefprefs "Sï¿½ - Instalar el fichero ejemplo de ajustes")
   (set #instdefprefsn "No  - No instalar el fichero ejemplo de ajustes")
-  (set #instprefsfile "El instalador no encontró el fichero AmiFTP.Prefs en:\n")
-  (set #wouldprefs "\n¿Le gustaría instalar el fichero ejemplo de ajustes?")
-  (set #putprefs "\n¿Dónde desea instalar el fichero ejemplo de ajustes AmiFTP.Prefs?\n")
-  (set #whatdocs "\n¿Qué documentación de AmiFTP desea instalar?\n")
-  (set #wheredocs "¿Dónde desea instalar la documentación que ha seleccionado?")
+  (set #instprefsfile "El instalador no encontrï¿½ el fichero AmiFTP.Prefs en:\n")
+  (set #wouldprefs "\nï¿½Le gustarï¿½a instalar el fichero ejemplo de ajustes?")
+  (set #putprefs "\nï¿½Dï¿½nde desea instalar el fichero ejemplo de ajustes AmiFTP.Prefs?\n")
+  (set #whatdocs "\nï¿½Quï¿½ documentaciï¿½n de AmiFTP desea instalar?\n")
+  (set #wheredocs "ï¿½Dï¿½nde desea instalar la documentaciï¿½n que ha seleccionado?")
 
-  (set #byebye (cat "\n¡Instalación de AmiFTP Completa!\n\n(Si desea hacer su propio Catálogo de Lenguaje "
+  (set #byebye (cat "\nï¿½Instalaciï¿½n de AmiFTP Completa!\n\n(Si desea hacer su propio Catï¿½logo de Lenguaje "
                     "puede encontrar un fichero ejemplo 'NewCatalog.ct' en el directorio 'Catalog' en el archivo.)\n\n"
   ))
-  (set #classact "\n\n\nA continuación viene el procedimiento de\ninstalación estándar de Instalación/Actualización\npara colocar ClassAct en su sistema.")
-  (set #updateinstaller "\nLe informamos de que ESCOM AG ha lanzado una nueva veri¢n del programa instalador.\n\nLa versi¢n 43.3 puede ser encontrada en Aminet en:\n\n/util/misc/Installer-43_3.lha\n\nDeber¡a actualizarse lo antes posible.")
+  (set #classact "\n\n\nA continuaciï¿½n viene el procedimiento de\ninstalaciï¿½n estï¿½ndar de Instalaciï¿½n/Actualizaciï¿½n\npara colocar ClassAct en su sistema.")
+  (set #updateinstaller "\nLe informamos de que ESCOM AG ha lanzado una nueva veriï¿½n del programa instalador.\n\nLa versiï¿½n 43.3 puede ser encontrada en Aminet en:\n\n/util/misc/Installer-43_3.lha\n\nDeberï¿½a actualizarse lo antes posible.")
  )
 )
 
@@ -216,11 +216,11 @@
 (foreach "Catalogs" "#?"
  (
   (set XX (+ XX 1)) 
-  (textfile (dest (cat "ENV:i.høld." XX)) (append @each-name) ) 
+  (textfile (dest (cat "ENV:i.hï¿½ld." XX)) (append @each-name) ) 
   (if (= lanfound @each-name) (set lan XX))
 
   (if (= (patmatch "#?.c#?" @each-name) 1) 
-     ( (delete (cat "ENV:i.høld." XX)) (set XX (- XX 1))  )
+     ( (delete (cat "ENV:i.hï¿½ld." XX)) (set XX (- XX 1))  )
   )
 
  )
@@ -231,23 +231,23 @@
 (set l11 "N/A") (set l12 "N/A") (set l13 "N/A") (set l14 "N/A") (set l15 "N/A") 
 
 (set l0 "English")
-(if (> (exists ("ENV:i.høld.1")) 0)   (set l1 (getenv "ENV:i.høld.1")) )
-(if (> (exists ("ENV:i.høld.2")) 0)   (set l2 (getenv "ENV:i.høld.2")) )
-(if (> (exists ("ENV:i.høld.3")) 0)   (set l3 (getenv "ENV:i.høld.3")) )
-(if (> (exists ("ENV:i.høld.4")) 0)   (set l4 (getenv "ENV:i.høld.4")) )
-(if (> (exists ("ENV:i.høld.5")) 0)   (set l5 (getenv "ENV:i.høld.5")) )
-(if (> (exists ("ENV:i.høld.6")) 0)   (set l6 (getenv "ENV:i.høld.6")) )
-(if (> (exists ("ENV:i.høld.7")) 0)   (set l7 (getenv "ENV:i.høld.7")) )
-(if (> (exists ("ENV:i.høld.8")) 0)   (set l8 (getenv "ENV:i.høld.8")) )
-(if (> (exists ("ENV:i.høld.9")) 0)   (set l9 (getenv "ENV:i.høld.9")) )
-(if (> (exists ("ENV:i.høld.10")) 0) (set l10 (getenv "ENV:i.høld.10")) )
-(if (> (exists ("ENV:i.høld.11")) 0) (set l11 (getenv "ENV:i.høld.11")) )
-(if (> (exists ("ENV:i.høld.12")) 0) (set l12 (getenv "ENV:i.høld.12")) )
-(if (> (exists ("ENV:i.høld.12")) 0) (set l13 (getenv "ENV:i.høld.13")) )
-(if (> (exists ("ENV:i.høld.14")) 0) (set l14 (getenv "ENV:i.høld.14")) )
-(if (> (exists ("ENV:i.høld.15")) 0) (set l15 (getenv "ENV:i.høld.15")) )
-(if (> (exists ("ENV:i.høld.16")) 0) (set l15 (getenv "ENV:i.høld.16")) )
-(run "delete env:i.høld.#?")
+(if (> (exists ("ENV:i.hï¿½ld.1")) 0)   (set l1 (getenv "ENV:i.hï¿½ld.1")) )
+(if (> (exists ("ENV:i.hï¿½ld.2")) 0)   (set l2 (getenv "ENV:i.hï¿½ld.2")) )
+(if (> (exists ("ENV:i.hï¿½ld.3")) 0)   (set l3 (getenv "ENV:i.hï¿½ld.3")) )
+(if (> (exists ("ENV:i.hï¿½ld.4")) 0)   (set l4 (getenv "ENV:i.hï¿½ld.4")) )
+(if (> (exists ("ENV:i.hï¿½ld.5")) 0)   (set l5 (getenv "ENV:i.hï¿½ld.5")) )
+(if (> (exists ("ENV:i.hï¿½ld.6")) 0)   (set l6 (getenv "ENV:i.hï¿½ld.6")) )
+(if (> (exists ("ENV:i.hï¿½ld.7")) 0)   (set l7 (getenv "ENV:i.hï¿½ld.7")) )
+(if (> (exists ("ENV:i.hï¿½ld.8")) 0)   (set l8 (getenv "ENV:i.hï¿½ld.8")) )
+(if (> (exists ("ENV:i.hï¿½ld.9")) 0)   (set l9 (getenv "ENV:i.hï¿½ld.9")) )
+(if (> (exists ("ENV:i.hï¿½ld.10")) 0) (set l10 (getenv "ENV:i.hï¿½ld.10")) )
+(if (> (exists ("ENV:i.hï¿½ld.11")) 0) (set l11 (getenv "ENV:i.hï¿½ld.11")) )
+(if (> (exists ("ENV:i.hï¿½ld.12")) 0) (set l12 (getenv "ENV:i.hï¿½ld.12")) )
+(if (> (exists ("ENV:i.hï¿½ld.12")) 0) (set l13 (getenv "ENV:i.hï¿½ld.13")) )
+(if (> (exists ("ENV:i.hï¿½ld.14")) 0) (set l14 (getenv "ENV:i.hï¿½ld.14")) )
+(if (> (exists ("ENV:i.hï¿½ld.15")) 0) (set l15 (getenv "ENV:i.hï¿½ld.15")) )
+(if (> (exists ("ENV:i.hï¿½ld.16")) 0) (set l15 (getenv "ENV:i.hï¿½ld.16")) )
+(run "delete env:i.hï¿½ld.#?")
 
 (procedure anothercat
 
@@ -433,7 +433,7 @@
 ; ************* IT WILL TAKE CARE OF INSTALLING THE CLASSACT CLASSES YOU
 ; ************* PROVIDED WITH YOUR APPLICATION TO THE USER'S SYSTEM.
 
-; $VER: ClassAct_Install 1.8 (12.10.96) by Osma Ahvenlampi
+; $VER: REACTION_Install 1.8 (12.10.96) by Osma Ahvenlampi
 
 (set cpu (database "cpu"))
 (set cpu020 (and (<> cpu "68000") (<> cpu "68010")))
@@ -445,37 +445,37 @@
 (set classact-complete 50)
 
 ; ClassAct installer scripts
-(if (= @language "español") ; SPANISH CLASSACT INSTALLATION STRINGS 
+(if (= @language "espaï¿½ol") ; SPANISH CLASSACT INSTALLATION STRINGS 
 (
-(set #classdest-prompt "Por favor, seleccione el directorio donde desea instalar las clases de ClassAct.\n(Vea la ayuda para más detalles)")
-(set #classdest-help (cat "ClassAct es un kit de interface gráfica consistente es clases compartidas BOOPSI.\n\nAlgunos programas requieren que algunas o todas de las clases de ClassAct estén instaladas en su sistema. "
+(set #classdest-prompt "Por favor, seleccione el directorio donde desea instalar las clases de ClassAct.\n(Vea la ayuda para mï¿½s detalles)")
+(set #classdest-help (cat "ClassAct es un kit de interface grï¿½fica consistente es clases compartidas BOOPSI.\n\nAlgunos programas requieren que algunas o todas de las clases de ClassAct estï¿½n instaladas en su sistema. "
 
-	(if v39 (cat "El OS 3.0 tiene un directorio estándar para las clases BOOPSI: el directorio SYS:Classes. Se recomienda que instale ClassAct ahí.")
-			(cat "El OS 2.0 no tiene un sitio estándar para las clases BOOPSI residentes en disco. En el OS 3.0 esas clases son almacenadas en el directorio SYS:Classes. Se recomienda que cree este directorio e instale ClassAct ahí.\nEste directorio debe ser añadido a la asignación de LIBS:. Esto puede ser hecho colocando el comando\nAssign >NIL: LIBS: SYS:Classes ADD\nal User-Startup. Este instalador lo hará por usted.")
+	(if v39 (cat "El OS 3.0 tiene un directorio estï¿½ndar para las clases BOOPSI: el directorio SYS:Classes. Se recomienda que instale ClassAct ahï¿½.")
+			(cat "El OS 2.0 no tiene un sitio estï¿½ndar para las clases BOOPSI residentes en disco. En el OS 3.0 esas clases son almacenadas en el directorio SYS:Classes. Se recomienda que cree este directorio e instale ClassAct ahï¿½.\nEste directorio debe ser aï¿½adido a la asignaciï¿½n de LIBS:. Esto puede ser hecho colocando el comando\nAssign >NIL: LIBS: SYS:Classes ADD\nal User-Startup. Este instalador lo harï¿½ por usted.")
 		)
 	)
 
 )
 
-(set #classes-020 "¿Quiere usar la versión optimizada para OS 3.0 y 020 de ClassAct?")
-(set #help-020 "Algunas librerías de ClassAct tienen versiones optimizadas para el uso en máquinas con OS 3.0 y 020 o superior. Si su Amiga es una de tales máquinas debería instalar estas. Las versiones 68000/2.0 también funcionarán, pero son ligeramente más lentas")
-(set #noclasses-message "El subdirectorio que seleccionó para sus clases ClassAct no forma parte de la asignación de LIBS:.\n\nEs necesario añadir esta asignación para que las clases puedan ser localizadas adecuadamente.")
+(set #classes-020 "ï¿½Quiere usar la versiï¿½n optimizada para OS 3.0 y 020 de ClassAct?")
+(set #help-020 "Algunas librerï¿½as de ClassAct tienen versiones optimizadas para el uso en mï¿½quinas con OS 3.0 y 020 o superior. Si su Amiga es una de tales mï¿½quinas deberï¿½a instalar estas. Las versiones 68000/2.0 tambiï¿½n funcionarï¿½n, pero son ligeramente mï¿½s lentas")
+(set #noclasses-message "El subdirectorio que seleccionï¿½ para sus clases ClassAct no forma parte de la asignaciï¿½n de LIBS:.\n\nEs necesario aï¿½adir esta asignaciï¿½n para que las clases puedan ser localizadas adecuadamente.")
 (set #creating-dir "Creando directorio ")
-(set #usbackup-prompt "Ahora se hará una copia de seguridad del User-Startup.")
-(set #usbackup-help "Este instalador hará ahora una modificación en el User-Startup. Antes de hacer esto se hará una copia de seguridad del User-Startup en S:User-Startup.old")
-(set #adding-1 "Añadiendo ")
-(set #adding-2 "a la asignación de LIBS:\n")
+(set #usbackup-prompt "Ahora se harï¿½ una copia de seguridad del User-Startup.")
+(set #usbackup-help "Este instalador harï¿½ ahora una modificaciï¿½n en el User-Startup. Antes de hacer esto se harï¿½ una copia de seguridad del User-Startup en S:User-Startup.old")
+(set #adding-1 "Aï¿½adiendo ")
+(set #adding-2 "a la asignaciï¿½n de LIBS:\n")
 (set #adding-help "Esto es necesario para que las clases puedan ser encontradas.")
-(set #junod-button "Parece que tiene el último button.gadget de Comodore ('V42') instalado en su sistema.\n\nEl button.gadget de ClassAct es superior a este gadget y le recomendamos que lo remplace. El button.gadget de ClassAct es compatible con el de Commodore. ¿Desea hacer una copia de seguridad del gadget de Commodore y remplazarlo por la versión de ClassAct?")
-(set #junod-backed "Se ha hecho una copia de seguridad del button.gadget 'V42' de Commodore con el nombre button.gadget.v42.\n\nEl button.gadget de ClassAct será instalado en su lugar.")
-(set #junod-kept "El button.gadget 'V42' de Commodore no fué remplazado con la versión superior de ClassAct.\n\nLos programas que dependan de la disponibilidad de las características de la versión de ClassAct funcionarán mal probablemente")
+(set #junod-button "Parece que tiene el ï¿½ltimo button.gadget de Comodore ('V42') instalado en su sistema.\n\nEl button.gadget de ClassAct es superior a este gadget y le recomendamos que lo remplace. El button.gadget de ClassAct es compatible con el de Commodore. ï¿½Desea hacer una copia de seguridad del gadget de Commodore y remplazarlo por la versiï¿½n de ClassAct?")
+(set #junod-backed "Se ha hecho una copia de seguridad del button.gadget 'V42' de Commodore con el nombre button.gadget.v42.\n\nEl button.gadget de ClassAct serï¿½ instalado en su lugar.")
+(set #junod-kept "El button.gadget 'V42' de Commodore no fuï¿½ remplazado con la versiï¿½n superior de ClassAct.\n\nLos programas que dependan de la disponibilidad de las caracterï¿½sticas de la versiï¿½n de ClassAct funcionarï¿½n mal probablemente")
 
-;(set #caprefs-message "CAPrefs es una pequeña utilidad que inicializa algunas preferencias del usuario para las aplicaciones ClassAct. Estas incluyen el estilo de resaltado (Fino/GadTools/Xen), relleno de ventanas, y detalles de las etiquetas de grupo.\n\nPor favor, use las preferencias de interface de ClassAct en su cajón de sistema 'Prefs' .\n\n")
+;(set #caprefs-message "CAPrefs es una pequeï¿½a utilidad que inicializa algunas preferencias del usuario para las aplicaciones ClassAct. Estas incluyen el estilo de resaltado (Fino/GadTools/Xen), relleno de ventanas, y detalles de las etiquetas de grupo.\n\nPor favor, use las preferencias de interface de ClassAct en su cajï¿½n de sistema 'Prefs' .\n\n")
 
-(set #caprefs-message "ClasAct tiene varios aspectos configurables por el usuario que afectan a la apariencia de las interfaces ClassAct.\n\nEstos ajustes pueden ser modificados usando la herramienta de preferencias de ClassAct que será instalada en su cajón 'Prefs'.\n\nUna pequeña herramienta, CAPrefs, será añadida a su user-startup para cargar los ajustes al arrancar.")
-(set #caprefs-startup-1 "Añadiendo el comando\n\n")
+(set #caprefs-message "ClasAct tiene varios aspectos configurables por el usuario que afectan a la apariencia de las interfaces ClassAct.\n\nEstos ajustes pueden ser modificados usando la herramienta de preferencias de ClassAct que serï¿½ instalada en su cajï¿½n 'Prefs'.\n\nUna pequeï¿½a herramienta, CAPrefs, serï¿½ aï¿½adida a su user-startup para cargar los ajustes al arrancar.")
+(set #caprefs-startup-1 "Aï¿½adiendo el comando\n\n")
 (set #caprefs-startup-2 "\n\nA su s:User-Startup.")
-(set #decompressing-classact "Distribución de Classact comprimida detectada\n\nDescomprimiendo a RAM:")
+(set #decompressing-classact "Distribuciï¿½n de Classact comprimida detectada\n\nDescomprimiendo a RAM:")
 (set #deleteing-cltmp "Borrando ficheros temporales")
 
 )

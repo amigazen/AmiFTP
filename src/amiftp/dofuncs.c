@@ -87,6 +87,9 @@ int openhost(char *ftphost, char *login, char *password,
     else
       sprintf(CurrentState.CurrentSite, "%s",ftphost);
 
+    /* Store target port for window title URL; display shows where we're browsing. */
+    CurrentState.Port = port;
+
     UpdateSiteName(CurrentState.CurrentSite);
     auto_cd = (char *)".";
     if (*auto_cd == '\0' || change_remote_dir(auto_cd, 0))

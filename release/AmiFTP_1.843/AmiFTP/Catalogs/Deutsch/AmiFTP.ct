@@ -141,7 +141,7 @@ _Hotlist
 ; Transfer window
 ;
 TW_WinTitle
-AmiFTP Übertragungsfenster
+AmiFTP ï¿½bertragungsfenster
 ;AmiFTP - %ld file(s) left (%ld %s)
 ;
 TW_RemoteFile
@@ -153,7 +153,7 @@ Lokale Datei
 ;Local file
 ;
 TW_Size
-Größe
+Grï¿½ï¿½e
 ;Size
 ;
 TW_Cps
@@ -161,19 +161,19 @@ CPS
 ;CPS
 ;
 TW_DataTransferred
-Daten übertragen
+Daten ï¿½bertragen
 ;Data transferred
 ;
 TW_Abort
-Übertragung abbrechen
+ï¿½bertragung abbrechen
 ;Abort transfer
 ;
 TW_FileExists
-Datei '%s' existiert bereits.\nAlte Größe:  %ld bytes (neu %ld bytes).\n
+Datei '%s' existiert bereits.\nAlte Grï¿½ï¿½e:  %ld bytes (neu %ld bytes).\n
 ;File '%s' already exists.\nOld filesize is: %ld bytes (new %ld bytes).\n
 ;
 TW_Overwrite
-Überschreiben
+ï¿½berschreiben
 ;Overwrite
 ;
 TW_Resume
@@ -189,7 +189,7 @@ Wollen Sie den Verzeichnisbaum herunterladen?
 ;You are about to download a directory tree.\nAre you sure you want to do this?
 ;
 TW_GetDir
-Ja, hole ihn!|Diesen Eintrag überspringen
+Ja, hole ihn!|Diesen Eintrag ï¿½berspringen
 ;Yes, download it!|Skip this entry
 ;
 ; Main preferences window
@@ -215,7 +215,7 @@ Proxy Port
 ;Proxy _port
 ;
 MPW_ProxyDefault
-Proxy standardmäßig verwenden?
+Proxy standardmï¿½ï¿½ig verwenden?
 ;Use pro_xy per default
 ;
 MPW_DefDownloadDir
@@ -223,7 +223,7 @@ Standard Download-Verzeichnis
 ;Default local drawer
 ;
 MPW_IgnoreCase
-Groß-/Kleinschreibung ignorieren?
+Groï¿½-/Kleinschreibung ignorieren?
 ;_Ignore case
 ;
 ; Main window
@@ -241,7 +241,7 @@ _Download-Pfad
 ;L_ocal drawer
 ;
 MW_Parent
-V_orgänger
+V_orgï¿½nger
 ;_Parent
 ;
 MW_Get
@@ -265,11 +265,11 @@ Ver_lassen
 ;_Disconnect
 ;
 MW_DeleteRequest
-Wollen Sie diese Dateien löschen?
+Wollen Sie diese Dateien lï¿½schen?
 ;Are you sure you want to\ndelete these files?
 ;
 MW_DeleteCancel
-Löschen|Abbrechen
+Lï¿½schen|Abbrechen
 ;Delete|Cancel
 ;
 MW_Reload
@@ -321,7 +321,7 @@ Projekt
 ;Project
 ;
 MENU_AddToSiteList
-Aktuellen Site in Liste einfügen
+Aktuellen Site in Liste einfï¿½gen
 ;Add current to sitelist
 ;
 MENU_Reconnect
@@ -333,7 +333,7 @@ I\000Ikonifizieren
 ;I\000Iconify
 ;
 MENU_About
-?\000Über...
+?\000ï¿½ber...
 ;?\000About...
 ;
 MENU_Quit
@@ -345,19 +345,19 @@ Dateien
 ;Files
 ;
 MENU_TagAll
-A\000Alles auswählen
+A\000Alles auswï¿½hlen
 ;A\000Tag all
 ;
 MENU_UntagAll
-N\000Nichts auswählen
+N\000Nichts auswï¿½hlen
 ;U\000Untag all
 ;
 MENU_TransferMode
-Übertragungsart
+ï¿½bertragungsart
 ;Transfer mode
 ;
 MENU_Binary
-Binär
+Binï¿½r
 ;Binary
 ;
 MENU_ASCII
@@ -365,11 +365,11 @@ ASCII
 ;ASCII
 ;
 MENU_ClearCache
-Verzeichnis-Cache löschen
+Verzeichnis-Cache lï¿½schen
 ;Clear dir-cache
 ;
 MENU_Delete
-L\000Löschen
+L\000Lï¿½schen
 ;D\000Delete
 ;
 MENU_Move
@@ -435,11 +435,11 @@ Kann keine ganzen Verzeichnisse herunterladen!\n
 ;Cannot download entire directories!\n
 ;
 Str_SelectDLPath
-Wähle Download Pfad
+Wï¿½hle Download Pfad
 ;Select download path
 ;
 Str_SelectULFiles
-Wähle Datei(en) zum Heraufladen
+Wï¿½hle Datei(en) zum Heraufladen
 ;Select file(s) to upload
 ;
 Str_CDFailedTimedout
@@ -471,7 +471,7 @@ Benutzer Passwort:\n%s
 ;Enter password for user:\n%s
 ;
 Str_ServiceNotAvail
-Service nicht verfügbar.
+Service nicht verfï¿½gbar.
 ;Service not available.
 ;
 Str_ConnectFailed
@@ -495,7 +495,7 @@ Fehler beim Holen von %s.
 ;Get %s failed.
 ;
 Str_LocalfileError
-Fehler beim Öffnen von %s.
+Fehler beim ï¿½ffnen von %s.
 ;Error opening %s.
 ;
 Str_LocalWriteFailed
@@ -515,7 +515,7 @@ Nicht genug Speicher
 ;Out of memory
 ;
 Str_SelectSettingsFile
-Wähle Einstellungsdatei...
+Wï¿½hle Einstellungsdatei...
 ;Select settings file...
 ;
 Str_NoRestart
@@ -531,8 +531,8 @@ AmiFTP Abfrage
 ;AmiFTP Request
 ;
 Str_AboutAmiFTP
-Über AmiFTP...
-;About AmiFTP...
+ï¿½beAmiFTP..
+;About AmiFTP
 ;
 Str_UnknownHost
 Unbekannter Host
@@ -543,7 +543,7 @@ Fehler beim Erstellen der Dateiliste
 ;Error building filelist.
 ;
 Str_Translator
-Deutsche Übersetzung\nVolker Graf\n<vgraf@hydra.informatik.uni-ulm.de>\n
+Deutsche ï¿½bersetzung\nVolker Graf\n<vgraf@hydra.informatik.uni-ulm.de>\n
 ;
 ; This string will show up in the about window telling the user who made 
 ; the translation. I suggest the string should look like this:
@@ -555,7 +555,7 @@ Neue _Gruppe
 ;New _group
 ;
 SLW_AddBar
-Trennlinie einfügen
+Trennlinie einfï¿½gen
 ;Add bar
 ;
 MENU_ToggleADTFiles
@@ -563,7 +563,7 @@ RECENT komplett anzeigen?
 ;Show entire RECENT
 ;
 MENU_ResetADT
-Aminet-Datum zurücksetzen
+Aminet-Datum zurï¿½cksetzen
 ;Reset Aminet-date
 ;
 MW_ViewReadme
@@ -583,19 +583,19 @@ Proxy
 ;Proxy
 ;
 MPW_BufferSize
-Puffergröße
+Puffergrï¿½ï¿½e
 ;Buffer size
 ;
 MPW_DirCacheSize
-Verzeichnis-Cache-Größe
+Verzeichnis-Cache-Grï¿½ï¿½e
 ;Directory cache size
 ;
 MPW_DeleteViewed
-Angezeigte Dateien löschen?
+Angezeigte Dateien lï¿½schen?
 ;Delete viewed files
 ;
 MPW_Beep
-Signal nach Übertragung?
+Signal nach ï¿½bertragung?
 ;Beep after transfer
 ;
 MPW_HideDirectories
