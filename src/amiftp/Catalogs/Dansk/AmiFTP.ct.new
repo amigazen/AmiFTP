@@ -37,7 +37,7 @@ SLW_New
 _Ny
 ;_New
 SLW_Edit
-_Editér
+_Editï¿½r
 ;_Edit
 SLW_Remove
 Fje_rn
@@ -64,7 +64,7 @@ SLW_Newstring
 (Ny)
 ;(New)
 SLW_Sort
-Sortér 
+Sortï¿½r 
 ;_Sort
 ;
 ; SiteConfiguration Window
@@ -115,7 +115,7 @@ _Hotliste
 ; Transfer window
 ;
 TW_WinTitle
-AmiFTP overførselsvindue
+AmiFTP overfï¿½rselsvindue
 ;AmiFTP Transfer window
 TW_RemoteFile
 Remote fil
@@ -124,31 +124,31 @@ TW_LocalFile
 Lokal fil
 ;Local file
 TW_Size
-Størrelse
+Stï¿½rrelse
 ;Size
 TW_Cps
 CPS
 ;CPS
 TW_DataTransferred
-Data overført
+Data overfï¿½rt
 ;Data transferred
 TW_Abort
-Afbryd overførsel
+Afbryd overfï¿½rsel
 ;Abort transfer
 TW_FileExists
-Fil '%s' existerer allerede.\nGammel størrelse:  %ld bytes (ny %ld bytes).\n
+Fil '%s' existerer allerede.\nGammel stï¿½rrelse:  %ld bytes (ny %ld bytes).\n
 ;File '%s' already exists.\nOld filesize is: %ld bytes (new %ld bytes).\n
 TW_Overwrite
 Overskriv
 ;Overwrite
 TW_Resume
-Fortsæt overførsel
+Fortsï¿½t overfï¿½rsel
 ;Resume transfer
 TW_CancelTransfer
-Afbryd overførsel
+Afbryd overfï¿½rsel
 ;Cancel transfer
 TW_DownloadDir
-Vil Du hente hele fortegnelsestræet?
+Vil Du hente hele fortegnelsestrï¿½et?
 ;You are about to download a directory tree.\nAre you sure you want to do this?
 TW_GetDir
 Ja, hent det!|Undlad denne fil
@@ -157,7 +157,7 @@ Ja, hent det!|Undlad denne fil
 ; Main preferences window
 ;
 MPW_WinTitle
-AmiFTP Præferencer
+AmiFTP Prï¿½ferencer
 ;AmiFTP Global Preferences
 MPW_Password
 _Anonymt password
@@ -178,7 +178,7 @@ MPW_DefDownloadDir
 Standard download fortegnelse
 ;Default download directory
 MPW_IgnoreCase
-Ignorér store/små bogstaver?
+Ignorï¿½r store/smï¿½ bogstaver?
 ;_Ignore case?
 ;
 ; Main window
@@ -193,7 +193,7 @@ MW_DownloadDir
 _Download sti
 ;D_ownload path
 MW_Parent
-For_ælder
+For_ï¿½lder
 ;_Parent
 MW_Get
 _Hent
@@ -206,7 +206,7 @@ _Vis
 ;_View
 MW_Connect
 F_orbind til...
-;_Connect to...
+;_Connect
 MW_Disconnect
 Fo_rlad
 ;_Disconnect
@@ -217,7 +217,7 @@ MW_DeleteCancel
 Slet|Afbryd
 ;Delete|Cancel
 MW_Reload
-Genindlæs 
+Genindlï¿½s 
 ;_Reload
 ;
 ; Connect window
@@ -238,7 +238,7 @@ CW_Connecting
 Forbinder...
 ;Connecting...
 CW_ReadingDir
-Indlæs fortegnelse...
+Indlï¿½s fortegnelse...
 ;Reading directory...
 CW_SendingLogin
 Sender login... 
@@ -256,13 +256,13 @@ MENU_Project
 Projekt
 ;Project
 MENU_AddToSiteList
-Tilføj aktuel site til siteliste
+Tilfï¿½j aktuel site til siteliste
 ;Add current to sitelist
 MENU_Reconnect
 Genforbind
 ;Reconnect
 MENU_Iconify
-I\000Ikonificér
+I\000Ikonificï¿½r
 ;I\000Iconify
 MENU_About
 ?\000Om
@@ -274,16 +274,16 @@ MENU_Files
 Filer
 ;Files
 MENU_TagAll
-A\000Vælg alt
+A\000Vï¿½lg alt
 ;A\000Tag all
 MENU_UntagAll
-F\000Fravælg alt
+F\000Fravï¿½lg alt
 ;U\000Untag all
 MENU_TransferMode
-Overførelses type
+Overfï¿½relses type
 ;Transfer mode
 MENU_Binary
-Binær
+Binï¿½r
 ;Binary
 MENU_ASCII
 ASCII
@@ -298,7 +298,7 @@ MENU_Move
 Y\000Flyt
 ;M\000Move
 MENU_Sort
-Sortér
+Sortï¿½r
 ;Sort
 MENU_SortbyName
 efter navn
@@ -337,19 +337,19 @@ Hotliste
 ; Other strings
 ;
 Str_ErrorReadingDir
-Fejl ved læsning af fortegnelse\n
+Fejl ved lï¿½sning af fortegnelse\n
 ;Error reading dir\n
 Str_CannotDLDirs
 Kan ikke hente hele fortegnelser!\n
 ;Cannot download entire directories!\n
 Str_SelectDLPath
-Vælg download sti
+Vï¿½lg download sti
 ;Select download path
 Str_SelectULFiles
-Vælg fil(er) til upload
+Vï¿½lg fil(er) til upload
 ;Select file(s) to upload
 Str_CDFailedTimedout
-Remote CD slog fejl:\nForbindelsens ventetid udløbet
+Remote CD slog fejl:\nForbindelsens ventetid udlï¿½bet
 ;Remote CD failed:\nConnection timed out
 Str_CDFailed
 Remote CD slog fejl.
@@ -370,7 +370,7 @@ Str_PasswordEntry
 Indtast password for bruger:\n%s
 ;Enter password for user:\n%s
 Str_ServiceNotAvail
-Service ikke til rådighed.
+Service ikke til rï¿½dighed.
 ;Service not available.
 Str_ConnectFailed
 Forbindelse slog fejl.
@@ -388,7 +388,7 @@ Str_GetFailed
 Hentning af %s slog fejl.
 ;Get %s failed.
 Str_LocalfileError
-Fejl ved åbning af %s.
+Fejl ved ï¿½bning af %s.
 ;Error opening %s.
 Str_LocalWriteFailed
 Skrivning slog fejl: %s
@@ -397,19 +397,19 @@ Str_NoSuchDir
 %s: Ingen fil eller fortegnelse med dette navn.
 ;%s: No such file or directory.
 Str_DisconnectedTimeout
-Forbindelse afbrudt (tid udløbet).
+Forbindelse afbrudt (tid udlï¿½bet).
 ;Disconnected (timeout).
 Str_Outofmem
 Ikke hukommelse nok
 ;Out of memory
 Str_SelectSettingsFile
-Vælg settings fil...
+Vï¿½lg settings fil...
 ;Select settings file...
 Str_NoRestart
-Fortsættelses kommando slog fejl
+Fortsï¿½ttelses kommando slog fejl
 ;Resume command failed.
 Str_ConnectionTimedOut
-Forbindelsens ventetid udløbet
+Forbindelsens ventetid udlï¿½bet
 ;Connection timed out
 Str_AmiFTPRequest
 AmiFTP Request
@@ -424,7 +424,7 @@ Str_ErrorBuildingDirList
 Fejl ved opretning af filliste.
 ;Error building filelist.
 Str_Translator
-Dansk Oversætter\nVolker Graf\n<vgraf@hydra.informatik.uni-ulm.de>\n
+Dansk Oversï¿½tter\nVolker Graf\n<vgraf@hydra.informatik.uni-ulm.de>\n
 ;
 ; This string will show up in the about window telling the user who made 
 ; the translation. I suggest the string should look like this:

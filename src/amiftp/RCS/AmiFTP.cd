@@ -339,7 +339,7 @@ MW_View (/1/)
 _View
 ;
 MW_Connect (/1/)
-_Connect to...
+_Connect
 ;
 MW_Disconnect (/1/)
 _Disconnect

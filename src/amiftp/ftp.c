@@ -37,10 +37,6 @@
 #include "AmiFTP.h"
 #include "gui.h"
 
-struct Library *AsyncIOBase;
-
-
-#define AMIGAIO 1
 unsigned char str_buf[2048];
 char *transfer_buf=0;
 int bufsize=0;
@@ -56,7 +52,7 @@ int ftp_hookup(char *host, short port)
     LONG len;
     static char hostnamebuf[MAXHOSTNAMELEN + 1];
     char	*ftperr;
-    ULONG mask,mainwinsignal=NULL,winmask=NULL;
+    ULONG mask, winmask = 0;
     extern Object *ConnectWin_Object;
 
     code = 0;
@@ -102,9 +98,8 @@ int ftp_hookup(char *host, short port)
     hisctladdr.sin_port = (port == 0) ? ftp_port : htons((unsigned short)port);
     /* timeout 1 minute 20 seconds */
     if (ConnectWin_Object)
-	GetAttr(WINDOW_SigMask,ConnectWin_Object,&winmask);
-    if (MainWin_Object)
-	GetAttr(WINDOW_SigMask,MainWin_Object,&mainwinsignal);
+	GetAttr(WINDOW_SigMask, ConnectWin_Object, &winmask);
+    /* Do not wait on main window: ConnectSite() holds LockWindow(MainWin_Object). */
 
     if (DEBUG) DebugLog("ftp_hookup: connect()\n");
     errno=EINPROGRESS;
@@ -114,15 +109,15 @@ int ftp_hookup(char *host, short port)
     while (res==-1 && errno==EINPROGRESS) {
 	fd_set rs,ws,es;
 	struct timeval tv;
-	mask=winmask|mainwinsignal|AG_Signal|SIGBREAKF_CTRL_C;
+	mask = winmask | AG_Signal | SIGBREAKF_CTRL_C;
 	FD_ZERO(&rs);
 	FD_SET(s,&rs);
 	FD_ZERO(&ws);
 	FD_SET(s,&ws);
 	FD_ZERO(&es);
 	FD_SET(s,&es);
-	tv.tv_secs=80;
-	tv.tv_micro=0;
+	tv.tv_sec = 80L;
+	tv.tv_usec = 0;
 
 	if (DEBUG) DebugLog("ftp_hookup: waitselect()\n");
 	res=tcp_waitselect(s+1,&rs,&ws,&es,&tv,&mask);
@@ -130,13 +125,11 @@ int ftp_hookup(char *host, short port)
 
 	if (mask) {
 	    if (DEBUG) DebugLog("ftp_hookup: handling mask\n");
-	    if (mask&SIGBREAKF_CTRL_C)
+	    if (mask & SIGBREAKF_CTRL_C)
 	      goto bad;
-	    if (mask&AG_Signal)
+	    if (mask & AG_Signal)
 	      HandleAmigaGuide();
-	    if (mask&mainwinsignal)
-	      HandleMainWindowIDCMP(FALSE);
-	    if (mask&winmask) {
+	    if (mask & winmask) {
 		if (HandleConnectIDCMP()) {
 		    rval=CONN_ABORTED;
 		    goto bad;
@@ -393,9 +386,9 @@ int command(char *fmt, ...)
     return ret;
 }
 
-int sendrequest(char *cmd, char *local, char *remote) /*Fixa samma som med recvreq */
+int sendrequest(char *cmd, char *local, char *remote)
 {
-    struct AsyncFile *ASyncFH;
+    BPTR fh;
     int sout=-1;
     register int bytes;
     int c;
@@ -425,8 +418,14 @@ int sendrequest(char *cmd, char *local, char *remote) /*Fixa samma som med recvr
 	return TRSF_BADFILE;
     }
 
-    ASyncFH=OpenAsync(local,MODE_READ, MainPrefs.mp_BufferSize);
-    if (!ASyncFH) {
+    fh = Open(local, MODE_OLDFILE);
+    if (fh == 0) {
+	LONG ioerr;
+	ioerr = IoErr();
+	if (DEBUG) {
+	    DebugLog("sendrequest: Open failed for %s IoErr=%ld\n",
+		local ? local : "(null)", (long)ioerr);
+	}
 	ShowErrorReq(GetAmiFTPString(Str_LocalfileError), local);
 	code=-1;
 	return TRSF_BADFILE;
@@ -434,12 +433,12 @@ int sendrequest(char *cmd, char *local, char *remote) /*Fixa samma som med recvr
 
     if (initconn()) {
 	code=-1;
-	CloseAsync(ASyncFH);
+	Close(fh);
 	return TRSF_INITCONN;
     }
 
     if (command("%s %s",cmd,remote) != PRELIM) {
-	CloseAsync(ASyncFH);
+	Close(fh);
 	return TRSF_BADFILE;
     }
 
@@ -453,7 +452,9 @@ int sendrequest(char *cmd, char *local, char *remote) /*Fixa samma som med recvr
       GetAttr(WINDOW_SigMask,TransferWin_Object, &winmask);
     GetAttr(WINDOW_SigMask,MainWin_Object,&mainsignal);
 
-    error=d=bytes_transferred=bytes=0;
+    error = 0;
+    d = 0;
+    bytes_transferred=bytes=0;
     {
 	long true=1;
 	tcp_ioctl(sout,TCPFIOASYNC,(char *)&true);
@@ -496,31 +497,32 @@ int sendrequest(char *cmd, char *local, char *remote) /*Fixa samma som med recvr
 		SendIO(TimeRequest);
 	    }
 	}
-	if (((SocketBase!=0)&&(!mask)&&(ret>0)) || ((SocketBase==NULL) && (ret>0))) {
-	    /* Socket has something for us */
-	    if (FD_ISSET(sout,&writemask)) {
+	/* Write to socket whenever writable; do not require !mask. */
+	if (ret > 0 && FD_ISSET(sout,&writemask)) {
 		switch (curtype) {
 		  case TYPE_I:
 		  case TYPE_L:
-		    c=ReadAsync(ASyncFH,buf,sizeof(buf));
-		    if (c>0) {
-			for (bufp=buf;c>0;c-=d,bufp+=d)
-			  if ((d=tcp_send(sout,bufp,c,0))<=0)
-			    break;
-			  else {
-			      bytes_transferred+=d;
-			  }
-		    }
-		    else
-		      Continue=FALSE;
-/*		    if (c<0) {
-			if (dl_Win)
-			  ShowErrorReq("Read %s: %s.",local,(Fault(IoErr(),NULL,buf,100),buf));
-			retcode=TRSF_FAILED;
+		    c = Read(fh, buf, (long)sizeof(buf));
+		    if (c > 0) {
+			for (bufp = buf; c > 0; c -= (int)d, bufp += d) {
+			    d = tcp_send(sout, bufp, (long)c, 0);
+			    if (d <= 0) {
+				break;
+			    }
+			    bytes_transferred += d;
+			}
+		    } else if (c < 0) {
+			LONG ioerr;
+			ioerr = IoErr();
+			if (DEBUG) {
+			    DebugLog("sendrequest: Read failed for %s IoErr=%ld\n",
+				local ? local : "(null)", (long)ioerr);
+			}
+			retcode = TRSF_FAILED;
 			goto abort;
-		    }*/
-/*		    if (c==-1 && )
-		      Continue=FALSE;*/
+		    } else {
+			Continue = FALSE;
+		    }
 		    if (d<0) {
 			if (TransferWindow)
 			  ShowErrorReq(GetAmiFTPString(Str_RemoteWriteFailed));
@@ -529,37 +531,50 @@ int sendrequest(char *cmd, char *local, char *remote) /*Fixa samma som med recvr
 		    }
 		    break;
 		  case TYPE_A:
-		    c=ReadCharAsync(ASyncFH);
-		    if (c!=EOF) {
-			if (c=='\n') {
-			    tcp_send(sout,"\r",1,0);
+		    c = 0;
+		    while (Continue) {
+			UBYTE ch;
+			long rlen;
+			rlen = Read(fh, (APTR)&ch, 1L);
+			if (rlen == 1L) {
+			    if (ch == '\n') {
+				tcp_send(sout, "\r", 1, 0);
+				bytes++;
+			    }
+			    tcp_send(sout, (char *)&ch, 1, 0);
 			    bytes++;
-			}
-			tcp_send(sout,(UBYTE *)&c,1,0);
-			bytes++;
-			bytes_transferred++;
-			if (bytes>=1024) {
-			    bytes=0;
+			    bytes_transferred++;
+			    if (bytes >= 1024) {
+				bytes = 0;
+			    }
+			} else if (rlen == 0L) {
+			    Continue = FALSE;
+			    break;
+			} else {
+			    LONG ioerr;
+			    ioerr = IoErr();
+			    if (DEBUG) {
+				DebugLog("sendrequest: Read (ASCII) failed for %s IoErr=%ld\n",
+				    local ? local : "(null)", (long)ioerr);
+			    }
+			    retcode = TRSF_FAILED;
+			    goto abort;
 			}
 		    }
-		    else
-		      Continue=FALSE;
 		    break;
 		  default:
 		    break;
 		}
-	    }
 	}
-	else if ((SocketBase && (ret<0)) || (!SocketBase && errno!=4 && (ret<0))){
+	if ((SocketBase && (ret < 0)) || (!SocketBase && errno != 4 && (ret < 0))) {
 	    goto abort;
 	}
-	    
     }
     if (TransferWindow)
       UpdateDLGads(bytes_transferred,0,(GetSysTime(&currtime),currtime.tv_sec-starttime.tv_sec));
 
-    if (ASyncFH)
-      CloseAsync(ASyncFH);
+    if (fh)
+      Close(fh);
     tcp_closesocket(sout);
     sout=-1;
     data=-1;
@@ -584,8 +599,8 @@ int sendrequest(char *cmd, char *local, char *remote) /*Fixa samma som med recvr
     getreply(0);
     code=-1;
 
-    if (ASyncFH!=NULL)
-      CloseAsync(ASyncFH);
+    if (fh != 0)
+      Close(fh);
     if (TransferWindow && timesent==1) {
 	if (!CheckIO(TimeRequest))
 	  AbortIO(TimeRequest);
@@ -598,7 +613,7 @@ static char tbufs[50];
 int recvrequest(char *cmd, char *local, char *remote,char *lmode,
 		ULONG restartpoint)
 {
-    struct AsyncFile *ASyncFH;
+    BPTR fh;
     int sin=-1;
     int is_retr,tcrflag,bare_lfs=0;
     register int bytes;
@@ -609,11 +624,15 @@ int recvrequest(char *cmd, char *local, char *remote,char *lmode,
     fd_set readmask;
     extern Object *TransferWin_Object;
     ULONG done;
-    ULONG winmask=NULL,mask,mainsignal,t;
+    ULONG winmask=NULL,mask,t;
     long ret;
     BOOL Continue=TRUE;
     int timesent=0;
+    int recv_loopcount=0;
 
+    if (DEBUG)
+	DebugLog("recvrequest: cmd=%s local=%s remote=%s\n",
+	    cmd ? cmd : "(null)", local ? local : "(null)", remote ? remote : "(null)");
     is_retr=strcmp(cmd,"RETR")==0;
     tcrflag=!crflag&&is_retr;
 
@@ -622,6 +641,8 @@ int recvrequest(char *cmd, char *local, char *remote,char *lmode,
     TimeRequest->tr_time.tv_micro=0;
 
     if (initconn()) {
+	if (DEBUG)
+	    DebugLog("recvrequest: initconn failed\n");
 	code=-1;
 	return TRSF_INITCONN;
     }
@@ -683,22 +704,48 @@ int recvrequest(char *cmd, char *local, char *remote,char *lmode,
 	}
     }
 
+    if (DEBUG) DebugLog("recvrequest: calling dataconn\n");
     sin=dataconn();
+    if (DEBUG) DebugLog("recvrequest: dataconn returned sin=%d\n", sin);
     if (sin==-1)
       goto abort;
 
-    ASyncFH=OpenAsync(local, restartpoint?MODE_APPEND:MODE_WRITE,
-		      MainPrefs.mp_BufferSize);
-    if (!ASyncFH) {
+    if (DEBUG) DebugLog("recvrequest: Open %s (restart=%lu)\n", local, (unsigned long)restartpoint);
+    if (restartpoint) {
+	fh = Open(local, MODE_READWRITE);
+    } else {
+	fh = Open(local, MODE_NEWFILE);
+    }
+    if (fh == 0) {
+	LONG ioerr;
+	ioerr = IoErr();
+	if (DEBUG) {
+	    DebugLog("recvrequest: Open failed for %s IoErr=%ld\n",
+		local ? local : "(null)", (long)ioerr);
+	}
 	ShowErrorReq(GetAmiFTPString(Str_LocalfileError),local);
 	errormsg=1;
 	goto abort;
+    }
+    if (restartpoint) {
+	if (Seek(fh, (LONG)restartpoint, OFFSET_BEGINNING) == -1) {
+	    LONG ioerr;
+	    ioerr = IoErr();
+	    if (DEBUG) {
+		DebugLog("recvrequest: Seek failed for %s offset=%lu IoErr=%ld\n",
+		    local ? local : "(null)", (unsigned long)restartpoint, (long)ioerr);
+	    }
+	    ShowErrorReq(GetAmiFTPString(Str_LocalfileError),local);
+	    errormsg = 1;
+	    goto abort;
+	}
     }
     GetSysTime(&starttime);
 
     if (TransferWin_Object)
       GetAttr(WINDOW_SigMask, TransferWin_Object, &winmask);
-    error=d=0;
+    error = 0;
+    d = 0;
     bytes_transferred=restartpoint;
 
     {
@@ -712,12 +759,17 @@ int recvrequest(char *cmd, char *local, char *remote,char *lmode,
 	SendIO(TimeRequest);
 	timesent=1;
     }
+    if (DEBUG) DebugLog("recvrequest: entering transfer loop winmask=0x%lx\n", (unsigned long)winmask);
 
     while (Continue) {
 	fd_set exceptmask;
-	GetAttr(WINDOW_SigMask,MainWin_Object,&mainsignal);
 	errno=0;
-	mask=mainsignal|winmask|AG_Signal|SIGBREAKF_CTRL_C|t;
+	recv_loopcount++;
+	if (DEBUG && (recv_loopcount <= 3 || (recv_loopcount % 30) == 0))
+	    DebugLog("recvrequest: loop %d before waitselect\n", recv_loopcount);
+	/* Do not wait on main window: Get_Clicked holds LockWindow(MainWin_Object),
+	 * so HandleMainWindowIDCMP would deadlock. Only transfer window (Abort), timer, AG, Ctrl-C. */
+	mask=winmask|AG_Signal|SIGBREAKF_CTRL_C|t;
 	FD_ZERO(&readmask);
 	FD_ZERO(&exceptmask);
 	ret=0;
@@ -726,18 +778,23 @@ int recvrequest(char *cmd, char *local, char *remote,char *lmode,
 	FD_SET(sin,&exceptmask);
 	ret=tcp_waitselect(sin+1,&readmask,NULL,&exceptmask,NULL,&mask);
 
+	if (DEBUG && (recv_loopcount <= 3 || (recv_loopcount % 30) == 0))
+	    DebugLog("recvrequest: loop %d waitselect ret=%ld mask=0x%lx rd=%d\n",
+		recv_loopcount, (long)ret, (unsigned long)mask,
+		FD_ISSET(sin,&readmask) ? 1 : 0);
+
 	if (mask) {
 	    if (mask&SIGBREAKF_CTRL_C) {
 		goto abort;
 	    }
 	    if (mask&AG_Signal) {
+		if (DEBUG) DebugLog("recvrequest: HandleAmigaGuide\n");
 		HandleAmigaGuide();
 	    }
-	    if (mask&mainsignal) {
-		HandleMainWindowIDCMP(FALSE);
-	    }
 	    if (mask&winmask) {
+		if (DEBUG) DebugLog("recvrequest: before HandleTransferIDCMP\n");
 		done=HandleTransferIDCMP();
+		if (DEBUG) DebugLog("recvrequest: after HandleTransferIDCMP done=%lu\n", (unsigned long)done);
 		if (done) {
 		    goto abort;
 		}
@@ -747,21 +804,35 @@ int recvrequest(char *cmd, char *local, char *remote,char *lmode,
 		TimeRequest->tr_time.tv_secs=1;
 		TimeRequest->tr_time.tv_micro=0;
 		if (TransferWindow) {
+		    if (DEBUG && recv_loopcount <= 5) DebugLog("recvrequest: UpdateDLGads\n");
 		    UpdateDLGads(bytes_transferred,restartpoint,(GetSysTime(&currtime),currtime.tv_sec-starttime.tv_sec));
 		}
+		if (DEBUG && recv_loopcount <= 5) DebugLog("recvrequest: SendIO TimeRequest\n");
 		SendIO(TimeRequest);
 	    }
-	} 
-	if (((SocketBase!=0)&&(!mask)&&(ret>0)) || ((SocketBase==NULL) && (ret>0))) {
-	    /* Socket has something for us */
-	    if (FD_ISSET(sin,&readmask)) {
-		switch (curtype) {
+	}
+	/* Read socket whenever ready; do not require !mask (timer and socket can be ready together). */
+	if (ret > 0 && FD_ISSET(sin,&readmask)) {
+	    switch (curtype) {
 		  case TYPE_I:
 		  case TYPE_L:
+		    if (DEBUG && (recv_loopcount <= 3 || (recv_loopcount % 50) == 0))
+			DebugLog("recvrequest: loop %d before tcp_recv\n", recv_loopcount);
 		    c=tcp_recv(sin,transfer_buf,bufsize,0);
+		    if (DEBUG && (recv_loopcount <= 3 || (recv_loopcount % 50) == 0))
+			DebugLog("recvrequest: loop %d tcp_recv=%d\n", recv_loopcount, c);
 		    if (c>0) {
-			if ((d=WriteAsync(ASyncFH,transfer_buf,c))<=0)
-			  {goto abort;}
+			if (DEBUG && recv_loopcount <= 2) DebugLog("recvrequest: before WriteAsync %d\n", c);
+			d = Write(fh, transfer_buf, (LONG)c);
+			if (d <= 0) {
+			    LONG ioerr;
+			    ioerr = IoErr();
+			    if (DEBUG) {
+				DebugLog("recvrequest: Write failed IoErr=%ld\n", (long)ioerr);
+			    }
+			    goto abort;
+			}
+			if (DEBUG && recv_loopcount <= 2) DebugLog("recvrequest: after Write %ld\n", (long)d);
 		    }
 		    else if (c<0) {
 			 goto abort;
@@ -776,44 +847,68 @@ int recvrequest(char *cmd, char *local, char *remote,char *lmode,
 		    /* plus en massa kod...*/
 		    break;
 		  case TYPE_A:
-		    c=sgetc(sin);
+		    c = sgetc(sin);
 		    if (c!=EOF) {
 			if (c=='\n')
 			  bare_lfs++;
 			while (c=='\r') {
+			    UBYTE crch;
 			    bytes++;
-			    if ((c=sgetc(sin))!='\n'||tcrflag) {
-				WriteCharAsync(ASyncFH,'\r');
+			    c = sgetc(sin);
+			    if (c!='\n'||tcrflag) {
+				crch = '\r';
+				if (Write(fh, (APTR)&crch, 1L) != 1L) {
+				    LONG ioerr;
+				    ioerr = IoErr();
+				    if (DEBUG) {
+					DebugLog("recvrequest: Write (CR) failed IoErr=%ld\n", (long)ioerr);
+				    }
+				    goto abort;
+				}
 			    }
 			}
-			WriteCharAsync(ASyncFH,c);
+			{
+			    UBYTE ch;
+			    ch = (UBYTE)c;
+			    if (Write(fh, (APTR)&ch, 1L) != 1L) {
+				LONG ioerr;
+				ioerr = IoErr();
+				if (DEBUG) {
+				    DebugLog("recvrequest: Write (ASCII) failed IoErr=%ld\n", (long)ioerr);
+				}
+				goto abort;
+			    }
+			}
 			bytes++;
 			if (bytes>=1024) {
 			    bytes_transferred+=bytes;
 			    bytes=0;
 			}
-			}
-		    else Continue=FALSE;
+		    }
+		    else {
+			Continue=FALSE;
+		    }
 		    break;
 		}
-	    }
-	    if (FD_ISSET(sin, &exceptmask)) {
-		goto abort;
-	    }
 	}
-	else if ((SocketBase && (ret < 0)) || (!SocketBase && errno!=4 && (ret<0))) {
+	if (ret > 0 && FD_ISSET(sin, &exceptmask)) {
 	    goto abort;
 	}
-	    
+	if ((SocketBase && (ret < 0)) || (!SocketBase && errno != 4 && (ret < 0))) {
+	    goto abort;
+	}
     }
+    if (DEBUG) DebugLog("recvrequest: loop done bytes=%ld\n", (long)bytes_transferred);
     if (TransferWindow)
       UpdateDLGads(bytes_transferred,restartpoint,(GetSysTime(&currtime),currtime.tv_sec-starttime.tv_sec));
-    if (ASyncFH)
-      CloseAsync(ASyncFH);
+    if (fh)
+      Close(fh);
     tcp_closesocket(sin);
     sin=-1;
     data=-1;
+    if (DEBUG) DebugLog("recvrequest: before getreply(0)\n");
     getreply(0);
+    if (DEBUG) DebugLog("recvrequest: after getreply TRSF_OK\n");
     if (TransferWindow) {
 	if (!CheckIO(TimeRequest))
 	  AbortIO(TimeRequest);
@@ -833,8 +928,8 @@ int recvrequest(char *cmd, char *local, char *remote,char *lmode,
 	data = -1;
     }
 
-    if (ASyncFH!=NULL)
-      CloseAsync(ASyncFH);
+    if (fh != 0)
+      Close(fh);
 
     if (TransferWindow && timesent==1) {
 	if (!CheckIO(TimeRequest))
@@ -888,6 +983,8 @@ static int try_pasv(void)
 
 /*
  * Start data channel: try PASV first when sendport<=0, else use PORT (listen + send PORT).
+ * Reset sendport so each new data connection tries PASV first (avoids stuck PORT after
+ * a previous failure or mixed dir-list vs file-get behaviour).
  */
 int initconn(void)
 {
@@ -897,7 +994,8 @@ int initconn(void)
     int on = 1;
 
     pasv_data_ready = 0;
-    if (sendport <= 0 && try_pasv() == 0)
+    sendport = 0;  /* always try PASV first for this connection */
+    if (try_pasv() == 0)
 	return 0;
 
     sendport = 1;
@@ -961,11 +1059,13 @@ int dataconn(void)
     int maxloops;
     extern Object *TransferWin_Object;
 
+    if (DEBUG) DebugLog("dataconn: entry pasv_data_ready=%d data=%d\n", pasv_data_ready, data);
     if (pasv_data_ready) {
 	pasv_data_ready = 0;
 	if (tcp_setsockopt(data, SOL_SOCKET, SO_OOBINLINE, (char *)&on, sizeof(on)) < 0) {
 	    /* ignore */
 	}
+	if (DEBUG) DebugLog("dataconn: PASV path return data=%d\n", data);
 	return data;
     }
 
@@ -979,6 +1079,7 @@ int dataconn(void)
     fromlen = sizeof(from);
     loops = 0;
     maxloops = 24;  /* 24 * 5s = 120s */
+    if (DEBUG) DebugLog("dataconn: PORT mode loop maxloops=%d\n", maxloops);
 
     while (loops < maxloops) {
 	FD_ZERO(&rd);
@@ -987,7 +1088,11 @@ int dataconn(void)
 	tv.tv_sec = 5L;
 	tv.tv_usec = 0;
 
+	if (DEBUG && (loops == 0 || (loops % 5) == 0))
+	    DebugLog("dataconn: PORT loop %d before waitselect\n", loops);
 	res = tcp_waitselect(data + 1, &rd, (fd_set *)NULL, (fd_set *)NULL, &tv, &mask);
+	if (DEBUG && (loops == 0 || (loops % 5) == 0))
+	    DebugLog("dataconn: PORT loop %d waitselect res=%ld mask=0x%lx\n", loops, (long)res, (unsigned long)mask);
 
 	if (mask) {
 	    if (mask & SIGBREAKF_CTRL_C) {
@@ -998,6 +1103,7 @@ int dataconn(void)
 	    if (mask & AG_Signal)
 		HandleAmigaGuide();
 	    if (mask & winmask) {
+		if (DEBUG) DebugLog("dataconn: HandleTransferIDCMP\n");
 		if (HandleTransferIDCMP()) {
 		    tcp_closesocket(data);
 		    data = -1;

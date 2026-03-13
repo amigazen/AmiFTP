@@ -202,11 +202,18 @@ int Get_Clicked(void)
 {
     struct Node *node;
     ULONG sel;
+    struct dirlist *curr;
 
     for (node=ListHead(FileList);ListEnd(node);node=ListNext(node)) {
 	GetListBrowserNodeAttrs(node,
 				LBNA_Selected, &sel, TAG_DONE);
 	if (sel) break;
+    }
+    if (DEBUG) {
+	curr = node ? (struct dirlist *)node->ln_Name : NULL;
+	DebugLog("Get_Clicked: %s name=%s\n",
+	    node ? "selected" : "no selection",
+	    (curr && curr->name) ? curr->name : "-");
     }
     if (node) {
 	LockWindow(MainWin_Object);

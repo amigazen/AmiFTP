@@ -40,9 +40,14 @@ int DownloadFile(struct List *flist, const char *localname, const int binary,
     OverwriteAll=0;
 
     if (MainWindow)
-      if (!OpenTransferWindow())
+      if (!OpenTransferWindow()) {
+	if (DEBUG)
+	    DebugLog("DownloadFile: OpenTransferWindow failed\n");
 	return TRANS_GUI;
+      }
 
+    if (DEBUG)
+	DebugLog("DownloadFile: entry flist=%p\n", (void *)flist);
     for (node=ListHead(flist);ListEnd(node);node=ListNext(node)) {
 	ULONG sel=0;
 	GetListBrowserNodeAttrs(node, LBNA_Selected, &sel, TAG_DONE);
@@ -50,6 +55,10 @@ int DownloadFile(struct List *flist, const char *localname, const int binary,
 	    static char tmp[1024];
 	    curr=(void *)node->ln_Name;
 	    aborted=0;
+	    if (DEBUG)
+		DebugLog("DownloadFile: selected mode=0x%lx name=%s\n",
+		    (unsigned long)(curr->mode & S_IFMT),
+		    curr->name ? curr->name : "(null)");
 	    UpdateTransTitle(node);
 	    switch(curr->mode & S_IFMT) {
 	      case S_IFDIR:
@@ -70,6 +79,8 @@ int DownloadFile(struct List *flist, const char *localname, const int binary,
 
 		}
 		break;
+	      case 0:
+		/* LIST/NLST may not set type bits (e.g. some servers); treat as file */
 	      case S_IFREG:
 		memset(localfile,0,sizeof(localfile));
 		if (!localname) {
@@ -108,6 +119,10 @@ int DownloadFile(struct List *flist, const char *localname, const int binary,
 		    }
 		}
 		else {
+		    if (DEBUG)
+			DebugLog("DownloadFile: get_file name=%s local=%s\n",
+			    curr->name ? curr->name : "(null)",
+			    localfile);
 		    result=get_file(curr->name, localfile, curr->size);
 		}
 		if (result==TRSF_OK) {
@@ -238,6 +253,7 @@ ULONG HandleTransferIDCMP(void)
     ULONG result;
     UWORD code=NULL;
 
+    if (DEBUG) DebugLog("HandleTransferIDCMP: entry\n");
     while((result=RA_HandleInput(TransferWin_Object,&code))!=WMHI_LASTMSG) {
 	switch (result & WMHI_CLASSMASK) {
 	  case WMHI_CLOSEWINDOW:
@@ -262,6 +278,7 @@ ULONG HandleTransferIDCMP(void)
 	    break;
 	}
     }
+    if (DEBUG) DebugLog("HandleTransferIDCMP: exit done=%lu\n", (unsigned long)done);
     return done;
 }
 
@@ -441,7 +458,7 @@ int UploadFile(struct List *transferlist, const char *remote, const int binary)
 
 void UpdateDLGads(const long bytes, const long restart_point, const time_t timee)
 {
-
+    if (DEBUG) DebugLog("UpdateDLGads: entry bytes=%ld\n", (long)bytes);
     if (TransferWin_Object) {
 	static char buf1[20],buf2[20],buf3[20];
 	int hours=0,mins=0,secs=0, cps=0;
@@ -473,6 +490,7 @@ void UpdateDLGads(const long bytes, const long restart_point, const time_t timee
 		       FUELGAUGE_VarArgs, &fuelargs[0],
 		       TAG_DONE);
     }
+    if (DEBUG) DebugLog("UpdateDLGads: exit\n");
 }
 
 
@@ -581,6 +599,9 @@ int get_file(char *name, char *localname, int size)
     ULONG restartpoint=0;
     static char buf[50];
 
+    if (DEBUG)
+	DebugLog("get_file: name=%s localname=%s size=%d\n",
+	    name ? name : "(null)", localname ? localname : "(null)", size);
     if (TransferWindow) {
 	sprintf(buf,"%ld",size);
 	FileSize=size;
@@ -605,8 +626,13 @@ int get_file(char *name, char *localname, int size)
 		       FUELGAUGE_VarArgs, &fuelargs,
 		       TAG_DONE);
     }
-    if (CheckExists(localname, size, &restartpoint))
-      return TRSF_OK;
+    if (CheckExists(localname, size, &restartpoint)) {
+	if (DEBUG)
+	    DebugLog("get_file: CheckExists returned TRUE, skip transfer\n");
+	return TRSF_OK;
+    }
+    if (DEBUG)
+	DebugLog("get_file: recvrequest RETR %s -> %s\n", name, localname);
     rval = recvrequest("RETR", localname, name, "w", restartpoint);
     return rval;
 }

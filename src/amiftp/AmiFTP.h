@@ -83,8 +83,6 @@ extern struct Library *SocketBase;
 
 #include <wb2cli.h>
 
-#include <proto/asyncio.h>
-
 #include "/tcphook/tcphooks.h"
 
 /* Exec list accessors (NDK exec/lists.h has IsListEmpty only; provide these). */

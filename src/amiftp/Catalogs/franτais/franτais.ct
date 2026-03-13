@@ -1,5 +1,5 @@
 ## version $VER: AmiFTP.catalog 2.3 (30.8.96)
-## language français
+## language franï¿½ais
 ## codeset 0
 ; Catalog descriptor file for AmiFTP 
 ; Copyright (C) 1995 by Magnus Lilja, All Rights Reserved.
@@ -99,11 +99,11 @@ _Port
 ;_Port
 ;
 SCW_RemDir
-_Auto-CD répertoire
+_Auto-CD rï¿½pertoire
 ;_Auto-cd to directory
 ;
 SCW_LocDir
-Chemin _Téléchargement
+Chemin _Tï¿½lï¿½chargement
 ;_Download path
 ;
 SCW_Anonymous
@@ -127,7 +127,7 @@ A_nnuler
 ;Ca_ncel
 ;
 SCW_OS
-S_ystème d'opération
+S_ystï¿½me d'opï¿½ration
 ;Operating S_ystem
 ;
 SCW_Proxy
@@ -141,7 +141,7 @@ _Hotlist
 ; Transfer window
 ;
 TW_WinTitle
-Fenêtre de transfert AmiFTP
+Fenï¿½tre de transfert AmiFTP
 ;AmiFTP Transfer window
 ;
 TW_RemoteFile
@@ -161,7 +161,7 @@ CPS
 ;CPS
 ;
 TW_DataTransferred
-Données transférées
+Donnï¿½es transfï¿½rï¿½es
 ;Data transferred
 ;
 TW_Abort
@@ -169,12 +169,12 @@ Annuler transfert
 ;Abort transfer
 ;
 TW_FileExists
-Le fichier '%s' existe déjà.\n\
+Le fichier '%s' existe dï¿½jï¿½.\n\
 L'ancienne taille est : %ld octets (nouvelle %ld octets).\n\
 ;File '%s' already exists.\nOld filesize is: %ld bytes (new %ld bytes).\n
 ;
 TW_Overwrite
-Réécrire
+Rï¿½ï¿½crire
 ;Overwrite
 ;
 TW_Resume
@@ -186,18 +186,18 @@ Annuler transfert
 ;Cancel transfer
 ;
 TW_DownloadDir
-Vous allez télécharger un répertoire arborescent.\n\
-Etes-vous sûr de vouloir faire çà ?
+Vous allez tï¿½lï¿½charger un rï¿½pertoire arborescent.\n\
+Etes-vous sï¿½r de vouloir faire ï¿½ï¿½ ?
 ;You are about to download a directory tree.\nAre you sure you want to do this?
 ;
 TW_GetDir
-Télécharger|Passer cette entrée
+Tï¿½lï¿½charger|Passer cette entrï¿½e
 ;Yes, download it!|Skip this entry
 ;
 ; Main preferences window
 ;
 MPW_WinTitle
-Préférences globales AmiFTP
+Prï¿½fï¿½rences globales AmiFTP
 ;AmiFTP Global Preferences
 ;
 MPW_Password
@@ -209,7 +209,7 @@ Commande de _visualisation
 ;_View command
 ;
 MPW_ProxyHost
-_Hôte proxy
+_Hï¿½te proxy
 ;Proxy _host
 ;
 MPW_ProxyPort
@@ -217,11 +217,11 @@ Port proxy
 ;Proxy _port
 ;
 MPW_ProxyDefault
-Utiliser pro_xy par défaut
+Utiliser pro_xy par dï¿½faut
 ;Use pro_xy per default
 ;
 MPW_DefDownloadDir
-Répertoire de téléchargement
+Rï¿½pertoire de tï¿½lï¿½chargement
 ;Default download directory
 ;
 MPW_IgnoreCase
@@ -235,11 +235,11 @@ _Site courant
 ;Current _site:
 ;
 MW_DirName
-Réperto_ire
+Rï¿½perto_ire
 ;D_irectory
 ;
 MW_DownloadDir
-Chemin t_éléchargement
+Chemin t_ï¿½lï¿½chargement
 ;D_ownload path
 ;
 MW_Parent
@@ -259,15 +259,15 @@ _Voir
 ;_View
 ;
 MW_Connect
-_Connexion à...
-;_Connect to...
+_Connexion ï¿½...
+;_Connect
 ;
 MW_Disconnect
-_Déconnexion
+_Dï¿½connexion
 ;_Disconnect
 ;
 MW_DeleteRequest
-Etes-vous sûr de vouloir effacer ces fichiers ?
+Etes-vous sï¿½r de vouloir effacer ces fichiers ?
 ;Are you sure you want to\ndelete these files?
 ;
 MW_DeleteCancel
@@ -281,7 +281,7 @@ _Recharger
 ; Connect window
 ;
 CW_WinTitle
-Fenêtre de connexion AmiFTP
+Fenï¿½tre de connexion AmiFTP
 ;AmiFTP Connect window
 ;
 CW_Abort
@@ -301,7 +301,7 @@ Connexion...
 ;Connecting...
 ;
 CW_ReadingDir
-Lecture répertoire...
+Lecture rï¿½pertoire...
 ;Reading directory...
 ;
 CW_SendingLogin
@@ -313,7 +313,7 @@ Envoi mot de passe...
 ;Sending password...
 ;
 CW_ChangingDirectory
-Changement de répertoire...
+Changement de rï¿½pertoire...
 ;Changing directory...
 ;
 ; Main menus
@@ -323,7 +323,7 @@ Projet
 ;Project
 ;
 MENU_AddToSiteList
-Ajouter à la liste des sites
+Ajouter ï¿½ la liste des sites
 ;Add current to sitelist
 ;
 MENU_Reconnect
@@ -331,7 +331,7 @@ Reconnexion
 ;Reconnect
 ;
 MENU_Iconify
-I\000Icônifier
+I\000Icï¿½nifier
 ;I\000Iconify
 ;
 MENU_About
@@ -347,11 +347,11 @@ Fichiers
 ;Files
 ;
 MENU_TagAll
-Sélectionner
+Sï¿½lectionner
 ;A\000Tag all
 ;
 MENU_UntagAll
-Désélectionner
+Dï¿½sï¿½lectionner
 ;U\000Untag all
 ;
 MENU_TransferMode
@@ -367,7 +367,7 @@ ASCII
 ;ASCII
 ;
 MENU_ClearCache
-Effacer répértoire-cache
+Effacer rï¿½pï¿½rtoire-cache
 ;Clear dir-cache
 ;
 MENU_Delete
@@ -391,7 +391,7 @@ par date
 ;by date
 ;
 MENU_Settings
-Réglages
+Rï¿½glages
 ;Settings
 ;
 MENU_Global
@@ -403,7 +403,7 @@ MENU_Hostlist
 ;2\000Sitelist...
 ;
 MENU_LogWindow
-Fenêtre log
+Fenï¿½tre log
 ;Log window
 ;
 MENU_ToggleDotFiles
@@ -411,15 +411,15 @@ Montrer fichiers '.'
 ;Show dot-files
 ;
 MENU_LoadSettings
-Chargement des réglages...
+Chargement des rï¿½glages...
 ;Load settings...
 ;
 MENU_SaveSettings
-Sauver les réglages
+Sauver les rï¿½glages
 ;Save settings
 ;
 MENU_SaveSettingsAs
-Sauver les réglages en...
+Sauver les rï¿½glages en...
 ;Save settings as...
 ;
 MENU_HotList
@@ -429,24 +429,24 @@ Hotlist
 ; Other strings
 ;
 Str_ErrorReadingDir
-Erreur en lecture du répertoire\n
+Erreur en lecture du rï¿½pertoire\n
 ;Error reading dir\n
 ;
 Str_CannotDLDirs
-Impossible de télécharger des répertoires entiers !\n
+Impossible de tï¿½lï¿½charger des rï¿½pertoires entiers !\n
 ;Cannot download entire directories!\n
 ;
 Str_SelectDLPath
-Choisissez un chemin de téléchargement
+Choisissez un chemin de tï¿½lï¿½chargement
 ;Select download path
 ;
 Str_SelectULFiles
-Choisissez le(s) fichier(s) à charger
+Choisissez le(s) fichier(s) ï¿½ charger
 ;Select file(s) to upload
 ;
 Str_CDFailedTimedout
 Echec du CD distant :\n\
-Connexion achevée
+Connexion achevï¿½e
 ;Remote CD failed:\nConnection timed out
 ;
 Str_CDFailed
@@ -466,7 +466,7 @@ Annuler
 ;Cancel
 ;
 Str_PasswordRequest
-Requête de mot de passe AmiFTP
+Requï¿½te de mot de passe AmiFTP
 ;AmiFTP Password request
 ;
 Str_PasswordEntry
@@ -479,23 +479,23 @@ Service non disponible.
 ;Service not available.
 ;
 Str_ConnectFailed
-La connexion a échoué.
+La connexion a ï¿½chouï¿½.
 ;Connect failed.
 ;
 Str_ConnectLoginFailed
-La connexion a échoué, login inconnu.
+La connexion a ï¿½chouï¿½, login inconnu.
 ;Connect failed, login unknown.
 ;
 Str_Putfailed
-Le placement de %s a echoué.
+Le placement de %s a echouï¿½.
 ;Put of %s failed
 ;
 Str_RemoteWriteFailed
-L'écriture a échoué (système de fichiers distant complet ?).
+L'ï¿½criture a ï¿½chouï¿½ (systï¿½me de fichiers distant complet ?).
 ;Write failed (remote file system full?).
 ;
 Str_GetFailed
-L'obtention de %s a échouée.
+L'obtention de %s a ï¿½chouï¿½e.
 ;Get %s failed.
 ;
 Str_LocalfileError
@@ -503,35 +503,35 @@ Erreur d'ouverture de %s.
 ;Error opening %s.
 ;
 Str_LocalWriteFailed
-L'écriture a échoué : %s
+L'ï¿½criture a ï¿½chouï¿½ : %s
 ;Write failed: %s
 ;
 Str_NoSuchDir
-%s: fichier ou répertoire non trouvé.
+%s: fichier ou rï¿½pertoire non trouvï¿½.
 ;%s: No such file or directory.
 ;
 Str_DisconnectedTimeout
-Déconnecté (temps écoulé).
+Dï¿½connectï¿½ (temps ï¿½coulï¿½).
 ;Disconnected (timeout).
 ;
 Str_Outofmem
-A cours de mémoire
+A cours de mï¿½moire
 ;Out of memory
 ;
 Str_SelectSettingsFile
-Choisissez un fichier de réglages...
+Choisissez un fichier de rï¿½glages...
 ;Select settings file...
 ;
 Str_NoRestart
-La commande de reprise a échoué.
+La commande de reprise a ï¿½chouï¿½.
 ;Resume command failed.
 ;
 Str_ConnectionTimedOut
-Le temps de connexion est écoulé.
+Le temps de connexion est ï¿½coulï¿½.
 ;Connection timed out
 ;
 Str_AmiFTPRequest
-Requête AmiFTP
+Requï¿½te AmiFTP
 ;AmiFTP Request
 ;
 Str_AboutAmiFTP
@@ -539,7 +539,7 @@ A propos d'AmiFTP...
 ;About AmiFTP...
 ;
 Str_UnknownHost
-Hôte inconnu
+Hï¿½te inconnu
 ;Unknown host
 ;
 Str_ErrorBuildingDirList
@@ -568,7 +568,7 @@ Montrer RECENT en entier
 ;Show entire RECENT
 ;
 MENU_ResetADT
-Réinitialiser la date ADT
+Rï¿½initialiser la date ADT
 ;Reset Aminet-date
 ;
 MW_ViewReadme
@@ -576,7 +576,7 @@ Voir readme
 ;View readme
 ;
 MPW_General
-Général
+Gï¿½nï¿½ral
 ;General
 ;
 MPW_ADT
@@ -592,7 +592,7 @@ Taille du tampon
 ;Buffer size
 ;
 MPW_DirCacheSize
-Taille du répertoire-cache
+Taille du rï¿½pertoire-cache
 ;Directory cache size
 ;
 MPW_DeleteViewed
@@ -600,15 +600,15 @@ Effacer fichiers vus
 ;Delete viewed files
 ;
 MPW_Beep
-Bip après transfert
+Bip aprï¿½s transfert
 ;Beep after transfer
 ;
 MPW_HideDirectories
-Cacher répertoires
+Cacher rï¿½pertoires
 ;Hide directories
 ;
 MPW_PreservePath
-Préserver chemin
+Prï¿½server chemin
 ;Preserve filepath
 ;
 MPW_ShowMOTD
@@ -616,7 +616,7 @@ Montrer fichiers MOTD
 ;Show MOTD-file
 ;
 MPW_GetReadme
-Télécharger readme
+Tï¿½lï¿½charger readme
 ;Download readme
 ;
 SCW_AminetMode
@@ -636,11 +636,11 @@ Temps restant
 ;Time left
 ;
 Str_NoNewAminetFiles
-Pas de nouveau fichier depuis la dernière visite d'Aminet
+Pas de nouveau fichier depuis la derniï¿½re visite d'Aminet
 ;No new files since last Aminet visit
 ;
 Str_WindowTitle
-AmiFTP - %ld fichiers sélectionnés (%ld %s) %ld %s libres sur le disque
+AmiFTP - %ld fichiers sï¿½lectionnï¿½s (%ld %s) %ld %s libres sur le disque
 ;AmiFTP - %ld files selected (%ld %s) %ld %s free on disk
 ; This might look a bit strange, but when the fields are filled the
 ; string looks like:

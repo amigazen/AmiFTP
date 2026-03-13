@@ -1,5 +1,5 @@
 const char VersionID[] = "$VER: AmiFTP " VERSION " " __AMIGADATE__;
 const char Version[] = VERSION;
 char *linfotext = "AmiFTP - " VERSION " (" __DATE__ ")";
-char *infotext = "AmiFTP " VERSION " (" __DATE__ ")\nCopyright � 1995-1998 Magnus Lilja. All rights reserved.\n<lilja@lysator.liu.se>\n\nARexx-port: ";
-char *wintitle = "AmiFTP " VERSION " � 1995-1998 Magnus Lilja <lilja@lysator.liu.se>";
+char *infotext = "AmiFTP " VERSION " (" __DATE__ ")\n\nARexx-port: ";
+char *wintitle = "AmiFTP";

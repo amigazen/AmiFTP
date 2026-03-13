@@ -64,7 +64,7 @@ SLW_Newstring
 (Ny)
 ;(New)
 SLW_Sort
-_Sortér
+_Sortï¿½r
 ;_Sort
 ;
 ; SiteConfiguration Window
@@ -115,7 +115,7 @@ _Hotliste
 ; Transfer window
 ;
 TW_WinTitle
-AmiFTP overføringsvindu
+AmiFTP overfï¿½ringsvindu
 ;AmiFTP Transfer window
 TW_RemoteFile
 Remote fil
@@ -124,31 +124,31 @@ TW_LocalFile
 Lokal fil
 ;Local file
 TW_Size
-Størrelse
+Stï¿½rrelse
 ;Size
 TW_Cps
 CPS
 ;CPS
 TW_DataTransferred
-Data overført
+Data overfï¿½rt
 ;Data transferred
 TW_Abort
-Avbryt overføring
+Avbryt overfï¿½ring
 ;Abort transfer
 TW_FileExists
-Filen '%s' finnes fra før.\nStørrelsen på den gamle er: %ld bytes (ny %ld bytes).\n
+Filen '%s' finnes fra fï¿½r.\nStï¿½rrelsen pï¿½ den gamle er: %ld bytes (ny %ld bytes).\n
 ;File '%s' already exists.\nOld filesize is: %ld bytes (new %ld bytes).\n
 TW_Overwrite
 Skriv over
 ;Overwrite
 TW_Resume
-Gjenoppta overførsel
+Gjenoppta overfï¿½rsel
 ;Resume transfer
 TW_CancelTransfer
-Avbryt overførsel
+Avbryt overfï¿½rsel
 ;Cancel transfer
 TW_DownloadDir
-Du er på vei til å hente ned et katalog tre.\nEr du sikker på at du vil dette?
+Du er pï¿½ vei til ï¿½ hente ned et katalog tre.\nEr du sikker pï¿½ at du vil dette?
 ;You are about to download a directory tree.\nAre you sure you want to do this?
 TW_GetDir
 Ja, hent det ned!|Hopp over denne
@@ -178,13 +178,13 @@ MPW_DefDownloadDir
 Vanlig _filhentekatalog
 ;Default download directory
 MPW_IgnoreCase
-_Ignorer store/små bokstaver
+_Ignorer store/smï¿½ bokstaver
 ;_Ignore case?
 ;
 ; Main window
 ;
 MW_SiteName
-_Nåværende site:
+_Nï¿½vï¿½rende site:
 ;Current _site:
 MW_DirName
 _Katalog:
@@ -206,12 +206,12 @@ _Vis
 ;_View
 MW_Connect
 O_pprett forbindelse til...
-;_Connect to...
+;_Connect
 MW_Disconnect
 S_teng forbindelse
 ;_Disconnect
 MW_DeleteRequest
-Er du sikker på at du vil\nslette disse filene?
+Er du sikker pï¿½ at du vil\nslette disse filene?
 ;Are you sure you want to\ndelete these files?
 MW_DeleteCancel
 Slett|Avbryt
@@ -256,7 +256,7 @@ MENU_Project
 Prosjekt
 ;Project
 MENU_AddToSiteList
-Legg nåværende til siteliste
+Legg nï¿½vï¿½rende til siteliste
 ;Add current to sitelist
 MENU_Reconnect
 Gjenopprett forbindelse
@@ -280,16 +280,16 @@ MENU_UntagAll
 G\000Glem alle valgte
 ;U\000Untag all
 MENU_TransferMode
-Overførselsmetode
+Overfï¿½rselsmetode
 ;Transfer mode
 MENU_Binary
-Binær
+Binï¿½r
 ;Binary
 MENU_ASCII
 ASCII
 ;ASCII
 MENU_ClearCache
-Tøm katalogcache
+Tï¿½m katalogcache
 ;Clear dir-cache
 MENU_Delete
 S\000Slett
@@ -298,7 +298,7 @@ MENU_Move
 F\000Flytt
 ;M\000Move
 MENU_Sort
-Sortér
+Sortï¿½r
 ;Sort
 MENU_SortbyName
 etter navn
@@ -364,7 +364,7 @@ Str_CANCEL
 Avbryt
 ;Cancel
 Str_PasswordRequest
-AmiFTP passord forespørsel
+AmiFTP passord forespï¿½rsel
 ;AmiFTP Password request
 Str_PasswordEntry
 Skriv inn passord for brukeren:\n%s
@@ -388,7 +388,7 @@ Str_GetFailed
 Henting av %s feilet.
 ;Get %s failed.
 Str_LocalfileError
-Feil under åpning av %s.
+Feil under ï¿½pning av %s.
 ;Error opening %s.
 Str_LocalWriteFailed
 Skriving feilet: %s
@@ -412,7 +412,7 @@ Str_ConnectionTimedOut
 Forbindelsen timet ut.
 ;Connection timed out
 Str_AmiFTPRequest
-AmiFTP forespørsel
+AmiFTP forespï¿½rsel
 ;AmiFTP Request
 Str_AboutAmiFTP
 Om AmiFTP...

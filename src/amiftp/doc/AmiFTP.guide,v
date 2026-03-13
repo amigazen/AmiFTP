@@ -111,7 +111,7 @@ text
 
                             @@{b}AmiFTP@@{ub}
 
-        Copyright © 1995-1996 Magnus Lilja. All Rights Reserved.
+        Copyright ï¿½ 1995-1996 Magnus Lilja. All Rights Reserved.
 
 
      @@{" I   " link "Copyright"}  Copyright and legal information.
@@ -153,9 +153,9 @@ text
    COPYRIGHT
 
 
-   Copyright © 1995-1996 Magnus Lilja. All Rights Reserved.
+   Copyright ï¿½ 1995-1996 Magnus Lilja. All Rights Reserved.
 
-   ClassAct is Copyright © 1995, 1996 ClassAct Development Team.
+   ClassAct is Copyright ï¿½ 1995, 1996 ClassAct Development Team.
 
 
    Some of the files (in the Contrib and/or the Rexx directory) have
@@ -223,9 +223,9 @@ This software is provided as is. Use it at your own risk. No warranties are made
 
             Magnus Lilja
 
-            Alsättersgatan 9C:17
+            Alsï¿½ttersgatan 9C:17
 
-            S-584 35 LINKÖPING
+            S-584 35 LINKï¿½PING
 
             SWEDEN
 
@@ -290,18 +290,18 @@ an e-mail to me (lilja@@lysator.liu.se).
 TCP/IP-stacks:
 
 
-  · AmiTCP 3.0 or higher.
+  ï¿½ AmiTCP 3.0 or higher.
 
 
-  · AS225r2 or the new I-Net 225.
+  ï¿½ AS225r2 or the new I-Net 225.
 
 
-  · CPR TCP/IP Base Kit.
+  ï¿½ CPR TCP/IP Base Kit.
 
 
-  · mlink.
+  ï¿½ mlink.
 
-  · TermiteTCP.
+  ï¿½ TermiteTCP.
 
   
 AmiFTP first tries to open AmiTCP's bsdsocket.library and if that failes it opens
@@ -309,9 +309,9 @@ socket.library. If you want to force AmiFTP to use socket.library, use the AS225
 
 In order to detect mlink, AmiFTP searches for a port called "MLINK".
 
-  · reqtools.library
+  ï¿½ reqtools.library
 
-  · The online help in AmiFTP requires amigaguide.library v36 or higher.
+  ï¿½ The online help in AmiFTP requires amigaguide.library v36 or higher.
 
 @@endnode
 
@@ -472,13 +472,13 @@ The Global prefences window has four pages, General, Aminet, Display, and Proxy.
 
    General:
 
-   · Anonymous password:
+   ï¿½ Anonymous password:
 
      @@{lindent 5}Enter your e-mail-address here, this will be sent to the ftp-server
 when you log in as anonymous user.@@{lindent 0}
 
 
-   · View command:
+   ï¿½ View command:
 
      @@{lindent 5}Enter the command AmiFTP should use when viewing files, %F in the
 string will expand to the filename and %P will expand to the name
@@ -487,35 +487,35 @@ have to specify the complete path for the command if you run
 AmiFTP from Workbench since I haven't fixed the path yet.@@{lindent 0}
 
 
-   · Default local drawer
+   ï¿½ Default local drawer
 
      @@{lindent 5}For sites which you don't specify a download directory this directory
 will be used.@@{lindent 0}
 
 
-   · Buffer size
+   ï¿½ Buffer size
 
      @@{lindent 5}The size of the transferbuffer, in bytes.@@{lindent 0}
 
 
-   · Directory cache size
+   ï¿½ Directory cache size
 
      @@{lindent 5}The maximum number of directories that should be in the 
 directory cache.@@{lindent 0}
 
 
-   · Delete viewed files
+   ï¿½ Delete viewed files
 
      @@{lindent 5}If this is checked AmiFTP will delete the files that have been
 'View'-ed when exiting AmiFTP.@@{lindent 0}
 
 
-   · Ignore case
+   ï¿½ Ignore case
 
      @@{lindent 5}Well, guess twice!@@{lindent 0}
 
 
-   · Beep after transfer
+   ï¿½ Beep after transfer
 
      @@{lindent 5}When a transfer is done, AmiFTP will do a DisplayBeep() if you
 have this checked. Normally this will result in flashing the screen and perhaps
@@ -524,7 +524,7 @@ a beep from your speaker.@@{lindent 0}
 
    Aminet:
 
-   · Hide directories
+   ï¿½ Hide directories
 
      @@{lindent 5}This should be a standard AmigaDOS pattern, all files that are
 in a directory that matches this pattern will be hidden. I have this set to 
@@ -532,18 +532,18 @@ in a directory that matches this pattern will be hidden. I have this set to
 @@{lindent 0}
 
 
-   · Preserve filepath
+   ï¿½ Preserve filepath
 
      @@{lindent 5}Not implemented yet.@@{lindent 0}
 
 
-   · Show MOTD-file
+   ï¿½ Show MOTD-file
 
      @@{lindent 5}If this is checked AmiFTP will download and view the 
 Aminet-MOTD-file if it has changed since the last visit to Aminet.@@{lindent 0}
 
 
-   · Download readme
+   ï¿½ Download readme
 
      @@{lindent 5}If this is checked AmiFTP will also download the readme of the
 files you're downloading.@@{lindent 0}
@@ -551,56 +551,56 @@ files you're downloading.@@{lindent 0}
 
    Display:
 
-   · Open on default public screen
+   ï¿½ Open on default public screen
 
      @@{lindent 5}If this is checked AmiFTP will open on the default public screen. If not it will open on the named public screen.@@{lindent 0}
 
 
-   · Public screen
+   ï¿½ Public screen
 
      @@{lindent 5}Tells AmiFTP which public screen to open on if the above flag isn't set.@@{lindent 0}
 
 
-   · Use system fonts
+   ï¿½ Use system fonts
 
      @@{lindent 5}If this is checked AmiFTP will use the current screen font, otherwise it will use the fonts you specify.@@{lindent 0}
 
 
-   · Interface font
+   ï¿½ Interface font
 
      @@{lindent 5}This font is the font used everywhere in AmiFTP except in the main listview where the directory lists are shown.@@{lindent 0}
 
 
-   · Filelist font
+   ï¿½ Filelist font
 
      @@{lindent 5}This font is used in the listview where the directory lists are shown.@@{lindent 0}
 
 
-   · Show buttons
+   ï¿½ Show buttons
 
-     @@{lindent 5}Set this if you want the Parent/Get/Put/View/Connect to.../Disconnect buttons to be visibile.@@{lindent 0}
+     @@{lindent 5}Set this if you want the Parent/Get/Put/View/Connect/Disconnect buttons to be visibile.@@{lindent 0}
 
 
-   · Show toolbar
+   ï¿½ Show toolbar
 
      @@{lindent 5}Set this if you want the icon toolbar to be visible. The order of the icons are: Exit, Iconify, Connect, Disconnect, Parent, Get, Put, View.@@{lindent 0}
 
 
    Proxy:
 
-   · Proxy host:
+   ï¿½ Proxy host:
 
      @@{lindent 5}The name of the proxy-host to use for proxy-connections. Note that
 the proxy that AmiFTP needs is not generally available, it will
 not work with the Cern httpd-proxy function.@@{lindent 0}
 
 
-   · Proxy port:
+   ï¿½ Proxy port:
 
      @@{lindent 5}Which port on the proxy-host to use.@@{lindent 0}
 
 
-   · Use proxy as default?
+   ï¿½ Use proxy as default?
 
      @@{lindent 5}Should AmiFTP use the proxy for all connections? You can override
 this with the proxy-flag for each site.@@{lindent 0}
@@ -640,32 +640,32 @@ if you add it to a submenu that isn't hotlisted it will still show up somewhere.
    @@{b}Site configuration@@{ub}
 
 
-   · Name:
+   ï¿½ Name:
 
      @@{lindent 5}This name will show up in the sitelist window and in the 
 hotlist-menu.@@{lindent 0}
 
 
-   · Site:
+   ï¿½ Site:
 
      @@{lindent 5}This should be the ftpsite's actual Internet address (either
 hostname or IP).@@{lindent 0}
 
 
-   · Port:
+   ï¿½ Port:
 
      @@{lindent 5}Normally all ftp-sites use port-number 21 (which is the 
 default), but some sites are on other ports.@@{lindent 0}
 
 
-   · Auto-cd to directory:
+   ï¿½ Auto-cd to directory:
 
      @@{lindent 5}If this is set, AmiFTP will cd to this directory right after
 the connection is made. It's convenient to have /pub/aminet here for the Aminet
 sites.@@{lindent 0}
 
 
-   · Download path:
+   ï¿½ Download path:
 
      @@{lindent 5}If you click on the button a path-requester will show up,
 you can also type the download path into the string gadget. If you don't
@@ -673,17 +673,17 @@ specify a path, the default path specified in @@{"Global preferences" Link "Glob
 will be used.@@{lindent 0}
 
 
-   · Anonymous login?
+   ï¿½ Anonymous login?
 
      @@{lindent 5}Selfexplaining!@@{lindent 0}
 
 
-   · Login name:
+   ï¿½ Login name:
 
      @@{lindent 5}Which loginname to use for non-anonymous logins.@@{lindent 0}
 
 
-   · Password:
+   ï¿½ Password:
 
      @@{lindent 5}The password for the above username. If you don't specify one, AmiFTP
 will pop up a requester asking for it when you connect. The password will
@@ -695,7 +695,7 @@ find dozens of passwords without any effort. So for maximum security you should
 not write your password here. You have been warned.@@{lindent 0}
 
 
-   · Operating System
+   ï¿½ Operating System
 
      @@{lindent 5}In order to parse the directory listing correctly, AmiFTP needs to
 know what Operating System the site is using. For most sites, UNIX will
@@ -704,20 +704,20 @@ Amiga-site you can try UNIX, it all depends on which ls the server is using.
 AmiFTP can't parse the default AmiTCP:bin/ls yet, but this will be added.@@{lindent 0}
 
 
-   · Proxy:
+   ï¿½ Proxy:
 
      @@{lindent 5}This is mostly for my personal use since the proxy-support
 in AmiFTP is not compataible with the www-proxys that are available. This proxy is
 only used locally here at rydnet.lysator.liu.se.@@{lindent 0}
 
 
-   · Hotlist:
+   ï¿½ Hotlist:
 
      @@{lindent 5}If this is checked the site will appear under the
 menu-label "HotList".@@{lindent 0}
 
 
-   · Aminet-mode:
+   ï¿½ Aminet-mode:
 
      @@{lindent 5}If this is checked this site will be marked as a Aminet-site and
 AmiFTP will get the recent-file (in info/adt/) and display the new files since your
@@ -1548,11 +1548,11 @@ bugs/suggestions.@@{lindent 0}
 
      @@{lindent 5}Pantelis Kopelias (leestar@@acropolis.gr) for the Greek translation@@{lindent 0}
 
-     @@{lindent 5}Sigurbjörn B. Lárusson (sibbi@@cc.is) for the Icelandic translation@@{lindent 0}
+     @@{lindent 5}Sigurbjï¿½rn B. Lï¿½russon (sibbi@@cc.is) for the Icelandic translation@@{lindent 0}
 
      @@{lindent 5}Giacomo Magnini (prometeo@@flashnet.it) for the Italian translation@@{lindent 0}
 
-     @@{lindent 5}José Roberto González Rocha (alu756@@csi.ull.es) for the Spanish translation@@{lindent 0}
+     @@{lindent 5}Josï¿½ Roberto Gonzï¿½lez Rocha (alu756@@csi.ull.es) for the Spanish translation@@{lindent 0}
 
      @@{lindent 5}Arno van Wouwe (apwouwe@@cs.vu.nl) for the Dutch translation@@{lindent 0}
 
@@ -1642,31 +1642,31 @@ a364 1
 The Global prefences window has three pages, General, Aminet, and Proxy.
 d384 1
 a384 1
-   · Default download directory:
+   ï¿½ Default download directory:
 d390 1
 a390 1
-   · Buffer size:
+   ï¿½ Buffer size:
 d395 1
 a395 1
-   · Directory cache size:
+   ï¿½ Directory cache size:
 d401 1
 a401 1
-   · Delete viewed files?
+   ï¿½ Delete viewed files?
 d407 1
 a407 1
-   · Ignore case?
+   ï¿½ Ignore case?
 d412 1
 a412 1
-   · Beep after transfer?
+   ï¿½ Beep after transfer?
 d429 1
 a429 1
-   · Preserve filepath?
+   ï¿½ Preserve filepath?
 d434 1
 a434 1
-   · Show MOTD-file?
+   ï¿½ Show MOTD-file?
 d440 1
 a440 1
-   · Download readme?
+   ï¿½ Download readme?
 d442 1
 a442 1
      @@{lindent 5}IF this is checked AmiFTP will also download the readme of the
@@ -1688,7 +1688,7 @@ log
 text
 @d54 1
 a54 1
-   ClassAct is Copyright © 1995 Phantom Development.
+   ClassAct is Copyright ï¿½ 1995 Phantom Development.
 d601 4
 d624 2
 d633 10
@@ -1764,7 +1764,7 @@ a102 2
 an email to me (lilja@@lysator.liu.se) and I'll add you to the announce-list.
 d124 1
 a124 1
-            S-581 51 LINKÖPING (this will change to S-584 35 at the end of March)
+            S-581 51 LINKï¿½PING (this will change to S-584 35 at the end of March)
 d135 3
 a137 3
    One small note about writing mail: Please make sure that you have configured your
@@ -1794,7 +1794,7 @@ a377 1
      @@{lindent 5}Enter your email-address here, this will be sent to the ftp-server
 d396 58
 a471 4
-   · Ignore case?
+   ï¿½ Ignore case?
 
      @@{lindent 5}Well, guess twice!@@{lindent 0}
 
@@ -1832,7 +1832,7 @@ a94 1
 d119 1
 d124 1
 a124 1
-            S-581 51 LINKÖPING
+            S-581 51 LINKï¿½PING
 d131 1
 d134 1
 d139 1
@@ -1941,10 +1941,10 @@ log
 text
 @d10 1
 a10 1
-         Copyright © 1995 Magnus Lilja. All Rights Reserved.
+         Copyright ï¿½ 1995 Magnus Lilja. All Rights Reserved.
 d52 1
 a52 1
-   Copyright © 1995 Magnus Lilja. All Rights Reserved.
+   Copyright ï¿½ 1995 Magnus Lilja. All Rights Reserved.
 d143 1
 a143 2
    I will upload AmiFTP to Aminet when I think it's ready for it.
@@ -1976,7 +1976,7 @@ listview. (currently ignored)@@{lindent 0}
 
 
 a374 5
-   · Show dotfiles?
+   ï¿½ Show dotfiles?
 
      @@{lindent 5}Determines whether files beginning with a dot (.) should be viewed.@@{lindent 0}
 
@@ -2038,7 +2038,7 @@ a39 1
      @@{" C   " link "HISTORY/MAIN"}  Program history
 d52 1
 a52 1
-   Copyright © 1995 Magnus Lilja All Rights Reserved.
+   Copyright ï¿½ 1995 Magnus Lilja All Rights Reserved.
 d60 2
 d148 29
 d183 2

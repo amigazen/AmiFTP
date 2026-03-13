@@ -5477,7 +5477,7 @@ struct NewGadget main_GetGad    = {3,1,77,17,"_Get",NULL,11,PLACETEXT_IN,NULL,(A
 struct NewGadget main_PutGad    = {3,1,77,17,"P_ut",NULL,12,PLACETEXT_IN,NULL,(APTR)Put_clicked};
 struct NewGadget main_ViewGad   = {3,1,77,17,"_View",NULL,13,NULL,NULL,(APTR)View_clicked};
 a114 2
-struct NewGadget main_ConnectGad = {0,0,250,0,"_Connect to...",NULL,14,PLACETEXT_IN,NULL,(APTR)Connect_clicked};
+struct NewGadget main_ConnectGad = {0,0,250,0,"_Connect",NULL,14,PLACETEXT_IN,NULL,(APTR)Connect_clicked};
 struct NewGadget main_DisconnectGad = {0,0,250,0,"_Disconnect",NULL,15,PLACETEXT_IN,NULL,(APTR)Disconnect_clicked};
 d272 1
 a272 1

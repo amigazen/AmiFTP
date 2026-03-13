@@ -1,5 +1,5 @@
 ## version $VER: AmiFTP.catalog 2.2 (18.6.96)
-## language íslenska
+## language ï¿½slenska
 ## codeset 0
 ; Catalog descriptor file for AmiFTP 
 ; Copyright (C) 1995 by Magnus Lilja, All Rights Reserved.
@@ -25,11 +25,11 @@
 ; SiteList window
 ;
 SLW_SiteListWindow
-AmiFTP svæðalisti
+AmiFTP svï¿½ï¿½alisti
 ;AmiFTP Sitelist
 ;
 SLW_SiteList
-FTP Svæði
+FTP Svï¿½ï¿½i
 ;FTP Sites
 ;
 SLW_Connect
@@ -37,23 +37,23 @@ _Tengjast
 ;_Connect
 ;
 SLW_New
-_Nýtt
+_Nï¿½tt
 ;_New site
 ;
 SLW_Edit
-Ritf_æra
+Ritf_ï¿½ra
 ;_Edit
 ;
 SLW_Remove
-_Fjarlægja
+_Fjarlï¿½gja
 ;_Remove
 ;
 SLW_Cancel
-_Hætta við
+_Hï¿½tta viï¿½
 ;C_ancel
 ;
 SLW_OK
-Í _lagi
+ï¿½ _lagi
 ;_OK
 ;
 SLW_Up
@@ -61,7 +61,7 @@ Upp
 ;Up
 ;
 SLW_Down
-Niður
+Niï¿½ur
 ;Down
 ;
 SLW_Top
@@ -73,17 +73,17 @@ Botn
 ;Bottom
 ;
 SLW_Newstring
-(Nýtt)
+(Nï¿½tt)
 ;(New)
 ;
 SLW_Sort
-_Raða
+_Raï¿½a
 ;_Sort
 ;
 ; SiteConfiguration Window
 ;
 SCW_SiteConfigurationWindow
-AmiFTP Svæðis Stillingar
+AmiFTP Svï¿½ï¿½is Stillingar
 ;AmiFTP Site Configuration
 ;
 SCW_Name
@@ -91,7 +91,7 @@ Na_fn
 ;Na_me
 ;
 SCW_Site
-_Svæði
+_Svï¿½ï¿½i
 ;_Site
 ;
 SCW_Port
@@ -99,11 +99,11 @@ _Port
 ;_Port
 ;
 SCW_RemDir
-S_kipta sjálfvirk í skúffu
+S_kipta sjï¿½lfvirk ï¿½ skï¿½ffu
 ;_Auto-cd to drawer
 ;
 SCW_LocDir
-_Niðursendingar slóð
+_Niï¿½ursendingar slï¿½ï¿½
 ;_Download path
 ;
 SCW_Anonymous
@@ -115,62 +115,62 @@ _Login nafn
 ;_Login name
 ;
 SCW_Password
-Leyni_orð
+Leyni_orï¿½
 ;Pass_word
 ;
 SCW_OK
-_Í lagi
+_ï¿½ lagi
 ;_OK
 ;
 SCW_Cancel
-_Hætta við
+_Hï¿½tta viï¿½
 ;Ca_ncel
 ;
 SCW_OS
-Stýri_kerfi
+Stï¿½ri_kerfi
 ;Operating S_ystem
 ;
 SCW_Proxy
-Stað_gengill
+Staï¿½_gengill
 ;Pro_xy
 ;
 SCW_HotList
-_Vinsældarlisti
+_Vinsï¿½ldarlisti
 ;_HotList
 ;
 ; Transfer window
 ;
 TW_WinTitle
-AmiFTP Færslu gluggi
+AmiFTP Fï¿½rslu gluggi
 ;AmiFTP - %ld file(s) left (%ld %s)
 ;
 TW_RemoteFile
-Fjarlæg skrá
+Fjarlï¿½g skrï¿½
 ;Remote file
 ;
 TW_LocalFile
-Heima skrá
+Heima skrï¿½
 ;Local file
 ;
 TW_Size
-Stærð
+Stï¿½rï¿½
 ;Size
 ;
 TW_Cps
-SÁS
+Sï¿½S
 ;CPS
 ;
 TW_DataTransferred
-Fært magn
+Fï¿½rt magn
 ;Data transferred
 ;
 TW_Abort
-Hætta við færslu
+Hï¿½tta viï¿½ fï¿½rslu
 ;Abort transfer
 ;
 TW_FileExists
-Skráin '%s' er þegar til.\n\
-Gömul stærð er: %ld bæti (ný %ld bæti).\n\
+Skrï¿½in '%s' er ï¿½egar til.\n\
+Gï¿½mul stï¿½rï¿½ er: %ld bï¿½ti (nï¿½ %ld bï¿½ti).\n\
 
 ;File '%s' already exists.\nOld filesize is: %ld bytes (new %ld bytes).\n
 ;
@@ -179,20 +179,20 @@ Skrifa yfir
 ;Overwrite
 ;
 TW_Resume
-Halda áfram færslu
+Halda ï¿½fram fï¿½rslu
 ;Resume transfer
 ;
 TW_CancelTransfer
-Hætta við færslu
+Hï¿½tta viï¿½ fï¿½rslu
 ;Cancel transfer
 ;
 TW_DownloadDir
-Þú ert um það bil að færa niður skúffu tré.\n\
-Ertu viss um að þú viljir gera þetta?
+ï¿½ï¿½ ert um ï¿½aï¿½ bil aï¿½ fï¿½ra niï¿½ur skï¿½ffu trï¿½.\n\
+Ertu viss um aï¿½ ï¿½ï¿½ viljir gera ï¿½etta?
 ;You are about to download a directory tree.\nAre you sure you want to do this?
 ;
 TW_GetDir
-Já, færa það niður!|Sleppa þessari færslu
+Jï¿½, fï¿½ra ï¿½aï¿½ niï¿½ur!|Sleppa ï¿½essari fï¿½rslu
 ;Yes, download it!|Skip this entry
 ;
 ; Main preferences window
@@ -202,53 +202,53 @@ AmiFTP Almennar Stillingar
 ;AmiFTP Global Preferences
 ;
 MPW_Password
-_Anonymous lykilorð
+_Anonymous lykilorï¿½
 ;_Anonymous password
 ;
 MPW_ViewCommand
-Skoða sk_ipun
+Skoï¿½a sk_ipun
 ;_View command
 ;
 MPW_ProxyHost
-Staðgengils h_ýsill
+Staï¿½gengils h_ï¿½sill
 ;Proxy _host
 ;
 MPW_ProxyPort
-Staðgengils p_ort
+Staï¿½gengils p_ort
 ;Proxy _port
 ;
 MPW_ProxyDefault
-Nota staðgengil sjálfgefið?
+Nota staï¿½gengil sjï¿½lfgefiï¿½?
 ;Use pro_xy per default
 ;
 MPW_DefDownloadDir
-Sjálfgefin færslu skúffa
+Sjï¿½lfgefin fï¿½rslu skï¿½ffa
 ;Default local drawer
 ;
 MPW_IgnoreCase
-H_unsa há/lágstafi?
+H_unsa hï¿½/lï¿½gstafi?
 ;_Ignore case
 ;
 ; Main window
 ;
 MW_SiteName
-Núverandi _svæði:
+Nï¿½verandi _svï¿½ï¿½i:
 ;_Site
 ;
 MW_DirName
-S_kúffa
+S_kï¿½ffa
 ;Drawer
 ;
 MW_DownloadDir
-Færslu skú_ffa
+Fï¿½rslu skï¿½_ffa
 ;L_ocal drawer
 ;
 MW_Parent
-_Móðurskrá
+_Mï¿½ï¿½urskrï¿½
 ;_Parent
 ;
 MW_Get
-_Ná í
+_Nï¿½ ï¿½
 ;_Get
 ;
 MW_Put
@@ -256,28 +256,28 @@ S_etja
 ;P_ut
 ;
 MW_View
-Sko_ða
+Sko_ï¿½a
 ;_View
 ;
 MW_Connect
-_Tengjast við...
-;_Connect to...
+_Tengjast viï¿½...
+;_Connect
 ;
 MW_Disconnect
 _Aftengjast
 ;_Disconnect
 ;
 MW_DeleteRequest
-Ertu viss um að þú\n\
-viljir eyða þessum skrám?
+Ertu viss um aï¿½ ï¿½ï¿½\n\
+viljir eyï¿½a ï¿½essum skrï¿½m?
 ;Are you sure you want to\ndelete these files?
 ;
 MW_DeleteCancel
-Eyða|Hætta við
+Eyï¿½a|Hï¿½tta viï¿½
 ;Delete|Cancel
 ;
 MW_Reload
-_Hlaða aftur
+_Hlaï¿½a aftur
 ;_Reload
 ;
 ; Connect window
@@ -287,15 +287,15 @@ AmiFTP Tengingar gluggi
 ;AmiFTP Connect window
 ;
 CW_Abort
-Hætta við
+Hï¿½tta viï¿½
 ;Abort
 ;
 CW_Site
-Svæði:
+Svï¿½ï¿½i:
 ;Site:
 ;
 CW_Status
-Staða:
+Staï¿½a:
 ;Status:
 ;
 CW_Connecting
@@ -303,7 +303,7 @@ Tengist...
 ;Connecting...
 ;
 CW_ReadingDir
-Les skúffu...
+Les skï¿½ffu...
 ;Reading drawer...
 ;
 CW_SendingLogin
@@ -311,11 +311,11 @@ Sendi login...
 ;Sending login...
 ;
 CW_SendingPassword
-Sendi lykilorð...
+Sendi lykilorï¿½...
 ;Sending password...
 ;
 CW_ChangingDirectory
-Breyti um skúffu...
+Breyti um skï¿½ffu...
 ;Changing drawer...
 ;
 ; Main menus
@@ -325,7 +325,7 @@ Verkefni
 ;Project
 ;
 MENU_AddToSiteList
-Bæta núverandi við svæðalista
+Bï¿½ta nï¿½verandi viï¿½ svï¿½ï¿½alista
 ;Add current to sitelist
 ;
 MENU_Reconnect
@@ -333,7 +333,7 @@ Endurtengjast
 ;Reconnect
 ;
 MENU_Iconify
-I\000Skjátáknfæra
+I\000Skjï¿½tï¿½knfï¿½ra
 ;I\000Iconify
 ;
 MENU_About
@@ -341,11 +341,11 @@ MENU_About
 ;?\000About...
 ;
 MENU_Quit
-Q\000Hætta
+Q\000Hï¿½tta
 ;Q\000Quit
 ;
 MENU_Files
-Skrár
+Skrï¿½r
 ;Files
 ;
 MENU_TagAll
@@ -357,11 +357,11 @@ U\000Afmerkja allar
 ;U\000Untag all
 ;
 MENU_TransferMode
-Færslumáti
+Fï¿½rslumï¿½ti
 ;Transfer mode
 ;
 MENU_Binary
-Vélamál
+Vï¿½lamï¿½l
 ;Binary
 ;
 MENU_ASCII
@@ -369,19 +369,19 @@ ASCII
 ;ASCII
 ;
 MENU_ClearCache
-Hreinsa skúffu-skyndiminni
+Hreinsa skï¿½ffu-skyndiminni
 ;Clear dir-cache
 ;
 MENU_Delete
-D\000Eyða
+D\000Eyï¿½a
 ;D\000Delete
 ;
 MENU_Move
-M\000Færa
+M\000Fï¿½ra
 ;M\000Move
 ;
 MENU_Sort
-Raða
+Raï¿½a
 ;Sort
 ;
 MENU_SortbyName
@@ -401,19 +401,19 @@ MENU_Global
 ;1\000Global...
 ;
 MENU_Hostlist
-2\000Svæðislisti...
+2\000Svï¿½ï¿½islisti...
 ;2\000Sitelist...
 ;
 MENU_LogWindow
-Skráningar gluggi?
+Skrï¿½ningar gluggi?
 ;Log window
 ;
 MENU_ToggleDotFiles
-Sýna punkt-skrár?
+Sï¿½na punkt-skrï¿½r?
 ;Show dot-files
 ;
 MENU_LoadSettings
-Hlaða inn stillingum...
+Hlaï¿½a inn stillingum...
 ;Load settings...
 ;
 MENU_SaveSettings
@@ -425,36 +425,36 @@ Vista stillingar sem...
 ;Save settings as...
 ;
 MENU_HotList
-Vinsældalisti
+Vinsï¿½ldalisti
 ;Hotlist
 ;
 ; Other strings
 ;
 Str_ErrorReadingDir
-Villa við að lesa skúffu\n\
+Villa viï¿½ aï¿½ lesa skï¿½ffu\n\
 
 ;Error reading drawer!\n
 ;
 Str_CannotDLDirs
-Get ekki fært niður heilar skúfur!\n\
+Get ekki fï¿½rt niï¿½ur heilar skï¿½fur!\n\
 
 ;Cannot download entire directories!\n
 ;
 Str_SelectDLPath
-Veldu niðurfærslu slóð
+Veldu niï¿½urfï¿½rslu slï¿½ï¿½
 ;Select download path
 ;
 Str_SelectULFiles
-Veldu skrá(r) til að senda upp
+Veldu skrï¿½(r) til aï¿½ senda upp
 ;Select file(s) to upload
 ;
 Str_CDFailedTimedout
-Fjarlægt CD brást:\n\
-Tengingin slitnaði
+Fjarlï¿½gt CD brï¿½st:\n\
+Tengingin slitnaï¿½i
 ;Remote CD failed:\nConnection timed out
 ;
 Str_CDFailed
-Fjarlægt CD brást.
+Fjarlï¿½gt CD brï¿½st.
 ;Remote CD failed.
 ;
 Str_AmiFTPError
@@ -462,80 +462,80 @@ AmiFTP villa
 ;AmiFTP error
 ;
 Str_OK
-Í lagi
+ï¿½ lagi
 ;OK
 ;
 Str_CANCEL
-Hætta við
+Hï¿½tta viï¿½
 ;Cancel
 ;
 Str_PasswordRequest
-AmiFTP lykilorðs beiðni
+AmiFTP lykilorï¿½s beiï¿½ni
 ;AmiFTP Password request
 ;
 Str_PasswordEntry
-Skráðu inn lykilorð fyrir notanda:\n\
+Skrï¿½ï¿½u inn lykilorï¿½ fyrir notanda:\n\
 %s
 ;Enter password for user:\n%s
 ;
 Str_ServiceNotAvail
-Þjónusta ekki til staðar.
+ï¿½jï¿½nusta ekki til staï¿½ar.
 ;Service not available.
 ;
 Str_ConnectFailed
-Tengsl brugðust.
+Tengsl brugï¿½ust.
 ;Connect failed.
 ;
 Str_ConnectLoginFailed
-Tengsl brugðust,login óþekkt.
+Tengsl brugï¿½ust,login ï¿½ï¿½ekkt.
 ;Connect failed, login unknown.
 ;
 Str_Putfailed
-Sending á %s brást
+Sending ï¿½ %s brï¿½st
 ;Put of %s failed
 ;
 Str_RemoteWriteFailed
-Skrif brugðust (fjarlægt skrárkerfi fullt?).
+Skrif brugï¿½ust (fjarlï¿½gt skrï¿½rkerfi fullt?).
 ;Write failed (remote file system full?).
 ;
 Str_GetFailed
-Sókn %s brást
+Sï¿½kn %s brï¿½st
 ;Get %s failed.
 ;
 Str_LocalfileError
-Villa við að opna %s.
+Villa viï¿½ aï¿½ opna %s.
 ;Error opening %s.
 ;
 Str_LocalWriteFailed
-Skrif brugðust: %s
+Skrif brugï¿½ust: %s
 ;Write failed: %s
 ;
 Str_NoSuchDir
-%s: Engin skrá eða skúffa með því heiti.
+%s: Engin skrï¿½ eï¿½a skï¿½ffa meï¿½ ï¿½vï¿½ heiti.
 ;%s: No such file or directory.
 ;
 Str_DisconnectedTimeout
-Aftengdist (tími búinn).
+Aftengdist (tï¿½mi bï¿½inn).
 ;Disconnected (timeout).
 ;
 Str_Outofmem
-Ónægt innra minni
+ï¿½nï¿½gt innra minni
 ;Out of memory
 ;
 Str_SelectSettingsFile
-Veldu stillinga skrá...
+Veldu stillinga skrï¿½...
 ;Select settings file...
 ;
 Str_NoRestart
-Halda áfram skipunin brást.
+Halda ï¿½fram skipunin brï¿½st.
 ;Resume command failed.
 ;
 Str_ConnectionTimedOut
-Aftenging vegna þess að tími rann út
+Aftenging vegna ï¿½ess aï¿½ tï¿½mi rann ï¿½t
 ;Connection timed out
 ;
 Str_AmiFTPRequest
-AmiFTP Beiðni
+AmiFTP Beiï¿½ni
 ;AmiFTP Request
 ;
 Str_AboutAmiFTP
@@ -543,16 +543,16 @@ Um AmiFTP...
 ;About AmiFTP...
 ;
 Str_UnknownHost
-Óþekkt svæði
+ï¿½ï¿½ekkt svï¿½ï¿½i
 ;Unknown host
 ;
 Str_ErrorBuildingDirList
-Villa kom upp við að byggja upp skráarlista.
+Villa kom upp viï¿½ aï¿½ byggja upp skrï¿½arlista.
 ;Error building filelist.
 ;
 Str_Translator
-Íslensk þýðing eftir\n\
-Sigurbjörn B. Lárusson\n\
+ï¿½slensk ï¿½ï¿½ï¿½ing eftir\n\
+Sigurbjï¿½rn B. Lï¿½russon\n\
 
 ;
 ; This string will show up in the about window telling the user who made 
@@ -561,15 +561,15 @@ Sigurbjörn B. Lárusson\n\
 ; too). Ofcourse the above string should be in the same language as
 ; the rest of the translation.
 SLW_NewGroup
-Nýr _hópur
+Nï¿½r _hï¿½pur
 ;New _group
 ;
 SLW_AddBar
-Skilrúm
+Skilrï¿½m
 ;Add bar
 ;
 MENU_ToggleADTFiles
-Sýna alla RECENT?
+Sï¿½na alla RECENT?
 ;Show entire RECENT
 ;
 MENU_ResetADT
@@ -577,7 +577,7 @@ Endurstilla Aminet-dagsetningu
 ;Reset Aminet-date
 ;
 MW_ViewReadme
-Skoða Readme
+Skoï¿½a Readme
 ;View readme
 ;
 MPW_General
@@ -589,39 +589,39 @@ Aminet
 ;Aminet
 ;
 MPW_Proxy
-Staðgengill
+Staï¿½gengill
 ;Proxy
 ;
 MPW_BufferSize
-Færsluminnis stærð
+Fï¿½rsluminnis stï¿½rï¿½
 ;Buffer size
 ;
 MPW_DirCacheSize
-Skúffu biðminnis stærð
+Skï¿½ffu biï¿½minnis stï¿½rï¿½
 ;Directory cache size
 ;
 MPW_DeleteViewed
-Eyða skoðunum skrám?
+Eyï¿½a skoï¿½unum skrï¿½m?
 ;Delete viewed files
 ;
 MPW_Beep
-Gefa tónmerki eftir færslu?
+Gefa tï¿½nmerki eftir fï¿½rslu?
 ;Beep after transfer
 ;
 MPW_HideDirectories
-Fela skúffur
+Fela skï¿½ffur
 ;Hide drawers
 ;
 MPW_PreservePath
-Halda skrárslóð?
+Halda skrï¿½rslï¿½ï¿½?
 ;Preserve filepath
 ;
 MPW_ShowMOTD
-Sýna MOTD-skrá?
+Sï¿½na MOTD-skrï¿½?
 ;Show MOTD-file
 ;
 MPW_GetReadme
-Ná í readme?
+Nï¿½ ï¿½ readme?
 ;Download readme
 ;
 SCW_AminetMode
@@ -629,23 +629,23 @@ Aminet-hamur?
 ;Aminet-mode
 ;
 MPW_OK
-_Í lagi
+_ï¿½ lagi
 ;_OK
 ;
 MPW_Cancel
-_Hætta við
+_Hï¿½tta viï¿½
 ;C_ancel
 ;
 TW_TimeLeft
-Tími eftir
+Tï¿½mi eftir
 ;Time left
 ;
 Str_NoNewAminetFiles
-Engar nýjar skrár síðan í síðustu aminet heimsókn.
+Engar nï¿½jar skrï¿½r sï¿½ï¿½an ï¿½ sï¿½ï¿½ustu aminet heimsï¿½kn.
 ;No new files since last Aminet visit
 ;
 Str_WindowTitle
-AmiFTP - %ld skrár valdar (%ld %s) %ld %s laus á disk
+AmiFTP - %ld skrï¿½r valdar (%ld %s) %ld %s laus ï¿½ disk
 ;AmiFTP - %ld files selected (%ld %s) %ld %s free on disk
 ; This might look a bit strange, but when the fields are filled the
 ; string looks like:
@@ -659,7 +659,7 @@ Aftengjast
 ;Disconnect
 ;
 MENU_Get
-N\000Ná í
+N\000Nï¿½ ï¿½
 ;G\000Get
 ;
 MENU_Put
@@ -667,7 +667,7 @@ P\000Setja
 ;U\000Put
 ;
 MENU_View
-S\000Skoða
+S\000Skoï¿½a
 ;V\000View
 ;
 MENU_PatternSelect
@@ -679,19 +679,19 @@ Birting
 ;Display
 ;
 Str_PatternRequest
-AmiFTP beiðni
+AmiFTP beiï¿½ni
 ;AmiFTP request
 ;
 Str_SelectPattern
-Skráðu inn AmigaDOS mynstur:
+Skrï¿½ï¿½u inn AmigaDOS mynstur:
 ;Enter AmigaDOS pattern:
 ;
 MENU_Parent
-M\000Móðurskrá
+M\000Mï¿½ï¿½urskrï¿½
 ;P\000Parent
 ;
 MPW_PublicScreen
-Public skjár
+Public skjï¿½r
 ;Public screen
 ;
 MPW_SystemFonts
@@ -699,23 +699,23 @@ Nota kerfisletur
 ;Use system fonts
 ;
 MPW_InterfaceFont
-Viðmóts letur
+Viï¿½mï¿½ts letur
 ;Interface font
 ;
 MPW_FilelistFont
-Skráarlista letur
+Skrï¿½arlista letur
 ;Filelist font
 ;
 MPW_ShowButtons
-Sýna takka
+Sï¿½na takka
 ;Show buttons
 ;
 MPW_ShowToolbar
-Birta tólastiku
+Birta tï¿½lastiku
 ;Show toolbar
 ;
 MENU_ViewReadme
-Sýna readme
+Sï¿½na readme
 ;View readme
 ;
 MPW_DefaultScreen

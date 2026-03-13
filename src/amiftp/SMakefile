@@ -89,7 +89,7 @@ obj/AmiFTP.gst: SCOPTIONS AmiFTP.h gui.h AmiFTP_Cat.h#(replace with $(INCS)
 $(PROG):  $(OBJ)version.o $(OBJS)
 	$(CC) LINK $(OBJ)version.o $(OBJS) $(EXTOBJS) TO $@_d BATCH $(LIBS) 
 	slink $@_d TO $@ STRIPDEBUG NODEBUG
-	$(VER) # bump revision for next link
+#	$(VER) # bump revision for next link
 
 locale:
 	MakeCatalogs
@@ -139,21 +139,15 @@ version.c: smakefile
 const char VersionID[] = "$$VER: $(PROG) " VERSION " " __AMIGADATE__;
 const char Version[] = VERSION;
 char *linfotext = "AmiFTP - " VERSION " (" __DATE__ ")";
-char *infotext = "AmiFTP " VERSION " (" __DATE__ ")\nCopyright � 1995-1998 Magnus Lilja. All rights reserved.\n<lilja@lysator.liu.se>\n\nARexx-port: ";
-char *wintitle = "AmiFTP " VERSION " � 1995-1998 Magnus Lilja <lilja@lysator.liu.se>";
+char *infotext = "AmiFTP " VERSION " (" __DATE__ ")\n\nARexx-port: ";
+char *wintitle = "AmiFTP";
 <
 
 # recompile version.c if any of the other source files have changed.
 # first make sure VERSION exists, but don't bump it.
 obj/version.o:	version.c $(SRCS) $(INCS)
-#	$(VER) -n # make sure VERSION exists
+	$(VER) -n # make sure VERSION exists
 	$(CC) NODEBUG DEF=VERSION="$(VERSION)" OBJNAME=$(OBJ) version.c
-
-# store current source version in the RCS database.
-rev:
-	echo $(VERSION)
-	$(CI) -l$(VERSION) $(SRCS) $(INCS) $(MISC)
-	$(CI) -l$(VERSION) $(DOCS)
 	
 $(OBJ)ftp.o: ftp.c AmiFTP.h $(GST)
 $(OBJ)main.o: main.c AmiFTP.h $(GST)

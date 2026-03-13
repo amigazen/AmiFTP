@@ -49,7 +49,7 @@ SLW_OK
 O_K
 ;_OK
 SLW_Up
-Ylös
+Ylï¿½s
 ;Up
 SLW_Down
 Alas
@@ -61,10 +61,10 @@ SLW_Bottom
 Loppuun
 ;Bottom
 SLW_Newstring
-« Uusi »
+ï¿½ Uusi ï¿½
 ;(New)
 SLW_Sort
-Järjestä
+Jï¿½rjestï¿½
 ;_Sort
 ;
 ; SiteConfiguration Window
@@ -88,7 +88,7 @@ SCW_LocDir
 _Polku
 ;_Download path
 SCW_Anonymous
-_Nimetön yhteys?
+_Nimetï¿½n yhteys?
 ;A_nonymous login?
 SCW_LoginName
 _Tunnus
@@ -103,7 +103,7 @@ SCW_Cancel
 _Peru
 ;Ca_ncel
 SCW_OS
-_Käyttöjärjestelmä
+_Kï¿½yttï¿½jï¿½rjestelmï¿½
 ;Operating S_ystem
 SCW_Proxy
 Pro_xy
@@ -118,7 +118,7 @@ TW_WinTitle
 AmiFTP tiedostonsiirto
 ;AmiFTP Transfer window
 TW_RemoteFile
-Etätiedosto
+Etï¿½tiedosto
 ;Remote file
 TW_LocalFile
 Paikallinen tiedosto
@@ -133,7 +133,7 @@ TW_DataTransferred
 Tavuja siirretty
 ;Data transferred
 TW_Abort
-Keskeytä siirto
+Keskeytï¿½ siirto
 ;Abort transfer
 TW_FileExists
 Tiedosto '%s' on jo olemassa.\nVanha koko on %ld tavua, uusi %ld tavua.\n
@@ -148,10 +148,10 @@ TW_CancelTransfer
 Peru siirto
 ;Cancel transfer
 TW_DownloadDir
-Olet aikeissa siirtää hakemistopuun.\nOletko varma että haluat tehdä tämän?
+Olet aikeissa siirtï¿½ï¿½ hakemistopuun.\nOletko varma ettï¿½ haluat tehdï¿½ tï¿½mï¿½n?
 ;You are about to download a directory tree.\nAre you sure you want to do this?
 TW_GetDir
-Kyllä, siirrä!|Ohita
+Kyllï¿½, siirrï¿½!|Ohita
 ;Yes, download it!|Skip this entry
 ;
 ; Main preferences window
@@ -160,7 +160,7 @@ MPW_WinTitle
 AmiFTP yleiset asetukset
 ;AmiFTP Global Preferences
 MPW_Password
-_Nimetön tunnussana
+_Nimetï¿½n tunnussana
 ;_Anonymous password
 MPW_ViewCommand
 _Katselukomento
@@ -172,7 +172,7 @@ MPW_ProxyPort
 Prox_y-portti
 ;Proxy _port
 MPW_ProxyDefault
-Käytä pro_xyä oletuksena?
+Kï¿½ytï¿½ pro_xyï¿½ oletuksena?
 ;Use pro_xy per default?
 MPW_DefDownloadDir
 Oletuspolku tiedostohauille
@@ -184,7 +184,7 @@ _Isot/pienet kirjaimet samoja?
 ; Main window
 ;
 MW_SiteName
-Tämä _palvelin
+Tï¿½mï¿½ _palvelin
 ;Current _site:
 MW_DirName
 _Hakemisto
@@ -199,19 +199,19 @@ MW_Get
 Ha_e
 ;_Get
 MW_Put
-_Lähetä
+_Lï¿½hetï¿½
 ;P_ut
 MW_View
-_Näytä
+_Nï¿½ytï¿½
 ;_View
 MW_Connect
 _Ota yhteys...
-;_Connect to...
+;_Connect
 MW_Disconnect
 _Pura yhteys
 ;_Disconnect
 MW_DeleteRequest
-Haluatko varmasti tuhota\nnämä tiedostot?
+Haluatko varmasti tuhota\nnï¿½mï¿½ tiedostot?
 ;Are you sure you want to\ndelete these files?
 MW_DeleteCancel
 Tuhoa|Peru
@@ -226,7 +226,7 @@ CW_WinTitle
 AmiFTP yhteydenotto
 ;AmiFTP Connect window
 CW_Abort
-Keskeytä
+Keskeytï¿½
 ;Abort
 CW_Site
 Palvelin
@@ -235,16 +235,16 @@ CW_Status
 Tila
 ;Status:
 CW_Connecting
-Otan yhteyttä...
+Otan yhteyttï¿½...
 ;Connecting...
 CW_ReadingDir
 Luen hakemistoa...
 ;Reading directory...
 CW_SendingLogin
-Lähetän tunnusta...
+Lï¿½hetï¿½n tunnusta...
 ;Sending login...
 CW_SendingPassword
-Lähetän tunnussanaa...
+Lï¿½hetï¿½n tunnussanaa...
 ;Sending password...
 CW_ChangingDirectory
 Vaihdan hakemistoa...
@@ -256,7 +256,7 @@ MENU_Project
 Projekti
 ;Project
 MENU_AddToSiteList
-Lisää palvelinlistaan
+Lisï¿½ï¿½ palvelinlistaan
 ;Add current to sitelist
 MENU_Reconnect
 Palauta yhteys
@@ -277,7 +277,7 @@ MENU_TagAll
 A\000Merkitse kaikki
 ;A\000Tag all
 MENU_UntagAll
-U\000Poista merkinnät
+U\000Poista merkinnï¿½t
 ;U\000Untag all
 MENU_TransferMode
 Siirtotila
@@ -289,22 +289,22 @@ MENU_ASCII
 ASCII
 ;ASCII
 MENU_ClearCache
-Tyhjennä hakemistopuskuri
+Tyhjennï¿½ hakemistopuskuri
 ;Clear dir-cache
 MENU_Delete
 D\000Tuhoa
 ;D\000Delete
 MENU_Move
-M\000Siirrä
+M\000Siirrï¿½
 ;M\000Move
 MENU_Sort
-Järjestä
+Jï¿½rjestï¿½
 ;Sort
 MENU_SortbyName
 nimien mukaan
 ;by name
 MENU_SortbyDate
-päiväyksen mukaan
+pï¿½ivï¿½yksen mukaan
 ;by date
 MENU_Settings
 Asetukset
@@ -319,7 +319,7 @@ MENU_LogWindow
 Loki-ikkuna?
 ;Log window?
 MENU_ToggleDotFiles
-Näytä piste-tiedostot
+Nï¿½ytï¿½ piste-tiedostot
 ;Show dot-files?
 MENU_LoadSettings
 Lataa asetukset...
@@ -328,7 +328,7 @@ MENU_SaveSettings
 Tallenna asetukset
 ;Save settings
 MENU_SaveSettingsAs
-Tallenna asetukset nimellä...
+Tallenna asetukset nimellï¿½...
 ;Save settings as...
 MENU_HotList
 Pikavalinta
@@ -346,13 +346,13 @@ Str_SelectDLPath
 Valitse hakupolku
 ;Select download path
 Str_SelectULFiles
-Valitse lähetettävät tiedostot
+Valitse lï¿½hetettï¿½vï¿½t tiedostot
 ;Select file(s) to upload
 Str_CDFailedTimedout
-Etähakemiston vaihto epäonnistui:\nYhteys purkaantunut
+Etï¿½hakemiston vaihto epï¿½onnistui:\nYhteys purkaantunut
 ;Remote CD failed:\nConnection timed out
 Str_CDFailed
-Etähakemiston vaihto epäonnistui
+Etï¿½hakemiston vaihto epï¿½onnistui
 ;Remote CD failed.
 Str_AmiFTPError
 AmiFTP virhe
@@ -367,31 +367,31 @@ Str_PasswordRequest
 AmiFTP tunnussana
 ;AmiFTP Password request
 Str_PasswordEntry
-Syötä käyttäjän %s tunnussana
+Syï¿½tï¿½ kï¿½yttï¿½jï¿½n %s tunnussana
 ;Enter password for user:\n%s
 Str_ServiceNotAvail
 Palvelu ei saatavissa
 ;Service not available.
 Str_ConnectFailed
-Yhteys epäonnistui
+Yhteys epï¿½onnistui
 ;Connect failed.
 Str_ConnectLoginFailed
-Käyttäjä tuntematon, yhteys epäonnistui
+Kï¿½yttï¿½jï¿½ tuntematon, yhteys epï¿½onnistui
 ;Connect failed, login unknown.
 Str_Putfailed
-Tiedoston %s lähetys epäonnistui
+Tiedoston %s lï¿½hetys epï¿½onnistui
 ;Put of %s failed
 Str_RemoteWriteFailed
-Lähetys epäonnistui (etälevy täynnä?)
+Lï¿½hetys epï¿½onnistui (etï¿½levy tï¿½ynnï¿½?)
 ;Write failed (remote file system full?).
 Str_GetFailed
-Tiedoston %s haku epäonnistui
+Tiedoston %s haku epï¿½onnistui
 ;Get %s failed.
 Str_LocalfileError
 Virhe %s avattaessa
 ;Error opening %s.
 Str_LocalWriteFailed
-Kirjoitus epäonnistui: %s
+Kirjoitus epï¿½onnistui: %s
 ;Write failed: %s
 Str_NoSuchDir
 Tiedostoa %s ei ole olemassa
@@ -406,7 +406,7 @@ Str_SelectSettingsFile
 Valitse asetustiedosto...
 ;Select settings file...
 Str_NoRestart
-Etäkomento epäonnistui
+Etï¿½komento epï¿½onnistui
 ;Resume command failed.
 Str_ConnectionTimedOut
 Yhteydenotto keskeytynyt
@@ -415,7 +415,7 @@ Str_AmiFTPRequest
 AmiFTP kysely
 ;AmiFTP Request
 Str_AboutAmiFTP
-Tietoja AmiFTP:stä...
+Tietoja AmiFTP:stï¿½...
 ;About AmiFTP...
 Str_UnknownHost
 Tuntematon osoite
@@ -424,7 +424,7 @@ Str_ErrorBuildingDirList
 Virhe tiedostolistaa rakennettaessa
 ;Error building filelist.
 Str_Translator
-Suomenkielinen käännös\nOsma Ahvenlampi <Osma.Ahvenlampi@hut.fi>\n
+Suomenkielinen kï¿½ï¿½nnï¿½s\nOsma Ahvenlampi <Osma.Ahvenlampi@hut.fi>\n
 ;
 ; This string will show up in the about window telling the user who made 
 ; the translation. I suggest the string should look like this:

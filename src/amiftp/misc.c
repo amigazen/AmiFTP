@@ -55,12 +55,20 @@ void DebugLog(const char *fmt, ...)
     len = vsprintf(buf, fmt, ap);
     va_end(ap);
 
-    if (len < 0)
+    if (len < 0) {
 	buf[0] = '\0';
+	len = 0;
+    }
     buf[sizeof(buf) - 1] = '\0';
 
-    /* Always write to stdout when DEBUG is enabled. */
-    printf("%s", buf);
+    /* Strip any trailing newline characters to keep syslog-style one-line records. */
+    while (len > 0 && (buf[len - 1] == '\n' || buf[len - 1] == '\r')) {
+	buf[len - 1] = '\0';
+	len--;
+    }
+
+    /* Always write to stdout when DEBUG is enabled, syslog-style one line. */
+    printf("AmiFTP: %s\n", buf);
     fflush(stdout);
 
     if (!LogWindow)
@@ -83,9 +91,11 @@ int sgetc(const int sock)
     struct timeval t;
     ULONG mask;
     ULONG winmask;
+    ULONG transmask;
     int loops;
     int maxloops;
     extern Object *ConnectWin_Object;
+    extern Object *TransferWin_Object;
 
     /* Return next byte from buffer if we have one (same socket). */
     if (sock == sgetc_sock && sgetc_idx < sgetc_len)
@@ -102,8 +112,11 @@ int sgetc(const int sock)
      * Only wait on Connect window (Abort), AmigaGuide, and Ctrl-C.
      */
     winmask = 0;
+    transmask = 0;
     if (ConnectWin_Object)
 	GetAttr(WINDOW_SigMask, ConnectWin_Object, &winmask);
+    if (TransferWin_Object)
+	GetAttr(WINDOW_SigMask, TransferWin_Object, &transmask);
 
     loops = 0;
     maxloops = 120; /* 120 * 1s = 120s total */
@@ -114,7 +127,7 @@ int sgetc(const int sock)
 	FD_SET(sock, &rd);
 	FD_SET(sock, &ex);
 
-	mask = winmask | AG_Signal | SIGBREAKF_CTRL_C;
+	mask = winmask | transmask | AG_Signal | SIGBREAKF_CTRL_C;
 	t.tv_sec = 1L;
 	t.tv_usec = 0;
 
@@ -142,6 +155,12 @@ int sgetc(const int sock)
 		    DebugLog("sgetc: winmask HandleConnectIDCMP\n");
 		if (HandleConnectIDCMP())
 		    return -1;  /* Abort clicked */
+	    }
+	    if (mask & transmask) {
+		if (DEBUG)
+		    DebugLog("sgetc: transmask HandleTransferIDCMP\n");
+		if (HandleTransferIDCMP())
+		    return -1;  /* Abort clicked in transfer window */
 	    }
 	}
 

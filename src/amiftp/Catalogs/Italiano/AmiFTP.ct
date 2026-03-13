@@ -61,7 +61,7 @@ Su
 ;Up
 ;
 SLW_Down
-Giú
+Giï¿½
 ;Down
 ;
 SLW_Top
@@ -169,7 +169,7 @@ Annulla trasferimento
 ;Abort transfer
 ;
 TW_FileExists
-Il file '%s' già esiste.\nVecchia dimensione: %ld bytes (nuova %ld bytes).\n
+Il file '%s' giï¿½ esiste.\nVecchia dimensione: %ld bytes (nuova %ld bytes).\n
 ;File '%s' already exists.\nOld filesize is: %ld bytes (new %ld bytes).\n
 ;
 TW_Overwrite
@@ -189,7 +189,7 @@ Stai per ricevere un albero di dir.\nSei sicuro di volerlo fare?
 ;You are about to download a directory tree.\nAre you sure you want to do this?
 ;
 TW_GetDir
-Sì, procedi!|Salta questa parte
+Sï¿½, procedi!|Salta questa parte
 ;Yes, download it!|Skip this entry
 ;
 ; Main preferences window
@@ -258,7 +258,7 @@ _Mostra
 ;
 MW_Connect
 _Collegati a...
-;_Connect to...
+;_Connect
 ;
 MW_Disconnect
 _Sconnessione
@@ -483,7 +483,7 @@ Connessione fallita, login sconosciuto.
 ;Connect failed, login unknown.
 ;
 Str_Putfailed
-Il put di %s é fallito
+Il put di %s ï¿½ fallito
 ;Put of %s failed
 ;
 Str_RemoteWriteFailed
@@ -511,7 +511,7 @@ Sconnessione (timeout).
 ;Disconnected (timeout).
 ;
 Str_Outofmem
-Non c'é memoria
+Non c'ï¿½ memoria
 ;Out of memory
 ;
 Str_SelectSettingsFile
