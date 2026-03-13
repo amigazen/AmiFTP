@@ -461,12 +461,18 @@ static int menu_Delete(struct MenuItem *menuitem)
 
     if (FileList) {
 	LockWindow(MainWin_Object);
+	if (DEBUG)
+	    DebugLog("requester: Menu Delete rtEZRequest opening\n");
 	if (!rtEZRequest(GetAmiFTPString(MW_DeleteRequest),
 			 GetAmiFTPString(MW_DeleteCancel), NULL,
 			 (struct TagItem *)tags)) {
+	    if (DEBUG)
+		DebugLog("requester: Menu Delete rtEZRequest cancelled\n");
 	    UnlockWindow(MainWin_Object);
 	    return 1;
 	}
+	if (DEBUG)
+	    DebugLog("requester: Menu Delete rtEZRequest returned OK\n");
 	node=GetHead(FileList);
 	while (node) {
 	    nnode=GetSucc(node);
@@ -514,9 +520,13 @@ static int menu_CreateDir(struct MenuItem *menuitem)
     tags[1]=(ULONG)MainWindow;
     tags[5]=(ULONG)GetAmiFTPString(Str_RemoteDir);
 
+    if (DEBUG)
+	DebugLog("requester: Menu CreateDir rtGetStringA opening\n");
     if (rtGetStringA(dirname, 250, GetAmiFTPString(Str_AmiFTPRequest), NULL,
 		     (struct TagItem *)tags)) {
 	char comm[270];
+	if (DEBUG)
+	    DebugLog("requester: Menu CreateDir rtGetStringA returned OK\n");
 	sprintf(comm, "MKD %s", dirname);
 	if (command(comm)==ERROR) {
 	    ShowErrorReq("Couldn't create directory");
@@ -546,8 +556,12 @@ static int menu_RawCommand(struct MenuItem *menuitem)
     tags[1]=(ULONG)MainWindow;
     tags[5]=(ULONG)"Enter FTP-command:";
 
+    if (DEBUG)
+	DebugLog("requester: Menu RawCommand rtGetStringA opening\n");
     if (rtGetStringA(comm, 255, "AmiFTP Request", NULL,
 		     (struct TagItem *)tags)) {
+	if (DEBUG)
+	    DebugLog("requester: Menu RawCommand rtGetStringA returned OK\n");
 	if (command(comm) == ERROR) {
 	    ShowErrorReq("Command returned an error.");
 	}
@@ -583,8 +597,12 @@ static int menu_Rename(struct MenuItem *menuitem)
 	    char *filename = ((struct dirlist  *)(node->ln_Name))->name;
 	    sprintf(oldname, "Old name %s:\nEnter new name", filename);
 	    tags[5] = oldname;
+	    if (DEBUG)
+		DebugLog("requester: Menu Move rtGetStringA opening\n");
 	    if (rtGetStringA(newname, 255, "AmiFTP Request", NULL,
 			     (struct TagItem *)tags)) {
+		if (DEBUG)
+		    DebugLog("requester: Menu Move rtGetStringA returned OK\n");
 		sprintf(comm, "RNFR %s", filename);
 		if (command(comm) == ERROR) {
 		    ShowErrorReq("Couldn't rename file.");
@@ -940,13 +958,16 @@ static int menu_PatternSelect(struct MenuItem *menuitem)
     tags[1]=(ULONG)MainWindow;
     tags[5]=(ULONG)GetAmiFTPString(Str_SelectPattern);
 
+    if (DEBUG)
+	DebugLog("requester: Menu Pattern rtGetStringA opening\n");
     if (rtGetStringA(patterbuf, 50, GetAmiFTPString(Str_PatternRequest), NULL,
 		     (struct TagItem *)tags)) {
 	char pattern[104];
 	struct Node *node;
 	ULONG flags;
 	int n=0;
-
+	if (DEBUG)
+	    DebugLog("requester: Menu Pattern rtGetStringA returned OK\n");
 	ParsePatternNoCase(patterbuf, pattern, 104);
 	for (node=GetHead(FileList); node; node=GetSucc(node)) {
 	    GetListBrowserNodeAttrs(node, LBNA_Flags, &flags, TAG_DONE);

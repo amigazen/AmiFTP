@@ -66,8 +66,15 @@ int ftp_hookup(char *host, short port)
 	hisctladdr.sin_family = AF_INET;
 	(void) strncpy(hostnamebuf, host, sizeof (hostnamebuf));
     } else {
+	if (DEBUG) DebugLog("ftp_hookup: resolving host '%s' (gethostbyname)\n", host ? host : "");
 	hp = tcp_gethostbyname(host);
+	if (DEBUG) DebugLog("ftp_hookup: gethostbyname returned\n");
 	if (hp == NULL) {
+	    PrintConnectStatus(GetAmiFTPString(Str_UnknownHost));
+	    code = -1;
+	    return CONN_ERROR;
+	}
+	if (!hp->h_addr_list || !hp->h_addr_list[0] || hp->h_length <= 0) {
 	    PrintConnectStatus(GetAmiFTPString(Str_UnknownHost));
 	    code = -1;
 	    return CONN_ERROR;
@@ -75,8 +82,12 @@ int ftp_hookup(char *host, short port)
 	hisctladdr.sin_family = hp->h_addrtype;
 	bcopy(hp->h_addr_list[0],
 	      (char *)&hisctladdr.sin_addr, hp->h_length);
-	(void) strncpy(hostnamebuf, hp->h_name, sizeof (hostnamebuf));
+	if (hp->h_name)
+	    (void) strncpy(hostnamebuf, hp->h_name, sizeof (hostnamebuf));
+	else
+	    (void) strncpy(hostnamebuf, host, sizeof (hostnamebuf));
     }
+    if (DEBUG) DebugLog("ftp_hookup: socket()\n");
     s = tcp_socket(hisctladdr.sin_family, SOCK_STREAM, 0);
     if (s < 0) {
 	code = -1;
@@ -87,14 +98,18 @@ int ftp_hookup(char *host, short port)
 	long on=1;
 	tcp_ioctl(s,TCPFIONBIO,(char *)&on);
     }
-    hisctladdr.sin_port = port;
+    /* Port must be in network byte order for connect(); sn->sn_Port is already network order when ftp_port, else host order from URL. */
+    hisctladdr.sin_port = (port == 0) ? ftp_port : htons((unsigned short)port);
     /* timeout 1 minute 20 seconds */
     if (ConnectWin_Object)
-      GetAttr(WINDOW_SigMask,ConnectWin_Object,&winmask);
-    GetAttr(WINDOW_SigMask,MainWin_Object,&mainwinsignal);
+	GetAttr(WINDOW_SigMask,ConnectWin_Object,&winmask);
+    if (MainWin_Object)
+	GetAttr(WINDOW_SigMask,MainWin_Object,&mainwinsignal);
 
+    if (DEBUG) DebugLog("ftp_hookup: connect()\n");
     errno=EINPROGRESS;
     res=tcp_connect(s,(struct mysockaddr_in *)&hisctladdr);
+    if (DEBUG) DebugLog("ftp_hookup: connect returned %ld errno=%ld\n", (long)res, (long)errno);
 
     while (res==-1 && errno==EINPROGRESS) {
 	fd_set rs,ws,es;
@@ -109,9 +124,12 @@ int ftp_hookup(char *host, short port)
 	tv.tv_secs=80;
 	tv.tv_micro=0;
 
+	if (DEBUG) DebugLog("ftp_hookup: waitselect()\n");
 	res=tcp_waitselect(s+1,&rs,&ws,&es,&tv,&mask);
+	if (DEBUG) DebugLog("ftp_hookup: waitselect returned %ld mask=0x%lx\n", (long)res, (unsigned long)mask);
 
 	if (mask) {
+	    if (DEBUG) DebugLog("ftp_hookup: handling mask\n");
 	    if (mask&SIGBREAKF_CTRL_C)
 	      goto bad;
 	    if (mask&AG_Signal)
@@ -130,9 +148,11 @@ int ftp_hookup(char *host, short port)
 		long off=0;
 		struct sockaddr_in in;int len;len=sizeof(in);
 
+		if (DEBUG) DebugLog("ftp_hookup: res>0, getpeername\n");
 		tcp_ioctl(s,TCPFIONBIO,(char *)&off);
 
 		if (tcp_getpeername(s,(struct sockaddr *)&in,(LONG *)&len)==0) {/* This means we are connected */
+		    if (DEBUG) DebugLog("ftp_hookup: connected, goto cont\n");
 		    goto cont;
 		}
 		else {
@@ -171,6 +191,7 @@ int ftp_hookup(char *host, short port)
 	errno=EINPROGRESS;
     }
   cont:
+    if (DEBUG) DebugLog("ftp_hookup: cont getsockname\n");
     len = sizeof (myctladdr);
     if (tcp_getsockname(s, (struct sockaddr *)&myctladdr, &len) < 0) {
 	code = -1;
@@ -180,6 +201,7 @@ int ftp_hookup(char *host, short port)
 
     cin = cout = s;
 
+    if (DEBUG) DebugLog("ftp_hookup: getreply(0)\n");
     if (getreply(0) > 2) {	/* read startup message from server */
 	close_files();
 	code = -1;
@@ -237,9 +259,13 @@ int ftp_login(char *user, char *pass, char *acct)
     char	*ftperr;
     int	aflag;
 
+    if (DEBUG)
+	DebugLog("ftp_login: entry user='%s'\n", user ? user : "");
     PrintConnectStatus(GetAmiFTPString(CW_SendingLogin));
 
     n = command("USER %s", user);
+    if (DEBUG)
+	DebugLog("ftp_login: USER command returned n=%d code=%d\n", n, code);
     /*
      * We may have just consumed some startup messages from a
      * server that spews them at connection, but we only grabbed
@@ -281,12 +307,26 @@ int ftp_login(char *user, char *pass, char *acct)
 	quit_ftp();
 	return 0;
     }
+    if (DEBUG)
+	DebugLog("ftp_login: n=%d code=%d (before CONTINUE block)\n", n, code);
     if (n == CONTINUE) {
 	char passbuf[25];
 	passbuf[0]=0;
 	code = 0;
-	if (pass == NULL && !SilentMode)
-	  pass = GetPassword(user,&passbuf[0]);
+	if (DEBUG)
+	    DebugLog("ftp_login: CONTINUE, pass=%s GetPassword? %d\n",
+		pass ? "(set)" : "NULL", (pass == NULL && !SilentMode) ? 1 : 0);
+	if (pass == NULL) {
+	    /* Anonymous with no pref: use default, do not block on modal requester. */
+	    if (user && strcmp(user, "anonymous") == 0)
+		pass = "anonymous@";
+	    else if (!SilentMode)
+		pass = GetPassword(user,&passbuf[0]);
+	    else
+		pass = "";
+	}
+	if (DEBUG)
+	    DebugLog("ftp_login: sending PASS\n");
 	PrintConnectStatus(GetAmiFTPString(CW_SendingPassword));
 	n = command("PASS %s", pass);
 	if (n == ERROR || code == 421) {
@@ -321,6 +361,7 @@ int command(char *fmt, ...)
     va_list ap;
     int len;
     unsigned int maxcmd;
+    int ret;
 
     if (cout == -1) {
 	code = 421;
@@ -337,12 +378,19 @@ int command(char *fmt, ...)
     str_buf[len] = '\r';
     str_buf[len + 1] = '\n';
     str_buf[len + 2] = '\0';
+    if (DEBUG)
+	DebugLog("command: sending %d bytes (fmt=%s)\n", len + 2, fmt);
     tcp_send(cout, str_buf, len + 2, 0);
     va_end(ap);
 
     cpend = 1;
 
-    return getreply(!strcmp(fmt, "QUIT"));
+    if (DEBUG)
+	DebugLog("command: getreply(expecteof=%d)\n", strcmp(fmt, "QUIT") ? 0 : 1);
+    ret = getreply(!strcmp(fmt, "QUIT"));
+    if (DEBUG)
+	DebugLog("command: getreply returned %d\n", ret);
+    return ret;
 }
 
 int sendrequest(char *cmd, char *local, char *remote) /*Fixa samma som med recvreq */
@@ -904,6 +952,14 @@ int dataconn(void)
     int s;
     LONG fromlen;
     int on = 1;
+    fd_set rd;
+    struct timeval tv;
+    ULONG mask;
+    ULONG winmask;
+    long res;
+    int loops;
+    int maxloops;
+    extern Object *TransferWin_Object;
 
     if (pasv_data_ready) {
 	pasv_data_ready = 0;
@@ -913,22 +969,67 @@ int dataconn(void)
 	return data;
     }
 
+    /* PORT mode: wait for server to connect. Do not block in tcp_accept();
+     * use waitselect with timeout and service transfer window so user can abort.
+     * Do not wait on main window signal - caller (Get_clicked) may hold LockWindow(MainWin_Object). */
+    winmask = 0;
+    if (TransferWin_Object)
+	GetAttr(WINDOW_SigMask, TransferWin_Object, &winmask);
+
     fromlen = sizeof(from);
-  restart:
-    s = tcp_accept(data, (struct sockaddr *)&from, &fromlen);
-    if (s < 0) {
-	if (errno == EINTR)
-	    goto restart;
-	tcp_closesocket(data);
-	data = -1;
-	return -1;
+    loops = 0;
+    maxloops = 24;  /* 24 * 5s = 120s */
+
+    while (loops < maxloops) {
+	FD_ZERO(&rd);
+	FD_SET(data, &rd);
+	mask = winmask | AG_Signal | SIGBREAKF_CTRL_C;
+	tv.tv_sec = 5L;
+	tv.tv_usec = 0;
+
+	res = tcp_waitselect(data + 1, &rd, (fd_set *)NULL, (fd_set *)NULL, &tv, &mask);
+
+	if (mask) {
+	    if (mask & SIGBREAKF_CTRL_C) {
+		tcp_closesocket(data);
+		data = -1;
+		return -1;
+	    }
+	    if (mask & AG_Signal)
+		HandleAmigaGuide();
+	    if (mask & winmask) {
+		if (HandleTransferIDCMP()) {
+		    tcp_closesocket(data);
+		    data = -1;
+		    return -1;
+		}
+	    }
+	}
+
+	if (FD_ISSET(data, &rd)) {
+	    s = tcp_accept(data, (struct sockaddr *)&from, &fromlen);
+	    if (s < 0) {
+		if (errno == EINTR)
+		    continue;
+		tcp_closesocket(data);
+		data = -1;
+		return -1;
+	    }
+	    tcp_closesocket(data);
+	    data = s;
+	    if (tcp_setsockopt(data, SOL_SOCKET, SO_OOBINLINE, (char *)&on, sizeof(on)) < 0) {
+		/* ignore */
+	    }
+	    return data;
+	}
+
+	loops++;
     }
+
+    /* Timeout waiting for server to connect (PORT mode). */
     tcp_closesocket(data);
-    data = s;
-    if (tcp_setsockopt(data, SOL_SOCKET, SO_OOBINLINE, (char *)&on, sizeof(on)) < 0) {
-	/* ignore */
-    }
-    return data;
+    data = -1;
+    return -1;
 }
 
 #include <ctype.h>
@@ -942,10 +1043,15 @@ int getreply(const int expecteof)
     int originalcode = 0, continuation = 0;
     int pflag = 0;
 
+    if (DEBUG)
+	DebugLog("getreply: entry expecteof=%d cin=%d\n", expecteof, cin);
+
     for (;;) {
 	dig = n = code = 0;
 	cp = response_line;
 	memset(response_line, 0, (size_t)MAXLINE);
+	if (DEBUG)
+	    DebugLog("getreply: reading line (top of while)\n");
 	while ((c = sgetc(cin)) != '\n') {
 	      if (c == IAC) {	/* handle telnet commands */
 		  switch (c = sgetc(cin)) {
@@ -1015,12 +1121,10 @@ int getreply(const int expecteof)
 	  cpend = 0;
 	if (code == 421 || originalcode == 421)
 	  lostpeer();
-	//printf("\n");
-	/*	    if (LogWindow)
-		    LogMessage(response_line,0);*/
+	if (DEBUG)
+	    DebugLog("getreply: return %d code=%d\n", n - '0', code);
 	return n - '0';
     }
-    //printf("\n");
 }
 
 int empty(fd_set *mask, const int sec)

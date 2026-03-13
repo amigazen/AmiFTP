@@ -21,7 +21,7 @@ int change_remote_dir(char *s, int force)
       goto out;
 
     if (DEBUG)
-      Printf("change_remote_dir: request '%s'\n", s ? s : "");
+      DebugLog("change_remote_dir: request '%s'\n", s ? s : "");
 
     /* send cd command */
     dir = strdup(s);
@@ -99,7 +99,7 @@ int change_remote_dir(char *s, int force)
     strncpy(CurrentState.CurrentRemoteDir,crd,MAXPATHLEN+1);
     UpdateRemoteDir(CurrentState.CurrentRemoteDir);
     if (DEBUG)
-      Printf("change_remote_dir: now '%s'\n", CurrentState.CurrentRemoteDir);
+      DebugLog("change_remote_dir: now '%s'\n", CurrentState.CurrentRemoteDir);
 
   out:
     if (dir)

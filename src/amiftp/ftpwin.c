@@ -47,7 +47,7 @@ void parse_url(char *url, char *site, char *dir, char *userid, int *port)
     }
 
     if (DEBUG) {
-	Printf("parse_url: in='%s' -> user='%s' site='%s' port=%ld dir='%s'\n",
+	DebugLog("parse_url: in='%s' -> user='%s' site='%s' port=%ld dir='%s'\n",
 	       url ? url : "(null)",
 	       userid ? userid : "",
 	       site ? site : "",
@@ -68,15 +68,15 @@ void ftpWindow()
 
     if (!CurrentState.Iconified) {
 	if (!OpenFTPWindow(FALSE)) {
-	    Printf("failed to open window\n");
+	DebugLog("failed to open window\n");
 	    return;
-	}
+    }
     }
     else {
 	if ((ULONG)OpenFTPWindow(TRUE)!=1) {
-	    Printf("failed\n");
+	DebugLog("failed\n");
 	    return;
-	}
+    }
     }
     if (cliargs)
       if (cliargs->site) {
@@ -91,7 +91,7 @@ void ftpWindow()
 	      if ((stricmp((char *)cliargs->site, sn1->sn_Node.ln_Name)==0)&&
 		  (strlen(sn1->sn_Node.ln_Name)==strlen((char *)cliargs->site)))
 		break;
-	  }
+    }
 	  if (!lbn) {
 	      char site[100], dirpath[255], userid[30];
 	      int port=0;
@@ -107,11 +107,11 @@ void ftpWindow()
 	      sn.sn_Proxy=MainPrefs.mp_DefaultProxy;
 	      sn.sn_Port=port==0?ftp_port:port;
 	      ConnectSite(&sn, 0);
-	  }
+    }
 	  else
 	    ConnectSite(sn1, 0);
 	  UnlockWindow(MainWin_Object);
-      }
+    }
     GetAttr(AREXX_SigMask, ARexx_Object, &rexxsignal);
     appsignal=1L<<AppPort->mp_SigBit;
 
@@ -133,23 +133,23 @@ void ftpWindow()
 	    if (gotsignal&(mainwinsignal|appsignal)) {
 		if (HandleMainWindowIDCMP(TRUE))
 		  running=FALSE;
-	    }
+    }
 	    if (gotsignal&rexxsignal) {
 		ARexxQuitBit=FALSE;
 		RA_HandleRexx(ARexx_Object);
 		if (ARexxQuitBit)
 		  running=FALSE;
-	    }
+    }
 	    if (gotsignal&AG_Signal)
 	      HandleAmigaGuide();
-	}
+    }
 	else {
 	    if (MainWindow)
 	      LockWindow(MainWin_Object);
 	    timeout_disconnect();
 	    if (MainWindow)
 	      UnlockWindow(MainWin_Object);
-	}
+    }
     }
 
     if (connected) {
@@ -157,7 +157,7 @@ void ftpWindow()
     }
 
     CloseMainWindow();
-}
+    }
 
 int Parent_clicked(void)
 {
@@ -177,7 +177,7 @@ int Parent_clicked(void)
 			       LISTBROWSER_MakeVisible, 0,
 			       TAG_DONE))
 	      RefreshGList(MG_List[MG_ListView], MainWindow, NULL, 1);
-	}
+    }
 	else if (head=read_remote_dir()) {
 	    AddCacheEntry(head, CurrentState.CurrentRemoteDir);
 	    SetGadgetAttrs(MG_List[MG_ListView], MainWindow, NULL,
@@ -191,12 +191,12 @@ int Parent_clicked(void)
 			       LISTBROWSER_MakeVisible, 0,
 			       TAG_DONE))
 	      RefreshGList(MG_List[MG_ListView], MainWindow, NULL, 1);
-	}
+    }
     }
     UpdateMainButtons(MB_NONESELECTED);
     UnlockWindow(MainWin_Object);
     return 1;
-}
+    }
 
 int Get_Clicked(void)
 {
@@ -242,22 +242,29 @@ int DLPath_clicked(void)
     dlpath_tags[15]=MainWindow->LeftEdge;
     dlpath_tags[17]=MainWindow->TopEdge;
 
+    if (DEBUG)
+	DebugLog("requester: DLPath_clicked AllocAslRequest(ASL_FileRequest)\n");
     DirRequester=AllocAslRequest(ASL_FileRequest, NULL);
-    if (!DirRequester)
-      return 1;
-
+    if (!DirRequester) {
+	if (DEBUG)
+	    DebugLog("requester: DLPath_clicked AllocAslRequest failed\n");
+	return 1;
+    }
     LockWindow(MainWin_Object);
-
+    if (DEBUG)
+	DebugLog("requester: DLPath_clicked AslRequest opening\n");
     if (AslRequest(DirRequester, (struct TagItem *)dlpath_tags)) {
 	strncpy(CurrentState.CurrentDLDir, DirRequester->rf_Dir, 255);
 	UpdateLocalDir(CurrentState.CurrentDLDir);
     }
+    if (DEBUG)
+	DebugLog("requester: DLPath_clicked AslRequest returned\n");
     FreeAslRequest(DirRequester);
 
     UnlockWindow(MainWin_Object);
 
     return 1;
-}
+    }
 
 int DLPathString_clicked(void)
 {
@@ -265,7 +272,7 @@ int DLPathString_clicked(void)
     UpdateWindowTitle();
 
     return 1;
-}
+    }
 
 int Put_clicked(void)
 {
@@ -291,46 +298,55 @@ int Put_clicked(void)
 
     NewList(&UploadList);
 
+    if (DEBUG)
+	DebugLog("requester: Put_clicked AllocAslRequest(ASL_FileRequest)\n");
     FileRequester=AllocAslRequest(ASL_FileRequest, NULL);
-    if (!FileRequester)
-      return 1;
-
+    if (!FileRequester) {
+	if (DEBUG)
+	    DebugLog("requester: Put_clicked AllocAslRequest failed\n");
+	return 1;
+    }
     LockWindow(MainWin_Object);
-
+    if (DEBUG)
+	DebugLog("requester: Put_clicked AslRequest opening\n");
     if (i=AslRequest(FileRequester, (struct TagItem *)put_tags)) {
 #define MAX_FILENAME_LENGTH 1024
 	for (i=0;i<FileRequester->rf_NumArgs;i++) {
 	    if (FileRequester->fr_ArgList[i].wa_Lock) {
 		if (!NameFromLock(FileRequester->fr_ArgList[i].wa_Lock,DummyBuffer,MAX_FILENAME_LENGTH))
 		  DummyBuffer[0]=0;
-	    }
+    }
 	    else
 	      strcpy(DummyBuffer, FileRequester->fr_Drawer);
 
 	    if (FileRequester->fr_ArgList[i].wa_Name) {
 		if (!AddPart(DummyBuffer,FileRequester->fr_ArgList[i].wa_Name,MAX_FILENAME_LENGTH))
 		  DummyBuffer[0]=0;
-	    }
+    }
 
 	    if (DummyBuffer[0]) {
 		if (node=(struct Node *)AllocMem(sizeof(struct Node), MEMF_ANY|MEMF_CLEAR)) {
 		    if (node->ln_Name=strdup(DummyBuffer)) {
 			AddTail(&UploadList, node);
-		    }
+    }
 		    else {
 			FreeMem(node, sizeof(struct Node));
-		    }
+    }
 		}
 		else {
-		}
+    }
 	    }
-	}
+    }
     }
     else {
+	if (DEBUG)
+	    DebugLog("requester: Put_clicked AslRequest cancelled\n");
 	FreeAslRequest(FileRequester);
 	UnlockWindow(MainWin_Object);
 	return 1;
     }
+    if (DEBUG)
+	DebugLog("requester: Put_clicked AslRequest returned OK\n");
     FreeAslRequest(FileRequester);
 
     if (!EmptyList(&UploadList))
@@ -343,7 +359,7 @@ int Put_clicked(void)
     UnlockWindow(MainWin_Object);
 
     return 1;
-}
+    }
 
 int Connect_clicked(void)
 {
@@ -356,7 +372,7 @@ int Connect_clicked(void)
     }
 
     return 1;
-}
+    }
 
 int Reconnect(void)
 {
@@ -381,7 +397,7 @@ int Reconnect(void)
 		if (sn1.sn_RemoteDir)
 		  free(sn1.sn_RemoteDir);
 		strncpy(CurrentState.LastLVSite, sn->sn_Node.ln_Name, 60);
-	    }
+    }
 	}
     }
     else {
@@ -399,14 +415,14 @@ int Reconnect(void)
     }
 
     return 1;
-}
+    }
 
 int Disconnect_clicked(void)
 {
     quit_ftp();
     UpdateMainButtons(MB_DISCONNECTED);
     return 1;
-}
+    }
 
 char *NameToReadme(char *foo, int readmelen)
 {
@@ -417,7 +433,7 @@ char *NameToReadme(char *foo, int readmelen)
 	return bar;
     }
     return NULL;
-}
+    }
 
 int View_clicked(BOOL Readme)
 {
@@ -459,10 +475,10 @@ int View_clicked(BOOL Readme)
 			if (!DownloadFile(&tlist, "T:", TransferMode, 0)) {
 			    strmfp(fname, "T:", readmename);
 			    ViewFile(fname);
-			}
+    }
 		    }
 		    free(readmename);
-		}
+    }
 	    }
 	} else
 	/* Check for link */
@@ -491,15 +507,15 @@ int View_clicked(BOOL Readme)
 			AttachToolList(FALSE);
 			strmfp(loc_name, "T:", name);
 			ViewFile(loc_name);
-		    }
+    }
 		    FreeListBrowserNode(tmpnode);
-		}
+    }
 		free(name);
-	    }
+    }
 	}
 	else if (curr->mode&0x4000) {/* Check for file or dir */
 	    ShowErrorReq(GetAmiFTPString(Str_CannotDLDirs));
-	}
+    }
 	else {
 	    char loc_name[200];
 	    struct List tlist;
@@ -518,16 +534,16 @@ int View_clicked(BOOL Readme)
 		    AttachToolList(FALSE);
 		    strmfp(loc_name, "T:", curr->name);
 		    ViewFile(loc_name);
-		}
+    }
 		FreeListBrowserNode(tmpnode);
-	    }
+    }
 	}
 	sel=0;
 	for (node=ListHead(FileList);ListEnd(node);node=ListNext(node)) {
 	    GetListBrowserNodeAttrs(node,
 				    LBNA_Selected, &sel, TAG_DONE);
 	    if (sel) break;
-	}
+    }
 	if (sel)
 	  UpdateMainButtons(MB_FILESELECTED);
 	else
@@ -535,7 +551,7 @@ int View_clicked(BOOL Readme)
 	UnlockWindow(MainWin_Object);
     }
     return 1;
-}
+    }
 
 void ViewFile(const char *file)
 {
@@ -550,7 +566,7 @@ void ViewFile(const char *file)
 	node->ln_Name=strdup(file);
 	if (node->ln_Name) {
 	    AddTail(&TempList, node);
-	}
+    }
 	else
 	  free(node);
     }
@@ -559,7 +575,7 @@ void ViewFile(const char *file)
 	if (*str!='%') {
 	    *t++ = *str++;
 	    continue;
-	}
+    }
 	str+=2;
 	switch(str[-1]) {
 	  case 'F': 
@@ -572,16 +588,18 @@ void ViewFile(const char *file)
 	    *t++=str[-2];
 	    *t++=str[-1];
 	    break;
-	}
+    }
     }
     *t=0;
     //		    Printf("Launching '%s'\n",buffer);
     SystemTags(buffer, SYS_Input, NULL, SYS_Output, NULL, SYS_Asynch, TRUE,
 	       TAG_DONE);
-}
+    }
 
 int Site_clicked(void)
 {
+    DebugLog("Site_clicked: text='%s'\n",
+	     GetString(MG_List[MG_SiteName]) ? GetString(MG_List[MG_SiteName]) : "");
     if (!strlen(GetString(MG_List[MG_SiteName]))) {
 	Disconnect_clicked();
 	CurrentState.CurrentSite[0]=0;
@@ -612,7 +630,7 @@ int Site_clicked(void)
     }
 
     return 1;
-}
+    }
 
 int Dir_clicked(void)
 {
@@ -635,7 +653,7 @@ int Dir_clicked(void)
 			       TAG_DONE))
 	      RefreshGList(MG_List[MG_ListView], MainWindow, NULL, 1);
 	    UpdateMainButtons(MB_NONESELECTED);
-	}
+    }
 	UpdateWindowTitle();
 	UnlockWindow(MainWin_Object);
     }
@@ -645,7 +663,7 @@ int Dir_clicked(void)
 	RemoteCDFailed();
     }
     return 1;
-}
+    }
 
 void RemoteCDFailed(void)
 {
@@ -656,7 +674,7 @@ void RemoteCDFailed(void)
 	ShowErrorReq(GetAmiFTPString(Str_CDFailed));
     if (timedout)
       quit_ftp();
-}
+    }
 
 void __stdargs ShowErrorReq(char *str,...)
 {
@@ -679,9 +697,13 @@ void __stdargs ShowErrorReq(char *str,...)
     tags[1]=(ULONG)GetAmiFTPString(Str_AmiFTPError);
     tags[3]=(ULONG)MainWindow;
     va_start(ap, str);
+    if (DEBUG)
+	DebugLog("requester: rtEZRequestA (ShowErrorReq) opening\n");
     rtEZRequestA(str, GetAmiFTPString(Str_OK), NULL, ap, (struct TagItem *)tags);
     va_end(ap);
-}
+    if (DEBUG)
+	DebugLog("requester: rtEZRequestA (ShowErrorReq) returned\n");
+    }
 
 char *GetPassword(char *user,char *passbuf)
 {
@@ -701,12 +723,18 @@ char *GetPassword(char *user,char *passbuf)
     tags[7]=(ULONG)GetAmiFTPString(Str_PasswordEntry);
     tags[9]=(ULONG)&user;
 
+    if (DEBUG)
+	DebugLog("requester: rtGetStringA (GetPassword) opening RT_Window=ConnectWindow\n");
     if (rtGetStringA(passbuf, 24, GetAmiFTPString(Str_PasswordRequest), NULL,
-		     (struct TagItem *)tags))
-      return passbuf;
-    else
-      return NULL;
-}
+		     (struct TagItem *)tags)) {
+	if (DEBUG)
+	    DebugLog("requester: rtGetStringA (GetPassword) returned OK\n");
+	return passbuf;
+    }
+    if (DEBUG)
+	DebugLog("requester: rtGetStringA (GetPassword) returned NULL\n");
+    return NULL;
+    }
 
 extern char *infotext;
 UWORD mapping[4];
@@ -807,15 +835,15 @@ int About(void)
 			else if (code==95) /* HELP-key */
 			  SendAGMessage(AG_ABOUTWIN);
 			break;
-		    }
+    }
 		}
-	    }
+    }
 	}
     }
     DisposeObject(AboutWin_Object);
     UnlockWindow(MainWin_Object);
     return 1;
-}
+    }
 
 
 int SavePrefs(void)
@@ -834,7 +862,7 @@ int SavePrefs(void)
 	ConfigChanged=FALSE;
     }
     return 1;
-}
+    }
 
 static ULONG prefs_tags[]={
     ASL_Window, NULL,
@@ -862,9 +890,13 @@ int SavePrefsAs(void)
     prefs_tags[13]=(unsigned long)GetAmiFTPString(Str_SelectSettingsFile);
     prefs_tags[15]=(unsigned long)TRUE;
 
+    if (DEBUG)
+	DebugLog("requester: SavePrefsAs AllocAslRequest(ASL_FileRequest)\n");
     FileRequester=AllocAslRequest(ASL_FileRequest, NULL);
     if (!FileRequester)
       return 1;
+    if (DEBUG)
+	DebugLog("requester: SavePrefsAs AslRequest opening\n");
     if (AslRequest(FileRequester, (struct TagItem *)prefs_tags)) {
 	strcpy(tmp, FileRequester->fr_Drawer);
 	AddPart(tmp, FileRequester->fr_File, sizeof(tmp));
@@ -879,10 +911,12 @@ int SavePrefsAs(void)
 	WriteConfigFile(ConfigName);
 	ConfigChanged=FALSE;
     }
+    if (DEBUG)
+	DebugLog("requester: SavePrefsAs AslRequest returned\n");
     FreeAslRequest(FileRequester);
 
     return 1;
-}
+    }
 
 int LoadPrefs(void)
 {
@@ -898,9 +932,13 @@ int LoadPrefs(void)
     prefs_tags[13]=(unsigned long)GetAmiFTPString(Str_SelectSettingsFile);
     prefs_tags[15]=(unsigned long)FALSE;
 
+    if (DEBUG)
+	DebugLog("requester: LoadPrefs AllocAslRequest(ASL_FileRequest)\n");
     FileRequester=AllocAslRequest(ASL_FileRequest, NULL);
     if (!FileRequester)
       return 1;
+    if (DEBUG)
+	DebugLog("requester: LoadPrefs AslRequest opening\n");
     if (AslRequest(FileRequester, (struct TagItem *)prefs_tags)) {
 	strcpy(tmp, FileRequester->fr_Drawer);
 	AddPart(tmp, FileRequester->fr_File, sizeof(tmp));
@@ -919,6 +957,8 @@ int LoadPrefs(void)
 	MenuNeedsUpdate=TRUE;
 	ConfigChanged=FALSE;
     }
+    if (DEBUG)
+	DebugLog("requester: LoadPrefs AslRequest returned\n");
     FreeAslRequest(FileRequester);
     return 1;
-}
+    }

@@ -866,17 +866,22 @@ static int SelectFont(char *FontName, UWORD *YSize)
     font_tags[13]=(ULONG)FontName;
     font_tags[15]=(ULONG)*YSize;
 
+    if (DEBUG)
+	DebugLog("requester: PrefsWindow AllocAslRequest(ASL_FontRequest)\n");
     FontRequester=AllocAslRequest(ASL_FontRequest, NULL);
     if (!FontRequester)
       return 0;
 
     LockWindow(MainPrefsWin_Object);
-
+    if (DEBUG)
+	DebugLog("requester: PrefsWindow AslRequest(Font) opening\n");
     if (AslRequest(FontRequester, (struct TagItem *)font_tags)) {
 	strcpy(FontName, FontRequester->fo_Attr.ta_Name);
 	*YSize=FontRequester->fo_Attr.ta_YSize;
 	retval=1;
     }
+    if (DEBUG)
+	DebugLog("requester: PrefsWindow AslRequest(Font) returned\n");
     FreeAslRequest(FontRequester);
 
     UnlockWindow(MainPrefsWin_Object);

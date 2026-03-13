@@ -502,7 +502,9 @@ BOOL CheckExists(char *lfile,int size, ULONG *restartpoint)
     }
 
     tags[1]=(ULONG)GetAmiFTPString(Str_AmiFTPRequest);
-    tags[3]=(ULONG)MainWindow;
+    /* Use TransferWindow as parent when open; Get_clicked holds LockWindow(MainWin_Object),
+     * so rtEZRequest with RT_LockWindow+MainWindow would deadlock. */
+    tags[3]=(ULONG)(TransferWindow ? TransferWindow : MainWindow);
 
     Gadgetstring=malloc(strlen(GetAmiFTPString(TW_OverwriteAll))+
 			strlen(GetAmiFTPString(TW_Overwrite))+
@@ -515,8 +517,12 @@ BOOL CheckExists(char *lfile,int size, ULONG *restartpoint)
 		GetAmiFTPString(TW_Overwrite),
 		GetAmiFTPString(TW_OverwriteAll),
 		GetAmiFTPString(TW_CancelTransfer));
+	if (DEBUG)
+	    DebugLog("requester: TransferWindow rtEZRequest (FileExists overwrite) opening\n");
 	ret=(BOOL)rtEZRequest(GetAmiFTPString(TW_FileExists), Gadgetstring, NULL,
 			      (struct TagItem *)tags, lfile, fib.fib_Size, size);
+	if (DEBUG)
+	    DebugLog("requester: TransferWindow rtEZRequest returned %d\n", (int)ret);
 	free(Gadgetstring);
 	*restartpoint=0;
 	if (ret==1)
@@ -532,8 +538,12 @@ BOOL CheckExists(char *lfile,int size, ULONG *restartpoint)
 		GetAmiFTPString(TW_OverwriteAll),
 		GetAmiFTPString(TW_Resume),
 		GetAmiFTPString(TW_CancelTransfer));
+	if (DEBUG)
+	    DebugLog("requester: TransferWindow rtEZRequest (FileExists resume) opening\n");
 	ret=(BOOL)rtEZRequest(GetAmiFTPString(TW_FileExists), Gadgetstring, NULL,
 			      (struct TagItem *)tags, lfile, fib.fib_Size, size);
+	if (DEBUG)
+	    DebugLog("requester: TransferWindow rtEZRequest returned %d\n", (int)ret);
 	free(Gadgetstring);
 	if (ret==1)
 	  return FALSE;
@@ -630,14 +640,20 @@ BOOL AskGetDir(void)
 	TAG_END
       };
     BOOL ret;
+    struct Window *parent;
 
-    if (!MainWindow)
+    parent = TransferWindow ? TransferWindow : MainWindow;
+    if (!parent)
       return FALSE;
 
     tags[1]=(ULONG)GetAmiFTPString(Str_AmiFTPRequest);
-    tags[3]=(ULONG)MainWindow;
+    tags[3]=(ULONG)parent;
+    if (DEBUG)
+	DebugLog("requester: AskGetDir rtEZRequest opening\n");
     ret=(BOOL)rtEZRequest(GetAmiFTPString(TW_DownloadDir),
 			  GetAmiFTPString(TW_GetDir), NULL, (struct TagItem *)tags);
+    if (DEBUG)
+	DebugLog("requester: AskGetDir rtEZRequest returned %d\n", (int)ret);
     if (ret)
       return TRUE;
     return FALSE;

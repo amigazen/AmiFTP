@@ -48,7 +48,11 @@ void PrintError(const STRPTR errmsg, ...)
 	req.es_Title="AmiFTP Error";
 	req.es_TextFormat=errmsg;
 	req.es_GadgetFormat="Ok";
+	if (DEBUG)
+	    DebugLog("requester: PrintError EasyRequestArgs opening\n");
 	EasyRequestArgs(NULL, &req, NULL, args);
+	if (DEBUG)
+	    DebugLog("requester: PrintError EasyRequestArgs returned\n");
     }
     else {
 	VPrintf(errmsg, args);
@@ -150,6 +154,7 @@ int main(int argc, char **argv)
     /* AS225/MLINK fallback removed; only bsdsocket.library is used. */
     ME->pr_WindowPtr=-1;
     TCPStack=OpenTCP(UseAS225);
+    if (DEBUG) DebugLog("OpenTCP: %s%s%s\n", TCPStack ? "ok" : "failed", TCPStack ? "" : " ", TCPStack ? "" : OpenTCPFailureReason());
 /*    if (!(TCPStack=OpenTCP(UseAS225))) {
 	ME->pr_WindowPtr=oldwptr;
 	PrintError("Can't open any TCP/IP-stack\n");

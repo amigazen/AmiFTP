@@ -50,4 +50,6 @@ int SetupAmiTCPHooks(void);
 /* AS225 support commented out: int Setup225Hooks(void); */
 /* UseAS225 is ignored; only bsdsocket.library (AmiTCP/Roadshow) is used. */
 int OpenTCP(BOOL UseAS225);
+/** Return reason string when OpenTCP() failed; empty string if never failed or last open succeeded. */
+const char *OpenTCPFailureReason(void);
 void CloseTCP(void);

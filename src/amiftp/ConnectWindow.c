@@ -32,7 +32,7 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
 	return CONN_GUI;
 
     if (DEBUG) {
-	Printf("ConnectSite: name='%s' host='%s' port=%ld user='%s' anon=%ld proxy=%ld remdir='%s' noscan=%ld\n",
+	DebugLog("ConnectSite: name='%s' host='%s' port=%ld user='%s' anon=%ld proxy=%ld remdir='%s' noscan=%ld\n",
 	       sn && sn->sn_Node.ln_Name ? sn->sn_Node.ln_Name : "",
 	       sn && sn->sn_SiteAddress ? sn->sn_SiteAddress : "",
 	       sn ? (long)sn->sn_Port : 0L,
@@ -57,7 +57,7 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
 
     if ((result=doconnect(sn))==CONN_OK) {
 	if (DEBUG)
-	  Printf("ConnectSite: doconnect OK\n");
+	    DebugLog("ConnectSite: doconnect OK\n");
 	strncpy(CurrentState.CurrentSite, sn->sn_SiteAddress, 50);
 	UpdateSiteName(CurrentState.CurrentSite);
 	remote_os_type=sn->sn_VMSDIR;
@@ -65,21 +65,25 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
 	if (sn->sn_RemoteDir) {
 	    PrintConnectStatus(GetAmiFTPString(CW_ChangingDirectory));
 	    if (DEBUG)
-	      Printf("ConnectSite: CWD '%s'\n", sn->sn_RemoteDir);
+		DebugLog("ConnectSite: CWD '%s'\n", sn->sn_RemoteDir);
 	    change_remote_dir(sn->sn_RemoteDir, 0);
+	    if (DEBUG)
+		DebugLog("ConnectSite: change_remote_dir done\n");
 	}
 
 	ClearCache(TRUE);
 	InitCache();
 	if (!noscan) {
-	    if (ConnectWindow) 
+	    if (ConnectWindow)
 	      if (SetGadgetAttrs(CG_List[CG_Status], ConnectWindow, NULL,
 				 GA_Text, GetAmiFTPString(CW_ReadingDir),
 				 TAG_END))
 		RefreshGList(CG_List[CG_Status], ConnectWindow, NULL, 1);
+	    if (DEBUG)
+		DebugLog("ConnectSite: read_remote_dir / ReadRecentList\n");
 	    if (head=sn->sn_ADT?ReadRecentList():read_remote_dir()) {
 		if (DEBUG)
-		  Printf("ConnectSite: loaded dirlist (ADT=%ld)\n", (long)sn->sn_ADT);
+	DebugLog("ConnectSite: loaded dirlist (ADT=%ld)\n", (long)sn->sn_ADT);
 		if (MainWindow)
 		  SetGadgetAttrs(MG_List[MG_ListView], MainWindow, NULL,
 				 LISTBROWSER_Labels, ~0, TAG_DONE);
@@ -88,7 +92,7 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
 		if (CurrentState.ADTMode!=sn->sn_ADT) {
 		    CurrentState.ADTMode=sn->sn_ADT;
 		    ChangeAmiFTPMode();
-		}
+    }
 		AddCacheEntry(head, CurrentState.CurrentRemoteDir);
 		FileList=head;
 		if (MainWindow)
@@ -109,9 +113,9 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
 			   LISTBROWSER_Selected, -1,
 			   TAG_DONE);
 		Continue=FALSE;
-	    }
+    }
 	    else Continue=TRUE;
-	}
+    }
 	else Continue=FALSE;
 	if (sn->sn_LocalDir)
 	  UpdateLocalDir(sn->sn_LocalDir);
@@ -120,7 +124,7 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
 	UpdateMainButtons(MB_NONESELECTED);
     }
     else if (DEBUG) {
-	Printf("ConnectSite: doconnect failed (%ld)\n", (long)result);
+	DebugLog("ConnectSite: doconnect failed (%ld)\n", (long)result);
     }
 
     if (result==CONN_ABORTED) {
@@ -161,7 +165,7 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
 		  done=HandleConnectIDCMP();
 		if (wmask&mainwinsignal)
 		  HandleMainWindowIDCMP(FALSE);
-	    }
+    }
 	}
 	CloseConnectWindow();
 	UpdateMainButtons(connected?MB_NONESELECTED:MB_DISCONNECTED);
@@ -188,14 +192,14 @@ int ConnectSite(struct SiteNode *sn, const BOOL noscan)
 		    ViewFile("T:aminet-motd");
 		    MainPrefs.mp_LastAMOTD=MOTDDate;
 		    ConfigChanged=TRUE;
-		}
+    }
 		FreeListBrowserNode(node);
-	    }
+    }
 	}
     }
     UnlockWindow(MainWin_Object);
     return retcode;
-}
+    }
 
 ULONG HandleConnectIDCMP()
 {
@@ -214,10 +218,10 @@ ULONG HandleConnectIDCMP()
 	    if (code==95)
 	      SendAGMessage(AG_CONNECTWIN);
 	    break;
-	}
+    }
     }
     return done;
-}
+    }
 
 struct Window *OpenConnectWindow()
 {
@@ -295,7 +299,7 @@ struct Window *OpenConnectWindow()
     ConnectLayout=NULL;
 
     return NULL;
-}
+    }
 
 void CloseConnectWindow(void)
 {
@@ -325,4 +329,4 @@ void PrintConnectStatus(char *text)
     }
     else if (!SilentMode)
       ShowErrorReq(text);
-}
+    }

@@ -49,7 +49,7 @@ void parse_url(char *url, char *site, char *dir, char *userid, int *port)
     }
 
     if (DEBUG) {
-	Printf("parse_url: in='%s' -> user='%s' site='%s' port=%ld dir='%s'\n",
+	DebugLog("parse_url: in='%s' -> user='%s' site='%s' port=%ld dir='%s'\n",
 	       url ? url : "(null)",
 	       userid ? userid : "",
 	       site ? site : "",
@@ -70,15 +70,15 @@ void ftpWindow()
 
     if (!CurrentState.Iconified) {
 	if (!OpenFTPWindow(FALSE)) {
-	    Printf("failed to open window\n");
+	DebugLog("failed to open window\n");
 	    return;
-	}
+    }
     }
     else {
 	if ((ULONG)OpenFTPWindow(TRUE)!=1) {
-	    Printf("failed\n");
+	DebugLog("failed\n");
 	    return;
-	}
+    }
     }
     if (cliargs && TCPStack)
       if (cliargs->site) {
@@ -94,7 +94,7 @@ void ftpWindow()
 	      if ((stricmp((char *)cliargs->site, sn1->sn_Node.ln_Name)==0)&&
 		  (strlen(sn1->sn_Node.ln_Name)==strlen((char *)cliargs->site)))
 		break;
-	  }
+    }
 	  if (!lbn) {
 	      char site[100], dirpath[255], userid[30];
 	      int port=0;
@@ -112,11 +112,11 @@ void ftpWindow()
 	      sn.sn_Port=port==0?ftp_port:port;
 	      UnlockWindow(MainWin_Object);
 	      ConnectSite(&sn, 0);
-	  }
+    }
 	  else {
 	      UnlockWindow(MainWin_Object);
 	      ConnectSite(sn1, 0);
-	  }
+    }
       }
     GetAttr(AREXX_SigMask, ARexx_Object, &rexxsignal);
     appsignal=1L<<AppPort->mp_SigBit;
@@ -142,23 +142,23 @@ void ftpWindow()
 	    if (gotsignal&(mainwinsignal|appsignal)) {
 		if (HandleMainWindowIDCMP(TRUE))
 		  running=FALSE;
-	    }
+    }
 	    if (gotsignal&rexxsignal) {
 		ARexxQuitBit=FALSE;
 		RA_HandleRexx(ARexx_Object);
 		if (ARexxQuitBit)
 		  running=FALSE;
-	    }
+    }
 	    if (gotsignal&AG_Signal)
 	      HandleAmigaGuide();
-	}
+    }
 	else {
 	    if (MainWindow)
 	      LockWindow(MainWin_Object);
 	    timeout_disconnect();
 	    if (MainWindow)
 	      UnlockWindow(MainWin_Object);
-	}
+    }
     }
 
     if (connected) {
@@ -166,7 +166,7 @@ void ftpWindow()
     }
 
     CloseMainWindow();
-}
+    }
 
 int Parent_clicked(void)
 {
@@ -190,7 +190,7 @@ int Parent_clicked(void)
 			       LISTBROWSER_MakeVisible, 0,
 			       TAG_DONE))
 	      RefreshGList(MG_List[MG_ListView], MainWindow, NULL, 1);
-	}
+    }
 	else if (head=read_remote_dir()) {
 	    AddCacheEntry(head, CurrentState.CurrentRemoteDir);
 	    SetGadgetAttrs(MG_List[MG_ListView], MainWindow, NULL,
@@ -205,12 +205,12 @@ int Parent_clicked(void)
 			       LISTBROWSER_MakeVisible, 0,
 			       TAG_DONE))
 	      RefreshGList(MG_List[MG_ListView], MainWindow, NULL, 1);
-	}
+    }
     }
     UpdateMainButtons(MB_NONESELECTED);
     UnlockWindow(MainWin_Object);
     return 1;
-}
+    }
 
 int Get_clicked(void)
 {
@@ -235,7 +235,7 @@ int Get_clicked(void)
 	UnlockWindow(MainWin_Object);
     }
     return 1;
-}
+    }
 
 int DLPath_clicked(void)
 {
@@ -244,7 +244,7 @@ int DLPath_clicked(void)
 	UpdateLocalDir(CurrentState.CurrentDLDir);
     }
     return 1;
-}
+    }
 
 int DLPathString_clicked(void)
 {
@@ -252,7 +252,7 @@ int DLPathString_clicked(void)
     UpdateWindowTitle();
 
     return 1;
-}
+    }
 
 int Put_clicked(void)
 {
@@ -294,14 +294,14 @@ int Put_clicked(void)
 	    if (FileRequester->fr_ArgList[i].wa_Lock) {
 		if (!NameFromLock(FileRequester->fr_ArgList[i].wa_Lock,DummyBuffer,MAX_FILENAME_LENGTH))
 		  DummyBuffer[0]=0;
-	    }
+    }
 	    else
 	      strcpy(DummyBuffer, FileRequester->fr_Drawer);
 
 	    if (FileRequester->fr_ArgList[i].wa_Name) {
 		if (!AddPart(DummyBuffer,FileRequester->fr_ArgList[i].wa_Name,MAX_FILENAME_LENGTH))
 		  DummyBuffer[0]=0;
-	    }
+    }
 
 	    if (DummyBuffer[0]) {
 		struct FileInfoBlock fib;
@@ -312,7 +312,7 @@ int Put_clicked(void)
 		if (lock) {
 		    Examine(lock, &fib);
 		    UnLock(lock);
-		}
+    }
 
 		if (entry=new_direntry(DummyBuffer, NULL, NULL, NULL,
 				       S_IFREG, fib.fib_Size)) {
@@ -324,12 +324,12 @@ int Put_clicked(void)
 						  TAG_DONE)) {
 			node->ln_Name=(void *)entry;
 			AddTail(&UploadList, node);
-		    }
+    }
 		    else free_direntry(entry);
-		}
+    }
 	    }
 	    else {
-	    }
+    }
 	}
     }
     else {
@@ -346,7 +346,7 @@ int Put_clicked(void)
     UnlockWindow(MainWin_Object);
 
     return 1;
-}
+    }
 
 int Connect_clicked(void)
 {
@@ -366,7 +366,7 @@ int Connect_clicked(void)
       UnlockWindow(MainWin_Object);
 
     return 1;
-}
+    }
 
 int Reconnect(void)
 {
@@ -393,7 +393,7 @@ int Reconnect(void)
 		if (sn1.sn_RemoteDir)
 		  free(sn1.sn_RemoteDir);
 		strncpy(CurrentState.LastLVSite, sn->sn_Node.ln_Name, 60);
-	    }
+    }
 	}
     }
     else {
@@ -411,7 +411,7 @@ int Reconnect(void)
     }
 
     return 1;
-}
+    }
 
 int Disconnect_clicked(void)
 {
@@ -421,7 +421,7 @@ int Disconnect_clicked(void)
     quit_ftp();
     UpdateMainButtons(MB_DISCONNECTED);
     return 1;
-}
+    }
 
 char *NameToReadme(char *foo, int readmelen)
 {
@@ -432,7 +432,7 @@ char *NameToReadme(char *foo, int readmelen)
 	return bar;
     }
     return NULL;
-}
+    }
 
 int View_clicked(BOOL Readme)
 {
@@ -478,10 +478,10 @@ int View_clicked(BOOL Readme)
 			if (!DownloadFile(&tlist, "T:", TransferMode, 0)) {
 			    strmfp(fname, "T:", readmename);
 			    ViewFile(fname);
-			}
+    }
 		    }
 		    free(readmename);
-		}
+    }
 	    }
 	} else
 	/* Check for link */
@@ -510,15 +510,15 @@ int View_clicked(BOOL Readme)
 			AttachToolList(FALSE);
 			strmfp(loc_name, "T:", name);
 			ViewFile(loc_name);
-		    }
+    }
 		    FreeListBrowserNode(tmpnode);
-		}
+    }
 		free(name);
-	    }
+    }
 	}
 	else if (curr->mode&0x4000) {/* Check for file or dir */
 	    ShowErrorReq(GetAmiFTPString(Str_CannotDLDirs));
-	}
+    }
 	else {
 	    char loc_name[200];
 	    struct List tlist;
@@ -537,16 +537,16 @@ int View_clicked(BOOL Readme)
 		    AttachToolList(FALSE);
 		    strmfp(loc_name, "T:", curr->name);
 		    ViewFile(loc_name);
-		}
+    }
 		FreeListBrowserNode(tmpnode);
-	    }
+    }
 	}
 	sel=0;
 	for (node=ListHead(FileList);ListEnd(node);node=ListNext(node)) {
 	    GetListBrowserNodeAttrs(node,
 				    LBNA_Selected, &sel, TAG_DONE);
 	    if (sel) break;
-	}
+    }
 	if (sel)
 	  UpdateMainButtons(MB_FILESELECTED);
 	else
@@ -554,7 +554,7 @@ int View_clicked(BOOL Readme)
 	UnlockWindow(MainWin_Object);
     }
     return 1;
-}
+    }
 
 void ViewFile(const char *file)
 {
@@ -569,7 +569,7 @@ void ViewFile(const char *file)
 	node->ln_Name=strdup(file);
 	if (node->ln_Name) {
 	    AddTail(&TempList, node);
-	}
+    }
 	else
 	  free(node);
     }
@@ -578,7 +578,7 @@ void ViewFile(const char *file)
 	if (*str!='%') {
 	    *t++ = *str++;
 	    continue;
-	}
+    }
 	str+=2;
 	switch(str[-1]) {
 	  case 'F': 
@@ -591,18 +591,23 @@ void ViewFile(const char *file)
 	    *t++=str[-2];
 	    *t++=str[-1];
 	    break;
-	}
+    }
     }
     *t=0;
     //		    Printf("Launching '%s'\n",buffer);
     SystemTags(buffer, SYS_Input, NULL, SYS_Output, NULL, SYS_Asynch, TRUE,
 	       TAG_DONE);
-}
+    }
 
 int Site_clicked(void)
 {
-    if (!TCPStack)
-      return 1;
+    DebugLog("Site_clicked: TCPStack=%ld text='%s'\n",
+	     (long)TCPStack,
+	     GetString(MG_List[MG_SiteName]) ? GetString(MG_List[MG_SiteName]) : "");
+    if (!TCPStack) {
+	DebugLog("Site_clicked: no TCP stack, skipping connect\n");
+	return 1;
+    }
 
     if (!strlen(GetString(MG_List[MG_SiteName]))) {
 	Disconnect_clicked();
@@ -634,7 +639,7 @@ int Site_clicked(void)
     }
 
     return 1;
-}
+    }
 
 int Dir_clicked(void)
 {
@@ -661,7 +666,7 @@ int Dir_clicked(void)
 			       TAG_DONE))
 	      RefreshGList(MG_List[MG_ListView], MainWindow, NULL, 1);
 	    UpdateMainButtons(MB_NONESELECTED);
-	}
+    }
 	UpdateWindowTitle();
 	UnlockWindow(MainWin_Object);
     }
@@ -671,7 +676,7 @@ int Dir_clicked(void)
 	RemoteCDFailed();
     }
     return 1;
-}
+    }
 
 void RemoteCDFailed(void)
 {
@@ -682,7 +687,7 @@ void RemoteCDFailed(void)
 	ShowErrorReq(GetAmiFTPString(Str_CDFailed));
     if (timedout)
       quit_ftp();
-}
+    }
 
 void __stdargs ShowErrorReq(char *str,...)
 {
@@ -707,7 +712,7 @@ void __stdargs ShowErrorReq(char *str,...)
     va_start(ap, str);
     rtEZRequestA(str, GetAmiFTPString(Str_OK), NULL, ap, (struct TagItem *)tags);
     va_end(ap);
-}
+    }
 
 char *GetPassword(char *user,char *passbuf)
 {
@@ -732,7 +737,7 @@ char *GetPassword(char *user,char *passbuf)
       return passbuf;
     else
       return NULL;
-}
+    }
 
 extern char *infotext;
 UWORD mapping[4];
@@ -833,15 +838,15 @@ int About(void)
 			else if (code==95) /* HELP-key */
 			  SendAGMessage(AG_ABOUTWIN);
 			break;
-		    }
+    }
 		}
-	    }
+    }
 	}
     }
     DisposeObject(AboutWin_Object);
     UnlockWindow(MainWin_Object);
     return 1;
-}
+    }
 
 int SavePrefs(void)
 {
@@ -859,7 +864,7 @@ int SavePrefs(void)
 	ConfigChanged=FALSE;
     }
     return 1;
-}
+    }
 
 static ULONG prefs_tags[]={
     ASL_Window, NULL,
@@ -907,7 +912,7 @@ int SavePrefsAs(void)
     FreeAslRequest(FileRequester);
 
     return 1;
-}
+    }
 
 int LoadPrefs(void)
 {
@@ -946,7 +951,7 @@ int LoadPrefs(void)
     }
     FreeAslRequest(FileRequester);
     return 1;
-}
+    }
 
 void Log(char *file, unsigned long size, unsigned long cps,
 	 BOOL download, char *site, BOOL incomplete)
@@ -963,7 +968,7 @@ void Log(char *file, unsigned long size, unsigned long cps,
 		    site,
 		    incomplete?"Incomplete":"");
 	    Close(fh);
-	}
+    }
     }
 #endif
-}
+    }

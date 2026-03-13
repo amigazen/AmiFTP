@@ -42,9 +42,18 @@ struct Library *SockBase;
 struct Library *SocketBase=NULL;
 struct Library *UserGroupBase=NULL;
 
+/* Last failure reason when OpenTCP() returns 0; used for diagnostic. */
+static char _open_tcp_fail_reason[96];
+
+const char *OpenTCPFailureReason(void)
+{
+    return _open_tcp_fail_reason;
+}
+
 int OpenTCP(BOOL UseAS225)
 {
     /* AS225/socket.library path disabled; always use bsdsocket.library (AmiTCP/Roadshow). */
+    _open_tcp_fail_reason[0] = '\0';
     /*
     {
 	char *as="inet:libs/socket.library";
@@ -58,13 +67,16 @@ int OpenTCP(BOOL UseAS225)
 	else {
     */
     SocketBase=OpenLibrary("bsdsocket.library",2);
-    if (!SocketBase)
+    if (!SocketBase) {
+	strcpy(_open_tcp_fail_reason, "bsdsocket.library (v2) open failed - not in LIBS: or wrong version?");
 	return 0;
+    }
+    /* usergroup.library is optional (e.g. not provided by UAE); used for getlogin/getpwnam and errno context. */
     UserGroupBase=OpenLibrary("usergroup.library",1);
-    if (!UserGroupBase)
+    if (!SetupAmiTCPHooks()) {
+	strcpy(_open_tcp_fail_reason, "SetupAmiTCPHooks failed");
 	return 0;
-    if (!SetupAmiTCPHooks())
-	return 0;
+    }
     /*
 	}
     }

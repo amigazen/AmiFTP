@@ -631,15 +631,21 @@ int LocPath_clicked(void)
     tags[15]=MainWindow->LeftEdge;
     tags[17]=MainWindow->TopEdge;
 
+    if (DEBUG)
+	DebugLog("requester: SiteWindow AllocAslRequest(ASL_FileRequest)\n");
     DirRequester=AllocAslRequest(ASL_FileRequest, NULL);
     if (!DirRequester)
       return 1;
+    if (DEBUG)
+	DebugLog("requester: SiteWindow AslRequest opening\n");
     if (AslRequest(DirRequester,(struct TagItem *)tags)) {
 	if (SetGadgetAttrs(ESG_List[ESG_LocString], EditSiteWindow, NULL,
 				    STRINGA_TextVal, DirRequester->rf_Dir,
 				    TAG_END))
 	    RefreshGList(ESG_List[ESG_LocString], EditSiteWindow, NULL, 1);
     }
+    if (DEBUG)
+	DebugLog("requester: SiteWindow AslRequest returned\n");
     FreeAslRequest(DirRequester);
 
     return 1;

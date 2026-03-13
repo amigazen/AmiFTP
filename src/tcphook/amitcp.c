@@ -15,6 +15,8 @@ extern struct Library *SocketBase;
 extern struct Library *UserGroupBase;
 /* errno declared by netinclude sys/errno.h; do not redeclare. */
 extern STRPTR _ProgramName;
+/* Storage for h_errno when usergroup.library is absent; gethostbyname writes here. */
+static long _h_errno_storage;
 
 struct hostent *amitcp_gethostbyname(const UBYTE *name)
 {
@@ -39,6 +41,22 @@ struct passwd *amitcp_getpwnam(const char *name)
 void amitcp_endpwent(void)
 {
     endpwent();
+}
+
+/* Stubs when usergroup.library is not present (e.g. UAE); callers get no system user/group info. */
+static char *amitcp_getlogin_stub(void)
+{
+    return NULL;
+}
+
+static struct passwd *amitcp_getpwnam_stub(const char *name)
+{
+    (void)name;
+    return NULL;
+}
+
+static void amitcp_endpwent_stub(void)
+{
 }
 
 LONG amitcp_gethostname(STRPTR hostname, LONG size)
@@ -70,11 +88,12 @@ LONG amitcp_connect(LONG s, const struct mysockaddr_in *sin)
     struct sockaddr_in hisctladdr;
 
     bzero((char *)&hisctladdr,sizeof(hisctladdr));
+    hisctladdr.sin_len=sizeof(hisctladdr);
     hisctladdr.sin_family=sin->sin_family;
     hisctladdr.sin_addr.s_addr=sin->sin_addr.s_addr;
     hisctladdr.sin_port=sin->sin_port;
 
-    return connect(s,(struct sockaddr *)&hisctladdr,sizeof(hisctladdr));
+    return connect(s,(struct sockaddr *)&hisctladdr,(socklen_t)sizeof(hisctladdr));
 }
 
 LONG amitcp_waitselect(LONG nfds,  fd_set *readfds, fd_set *writefds, fd_set *exeptfds,
@@ -151,16 +170,36 @@ int SetupAmiTCPHooks()
     tcp_waitselect=amitcp_waitselect;
     tcp_inetaddr=amitcp_inetaddr;
     tcp_gethostbyname=amitcp_gethostbyname;
-    tcp_endpwent=amitcp_endpwent;
-    tcp_getpwnam=amitcp_getpwnam;
-    tcp_getlogin=amitcp_getlogin;
     tcp_gethostname=amitcp_gethostname;
     tcp_getservbyname=amitcp_getservbyname;
 
-    if (ug_SetupContextTags(_ProgramName,
-			    UGT_INTRMASK, SIGBREAKB_CTRL_C,
-			    UGT_ERRNOPTR(sizeof(errno)), &errno,
-			    TAG_END)!= 0)
-      return 0;
+    if (UserGroupBase) {
+	tcp_endpwent=amitcp_endpwent;
+	tcp_getpwnam=amitcp_getpwnam;
+	tcp_getlogin=amitcp_getlogin;
+	if (ug_SetupContextTags(_ProgramName,
+				UGT_INTRMASK, SIGBREAKB_CTRL_C,
+				UGT_ERRNOPTR(sizeof(errno)), &errno,
+				TAG_END)!= 0)
+	    return 0;
+    } else {
+	struct TagItem ctx_tags[4];
+	int n;
+	tcp_endpwent=amitcp_endpwent_stub;
+	tcp_getpwnam=amitcp_getpwnam_stub;
+	tcp_getlogin=amitcp_getlogin_stub;
+	/* Without usergroup.library we must tell bsdsocket where to store errno and
+	 * h_errno, otherwise socket/gethostbyname writes can crash. */
+	n = 0;
+	ctx_tags[n].ti_Tag = SBTM_SETREF(SBTC_ERRNOLONGPTR);
+	ctx_tags[n].ti_Data = (ULONG)&errno;
+	n++;
+	ctx_tags[n].ti_Tag = SBTM_SETREF(SBTC_HERRNOLONGPTR);
+	ctx_tags[n].ti_Data = (ULONG)&_h_errno_storage;
+	n++;
+	ctx_tags[n].ti_Tag = TAG_END;
+	ctx_tags[n].ti_Data = 0;
+	SocketBaseTagList(ctx_tags);
+    }
     return 1;
 }

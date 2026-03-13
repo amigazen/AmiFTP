@@ -17,7 +17,7 @@ void OpenLogWindow()
 		    MainWindow?MainWindow->TopEdge+MainWindow->Height:40,
 		    MainWindow?MainWindow->Width:400,
 		    140,
-		    MainPrefs.mp_PubScreen);
+		    MainPrefs.mp_PubScreen ? MainPrefs.mp_PubScreen : "Workbench");
 	    LogWindow=Open(name,MODE_NEWFILE);
 	    free(name);
 	}
@@ -42,40 +42,132 @@ void LogMessage(char *mess, char c)
       Write(LogWindow, &c, 1);
 }
 
+void DebugLog(const char *fmt, ...)
+{
+    va_list ap;
+    char buf[256];
+    int len;
+
+    if (!DEBUG || !fmt)
+	return;
+
+    va_start(ap, fmt);
+    len = vsprintf(buf, fmt, ap);
+    va_end(ap);
+
+    if (len < 0)
+	buf[0] = '\0';
+    buf[sizeof(buf) - 1] = '\0';
+
+    /* Always write to stdout when DEBUG is enabled. */
+    printf("%s", buf);
+    fflush(stdout);
+
+    if (!LogWindow)
+	OpenLogWindow();
+    if (LogWindow)
+	LogMessage(buf, 0);
+}
+
+#define SGETC_BUFSIZ 256
+static unsigned char sgetc_buf[SGETC_BUFSIZ];
+static int sgetc_idx = 0;
+static int sgetc_len = 0;
+static int sgetc_sock = -1;
+
 int sgetc(const int sock)
 {
-    unsigned char c;
-    fd_set rd,ex;
-    long flgs;
+    fd_set rd, ex;
     int n;
-
+    long res;
     struct timeval t;
-    t.tv_sec = 120L;
-    t.tv_usec = 0;
+    ULONG mask;
+    ULONG winmask;
+    int loops;
+    int maxloops;
+    extern Object *ConnectWin_Object;
 
+    /* Return next byte from buffer if we have one (same socket). */
+    if (sock == sgetc_sock && sgetc_idx < sgetc_len)
+	return (int)sgetc_buf[sgetc_idx++];
+    if (DEBUG)
+	DebugLog("sgetc: entry sock=%d (refill)\n", sock);
+    sgetc_sock = sock;
+    sgetc_idx = 0;
+    sgetc_len = 0;
 
-//    Printf("sgetc: Entered sgetc())\n");
-    FD_ZERO(&rd);
-    FD_ZERO(&ex);
+    /*
+     * Do not wait on main window signal: ConnectSite() holds LockWindow(MainWin_Object),
+     * so HandleMainWindowIDCMP() would try to lock it again and deadlock.
+     * Only wait on Connect window (Abort), AmigaGuide, and Ctrl-C.
+     */
+    winmask = 0;
+    if (ConnectWin_Object)
+	GetAttr(WINDOW_SigMask, ConnectWin_Object, &winmask);
 
-    FD_SET(sock, &rd);
-    FD_SET(sock, &ex);
-    flgs = SIGBREAKF_CTRL_D;
-	
-//    Printf("sgetc: WaitSelect()\n");
-    tcp_waitselect(16, &rd, 0L, &ex, &t, (ULONG *)&flgs);
+    loops = 0;
+    maxloops = 120; /* 120 * 1s = 120s total */
 
-    if (FD_ISSET(sock,&rd))
-      {	
-//	  Printf("sgetc: recv'ing\n");
-	  n = tcp_recv(sock, &c, 1, 0);
-//	  Printf("sgetc: recv'ed\n");
-	  if (n == 1)
-	    return c;
-	  else return -1;
+    while (loops < maxloops) {
+	FD_ZERO(&rd);
+	FD_ZERO(&ex);
+	FD_SET(sock, &rd);
+	FD_SET(sock, &ex);
+
+	mask = winmask | AG_Signal | SIGBREAKF_CTRL_C;
+	t.tv_sec = 1L;
+	t.tv_usec = 0;
+
+	if (DEBUG && (loops == 0 || (loops % 10) == 0))
+	    DebugLog("sgetc: waitselect loop=%d nfds=%d\n", loops, sock + 1);
+	res = tcp_waitselect(sock + 1, &rd, 0L, &ex, &t, &mask);
+	if (DEBUG)
+	    DebugLog("sgetc: waitselect returned res=%ld mask=0x%lx rd=%d ex=%d\n",
+		(long)res, (unsigned long)mask,
+		FD_ISSET(sock, &rd) ? 1 : 0, FD_ISSET(sock, &ex) ? 1 : 0);
+
+	if (mask) {
+	    if (mask & SIGBREAKF_CTRL_C) {
+		if (DEBUG)
+		    DebugLog("sgetc: CTRL-C return -1\n");
+		return -1;
+	    }
+	    if (mask & AG_Signal) {
+		if (DEBUG)
+		    DebugLog("sgetc: AG_Signal HandleAmigaGuide\n");
+		HandleAmigaGuide();
+	    }
+	    if (mask & winmask) {
+		if (DEBUG)
+		    DebugLog("sgetc: winmask HandleConnectIDCMP\n");
+		if (HandleConnectIDCMP())
+		    return -1;  /* Abort clicked */
+	    }
+	}
+
+	if (FD_ISSET(sock, &ex)) {
+	    if (DEBUG)
+		DebugLog("sgetc: except set return -1\n");
+	    return -1;
+	}
+
+	if (FD_ISSET(sock, &rd)) {
+	    n = tcp_recv(sock, (char *)sgetc_buf, SGETC_BUFSIZ, 0);
+	    if (DEBUG)
+		DebugLog("sgetc: recv n=%d\n", n);
+	    if (n <= 0)
+		return -1;
+	    sgetc_len = n;
+	    sgetc_idx = 1;
+	    return (int)sgetc_buf[0];
+	}
+
+	loops++;
     }
 
-    else return -1;
+    if (DEBUG)
+	DebugLog("sgetc: timeout after %d loops return -1\n", loops);
+    return -1;
 }
 
 char	*ftp_error(char ch, char *def)
@@ -267,16 +359,21 @@ int DLPath(Object *winobject, char *initialpath, char *newpath)
     dlpath_tags[15]=window->LeftEdge;
     dlpath_tags[17]=window->TopEdge;
 
+    if (DEBUG)
+	DebugLog("requester: DLPath AllocAslRequest(ASL_FileRequest)\n");
     DirRequester=AllocAslRequest(ASL_FileRequest, NULL);
     if (!DirRequester)
       return 0;
 
     LockWindow(winobject);
-
+    if (DEBUG)
+	DebugLog("requester: DLPath AslRequest opening\n");
     if (AslRequest(DirRequester, (struct TagItem *)dlpath_tags)) {
 	ret=1;
 	strcpy(newpath, DirRequester->rf_Dir);
     }
+    if (DEBUG)
+	DebugLog("requester: DLPath AslRequest returned\n");
     FreeAslRequest(DirRequester);
 
     UnlockWindow(winobject);

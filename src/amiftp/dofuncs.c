@@ -24,6 +24,9 @@ int doconnect(struct SiteNode *sn)
 	else
 	  password=defaultanonymouspw;
 	login = "anonymous";
+	/* Never pass NULL for anonymous; avoids blocking in GetPassword. */
+	if (password == NULL)
+	  password = "anonymous@";
     }
     if (connected)
       quit_ftp();
@@ -31,7 +34,7 @@ int doconnect(struct SiteNode *sn)
     ftphost = parse_hostname(sn->sn_SiteAddress, &port);
 
     if (DEBUG) {
-	Printf("doconnect: hostin='%s' -> ftphost='%s' port=%ld proxy=%ld\n",
+	DebugLog("doconnect: hostin='%s' -> ftphost='%s' port=%ld proxy=%ld\n",
 	       sn->sn_SiteAddress ? sn->sn_SiteAddress : "",
 	       ftphost ? ftphost : "",
 	       (long)port,
@@ -39,7 +42,7 @@ int doconnect(struct SiteNode *sn)
     }
 
     return openhost(ftphost, login, password, account, port, sn->sn_Proxy);
-}
+    }
 
 int openhost(char *ftphost, char *login, char *password,
 	char *account, short port, int useproxy)
@@ -51,7 +54,7 @@ int openhost(char *ftphost, char *login, char *password,
 
     timedout = 0;
     if (DEBUG) {
-	Printf("openhost: connect '%s' port=%ld login='%s' proxy=%ld\n",
+	DebugLog("openhost: connect '%s' port=%ld login='%s' proxy=%ld\n",
 	       ftphost ? ftphost : "",
 	       (long)port,
 	       login ? login : "",
@@ -61,11 +64,17 @@ int openhost(char *ftphost, char *login, char *password,
     if (rval!=CONN_OK)
       return rval;
 
+    if (DEBUG)
+	DebugLog("openhost: ftp_hookup OK, calling ftp_login\n");
     if (useproxy)
 	sprintf(buf,"%s@%s",login,ftphost);
     if ((rval = ftp_login(useproxy?buf:login, password, account)) == 0) {
+	if (DEBUG)
+	    DebugLog("openhost: ftp_login failed\n");
 	return CONN_ERROR;
     }
+    if (DEBUG)
+	DebugLog("openhost: ftp_login OK, change_remote_dir\n");
     connected = 1;
     which_up_cmd = -1;
 
@@ -87,4 +96,4 @@ int openhost(char *ftphost, char *login, char *password,
     other_dir_pattern = NULL;
 
     return CONN_OK;
-}
+    }
