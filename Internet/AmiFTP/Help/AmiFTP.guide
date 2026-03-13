@@ -7,63 +7,61 @@
 
                             @{b}AmiFTP@{ub}
 
-        Copyright © 1995-1996 Magnus Lilja. All Rights Reserved.
+        Copyright Â© 1995-1996 Magnus Lilja. All Rights Reserved.
 
+     @{" 2.0 " link "Version2"}  What's new in AmiFTP 2.0
 
-     @{" I   " link "Copyright"}  Copyright and legal information.
+     @{" I   " link "Copyright"}  License
 
-     @{" II  " link "Addresses"}  Where to send those bug reports etc.
+     @{" II  " link "Addresses"}  Release
 
-     @{" III " link "Register"}  How to register
+     @{" III " link "License"}  License
 
-
-     @{" IV  " link "Requirements"}  What is needed to use AmiFTP?
+     @{" IV  " link "Requirements"}  Requirements
 
      @{" V   " link "Installation"}  Installation
 
-     @{" VI  " link "Usage"}  Basic usage
+     @{" VI  " link "Usage"}  Usage
 
      @{" VII " link "Configuration"}  Configuration
 
      @{" IIX " link "AmiFTPMenus"}  Menus
 
-     @{" IX  " link "ARexx"}  The ARexx interface
+     @{" IX  " link "ARexx"}  ARexx interface
 
 
      @{" A   " link "FAQ"}  Common questions
 
-     @{" B   " link "Acknowledgements"}  Thanks to...
+     @{" B   " link "Acknowledgements"}  Acknowledgements
 
-     @{" C   " link "Bugs"}  Known bugs/problems
+     @{" C   " link "Bugs"}  Known Bugs
 
-     @{" D   " link "HISTORY/MAIN"}  Program history
+     @{" D   " link "HISTORY/MAIN"}  History
 
 
 @endnode
 
-@node "Copyright" "Copyrights and other legal things"
+@node "Copyright" "License"
 
    @{b}Copyright and distribution stuff@{ub}
 
 
    COPYRIGHT
 
-
-   Copyright © 1995-1997 Magnus Lilja. All Rights Reserved.
-
-   ClassAct is Copyright © 1995, 1996, 1997 ClassAct Development Team.
-
+   Copyright Â© 1995-1998 Magnus Lilja 
+   Changes Copyright Â© 2026 amigazen project
+   All Rights Reserved
 
    Some of the files (in the Contrib and/or the Rexx directory) have
 other copyrights.
 
-   AmiFTP is Shareware, go to the @{"registration" link "Register"} section
-for more information.
+   AmiFTP is released under the MIT License. See the LICENSE or COPYING
+file in the distribution for the full terms.
 
    DISTRIBUTION
 
 
-   The main distribution channel for AmiFTP is Aminet (http://www.aminet.org/).
+   The main distribution channel for AmiFTP is Aminet (https://www.aminet.net/).
 Permission to distribute AmiFTP on disk is granted provided no money except
 for the disk is charged. So called 'Commercial distributors of freely
 distributable software' are not allowed to distribute AmiFTP without the
@@ -90,16 +88,8 @@ contact the @{"author" link "Addresses"} for permission.
    Not all versions of AmiFTP will be uploaded to Aminet, minor updates will be
 available from 
 
+     https://www.amigazen.com/amiftp/
 
-     ftp://geek.rcc.se/pub/amiga/amiftp/ and
-
-
-     http://www.lysator.liu.se/~lilja/amiftp/
-
-
-
-   If you want to get a notice via e-mail when new versions are available, write
-an e-mail to me (lilja@lysator.liu.se) and I'll add you to the announce-list.
 
 
    DISCLAIMER:
@@ -111,70 +101,24 @@ This software is provided as is. Use it at your own risk. No warranties are made
 
 @node "Addresses" "Addresses"
 
-   @{b}Authors addresses@{ub}
-
-
-   @{b}Normal mail:@{ub}
-
-
-            Magnus Lilja
-
-            Rydsvägen 130 B
-
-            S-584 31 LINKÖPING
-
-            SWEDEN
-
-
-   @{b}E-Mail:@{ub}
-
-
-            lilja@lysator.liu.se
-
-
-   One small note about writing e-mail: Please make sure that you have 
-configured your e-mail-software correctly so I can reply to your e-mail. I have
-received e-mail a couple of times which has bounced on me when I tried to reply.
-
-
-   New versions of AmiFTP will be available via ftp from
-
-
-      ftp://geek.rcc.se/pub/amiga/amiftp/
-
-
-   and via www from
-
-
-      http://www.lysator.liu.se/~lilja/amiftp/
-
-
-   Some versions will be uploaded to Aminet.
+   Major releases will be uploaded to Aminet.
 
 @endnode
 
-@node "Register" "Registering AmiFTP"
+@node "License" "License (MIT)"
 
-   @{b}Registering AmiFTP@{ub}
-
-
-   AmiFTP is Shareware. At the moment AmiFTP is not crippled in any way, which
-also means that there's no extra functions that are available for users that
-register. But if you use AmiFTP and are happy with it (or even if you're unhappy
-with it ;) , please consider registering AmiFTP.
+   @{b}MIT License@{ub}
 
 
-   The registration fee is 15 USD, 10 UKP, 20 DEM or 100 SEK. See the @{"registration form" link "REGISTER/MAIN"} 
-for more information on how to register.
+   AmiFTP is open source software released under the MIT License. You may
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, subject to the condition that the copyright notice and this
+permission notice are included in all copies or substantial portions of the
+Software.
 
 
-   Since there's no extra features available for registered user at the moment
-there's no need for a key-file, but if/when I add such features I will send
-out keyfiles.
-
-
-   If you have any questions about registering AmiFTP, don't hesitate to write
-an e-mail to me (lilja@lysator.liu.se).
+   The Software is provided "as is", without warranty of any kind. See the
+LICENSE or COPYING file in the AmiFTP distribution for the full license text.
 @endnode
 
 @node "Requirements" "Requirements"
@@ -182,36 +126,31 @@ an e-mail to me (lilja@lysator.liu.se).
    @{b}Requirements@{ub}
 
 
-   In order to run AmiFTP you'll need AmigaOS 2.0 or higher, one of the following
-TCP/IP-stacks:
+   In order to run AmiFTP you will need AmigaOS 2.0 and ClassAct or a newer
+   AmigaOS with Reaction built-in
+   and a TCP/IP stack that provides bsdsocket.library
+   (i.e. AmiTCP, Miami, TermiteTCP or Roadshow).
+
+  Â· The online help in AmiFTP requires amigaguide.library v36 or higher.
+
+@endnode
+
+@node "Version2" "Key changes in version 2.0"
+
+   @{b}Key changes in version 2.0@{ub}
 
 
-  · AmiTCP 3.0 or higher.
+   Version 2.0 modernises AmiFTP for current AmigaOS and removes legacy
+dependencies:
 
+   Â· Removed AS225 support. A single binary uses bsdsocket.library only;
+     the AS225 tooltype is no longer available.
 
-  · AS225r2 or the new I-Net 225.
+   Â· Removed reqtools.library dependency. Requesters and UI now use
+     Reaction or Intuition requesters only.
 
-
-  · CPR TCP/IP Base Kit.
-
-
-  · mlink.
-
-  · TermiteTCP.
-
-  · Miami.
-
-  · Or any other stack that is compatible with as225r2 or AmiTCP.
-
-  
-AmiFTP first tries to open AmiTCP's bsdsocket.library and if that failes it opens
-socket.library. If you want to force AmiFTP to use socket.library, use the AS225-flag (cli/tooltype option).
-
-In order to detect mlink, AmiFTP searches for a port called "MLINK".
-
-  · reqtools.library
-
-  · The online help in AmiFTP requires amigaguide.library v36 or higher.
+   Â· Removed legacy async I/O and related dependencies; simplified
+     socket and transfer handling.
 
 @endnode
 
@@ -222,10 +161,6 @@ In order to detect mlink, AmiFTP searches for a port called "MLINK".
 
    The easiest way to install AmiFTP is to use the supplied Installer-script. To
 run this, doubleclick on the Install_AmiFTP icon.
-
-
-   Make sure you are using the latest version of the ClassAct system. You can get
-it from ftp://ftp.warped.com/pub/amiga/classact/.
 
    Before you try to connect to a site, make sure that your anonymous
 password is set correctly, it's in the menu "Settings/Global".
@@ -319,9 +254,6 @@ resume).
    The following arguments are available as cli arguments and Workbench
 Tooltypes:
 
-   AS225         - @{lindent 19}Force AmiFTP to open socket.library instead of first trying to open AmiTCP's bsdsocket.library.@{lindent 0}
-
-
    ICONIFIED     - @{lindent 19}Start AmiFTP in iconified mode.@{lindent 0}
 
 
@@ -367,18 +299,18 @@ AmiFTP will save the settings for you when quitting AmiFTP in case you have forg
    @{b}Global preferences@{ub}
 
 
-The Global prefences window has four pages, General, Aminet, Display, and Proxy.
+The Global preferences window has four pages, General, Aminet, Display, and Proxy.
 
 
    General:
 
-   · Anonymous password:
+   Â· Anonymous password:
 
      @{lindent 5}Enter your e-mail-address here, this will be sent to the ftp-server
 when you log in as anonymous user.@{lindent 0}
 
 
-   · View command:
+   Â· View command:
 
      @{lindent 5}Enter the command AmiFTP should use when viewing files, %F in the
 string will expand to the filename and %P will expand to the name
@@ -387,35 +319,35 @@ have to specify the complete path for the command if you run
 AmiFTP from Workbench since I haven't fixed the path yet.@{lindent 0}
 
 
-   · Default local drawer
+   Â· Default local drawer
 
      @{lindent 5}For sites which you don't specify a download directory this directory
 will be used.@{lindent 0}
 
 
-   · Buffer size
+   Â· Buffer size
 
      @{lindent 5}The size of the transferbuffer, in bytes.@{lindent 0}
 
 
-   · Directory cache size
+   Â· Directory cache size
 
      @{lindent 5}The maximum number of directories that should be in the 
 directory cache.@{lindent 0}
 
 
-   · Delete viewed files
+   Â· Delete viewed files
 
      @{lindent 5}If this is checked AmiFTP will delete the files that have been
 'View'-ed when exiting AmiFTP.@{lindent 0}
 
 
-   · Ignore case
+   Â· Ignore case
 
      @{lindent 5}Well, guess twice!@{lindent 0}
 
 
-   · Beep after transfer
+   Â· Beep after transfer
 
      @{lindent 5}When a transfer is done, AmiFTP will do a DisplayBeep() if you
 have this checked. Normally this will result in flashing the screen and perhaps
@@ -424,7 +356,7 @@ a beep from your speaker.@{lindent 0}
 
    Aminet:
 
-   · Hide directories
+   Â· Hide directories
 
      @{lindent 5}This should be a standard AmigaDOS pattern, all files that are
 in a directory that matches this pattern will be hidden. I have this set to 
@@ -432,18 +364,18 @@ in a directory that matches this pattern will be hidden. I have this set to
 @{lindent 0}
 
 
-   · Preserve filepath
+   Â· Preserve filepath
 
      @{lindent 5}Not implemented yet.@{lindent 0}
 
 
-   · Show MOTD-file
+   Â· Show MOTD-file
 
      @{lindent 5}If this is checked AmiFTP will download and view the 
 Aminet-MOTD-file if it has changed since the last visit to Aminet.@{lindent 0}
 
 
-   · Download readme
+   Â· Download readme
 
      @{lindent 5}If this is checked AmiFTP will also download the readme of the
 files you're downloading.@{lindent 0}
@@ -451,56 +383,56 @@ files you're downloading.@{lindent 0}
 
    Display:
 
-   · Open on default public screen
+   Â· Open on default public screen
 
      @{lindent 5}If this is checked AmiFTP will open on the default public screen. If not it will open on the named public screen.@{lindent 0}
 
 
-   · Public screen
+   Â· Public screen
 
      @{lindent 5}Tells AmiFTP which public screen to open on if the above flag isn't set.@{lindent 0}
 
 
-   · Use system fonts
+   Â· Use system fonts
 
      @{lindent 5}If this is checked AmiFTP will use the current screen font, otherwise it will use the fonts you specify.@{lindent 0}
 
 
-   · Interface font
+   Â· Interface font
 
      @{lindent 5}This font is the font used everywhere in AmiFTP except in the main listview where the directory lists are shown.@{lindent 0}
 
 
-   · Filelist font
+   Â· Filelist font
 
      @{lindent 5}This font is used in the listview where the directory lists are shown.@{lindent 0}
 
 
-   · Show buttons
+   Â· Show buttons
 
      @{lindent 5}Set this if you want the Parent/Get/Put/View/Connect to.../Disconnect buttons to be visibile.@{lindent 0}
 
 
-   · Show toolbar
+   Â· Show toolbar
 
      @{lindent 5}Set this if you want the icon toolbar to be visible. The order of the icons are: Exit, Iconify, Connect, Disconnect, Parent, Get, Put, View.@{lindent 0}
 
 
    Proxy:
 
-   · Proxy host:
+   Â· Proxy host:
 
      @{lindent 5}The name of the proxy-host to use for proxy-connections. Note that
 the proxy that AmiFTP needs is not generally available, it will
 not work with the Cern httpd-proxy function.@{lindent 0}
 
 
-   · Proxy port:
+   Â· Proxy port:
 
      @{lindent 5}Which port on the proxy-host to use.@{lindent 0}
 
 
-   · Use proxy as default?
+   Â· Use proxy as default?
 
      @{lindent 5}Should AmiFTP use the proxy for all connections? You can override
 this with the proxy-flag for each site.@{lindent 0}
@@ -540,32 +472,32 @@ if you add it to a submenu that isn't hotlisted it will still show up somewhere.
    @{b}Site configuration@{ub}
 
 
-   · Name:
+   Â· Name:
 
      @{lindent 5}This name will show up in the sitelist window and in the 
 hotlist-menu.@{lindent 0}
 
 
-   · Site:
+   Â· Site:
 
      @{lindent 5}This should be the ftpsite's actual Internet address (either
 hostname or IP).@{lindent 0}
 
 
-   · Port:
+   Â· Port:
 
      @{lindent 5}Normally all ftp-sites use port-number 21 (which is the 
 default), but some sites are on other ports.@{lindent 0}
 
 
-   · Auto-cd to directory:
+   Â· Auto-cd to directory:
 
      @{lindent 5}If this is set, AmiFTP will cd to this directory right after
 the connection is made. It's convenient to have /pub/aminet here for the Aminet
 sites.@{lindent 0}
 
 
-   · Download path:
+   Â· Download path:
 
      @{lindent 5}If you click on the button a path-requester will show up,
 you can also type the download path into the string gadget. If you don't
@@ -573,17 +505,17 @@ specify a path, the default path specified in @{"Global preferences" Link "Globa
 will be used.@{lindent 0}
 
 
-   · Anonymous login?
+   Â· Anonymous login?
 
      @{lindent 5}Selfexplaining!@{lindent 0}
 
 
-   · Login name:
+   Â· Login name:
 
      @{lindent 5}Which loginname to use for non-anonymous logins.@{lindent 0}
 
 
-   · Password:
+   Â· Password:
 
      @{lindent 5}The password for the above username. If you don't specify one, AmiFTP
 will pop up a requester asking for it when you connect. The password will
@@ -595,29 +527,29 @@ find dozens of passwords without any effort. So for maximum security you should
 not write your password here. You have been warned.@{lindent 0}
 
 
-   · Operating System
+   Â· Operating System
 
      @{lindent 5}In order to parse the directory listing correctly, AmiFTP needs to
 know what Operating System the site is using. For most sites, UNIX will
 work. Supported systems are UNIX, VMS and MSDOS. If you connect to a
 Amiga-site you can try UNIX, it all depends on which ls the server is using.
-AmiFTP can't parse the default AmiTCP:bin/ls yet, but this will be added.@{lindent 0}
+@{lindent 0}
 
 
-   · Proxy:
+   Â· Proxy:
 
      @{lindent 5}This is mostly for my personal use since the proxy-support
 in AmiFTP is not compataible with the www-proxys that are available. This proxy is
 only used locally here at rydnet.lysator.liu.se.@{lindent 0}
 
 
-   · Hotlist:
+   Â· Hotlist:
 
      @{lindent 5}If this is checked the site will appear under the
 menu-label "HotList".@{lindent 0}
 
 
-   · Aminet-mode:
+   Â· Aminet-mode:
 
      @{lindent 5}If this is checked this site will be marked as a Aminet-site and
 AmiFTP will get the recent-file (in info/adt/) and display the new files since your
@@ -805,7 +737,7 @@ files in the RECENT-list.
    @{b}Quit@{ub}
 
 
-   Exists AmiFTP and saves the configuration if it has changed since you last saved it. The
+   Exits AmiFTP and saves the configuration if it has changed since you last saved it. The
 window size and position is not saved, to do this you have to use @{"Settings/Save settings" link "MENUSaveSettings"}.
 
 @endnode
@@ -1025,7 +957,7 @@ going through the @{"Sitelist window" link "Sitelist"}.
    @{b}ARexx@{ub}
 
 
-   AmiFTP's ARexx-port default name is "AMIFTP". In case a commands
+   AmiFTP's ARexx-port default name is "AMIFTP". In case a command
 fails a non-zero returncode is returned.
 
    The following ARexx commands are available:
@@ -1355,7 +1287,7 @@ the server.@{lindent 0}
    Description:
 
 
-   @{lindent 3}Downloads the file to 'T:' and then spawns the viewer (@{"Settings/Global/View command" Link "Globalpreferences"}). When AmiFTP exists it will try to delete all the viewed files.
+   @{lindent 3}Downloads the file to 'T:' and then spawns the viewer (@{"Settings/Global/View command" Link "Globalpreferences"}). When AmiFTP exits it will try to delete all the viewed files.
 
 @EndNode
 
@@ -1454,43 +1386,39 @@ bugs/suggestions.@{lindent 0}
    Special thanks to:
 
 
-     @{lindent 5}Andreas Johansson (andjo@lysator.liu.se) for lots of alphatesting@{lindent 0}
+     @{lindent 5}Andreas Johansson for lots of alphatesting@{lindent 0}
 
-     @{lindent 5}Per Peman (peman@ludd.luth.se) for testing and for the ftp-site@{lindent 0}
+     @{lindent 5}Per Peman for testing and for the ftp-site@{lindent 0}
 
-     @{lindent 5}Robert Reiswig (rcr@vgr.com) for the installer-script and the icon.@{lindent 0}
+     @{lindent 5}Robert Reiswig for the installer-script and the icon.@{lindent 0}
 
-     @{lindent 5}Sami Itkonen (Sami.Itkonen@hut.fi) for the find.amiftp script.@{lindent 0}
+     @{lindent 5}Sami Itkonen for the find.amiftp script.@{lindent 0}
 
-     @{lindent 5}Heikki Kantola (hezu@iki.fi) for testing and for the KMI-style dockicon (Icons/AmiFTP.KMI-dock.info).@{lindent 0}
+     @{lindent 5}Heikki Kantola for testing and for the KMI-style dockicon (Icons/AmiFTP.KMI-dock.info).@{lindent 0}
 
 
-     @{lindent 5}Timothy Aston (timmer@warped.com) for the speedbar icons.@{lindent 0}
+     @{lindent 5}Timothy Aston for the speedbar icons.@{lindent 0}
 
-     @{lindent 5}Phil Vedovatti (vedovatt@u.washington.edu aka aesculape) for the AmiFTP-icon in NewIcon-style (Icons/AmiFTP.NI.info)@{lindent 0}
+     @{lindent 5}Phil Vedovatti (aesculape) for the AmiFTP-icon in NewIcon-style (Icons/AmiFTP.NI.info)@{lindent 0}
 
 
      @{lindent 3}And the following translators:@{lindent 0}
 
 
-     @{lindent 5}Osma Ahvenlampi (oa@iki.fi) for the Finnish translation@{lindent 0}
+     @{lindent 5}Osma Ahvenlampi for the Finnish translation@{lindent 0}
 
-     @{lindent 5}Volker Graf (vgraf@hydra.informatik.uni-ulm.de) for the Danish and German translations@{lindent 0}
+     @{lindent 5}Volker Graf for the Danish and German translations@{lindent 0}
 
-     @{lindent 5}Troels Walsted Hansen (troels@stud.cs.uit.no) for the Norwegian translation@{lindent 0}
+     @{lindent 5}Troels Walsted Hansen for the Norwegian translation@{lindent 0}
 
-     @{lindent 5}Pantelis Kopelias (leestar@acropolis.gr) for the Greek translation@{lindent 0}
+     @{lindent 5}Pantelis Kopelias for the Greek translation@{lindent 0}
 
-     @{lindent 5}Sigurbjörn B. Lárusson (sibbi@cc.is) for the Icelandic translation@{lindent 0}
+     @{lindent 5}JosÃ© Roberto GonzÃ¡lez Rocha for the Spanish translation@{lindent 0}
 
-     @{lindent 5}Giacomo Magnini (prometeo@flashnet.it) for the Italian translation@{lindent 0}
-
-     @{lindent 5}José Roberto González Rocha (alu756@csi.ull.es) for the Spanish translation@{lindent 0}
-
-     @{lindent 5}Arno van Wouwe (apwouwe@cs.vu.nl) for the Dutch translation@{lindent 0}
+     @{lindent 5}Giacomo Magnini for the Italian translation@{lindent 0}
 
 
-     @{lindent 5}The people behind ClassAct@{lindent 0}
+     @{lindent 5}Arno van Wouwe for the Dutch translation@{lindent 0}
 
 
      and everyone else I've forgotten...
@@ -1509,12 +1437,78 @@ bugs/suggestions.@{lindent 0}
 this is happening, it hasn't happened to me yet.@{lindent 0}
 
 
-   @{lindent 3}(This seems to apply to as225/I-Net 225 users only) When aborting a filetransfer the entire connection
-is lost.@{lindent 0}
+   @{lindent 3}When aborting a file transfer the entire connection can sometimes
+be lost.@{lindent 0}
 
 
 
    @{lindent 3}It could take a while before the transfer is actually aborted after the
 Abort-button is pressed.@{lindent 0}
+
+@endnode
+
+@node "HISTORY/MAIN" "Program history"
+@prev "Bugs"
+
+   @{b}Program history@{ub}
+
+
+   Summary of notable changes (see CHANGELOG.md in the distribution for
+full details).
+
+
+   @{b}Version 2.0@{ub} (modernisation): workbench.library support; GUI
+uses Reaction (AmigaOS); AS225 and reqtools.library removed; single
+binary with bsdsocket.library only; legacy async I/O removed.
+
+
+   @{b}Unreleased / current@{ub}: PASV/EPSV/EPRT support; FEAT discovery;
+improved socket and reply handling; fixes from AmigaOS 4 fork (dirlist,
+upload paths, hotlist, transfer window, config save).
+
+
+   @{b}1.843@{ub} (1997-09-29): Send raw FTP command, Rename, Create dir;
+ADT pattern length doubled; guide corrections.
+
+
+   @{b}1.814@{ub} (1996-12-14): Overwrite-all button; window size saved
+correctly.
+
+
+   @{b}1.797@{ub} (1996-11-06): Speedbar and button toggles; all actions
+as menu items; cursor-key scrolling; Select by pattern; runs without
+stack; ClassAct no longer in archive.
+
+
+   @{b}1.594@{ub} (1996-06-18): Main window title shows selection and
+space; CLI/Connect gadget ftp:// URL support.
+
+
+   @{b}1.530@{ub} (1996-05-27): Aminet RECENT mode; Greek catalog;
+ARexx FTPCOMMAND; Delete for dirs; sort saved in prefs.
+
+
+   @{b}1.264@{ub} (1996-03-09): Mailing list; sitelist groups (submenus).
+
+
+   @{b}1.149@{ub} (1996-02-11): AmiTCP and AS225 in one binary; iconify
+during transfer; ARexx VIEW and SETATTR QUIET; Icelandic and Spanish
+catalogs.
+
+
+   @{b}1.0@{ub} (1995-12-17): First Aminet release. Sitelist bug fix;
+CLI "AmiFTP sitename"; prefs search order (Current, PROGDIR:, ENVARC:,
+~user/); amigaguide optional; catalogs updated.
+
+
+   @{b}Pre-1.0 beta@{ub}: 0.1299 Reload gadget, alphabetical sitelist,
+link size in TransferWindow. 0.1261 ClassAct GUI (from gadtools).
+0.864 Get directory trees, log window, Add to sitelist, online help,
+default download dir. 0.776 Download 32+ char names, View with spaces,
+window size/position saved, ARexx DELETE and GETATTR FILELIST. 0.533
+Resume transfer, Settings menu, localisation, password gadget. 0.345
+Directory cache, delete remote files, Select all/Unselect all, ARexx
+PUT/MPUT. 0.275 ARexx port, View to T: and delete on quit. See
+CHANGELOG.md for full pre-1.0 history.
 
 @endnode
