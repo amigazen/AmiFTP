@@ -1,5 +1,5 @@
 @database AmiFTP.guide
-@author Magnus Lilja
+@author amigazen project
 @smartwrap
 @Width 72
 
@@ -7,13 +7,14 @@
 
                             @{b}AmiFTP@{ub}
 
-        Copyright © 1995-1996 Magnus Lilja. All Rights Reserved.
+        Original work Copyright 1995-1998 Magnus Lilja.
+        AmiFTP 2 and newer versions Copyright 2026 amigazen project.
 
-     @{" 2.0 " link "Version2"}  What's new in AmiFTP 2.0
+     @{" What;s New " link "Version2"}  in AmiFTP 2
 
      @{" I   " link "Copyright"}  License
 
-     @{" II  " link "Addresses"}  Release
+     @{" II  " link "Addresses"}  Releases
 
      @{" III " link "License"}  License
 
@@ -36,7 +37,7 @@
 
      @{" C   " link "Bugs"}  Known Bugs
 
-     @{" D   " link "HISTORY/MAIN"}  History
+     @{" D   " link "HISTORY"}  History
 
 
 @endnode
@@ -48,47 +49,59 @@
 
    COPYRIGHT
 
-   Copyright © 1995-1998 Magnus Lilja 
-   Changes Copyright © 2026 amigazen project
-   All Rights Reserved
+   Copyright (C) 1995-1998 Magnus Lilja.
+   Changes Copyright (C) 2026 amigazen project.
+   All Rights Reserved.
 
    Some of the files (in the Contrib and/or the Rexx directory) have
 other copyrights.
 
-   AmiFTP is released under the MIT License. See the LICENSE or COPYING
-file in the distribution for the full terms.
+   AmiFTP is released under the MIT License. 
+
+Copyright (c) 2018 Magnus Lilja
+Changes Copyright (c) 2026 amigazen project
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 
    DISTRIBUTION
 
 
-   The main distribution channel for AmiFTP is Aminet (https://www.aminet.net/).
-Permission to distribute AmiFTP on disk is granted provided no money except
-for the disk is charged. So called 'Commercial distributors of freely
-distributable software' are not allowed to distribute AmiFTP without the
-authors permission. Permission to distribute AmiFTP via bulletin board
-systems and computer networks is granted as long as no money is charged
-for accessing or downloading the archive.
+   Historical archives of AmiFTP appeared on Aminet (https://www.aminet.net/).
+You may redistribute AmiFTP under the MIT License without charging a fee for the
+software itself, provided that the copyright notice and the permission notice
+from the LICENSE or COPYING file are included in all copies or substantial
+portions of the Software (same condition as in that file). Do not misrepresent
+modified builds as unchanged official releases or misrepresent the origin of
+the software. Keeping this guide with binaries or archives is recommended.
 
 
-   Naturally, the Aminet organization has the permission to include AmiFTP on the
-Aminet-CD.
+   The Aminet project may continue to mirror AmiFTP archives on Aminet CDs or
+FTP; verify the version against the project home when in doubt.
 
 
-   You may not add/delete files from the AmiFTP archive or create a
-new archive with only some of the files and redistribute it unless you have my
-permission to do so. This also applies to BBS's that automatically add those
-annoying '.display_me' and 'camefrom.bbs' files, I do not want those added
-to the AmiFTP-archive.
+   Current AmiFTP 2 sources and builds are maintained by the amigazen project.
+Point releases and documentation will be released on GitHub and at:
 
+     http://www.amigazen.com/
 
-   If you want to include this program in any package, CD-ROM, coverdisk etc
-contact the @{"author" link "Addresses"} for permission.
-
-
-   Not all versions of AmiFTP will be uploaded to Aminet, minor updates will be
-available from 
-
-     https://www.amigazen.com/amiftp/
+   Major stable releases will be available on Aminet.
 
 
 
@@ -99,9 +112,18 @@ This software is provided as is. Use it at your own risk. No warranties are made
 
 @endnode
 
-@node "Addresses" "Addresses"
+@node "Addresses" "Releases"
 
-   Major releases will be uploaded to Aminet.
+   @{b}Where to get AmiFTP@{ub}
+
+
+   @{b}AmiFTP 2.0@{ub} (amigazen): project home, sources, and notes:
+
+     http://www.amigazen.com/
+
+
+   @{b}Aminet@{ub}: historical and future mirrors of AmiFTP archives may appear
+under comm/net; always verify version and checksums.
 
 @endnode
 
@@ -110,47 +132,72 @@ This software is provided as is. Use it at your own risk. No warranties are made
    @{b}MIT License@{ub}
 
 
-   AmiFTP is open source software released under the MIT License. You may
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, subject to the condition that the copyright notice and this
-permission notice are included in all copies or substantial portions of the
-Software.
+   AmiFTP is open source software released under the MIT License. You may use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and permit others to do so, subject to the following condition:
+the copyright notice and this permission notice shall be included in all copies
+or substantial portions of the Software.
 
-
-   The Software is provided "as is", without warranty of any kind. See the
-LICENSE or COPYING file in the AmiFTP distribution for the full license text.
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. The full
+license text (including the liability disclaimer) is in the LICENSE or COPYING
+file in the AmiFTP distribution.
 @endnode
 
 @node "Requirements" "Requirements"
 
    @{b}Requirements@{ub}
 
-
    In order to run AmiFTP you will need AmigaOS 2.0 and ClassAct or a newer
-   AmigaOS with Reaction built-in
+   AmigaOS with ReAction built-in
    and a TCP/IP stack that provides bsdsocket.library
    (i.e. AmiTCP, Miami, TermiteTCP or Roadshow).
-
-  · The online help in AmiFTP requires amigaguide.library v36 or higher.
 
 @endnode
 
 @node "Version2" "Key changes in version 2.0"
 
-   @{b}Key changes in version 2.0@{ub}
+   @{b}AmiFTP 2 from amigazen project@{ub}
 
 
-   Version 2.0 modernises AmiFTP for current AmigaOS and removes legacy
-dependencies:
+   Version 2 is a new, actively maintained release that keeps the classic AmiFTP behaviour
+while updating the codebase to build with the latest NDK and fixing long-standing
+bugs. Summary of changes:
 
-   · Removed AS225 support. A single binary uses bsdsocket.library only;
-     the AS225 tooltype is no longer available.
+   @{b}Networking@{ub}: @{b}AS225@{ub} @{b}socket.library@{ub} support is @{b}disabled@{ub};
+     only @{b}bsdsocket.library@{ub} is used. Improved FTP robustness (bounded line reads, safer
+     command buffers, case-insensitive ftp:// parsing). PASV data connections
+     with PORT fallback; safer parsing of transfer progress and SIZE when the
+     server supports it.
 
-   · Removed reqtools.library dependency. Requesters and UI now use
-     Reaction or Intuition requesters only.
+   @{b}AsyncIO removed@{ub}: Transfers use AmigaDOS Read()/Write() directly,
+     with clearer logging on I/O errors (IoErr()) and responsive abort handling
+     via the transfer window.
 
-   · Removed legacy async I/O and related dependencies; simplified
-     socket and transfer handling.
+   @{b}ReqTools replaced@{ub}: No reqtools.library at runtime. File and path
+     requesters use asl.library; the build links @{b}rtasl.lib@{ub} from
+     amigazen project which implements the reqtools API using asl.library
+
+   @{b}Workbench@{ub}: When workbench.library v45+ is available, View can use
+     OpenWorkbenchObject() for a more native launch path.
+
+   @{b}User interface@{ub}: ReAction-based GUI changes; main window defaults
+     to about 70% of screen size when no snapshot exists. Connect window shows
+     the URL host being contacted. Window title shows the full ftp:// URL when
+     connected; the screen title shows selection count and free disk space.
+     Directory-cache (path history) Chooser no longer shows a spurious extra
+     garbage entry (Exec list walk fixed).
+
+   @{b}Stability@{ub}: Fixes merged from the 1.953 version and further
+     hardening (e.g. Site listbrowser NULL guards, config save when closing
+     from hotlist-only changes, transfer window position when the main window
+     is absent).
+
+   @{b}Defaults@{ub}: Sitelist seeds for Aminet and English Amiga Board.
+
+   @{b}Build@{ub}: SAS/C and NDK 3.2-friendly; legacy RCS metadata and obsolete
+     packaging removed from the tree.
+
+   See @{b}CHANGELOG.md@{ub} and git history in the repository for full detail.
 
 @endnode
 
@@ -159,11 +206,16 @@ dependencies:
    @{b}Installation@{ub}
 
 
-   The easiest way to install AmiFTP is to use the supplied Installer-script. To
-run this, doubleclick on the Install_AmiFTP icon.
+   AmiFTP does not require an Installer. Copy the program and its support files
+to any directory you like (for example a drawer on your boot volume or a
+dedicated Apps drawer) and run @{b}AmiFTP@{ub} from there. The executable resolves
+paths relative to @{b}PROGDIR:@{ub} where appropriate (icons, catalogs, help).
 
-   Before you try to connect to a site, make sure that your anonymous
-password is set correctly, it's in the menu "Settings/Global".
+   Place optional files (AmiFTP.guide, catalogs, icons) alongside the binary or
+in the layout shipped with the archive so online help and locale load correctly.
+
+   Before you connect to a site, set your anonymous FTP password under
+@{"Settings/Global" link "Globalpreferences"} if you use anonymous logins.
 
 @endnode
 
@@ -304,50 +356,50 @@ The Global preferences window has four pages, General, Aminet, Display, and Prox
 
    General:
 
-   · Anonymous password:
+   ? Anonymous password:
 
      @{lindent 5}Enter your e-mail-address here, this will be sent to the ftp-server
 when you log in as anonymous user.@{lindent 0}
 
 
-   · View command:
+   ? View command:
 
      @{lindent 5}Enter the command AmiFTP should use when viewing files, %F in the
 string will expand to the filename and %P will expand to the name
 of the public screen AmiFTP lives on. Note that at the moment you
 have to specify the complete path for the command if you run
-AmiFTP from Workbench since I haven't fixed the path yet.@{lindent 0}
+AmiFTP from Workbench if the viewer command does not receive a full path.@{lindent 0}
 
 
-   · Default local drawer
+   ? Default local drawer
 
      @{lindent 5}For sites which you don't specify a download directory this directory
 will be used.@{lindent 0}
 
 
-   · Buffer size
+   ? Buffer size
 
      @{lindent 5}The size of the transferbuffer, in bytes.@{lindent 0}
 
 
-   · Directory cache size
+   ? Directory cache size
 
      @{lindent 5}The maximum number of directories that should be in the 
 directory cache.@{lindent 0}
 
 
-   · Delete viewed files
+   ? Delete viewed files
 
      @{lindent 5}If this is checked AmiFTP will delete the files that have been
 'View'-ed when exiting AmiFTP.@{lindent 0}
 
 
-   · Ignore case
+   ? Ignore case
 
      @{lindent 5}Well, guess twice!@{lindent 0}
 
 
-   · Beep after transfer
+   ? Beep after transfer
 
      @{lindent 5}When a transfer is done, AmiFTP will do a DisplayBeep() if you
 have this checked. Normally this will result in flashing the screen and perhaps
@@ -356,7 +408,7 @@ a beep from your speaker.@{lindent 0}
 
    Aminet:
 
-   · Hide directories
+   ? Hide directories
 
      @{lindent 5}This should be a standard AmigaDOS pattern, all files that are
 in a directory that matches this pattern will be hidden. I have this set to 
@@ -364,18 +416,18 @@ in a directory that matches this pattern will be hidden. I have this set to
 @{lindent 0}
 
 
-   · Preserve filepath
+   ? Preserve filepath
 
      @{lindent 5}Not implemented yet.@{lindent 0}
 
 
-   · Show MOTD-file
+   ? Show MOTD-file
 
      @{lindent 5}If this is checked AmiFTP will download and view the 
 Aminet-MOTD-file if it has changed since the last visit to Aminet.@{lindent 0}
 
 
-   · Download readme
+   ? Download readme
 
      @{lindent 5}If this is checked AmiFTP will also download the readme of the
 files you're downloading.@{lindent 0}
@@ -383,56 +435,56 @@ files you're downloading.@{lindent 0}
 
    Display:
 
-   · Open on default public screen
+   ? Open on default public screen
 
      @{lindent 5}If this is checked AmiFTP will open on the default public screen. If not it will open on the named public screen.@{lindent 0}
 
 
-   · Public screen
+   ? Public screen
 
      @{lindent 5}Tells AmiFTP which public screen to open on if the above flag isn't set.@{lindent 0}
 
 
-   · Use system fonts
+   ? Use system fonts
 
      @{lindent 5}If this is checked AmiFTP will use the current screen font, otherwise it will use the fonts you specify.@{lindent 0}
 
 
-   · Interface font
+   ? Interface font
 
      @{lindent 5}This font is the font used everywhere in AmiFTP except in the main listview where the directory lists are shown.@{lindent 0}
 
 
-   · Filelist font
+   ? Filelist font
 
      @{lindent 5}This font is used in the listview where the directory lists are shown.@{lindent 0}
 
 
-   · Show buttons
+   ? Show buttons
 
      @{lindent 5}Set this if you want the Parent/Get/Put/View/Connect to.../Disconnect buttons to be visibile.@{lindent 0}
 
 
-   · Show toolbar
+   ? Show toolbar
 
      @{lindent 5}Set this if you want the icon toolbar to be visible. The order of the icons are: Exit, Iconify, Connect, Disconnect, Parent, Get, Put, View.@{lindent 0}
 
 
    Proxy:
 
-   · Proxy host:
+   ? Proxy host:
 
      @{lindent 5}The name of the proxy-host to use for proxy-connections. Note that
 the proxy that AmiFTP needs is not generally available, it will
 not work with the Cern httpd-proxy function.@{lindent 0}
 
 
-   · Proxy port:
+   ? Proxy port:
 
      @{lindent 5}Which port on the proxy-host to use.@{lindent 0}
 
 
-   · Use proxy as default?
+   ? Use proxy as default?
 
      @{lindent 5}Should AmiFTP use the proxy for all connections? You can override
 this with the proxy-flag for each site.@{lindent 0}
@@ -472,32 +524,32 @@ if you add it to a submenu that isn't hotlisted it will still show up somewhere.
    @{b}Site configuration@{ub}
 
 
-   · Name:
+   ? Name:
 
      @{lindent 5}This name will show up in the sitelist window and in the 
 hotlist-menu.@{lindent 0}
 
 
-   · Site:
+   ? Site:
 
      @{lindent 5}This should be the ftpsite's actual Internet address (either
 hostname or IP).@{lindent 0}
 
 
-   · Port:
+   ? Port:
 
      @{lindent 5}Normally all ftp-sites use port-number 21 (which is the 
 default), but some sites are on other ports.@{lindent 0}
 
 
-   · Auto-cd to directory:
+   ? Auto-cd to directory:
 
      @{lindent 5}If this is set, AmiFTP will cd to this directory right after
 the connection is made. It's convenient to have /pub/aminet here for the Aminet
 sites.@{lindent 0}
 
 
-   · Download path:
+   ? Download path:
 
      @{lindent 5}If you click on the button a path-requester will show up,
 you can also type the download path into the string gadget. If you don't
@@ -505,17 +557,17 @@ specify a path, the default path specified in @{"Global preferences" Link "Globa
 will be used.@{lindent 0}
 
 
-   · Anonymous login?
+   ? Anonymous login?
 
      @{lindent 5}Selfexplaining!@{lindent 0}
 
 
-   · Login name:
+   ? Login name:
 
      @{lindent 5}Which loginname to use for non-anonymous logins.@{lindent 0}
 
 
-   · Password:
+   ? Password:
 
      @{lindent 5}The password for the above username. If you don't specify one, AmiFTP
 will pop up a requester asking for it when you connect. The password will
@@ -527,7 +579,7 @@ find dozens of passwords without any effort. So for maximum security you should
 not write your password here. You have been warned.@{lindent 0}
 
 
-   · Operating System
+   ? Operating System
 
      @{lindent 5}In order to parse the directory listing correctly, AmiFTP needs to
 know what Operating System the site is using. For most sites, UNIX will
@@ -536,20 +588,20 @@ Amiga-site you can try UNIX, it all depends on which ls the server is using.
 @{lindent 0}
 
 
-   · Proxy:
+   ? Proxy:
 
-     @{lindent 5}This is mostly for my personal use since the proxy-support
-in AmiFTP is not compataible with the www-proxys that are available. This proxy is
-only used locally here at rydnet.lysator.liu.se.@{lindent 0}
+     @{lindent 5}FTP proxy support targets classic FTP proxy setups (separate
+FTP proxy host/port), not typical HTTP or HTTPS web proxies. If your network
+only offers a web proxy, this option will not behave like a browser.@{lindent 0}
 
 
-   · Hotlist:
+   ? Hotlist:
 
      @{lindent 5}If this is checked the site will appear under the
 menu-label "HotList".@{lindent 0}
 
 
-   · Aminet-mode:
+   ? Aminet-mode:
 
      @{lindent 5}If this is checked this site will be marked as a Aminet-site and
 AmiFTP will get the recent-file (in info/adt/) and display the new files since your
@@ -1367,9 +1419,9 @@ disconnect you first.@{lindent 0}
    Why doesn't the proxy-function work for me?
 
 
-   Simple, it's not designed to work with anything else than a local ftp-proxy
-we use here at rydnet.lysator.liu.se. It's in no way compatible with the common
-http/ftp-proxies available.
+   AmiFTP's proxy fields are for an FTP-style proxy (host and port you connect
+to with FTP login semantics), not for the HTTP CONNECT proxies used by web
+browsers. Typical office "web proxy" settings will not apply here.
 
 @endnode
 
@@ -1390,20 +1442,17 @@ bugs/suggestions.@{lindent 0}
 
      @{lindent 5}Per Peman for testing and for the ftp-site@{lindent 0}
 
-     @{lindent 5}Robert Reiswig for the installer-script and the icon.@{lindent 0}
+     @{lindent 5}Robert Reiswig for the Workbench icon.@{lindent 0}
 
      @{lindent 5}Sami Itkonen for the find.amiftp script.@{lindent 0}
 
      @{lindent 5}Heikki Kantola for testing and for the KMI-style dockicon (Icons/AmiFTP.KMI-dock.info).@{lindent 0}
 
-
      @{lindent 5}Timothy Aston for the speedbar icons.@{lindent 0}
 
      @{lindent 5}Phil Vedovatti (aesculape) for the AmiFTP-icon in NewIcon-style (Icons/AmiFTP.NI.info)@{lindent 0}
 
-
      @{lindent 3}And the following translators:@{lindent 0}
-
 
      @{lindent 5}Osma Ahvenlampi for the Finnish translation@{lindent 0}
 
@@ -1413,7 +1462,7 @@ bugs/suggestions.@{lindent 0}
 
      @{lindent 5}Pantelis Kopelias for the Greek translation@{lindent 0}
 
-     @{lindent 5}José Roberto González Rocha for the Spanish translation@{lindent 0}
+     @{lindent 5}Jos? Roberto Gonz?lez Rocha for the Spanish translation@{lindent 0}
 
      @{lindent 5}Giacomo Magnini for the Italian translation@{lindent 0}
 
@@ -1421,51 +1470,66 @@ bugs/suggestions.@{lindent 0}
      @{lindent 5}Arno van Wouwe for the Dutch translation@{lindent 0}
 
 
-     and everyone else I've forgotten...
+     and others not named here.
 
 @endnode
 
 @node "Bugs"
 @prev "Acknowledgements"
 
-   @{b}Known bugs/problems@{ub}
+   @{b}Known Issues@{ub}
 
-   @{lindent 0}Sometimes after a timeout or a transfer has been aborted, AmiFTP quits. This is not working the way I want, and I'm looking into it.@{lindent 0}
-
-
-   @{lindent 3}I've had two reports saying that AmiFTP sometimes uses 100% of the CPU. I have no idea why
-this is happening, it hasn't happened to me yet.@{lindent 0}
-
+   @{lindent 0}Sometimes after a timeout or a transfer has been aborted, AmiFTP may quit unexpectedly.@{lindent 0}
 
    @{lindent 3}When aborting a file transfer the entire connection can sometimes
 be lost.@{lindent 0}
-
-
 
    @{lindent 3}It could take a while before the transfer is actually aborted after the
 Abort-button is pressed.@{lindent 0}
 
 @endnode
 
-@node "HISTORY/MAIN" "Program history"
+@node "HISTORY" "AmiFTP history"
 @prev "Bugs"
 
-   @{b}Program history@{ub}
+   @{b}AmiFTP history@{ub}
 
 
    Summary of notable changes (see CHANGELOG.md in the distribution for
 full details).
 
 
-   @{b}Version 2.0@{ub} (modernisation): workbench.library support; GUI
-uses Reaction (AmigaOS); AS225 and reqtools.library removed; single
-binary with bsdsocket.library only; legacy async I/O removed.
+   @{b}Version 2.0@{ub} (2026, amigazen): 
 
+   - TCP/IP: @{b}AS225@{ub} @{b}socket.library@{ub} support is @{b}disabled@{ub}; only
+     @{b}bsdsocket.library@{ub} is used.
 
-   @{b}Unreleased / current@{ub}: PASV/EPSV/EPRT support; FEAT discovery;
-improved socket and reply handling; fixes from AmigaOS 4 fork (dirlist,
-upload paths, hotlist, transfer window, config save).
+   - Build: SAS/C and NDK 3.2-friendly; legacy RCS metadata and obsolete packaging
+     removed from the tree.
 
+   - File I/O: @{b}AsyncIO@{ub} removed; AmigaDOS Read()/Write() with IoErr() logging
+     and responsive abort handling via the transfer window.
+
+   - Requesters: no @{b}reqtools.library@{ub} at runtime; @{b}asl.library@{ub} with
+     @{b}rtasl.lib@{ub} linked for ASL compatibility.
+
+   - FTP: bounded reads/writes; PASV with PORT fallback; safer LIST, 150-reply,
+     and SIZE handling; case-insensitive @{b}ftp://@{ub} parsing.
+
+   - Workbench: @{b}OpenWorkbenchObject()@{ub} when @{b}workbench.library@{ub} v45+.
+
+   - UI: connect window shows URL host; window title shows full @{b}ftp://@{ub} URL
+     when connected; screen title shows selection and free space; default main
+     window size about 70% of screen when unset; path-history Chooser list walk
+     fixed (no spurious garbage entry).
+
+   - Stability: fixes from 1.953 sources integrated; hotlist, transfer window placement,
+     NULL site node, and related crashes addressed.
+
+   - Defaults: sitelist defaults for Aminet and English Amiga Board.
+
+   - Diagnostics: syslog-style debug logging; help path and distribution layout
+     cleanup.
 
    @{b}1.843@{ub} (1997-09-29): Send raw FTP command, Rename, Create dir;
 ADT pattern length doubled; guide corrections.

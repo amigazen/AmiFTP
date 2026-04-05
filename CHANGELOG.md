@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Legacy AmiFTP versions use major.revision numbering (e.g. 1.11 > 1.1, 1.201 > 1.20).
 
-## [2.0] - (amigazen project release)
+## [AmiFTP 2 alpha 1] - 2026-04-06
 
 ### Added
 - FTP: Support for passive data connections (`PASV`) with active (`PORT`) fallback for better compatibility with NAT and firewalled environments.
@@ -17,7 +17,7 @@ Legacy AmiFTP versions use major.revision numbering (e.g. 1.11 > 1.1, 1.201 > 1.
 - Default Sitelist entries for Aminet and EAB.
 
 ### Changed
-- Socket I/O: Align `bsdsocket.library` usage with the AmigaOS 3.2 SDK by correctly initialising `struct sockaddr_in` (including `sin_len`) before `connect()` and related calls.
+- Socket I/O: Align `bsdsocket.library` usage with the Roadshow SDK by correctly initialising `struct sockaddr_in` (including `sin_len`) before `connect()` and related calls.
 - Socket I/O: Clarified and standardised handling of network byte order for ports, ensuring all `sin_port` assignments use `htons()` when values originate from URLs or user input.
 - FTP: Prefer PASV/EPSV data connections by default when available, retaining a configurable fallback to legacy PORT mode.
 - FTP: Improved parsing of `150` replies and optional use of `SIZE`/`MDTM` replies (`213`) for transfer progress, resume support, and timestamp handling.
@@ -38,7 +38,6 @@ Legacy AmiFTP versions use major.revision numbering (e.g. 1.11 > 1.1, 1.201 > 1.
 - FTP: Clarified and fixed control/data connection state transitions, timeouts, and cleanup after errors or `ABOR` so that sockets and internal state remain consistent.
 - Connect window: now shows URL host when connecting via URL, not last site in list (bugreports/mh.txt).
 - Help file location corrected.
-- rtasl.lib integration and crash on connection open; rtasl version of reqtools headers to avoid collision with original headers.
 - Transfer abort handling kept responsive via the transfer window.
 - Dirlist: do not add 0-byte files with 255-character name (listbrowser display bug); NULL `name` check in `add_direntry()`.
 - Upload: remote path for STOR is now `remote/FilePart(entry->name)` when a remote directory is set, avoiding creation of unwanted directories (remotepath/dirtree fix).
@@ -46,12 +45,12 @@ Legacy AmiFTP versions use major.revision numbering (e.g. 1.11 > 1.1, 1.201 > 1.
 - Hotlist crash when adding a new entry: SiteWindow cursor-up/cursor-down and double-click guard against NULL `sn` from listbrowser UserData; `flags=0UL` instead of `flags=NULL`; `retnode` checked before use.
 - Window position reset when only hotlist changed: CloseMainWindow updates MainPrefs from the window when ConfigChanged so exit saves the correct position.
 - Transferwindow in aminet/ADT mode: OpenTransferWindow no longer assumes MainWindow is non-NULL; positions transfer window at screen center when main window is not open.
+- Directory path breadcrumbs chooser gadget misread Tail node of list node and added one more list entry leading to garbage text appaearing in chooser popup.
 
 ### Removed
 - AsyncIO dependency; AmigaDOS I/O used directly instead.
 - AS225 / socket.library support; single binary uses bsdsocket.library only.
-- reqtools.library dependency; requesters and UI use Reaction/Intuition instead.
-- Legacy async I/O and related dependencies; simplified socket and transfer handling.
+- reqtools.library dependency; requesters and UI use ASL/ReAction/Intuition instead via rtasl.lib
 
 ### Security
 - FTP: Reduced risk from malicious or malformed server replies by adding strict buffer limits and more defensive reply parsing throughout the control and data paths.

@@ -1,6 +1,6 @@
-# AmiFTP
+# AmiFTP 2
 
-GUI FTP client for Amiga with Reaction, ARexx support, and Aminet mode.
+GUI FTP client for Amiga with ReAction, ARexx support, and Aminet mode.
 
 ## [amigazen project](http://www.amigazen.com)
 
@@ -26,7 +26,7 @@ PRs for all projects are gratefully received at [GitHub](https://github.com/amig
 
 AmiFTP is a full featured easy-to-use GUI FTP file transfer client for Amiga.
 
-This project brings AmiFTP up to date so it builds against the NDK 3.2 and take advantage of the latest  Amiga platforms: workbench.library support for launching the file viewer, Passive FDTP PASV/EPSV and improved FTP behaviour behind NAT/firewalls are all new features in AmiFTP 2.0
+This project brings AmiFTP up to date so it builds against the NDK 3.2 and can continue to be updated and enhanced into the future.
 
 ## Features
 
@@ -37,35 +37,25 @@ This project brings AmiFTP up to date so it builds against the NDK 3.2 and take 
 - **Multiselect** – Tag multiple files for upload or download.
 - **Directory cache** – Caches recent directories for faster navigation.
 - **Hotlist with submenus** – Sitelist with groups and quick-connect hotlist.
-- **Online AmigaGuide help** – Built-in documentation (AmiFTP.guide).
-- **PASV / EPSV** – Passive and extended passive data connections with PORT fallback for NAT/firewall-friendly transfers.
-- **FEAT and SIZE** – Capability discovery and size/date for transfer progress where the server supports it.
+- **PASV / PORT** – Passive data connections with active PORT fallback for varied servers and networks.
+- **Bounded I/O** – Safer reads of listings and server lines; improved transfer progress parsing.
+- **ASL requesters** – File and path requesters use _asl.library_; AmiFTP 2 uses the _rtasl.lib_ link library to map reqtools.library is not required at runtime.
 
 ## Requirements
 
-- **Amiga 3.2** or compatible (e.g. 3.1.4 with Reaction).
-- **TCP/IP stack** providing `bsdsocket.library` (e.g. AmiTCP, Miami, or built-in stack on 3.2).
-- **workbench.library** – For Workbench integration.
-- **amigaguide.library** v36+ – For online help (optional; AmiFTP runs without it).
+- **AmigaOS 3.2** with ReAction, or possibly older versions with ClassAct.
+- **TCP/IP stack** providing **bsdsocket.library** only, no more AS225 socket.library support
 
-## Building
+## Version History
 
-AmiFTP is built with **SAS/C** and **smake**; the project is set up to build against the ToolKit standard and NDK 3.2.
+### Version 2
+- **TCP/IP stack:** _AS225_ _socket.library_ disabled; _bsdsocket.library_ only.
+- **I/O enhancements:** _AsyncIO_ removed; AmigaDOS I/O and improved abort/error handling.
+- **UI enhancements:** connect window shows URL host; window title shows full ftp:// URL when connected, screen title shows selection and free space; sensible default window size; directory-cache Chooser fix.
+- **FTP protocol:** Bounded buffers/lines, PASV with PORT fallback, safer LIST / 150 / SIZE handling, case-insensitive **ftp://** parsing.
+- **Stability:** Fixes from version 1.953 (hotlist, transfer window placement, NULL site node, config save edge cases, etc.).
 
-- Source and makefiles are under `src/amiftp/` (see `SMakefile`).
-- Ensure the ToolKit (or equivalent NDK 3.2 + compiler setup) is installed and configured as expected by the makefile.
-- Build instructions and any ToolKit-specific steps are documented in BUILD.md
-
-## Version 2.0 and changelog
-
-Version **2.0** (amigazen project release) modernises AmiFTP: Reaction GUI, removal of AS225 and reqtools.library, single binary with bsdsocket.library only, PASV/EPSV support, workbench.library support, and many stability and security fixes merged from the Amiga OS4 fork.
-
-See [CHANGELOG.md](CHANGELOG.md) for full version history and [TODO.md](TODO.md) for possible future improvements.
-
-## Documentation
-
-- **AmiFTP.guide** – User and reference documentation (in the release package and under `src/amiftp/doc/` and `release/`).
-- **LICENSE.md** – MIT License.
+See **[CHANGELOG.md](CHANGELOG.md)** for full version history and **[TODO.md](TODO.md)** for possible future improvements.
 
 ## Frequently Asked Questions
 
@@ -75,15 +65,13 @@ AmiFTP is a graphical FTP client for Amiga. You connect to FTP sites, browse dir
 
 ### Why update AmiFTP for 2026?
 
-The original AmiFTP depended on ClassAct (separate distribution) and reqtools.library, and supported multiple TCP stacks (AmiTCP, AS225, mlink, etc.). Modern Amiga has Reaction built in and standardises on bsdsocket.library. Updating to Reaction and a single stack simplifies installation and keeps AmiFTP buildable and maintainable. PASV/EPSV and improved parsing make it work better with current servers and networks.
+The original AmiFTP depended on ClassAct (separate distribution), **reqtools.library**, **AsyncIO**, and multiple TCP stacks (AmiTCP, AS225, mlink, etc.). AmiFTP 2 drops **AsyncIO**, avoids **reqtools.library** at runtime by using **rtasl.lib**, and disables **AS225**. PASV, PORT fallback, and stricter parsing improve behaviour with modern servers and networks.
 
-### Does AmiFTP work on Workbench 3.1?
-
-Version 2.0 is built and tested for Amiga 3.2. It may run on 3.1.4 with Reaction; plain 3.1 would need Reaction (or ClassAct) and a bsdsocket.library stack. See the documentation for requirements.
+amigazen project is releasing new versions of AWeb, the Amiga web browser, and AmiFTP is the perfect partner for a full featured, Amiga native file transfer client.
 
 ### Can I contribute?
 
-Yes. Code, testing, documentation, and translations are welcome and will remain under the MIT License. See the repository and [amigazen project](https://github.com/amigazen/) for how to submit pull requests.
+Yes. Code, testing, documentation, and translations are welcome and will remain under the **MIT License** (retain copyright and permission notices as in **LICENSE.md**). See the repository and [amigazen project](https://github.com/amigazen/) for how to submit pull requests.
 
 ## Contact
 
@@ -95,4 +83,4 @@ Yes. Code, testing, documentation, and translations are welcome and will remain 
 
 *Amiga* is a trademark of **Amiga Inc**.
 
-Original AmiFTP by **Magnus Lilja**, release to the open source community
+Original AmiFTP by **Magnus Lilja**, released to the open source community.
