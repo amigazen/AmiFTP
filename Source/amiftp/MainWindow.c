@@ -170,8 +170,11 @@ ULONG HandleMainWindowIDCMP(const BOOL AllowIconify)
 		    int i;
 		    char *dir;
 
-		    for (i=0, node=GetHead(&clist); node; node=GetSucc(node), i++)
+		    for (i=0, node=GetHead(&clist); node->ln_Succ;
+			 node=GetSucc(node), i++)
 		      if (code==i) break;
+		    if (!node->ln_Succ)
+		      break;
 		    GetChooserNodeAttrs(node, CNA_Text, &dir, TAG_DONE);
 		    if (!change_remote_dir(dir, 0)) {
 			if (head=LookupCache(CurrentState.CurrentRemoteDir)) {

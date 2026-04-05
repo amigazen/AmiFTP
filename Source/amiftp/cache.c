@@ -135,7 +135,8 @@ static void UpdateCList()
     SetAttrs(MG_List[MG_CacheList], CHOOSER_Labels, ~0, TAG_DONE);
     while (node=RemHead(&clist))
       FreeChooserNode(node);
-    for (cnode=GetHead(&CacheList); cnode; cnode=GetSucc(cnode)) {
+    /* Stop before lh_Tail: ln_Succ is NULL on the list tail sentinel only. */
+    for (cnode=GetHead(&CacheList); cnode->ln_Succ; cnode=GetSucc(cnode)) {
 	if (node=AllocChooserNode(CNA_Text, cnode->ln_Name, TAG_DONE))
 	  AddTail(&clist, node);
     }
