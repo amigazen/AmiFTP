@@ -114,7 +114,13 @@ extern struct Library *SocketBase;
 #define ListNext(n)     GetSucc(n)
 #endif
 #ifndef ListEnd
-#define ListEnd(n)      ((n) != NULL)
+/* Stop iteration at Exec's tail sentinel (whose ln_Succ is NULL), not at
+   NULL itself. The previous definition allowed loops like
+       for (n=ListHead(l); ListEnd(n); n=ListNext(n))
+   to run one extra iteration on the sentinel, dereferencing the bytes
+   past lh_pad as if they were a Node's ln_Name. That was the source of
+   the phantom "NULL date" dirlist entries that gurud Sort By Date. */
+#define ListEnd(n)      ((n) && (n)->ln_Succ != NULL)
 #endif
 
 /* S_ISDIR/S_ISREG/S_ISLNK; S_IF* may come from include:sys/commifmt.h. */
