@@ -948,7 +948,12 @@ static int try_pasv(void)
 {
     char *paren;
     int h1, h2, h3, h4, p1, p2;
-    struct sockaddr_in pasv_addr;
+    /* Must be mysockaddr_in (no sin_len byte), matching tcp_connect's signature.
+       Using sockaddr_in here and casting silently shifts sin_family by one byte,
+       so tcp_connect ends up calling bsdsocket connect() with sin_family=0 and
+       no SYN goes on the wire. This was the underlying cause of the PASV
+       listing hang the 2.1 rebuild had. */
+    struct mysockaddr_in pasv_addr;
     int res;
     int cmdret;
     unsigned short port;
@@ -986,7 +991,7 @@ static int try_pasv(void)
     pasv_addr.sin_port = htons(port);
     pasv_addr.sin_addr.s_addr = htonl((unsigned long)(((unsigned long)h1 << 24) |
 	    ((unsigned long)h2 << 16) | ((unsigned long)h3 << 8) | (unsigned long)h4));
-    res = tcp_connect(data, (struct mysockaddr_in *)&pasv_addr);
+    res = tcp_connect(data, &pasv_addr);
     if (res < 0) {
 	if (DEBUG) DebugLog("try_pasv: tcp_connect failed (res=%ld errno=%ld)\n", (long)res, (long)errno);
 	tcp_closesocket(data);
