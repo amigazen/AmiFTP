@@ -468,8 +468,12 @@ struct List *sort_filelist(struct List *old_filelist, int sort_mode,
     if (!new_filelist)
       return old_filelist;
     NewList(new_filelist);
+    /* Iterate real nodes only; ListEnd() stops at Exec's tail sentinel
+       (its ln_Succ is NULL) rather than at a NULL pointer, which would
+       have run one extra iteration on the sentinel and passed garbage
+       interpreted as a (struct dirlist *) to add_direntry_struct. */
     tmp=FirstNode(old_filelist);
-    while(tmp) {
+    while(ListEnd(tmp)) {
 	next=NextNode(tmp);
 	Remove(tmp);
 	add_direntry_struct(new_filelist, (struct dirlist *)tmp->ln_Name,

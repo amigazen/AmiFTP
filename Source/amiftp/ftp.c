@@ -948,36 +948,58 @@ static int try_pasv(void)
 {
     char *paren;
     int h1, h2, h3, h4, p1, p2;
-    struct sockaddr_in pasv_addr;
+    /* Must be mysockaddr_in (no sin_len byte), matching tcp_connect's signature.
+       Using sockaddr_in here and casting silently shifts sin_family by one byte,
+       so tcp_connect ends up calling bsdsocket connect() with sin_family=0 and
+       no SYN goes on the wire. This was the underlying cause of the PASV
+       listing hang the 2.1 rebuild had. */
+    struct mysockaddr_in pasv_addr;
     int res;
+    int cmdret;
+    unsigned short port;
 
-    if (command("PASV") != COMPLETE || code != 227)
+    if (DEBUG) DebugLog("try_pasv: entry\n");
+    cmdret = command("PASV");
+    if (cmdret != COMPLETE || code != 227) {
+	if (DEBUG) DebugLog("try_pasv: PASV rejected (command ret=%d, code=%d)\n", cmdret, code);
 	return -1;
+    }
     paren = strchr(response_line, '(');
-    if (!paren)
+    if (!paren) {
+	if (DEBUG) DebugLog("try_pasv: no '(' in 227 reply: %s\n", response_line);
 	return -1;
+    }
     paren++;
-    if (sscanf(paren, "%d,%d,%d,%d,%d,%d", &h1, &h2, &h3, &h4, &p1, &p2) != 6)
+    if (sscanf(paren, "%d,%d,%d,%d,%d,%d", &h1, &h2, &h3, &h4, &p1, &p2) != 6) {
+	if (DEBUG) DebugLog("try_pasv: sscanf failed on tuple: %s\n", paren);
 	return -1;
+    }
+    port = (unsigned short)((p1 << 8) + p2);
+    if (DEBUG) DebugLog("try_pasv: parsed %d.%d.%d.%d:%u\n", h1, h2, h3, h4, (unsigned)port);
     if (data >= 0) {
 	tcp_closesocket(data);
 	data = -1;
     }
     data = tcp_socket(AF_INET, SOCK_STREAM, 0);
-    if (data < 0)
+    if (data < 0) {
+	if (DEBUG) DebugLog("try_pasv: tcp_socket failed (errno=%ld)\n", (long)errno);
 	return -1;
+    }
+    if (DEBUG) DebugLog("try_pasv: tcp_socket=%d, calling tcp_connect\n", data);
     memset((char *)&pasv_addr, 0, sizeof(pasv_addr));
     pasv_addr.sin_family = AF_INET;
-    pasv_addr.sin_port = htons((unsigned short)((p1 << 8) + p2));
+    pasv_addr.sin_port = htons(port);
     pasv_addr.sin_addr.s_addr = htonl((unsigned long)(((unsigned long)h1 << 24) |
 	    ((unsigned long)h2 << 16) | ((unsigned long)h3 << 8) | (unsigned long)h4));
-    res = tcp_connect(data, (struct mysockaddr_in *)&pasv_addr);
+    res = tcp_connect(data, &pasv_addr);
     if (res < 0) {
+	if (DEBUG) DebugLog("try_pasv: tcp_connect failed (res=%ld errno=%ld)\n", (long)res, (long)errno);
 	tcp_closesocket(data);
 	data = -1;
 	return -1;
     }
     pasv_data_ready = 1;
+    if (DEBUG) DebugLog("try_pasv: connected, pasv_data_ready=1 data=%d\n", data);
     return 0;
 }
 

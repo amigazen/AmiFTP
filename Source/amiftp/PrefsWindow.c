@@ -127,9 +127,13 @@ ULONG HandleMainPrefsIDCMP(void)
 	  case WMHI_GADGETUP:
 	    switch (result & WMHI_GADGETMASK) {
 	      case MPG_Tab: {
-		  ULONG tabnum, pagenum;
+		  /* clicktab.gadget on AmigaOS 3.2.3 returns 0 from
+		     CLICKTAB_Current GetAttrs after a click, even though the
+		     GADGETUP message's code field carries the correct new tab
+		     index. Use code directly. */
+		  ULONG tabnum = (ULONG)code;
+		  ULONG pagenum = 0;
 
-		  GetAttrs(MPG_List[MPG_Tab], CLICKTAB_Current, &tabnum, TAG_DONE);
 		  GetAttrs(MPG_List[MPG_Page], PAGE_Current, &pagenum, TAG_DONE);
 		  if (tabnum!=pagenum) {
 		      SetGadgetAttrs(MPG_List[MPG_Page], MainPrefsWindow, NULL,

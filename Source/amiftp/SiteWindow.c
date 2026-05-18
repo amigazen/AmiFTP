@@ -842,14 +842,35 @@ ULONG HandleSiteListIDCMP(void)
 	    switch (result & WMHI_GADGETMASK) {
 	      case SLG_SiteList:
 		{
-		    ULONG action;
-		    struct Node *node;
-		    
-		    GetAttrs(SLG_List[SLG_SiteList], LISTBROWSER_RelEvent, &action,
-			     TAG_DONE);
-		    if (action&LBRE_DOUBLECLICK && lsel==code) {
-			GetAttrs(SLG_List[SLG_SiteList],
-				 LISTBROWSER_SelectedNode, &node, TAG_DONE);
+		    struct Node *node = NULL;
+		    ULONG csec, cmicro;
+		    BOOL  isdc;
+		    LONG  i;
+		    /* listbrowser.gadget 47.x stopped reporting LBRE_NORMAL and
+		       LBRE_DOUBLECLICK in LISTBROWSER_RelEvent on plain clicks,
+		       and LISTBROWSER_SelectedNode comes back NULL on this
+		       hierarchical site list. Walk SiteList by `code` (the row
+		       index from the GADGETUP message) instead. Compute
+		       double-click timing with Intuition's DoubleClick(), and
+		       always refresh the Edit/Connect button state on every
+		       click so a plain single click enables Edit. */
+		    CurrentTime(&csec, &cmicro);
+		    isdc = (lsel==code) && DoubleClick(lsecs, lmics, csec, cmicro);
+		    lsecs = csec; lmics = cmicro;
+
+		    for (i=0, node=GetHead(&SiteList);
+		         node && i<(LONG)code;
+		         node=GetSucc(node), i++) ;
+		    if (node) {
+			struct SiteNode *sn;
+			GetListBrowserNodeAttrs(node, LBNA_UserData, &sn, TAG_DONE);
+			UpdateSLGGadgets(TRUE, sn->sn_BarLabel?SLN_BARLABEL:sn->sn_MenuType);
+		    }
+		    else {
+			UpdateSLGGadgets(FALSE, 0);
+		    }
+
+		    if (isdc && node) {
 			GetListBrowserNodeAttrs(node, LBNA_UserData, &retnode,
 						TAG_DONE);
 			if (!retnode->sn_BarLabel) {
@@ -865,20 +886,6 @@ ULONG HandleSiteListIDCMP(void)
 				EditClicked();
 			    }
 			} else retnode=NULL;
-		    }
-		    else if (action&LBRE_NORMAL) {
-			GetAttrs(SLG_List[SLG_SiteList],
-				 LISTBROWSER_SelectedNode, &node,
-				 TAG_DONE);
-			if (node) {
-			    struct SiteNode *sn;
-			    GetListBrowserNodeAttrs(node,
-						    LBNA_UserData, &sn,
-						    TAG_DONE);
-			    UpdateSLGGadgets(TRUE,sn->sn_BarLabel?SLN_BARLABEL:sn->sn_MenuType);
-			}
-			else
-			  UpdateSLGGadgets(FALSE, 0);
 		    }
 		    lsel=code;
 		}

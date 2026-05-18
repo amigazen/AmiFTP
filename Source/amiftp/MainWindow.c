@@ -20,6 +20,11 @@ struct TextFont *PropFont;
 struct TextFont *LBFont;
 
 static ULONG lsel=-1;
+/* Last click time, for DoubleClick() detection on MG_ListView. The
+   listbrowser.gadget no longer marks LBRE_DOUBLECLICK in LISTBROWSER_RelEvent
+   on plain clicks (observed on V47.75, AmigaOS 3.2.3), so we compute the
+   double-click decision ourselves against the system's preferred interval. */
+static ULONG llbsec=0, llbmicro=0;
 static struct Gadget *pagelayout;
 extern struct Menu *menu;
 extern struct List clist;
@@ -94,8 +99,17 @@ ULONG HandleMainWindowIDCMP(const BOOL AllowIconify)
 				   LISTBROWSER_RelEvent, &action,
 				   LISTBROWSER_SelectedNode, &node,
 				   TAG_DONE);
-			  if (attr&&node) {
-			      if (action&LBRE_DOUBLECLICK && lsel==code) {
+			  /* listbrowser.gadget 47.x stopped reporting LBRE_DOUBLECLICK
+			     in LISTBROWSER_RelEvent on plain clicks. SelectedNode is
+			     still set correctly, and we can compute double-click
+			     timing ourselves with Intuition's DoubleClick(). */
+			  {
+			      ULONG csec, cmicro;
+			      BOOL  isdc;
+			      CurrentTime(&csec, &cmicro);
+			      isdc = (lsel==code) && DoubleClick(llbsec, llbmicro, csec, cmicro);
+			      llbsec = csec; llbmicro = cmicro;
+			      if (node && isdc) {
 				  struct dirlist *curr=(void *)node->ln_Name;
 				  struct List *head;
 				  
